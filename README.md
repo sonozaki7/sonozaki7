@@ -1,0 +1,5 @@
+- 👋 Hi, I’m So
+- 👀 I’m interested in Software development.
+- 🌱 I’m currently learning Computer Engineering at UBC.
+- 💞️ I’m looking to collaborate on web application project.
+- 📫 How to reach me : Connect with me at Twitter @sonozaki7
