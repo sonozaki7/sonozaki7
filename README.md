@@ -3,7 +3,7 @@
   - Dec: 0 MRR
  
 - 2025
-  - Jan: 
+  - Jan: 0 MRR
   - Feb:
   - Mar:
   - Apr:
