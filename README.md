@@ -1,3 +1,4 @@
+Only includes SaaS
 - 2024
   - Nov: 0 MRR
   - Dec: 0 MRR
@@ -5,12 +6,12 @@
 - 2025
   - Jan: 0 MRR
   - Feb: 0 MRR
-  - Mar:
-  - Apr:
-  - May:
-  - Jun:
-  - Jul:
-  - Aug:
+  - Mar: 0 MRR
+  - Apr: 0 MRR
+  - May: 0 MRR
+  - Jun: 0 MRR
+  - Jul: 170 MRR
+  - Aug: 0 MRR
   - Sep:
   - Oct:
   - Nov:
