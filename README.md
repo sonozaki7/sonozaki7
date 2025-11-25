@@ -12,9 +12,9 @@ Only includes SaaS
   - Jun: 0 MRR
   - Jul: 170 MRR
   - Aug: 0 MRR
-  - Sep:
-  - Oct:
-  - Nov:
+  - Sep: 0 MRR
+  - Oct: 0 MRR
+  - Nov: 0 MRR
   - Dec:
 
 - 2026
