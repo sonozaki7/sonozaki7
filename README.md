@@ -15,10 +15,10 @@ Only includes SaaS
   - Sep: 0 MRR
   - Oct: 0 MRR
   - Nov: 0 MRR
-  - Dec:
+  - Dec: 0 MRR
 
 - 2026
-  - Jan: 
+  - Jan: 0 MRR
   - Feb:
   - Mar:
   - Apr:
