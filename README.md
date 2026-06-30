@@ -1,8 +1,8 @@
 <div align="center">
-  <a href="https://commit-history.com/steipete">
+  <a href="https://commit-history.com/sonozaki7">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://commit-history.com/embed/steipete?theme=dark" />
-      <img alt="steipete's commit history" src="https://commit-history.com/embed/steipete" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://commit-history.com/embed/sonozaki7?theme=dark" />
+      <img alt="sonozaki7's commit history" src="https://commit-history.com/embed/sonozaki7" />
     </picture>
   </a>
 </div>
