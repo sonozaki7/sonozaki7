@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildCadenceData, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, renderCadenceSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { buildCadenceData, buildFocusData, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -139,13 +139,16 @@ test("renders exact cadence ledgers for desktop and mobile", () => {
   const cadence = buildCadenceData({
     calendarDays: dateFixture("2025-09-01", "2026-08-12").map((date) => ({ date, count: date === "2026-08-12" ? 123 : 1 })),
     codeDaily: [{ date: "2026-08-12", commits: 45, additions: 123456, deletions: 23456 }],
+    focusDaily: [{ date: "2026-08-12", seconds: 7200 }],
     today: "2026-08-12",
   });
   const desktop = renderCadenceSvg(cadence, "daily");
   const mobile = renderMobileCadenceSvg(cadence, "monthly");
-  assert.match(desktop, /viewBox="0 0 1200 750"/);
+  assert.match(desktop, /viewBox="0 0 1200 800"/);
   assert.match(desktop, /Day-by-day, every number/);
   assert.match(desktop, /146,912/);
+  assert.match(desktop, /2\.0h/);
+  assert.match(mobile, /2\.0h focus/);
   assert.match(mobile, /Monthly detail/);
   assert.match(mobile, /2026-08/);
   assert.doesNotMatch(`${desktop}${mobile}`, /private-repo|repositoryName|commit message/);
@@ -162,6 +165,46 @@ test("builds a visible exact yearly ledger", () => {
   const cadence = { yearly };
   assert.match(renderCadenceSvg(cadence, "yearly"), /Every year, exact totals/);
   assert.match(renderMobileCadenceSvg(cadence, "yearly"), /Yearly detail/);
+});
+
+test("merges WakaTime daily totals without retaining private metadata", () => {
+  const merged = mergeFocusHistory(
+    [{ date: "2026-08-10", seconds: 1200 }, { date: "2026-08-11", seconds: 1800 }],
+    [{ date: "2026-08-11", seconds: 2400 }, { date: "2026-08-12", seconds: 3600 }],
+  );
+  assert.deepEqual(merged, [
+    { date: "2026-08-10", seconds: 1200 },
+    { date: "2026-08-11", seconds: 2400 },
+    { date: "2026-08-12", seconds: 3600 },
+  ]);
+  assert.doesNotMatch(JSON.stringify(merged), /project|repository|file|branch|language|machine/i);
+});
+
+test("builds and renders granular privacy-safe WakaTime progress", () => {
+  const daily = dateFixture("2026-07-01", "2026-08-12").map((date, index) => ({ date, seconds: index % 3 === 0 ? 7200 : 3600 }));
+  const focus = buildFocusData({
+    daily,
+    today: "2026-08-12",
+    lifetimeSeconds: 200000,
+    accountStartedAt: "2026-07-01",
+    commitsLast30: 60,
+  });
+  assert.equal(focus.connected, true);
+  assert.equal(focus.daily.length, 14);
+  assert.equal(focus.weekly.length, 12);
+  assert.equal(focus.monthly.length, 12);
+  assert.equal(focus.yearly.length, 1);
+  assert.equal(focus.summary.todaySeconds, 7200);
+  assert.equal(focus.summary.lifetimeSeconds, 200000);
+  assert.ok(focus.summary.commitsPerFocusHour30 > 0);
+  const desktop = renderFocusSvg(focus);
+  const mobile = renderMobileFocusSvg(focus);
+  for (const label of ["DAILY · LAST 14 DAYS", "WEEKLY · LAST 12 WEEKS", "MONTHLY · LAST 12 MONTHS", "YEARLY · WAKATIME LIFETIME"]) {
+    assert.match(desktop, new RegExp(label));
+  }
+  assert.match(desktop, /Time invested, momentum earned/);
+  assert.match(mobile, /viewBox="0 0 375 930"/);
+  assert.doesNotMatch(`${JSON.stringify(focus)}${desktop}${mobile}`, /secret-private-repo|private-file-path|machine-hostname/);
 });
 
 function dateFixture(start, end) {

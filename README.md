@@ -15,6 +15,15 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 </div>
 
+## Focus & leverage · powered by WakaTime
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-focus-mobile.svg" />
+  <img src="./assets/founder-focus.svg" alt="Privacy-safe active building time with exact daily, weekly, monthly, yearly, and lifetime WakaTime trends" width="100%" />
+</picture>
+
+<sub>Active editor time only · project names, repository names, file paths, branches, languages, editors, and machine identities stay private</sub>
+
 ## Daily detail · last 14 days
 
 <picture>
@@ -123,12 +132,14 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 <details>
 <summary>How this tracker works</summary>
 
-The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files or retained in tracker history.
+The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, plus aggregate active coding seconds from WakaTime. It then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), [`history.json`](./metrics/history.json), and [`focus.json`](./metrics/focus.json). Private activity is included only in aggregate. Repository names, project names, file paths, branch names, commit messages, source code, editor or machine identities, and secrets are never written into the generated files or retained in tracker history.
 
 The public tracker emphasizes shipping consistency, unique commits, active-product breadth, and focused code movement. It deduplicates identical commits and filters individual 100k+ line imports or generated snapshots from line totals so a handful of bulk operations cannot dominate years of ordinary work. Those commits still count as commits.
 
 Metrics include authored commits from accessible, non-archived repositories on each repository's default branch. Unpushed work and commits that only exist on other branches are not included.
 
 Lines changed are a momentum signal, not a quality score. Shipping useful product remains the goal.
+
+WakaTime history starts when tracking is connected. It measures active editor time, not product quality, customer value, or time spent outside supported editors.
 
 </details>

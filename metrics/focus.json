@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-12",
+  "timezone": "Asia/Bangkok",
+  "source": "WakaTime",
+  "connected": true,
+  "trackedSince": "2026-08-12",
+  "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
+  "summary": {
+    "todaySeconds": 0,
+    "last7Seconds": 0,
+    "last30Seconds": 0,
+    "lifetimeSeconds": 0,
+    "activeDays30": 0,
+    "activeDaysLifetime": 0,
+    "averageSecondsPerActiveDay30": 0,
+    "commitsPerFocusHour30": null
+  },
+  "daily": [
+    {
+      "key": "2026-07-30",
+      "label": "07-30",
+      "start": "2026-07-30",
+      "end": "2026-07-30",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-07-31",
+      "label": "07-31",
+      "start": "2026-07-31",
+      "end": "2026-07-31",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-01",
+      "label": "08-01",
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-02",
+      "label": "08-02",
+      "start": "2026-08-02",
+      "end": "2026-08-02",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-03",
+      "label": "08-03",
+      "start": "2026-08-03",
+      "end": "2026-08-03",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-04",
+      "label": "08-04",
+      "start": "2026-08-04",
+      "end": "2026-08-04",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-05",
+      "label": "08-05",
+      "start": "2026-08-05",
+      "end": "2026-08-05",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-06",
+      "label": "08-06",
+      "start": "2026-08-06",
+      "end": "2026-08-06",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-07",
+      "label": "08-07",
+      "start": "2026-08-07",
+      "end": "2026-08-07",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-08",
+      "label": "08-08",
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-09",
+      "label": "08-09",
+      "start": "2026-08-09",
+      "end": "2026-08-09",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-10",
+      "label": "08-10",
+      "start": "2026-08-10",
+      "end": "2026-08-10",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-11",
+      "label": "08-11",
+      "start": "2026-08-11",
+      "end": "2026-08-11",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-12",
+      "label": "08-12",
+      "start": "2026-08-12",
+      "end": "2026-08-12",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    }
+  ],
+  "weekly": [
+    {
+      "key": "2026-05-25",
+      "label": "05-25",
+      "start": "2026-05-25",
+      "end": "2026-05-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06-01",
+      "label": "06-01",
+      "start": "2026-06-01",
+      "end": "2026-06-07",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06-08",
+      "label": "06-08",
+      "start": "2026-06-08",
+      "end": "2026-06-14",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06-15",
+      "label": "06-15",
+      "start": "2026-06-15",
+      "end": "2026-06-21",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06-22",
+      "label": "06-22",
+      "start": "2026-06-22",
+      "end": "2026-06-28",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06-29",
+      "label": "06-29",
+      "start": "2026-06-29",
+      "end": "2026-07-05",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-07-06",
+      "label": "07-06",
+      "start": "2026-07-06",
+      "end": "2026-07-12",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-07-13",
+      "label": "07-13",
+      "start": "2026-07-13",
+      "end": "2026-07-19",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 6
+    },
+    {
+      "key": "2026-07-20",
+      "label": "07-20",
+      "start": "2026-07-20",
+      "end": "2026-07-26",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 7
+    },
+    {
+      "key": "2026-07-27",
+      "label": "07-27",
+      "start": "2026-07-27",
+      "end": "2026-08-02",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 7
+    },
+    {
+      "key": "2026-08-03",
+      "label": "08-03",
+      "start": "2026-08-03",
+      "end": "2026-08-09",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 7
+    },
+    {
+      "key": "2026-08-10",
+      "label": "08-10",
+      "start": "2026-08-10",
+      "end": "2026-08-12",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 3
+    }
+  ],
+  "monthly": [
+    {
+      "key": "2025-09",
+      "label": "25-09",
+      "start": "2025-09-01",
+      "end": "2025-09-30",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2025-10",
+      "label": "25-10",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2025-11",
+      "label": "25-11",
+      "start": "2025-11-01",
+      "end": "2025-11-30",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2025-12",
+      "label": "25-12",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-01",
+      "label": "26-01",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-02",
+      "label": "26-02",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-03",
+      "label": "26-03",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-04",
+      "label": "26-04",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-05",
+      "label": "26-05",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-06",
+      "label": "26-06",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
+    },
+    {
+      "key": "2026-07",
+      "label": "26-07",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 18
+    },
+    {
+      "key": "2026-08",
+      "label": "26-08",
+      "start": "2026-08-01",
+      "end": "2026-08-12",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 12
+    }
+  ],
+  "yearly": [
+    {
+      "key": "2026",
+      "label": "2026",
+      "start": "2026-01-01",
+      "end": "2026-08-12",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 30
+    }
+  ],
+  "dailyHistory": [
+    {
+      "date": "2026-07-14",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-15",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-16",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-17",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-18",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-19",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-20",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-21",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-22",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-23",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-24",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-25",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-26",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-27",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-28",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-29",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-30",
+      "seconds": 0
+    },
+    {
+      "date": "2026-07-31",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-01",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-02",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-03",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-04",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-05",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-06",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-07",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-08",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-09",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-10",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-11",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-12",
+      "seconds": 0
+    }
+  ]
+}

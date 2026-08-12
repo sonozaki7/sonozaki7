@@ -7,6 +7,7 @@ import sharp from "sharp";
 const USERNAME = process.env.TRACKER_USERNAME || "sonozaki7";
 const TIMEZONE = process.env.TRACKER_TIMEZONE || "Asia/Bangkok";
 const API = "https://api.github.com";
+const WAKATIME_API = "https://wakatime.com/api/v1";
 const BULK_CHANGE_THRESHOLD = 100_000;
 const THEME = Object.freeze({
   background: "#FFFFFF",
@@ -46,6 +47,13 @@ function compact(value) {
 function signed(value) {
   if (value === 0) return "0";
   return `${value > 0 ? "+" : "−"}${compact(Math.abs(value))}`;
+}
+
+function hours(seconds, { exactZero = true } = {}) {
+  if (seconds == null) return "—";
+  if (seconds === 0) return exactZero ? "0h" : "—";
+  const value = seconds / 3600;
+  return `${value >= 100 ? Math.round(value) : value.toFixed(1)}h`;
 }
 
 function escapeXml(value) {
@@ -140,6 +148,84 @@ export function computeStats({ calendarDays, code, recent, today }) {
   };
 }
 
+export function mergeFocusHistory(existing = [], fresh = []) {
+  const byDate = new Map(existing.map((day) => [day.date, { date: day.date, seconds: Math.max(0, Math.round(day.seconds || 0)) }]));
+  for (const day of fresh) byDate.set(day.date, { date: day.date, seconds: Math.max(0, Math.round(day.seconds || 0)) });
+  return [...byDate.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function focusPeriod(dates, byDate) {
+  const covered = dates.filter((date) => byDate.has(date));
+  const seconds = covered.reduce((total, date) => total + (byDate.get(date) || 0), 0);
+  return {
+    seconds: covered.length ? seconds : null,
+    activeDays: covered.filter((date) => (byDate.get(date) || 0) > 0).length,
+    coverageDays: covered.length,
+  };
+}
+
+export function buildFocusData({ daily = [], today, lifetimeSeconds = null, accountStartedAt = null, commitsLast30 = 0 }) {
+  const normalized = mergeFocusHistory([], daily);
+  const byDate = new Map(normalized.map((day) => [day.date, day.seconds]));
+  const buildRolling = (count, unit) => Array.from({ length: count }, (_, index) => {
+    if (unit === "day") {
+      const date = shiftDate(today, index - count + 1);
+      return { key: date, label: date.slice(5), start: date, end: date, ...focusPeriod([date], byDate) };
+    }
+    if (unit === "week") {
+      const start = shiftDate(weekStart(today), (index - count + 1) * 7);
+      const end = [shiftDate(start, 6), today].sort()[0];
+      return { key: start, label: start.slice(5), start, end, ...focusPeriod(dateRange(daysBetween(start, end) + 1, end), byDate) };
+    }
+    const start = monthStart(today, index - count + 1);
+    const end = [shiftDate(monthStart(start, 1), -1), today].sort()[0];
+    return { key: start.slice(0, 7), label: start.slice(2, 7), start, end, ...focusPeriod(dateRange(daysBetween(start, end) + 1, end), byDate) };
+  });
+  const firstTracked = accountStartedAt || normalized[0]?.date || today;
+  const startYear = Number(firstTracked.slice(0, 4));
+  const endYear = Number(today.slice(0, 4));
+  const yearly = Array.from({ length: endYear - startYear + 1 }, (_, index) => {
+    const year = startYear + index;
+    const start = `${year}-01-01`;
+    const end = year === endYear ? today : `${year}-12-31`;
+    return { key: String(year), label: String(year), start, end, ...focusPeriod(dateRange(daysBetween(start, end) + 1, end), byDate) };
+  });
+  const last7 = focusPeriod(dateRange(7, today), byDate);
+  const last30 = focusPeriod(dateRange(30, today), byDate);
+  const todayFocus = focusPeriod([today], byDate);
+  const knownLifetime = lifetimeSeconds == null ? sumBy(normalized, "seconds") : Math.max(0, Math.round(lifetimeSeconds));
+  const activeDaysLifetime = normalized.filter((day) => day.seconds > 0).length;
+  const last30Hours = (last30.seconds || 0) / 3600;
+  return {
+    version: 1,
+    generatedAt: today,
+    timezone: TIMEZONE,
+    source: "WakaTime",
+    connected: normalized.length > 0 || lifetimeSeconds != null,
+    trackedSince: firstTracked,
+    privacy: "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
+    summary: {
+      todaySeconds: todayFocus.seconds,
+      last7Seconds: last7.seconds,
+      last30Seconds: last30.seconds,
+      lifetimeSeconds: knownLifetime,
+      activeDays30: last30.activeDays,
+      activeDaysLifetime,
+      averageSecondsPerActiveDay30: last30.activeDays ? Math.round((last30.seconds || 0) / last30.activeDays) : 0,
+      commitsPerFocusHour30: last30Hours ? Number((commitsLast30 / last30Hours).toFixed(1)) : null,
+    },
+    daily: buildRolling(14, "day"),
+    weekly: buildRolling(12, "week"),
+    monthly: buildRolling(12, "month"),
+    yearly,
+    dailyHistory: normalized,
+  };
+}
+
+function daysBetween(start, end) {
+  return Math.round((new Date(`${end}T12:00:00Z`) - new Date(`${start}T12:00:00Z`)) / 86_400_000);
+}
+
 function sumBy(items, key) {
   return items.reduce((total, item) => total + (item[key] || 0), 0);
 }
@@ -170,7 +256,7 @@ function weekStart(dateString) {
   return date.toISOString().slice(0, 10);
 }
 
-function periodTotals(dates, contributionsByDate, codeByDate) {
+function periodTotals(dates, contributionsByDate, codeByDate, focusByDate = new Map()) {
   const days = dates.map((date) => {
     const code = codeByDate.get(date) || {};
     return {
@@ -184,6 +270,7 @@ function periodTotals(dates, contributionsByDate, codeByDate) {
   });
   const additions = sumBy(days, "additions");
   const deletions = sumBy(days, "deletions");
+  const coveredFocusDates = dates.filter((date) => focusByDate.has(date));
   return {
     contributions: sumBy(days, "contributions"),
     commits: sumBy(days, "commits"),
@@ -194,19 +281,22 @@ function periodTotals(dates, contributionsByDate, codeByDate) {
     changed: additions + deletions,
     net: additions - deletions,
     bulkCommitsExcluded: sumBy(days, "bulkCommitsExcluded"),
+    focusSeconds: coveredFocusDates.length ? coveredFocusDates.reduce((total, date) => total + (focusByDate.get(date) || 0), 0) : null,
+    focusCoverageDays: coveredFocusDates.length,
   };
 }
 
-export function buildCadenceData({ calendarDays, codeDaily, today }) {
+export function buildCadenceData({ calendarDays, codeDaily, focusDaily = [], today }) {
   const contributionsByDate = new Map(calendarDays.map((day) => [day.date, day.count]));
   const codeByDate = new Map(codeDaily.map((day) => [day.date, day]));
+  const focusByDate = new Map(focusDaily.map((day) => [day.date, day.seconds]));
   const daily = dateRange(14, today).map((date) => ({
     key: date,
     label: date.slice(5),
     start: date,
     end: date,
     daysElapsed: 1,
-    ...periodTotals([date], contributionsByDate, codeByDate),
+    ...periodTotals([date], contributionsByDate, codeByDate, focusByDate),
   }));
   const currentWeekStart = weekStart(today);
   const weekly = Array.from({ length: 12 }, (_, index) => {
@@ -219,7 +309,7 @@ export function buildCadenceData({ calendarDays, codeDaily, today }) {
       start,
       end,
       daysElapsed: dates.length,
-      ...periodTotals(dates, contributionsByDate, codeByDate),
+      ...periodTotals(dates, contributionsByDate, codeByDate, focusByDate),
     };
   });
   const currentMonthStart = monthStart(today);
@@ -234,7 +324,7 @@ export function buildCadenceData({ calendarDays, codeDaily, today }) {
       start,
       end,
       daysElapsed: dates.length,
-      ...periodTotals(dates, contributionsByDate, codeByDate),
+      ...periodTotals(dates, contributionsByDate, codeByDate, focusByDate),
     };
   });
   return {
@@ -247,7 +337,15 @@ export function buildCadenceData({ calendarDays, codeDaily, today }) {
   };
 }
 
-export function buildYearlyCadence(history) {
+export function buildYearlyCadence(history, focusDaily = []) {
+  const focusByYear = new Map();
+  for (const day of focusDaily) {
+    const year = Number(day.date.slice(0, 4));
+    const current = focusByYear.get(year) || { seconds: 0, coverageDays: 0 };
+    current.seconds += day.seconds || 0;
+    current.coverageDays += 1;
+    focusByYear.set(year, current);
+  }
   return history.yearly.map((year) => ({
     key: String(year.year),
     label: String(year.year),
@@ -265,6 +363,8 @@ export function buildYearlyCadence(history) {
     changed: year.changed || 0,
     net: year.net || 0,
     bulkCommitsExcluded: year.bulkCommitsExcluded || 0,
+    focusSeconds: focusByYear.has(year.year) ? focusByYear.get(year.year).seconds : null,
+    focusCoverageDays: focusByYear.get(year.year)?.coverageDays || 0,
   }));
 }
 
@@ -277,6 +377,7 @@ function cadenceTotals(periods) {
     deletions: sumBy(periods, "deletions"),
     changed: sumBy(periods, "changed"),
     net: sumBy(periods, "net"),
+    focusSeconds: periods.some((period) => period.focusSeconds != null) ? sumBy(periods, "focusSeconds") : null,
   };
 }
 
@@ -285,6 +386,7 @@ function cadenceMetricRows(kind) {
     ? [
         { key: "contributions", label: "CONTRIBUTIONS" },
         { key: "commits", label: "UNIQUE COMMITS" },
+        { key: "focusSeconds", label: "FOCUS TIME", focus: true },
         { key: "changed", label: "FOCUSED LINES" },
         { key: "net", label: "NET LINES", signed: true },
       ]
@@ -292,6 +394,7 @@ function cadenceMetricRows(kind) {
         { key: "contributions", label: "CONTRIBUTIONS" },
         { key: "commits", label: "UNIQUE COMMITS" },
         { key: "buildDays", label: "BUILD DAYS" },
+        { key: "focusSeconds", label: "FOCUS TIME", focus: true },
         { key: "changed", label: "FOCUSED LINES" },
       ];
 }
@@ -331,12 +434,13 @@ export function renderCadenceSvg(cadence, kind) {
     const y = 512 + rowIndex * 48;
     const values = periods.map((period, index) => {
       const center = chartX + columnWidth * index + columnWidth / 2;
-      return `<text x="${center.toFixed(1)}" y="${y}" text-anchor="middle" class="cadence-cell"><title>${period.start}${period.end === period.start ? "" : ` to ${period.end}`} · ${row.label.toLowerCase()}: ${exact(period[row.key], row.signed)}</title>${exact(period[row.key], row.signed)}</text>`;
+      const value = row.focus ? hours(period[row.key]) : exact(period[row.key], row.signed);
+      return `<text x="${center.toFixed(1)}" y="${y}" text-anchor="middle" class="cadence-cell"><title>${period.start}${period.end === period.start ? "" : ` to ${period.end}`} · ${row.label.toLowerCase()}: ${value}</title>${value}</text>`;
     }).join("");
     return `<text x="52" y="${y}" class="cadence-row-label">${row.label}</text>${values}<line x1="52" y1="${y + 14}" x2="1140" y2="${y + 14}" stroke="${THEME.faint}"/>`;
   }).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(subtitle)}. Exact aggregate contributions, unique commits, build days, and focused code movement without repository identities.</desc>
   <defs><linearGradient id="cadence-bg-${kind}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
@@ -351,7 +455,7 @@ export function renderCadenceSvg(cadence, kind) {
       .cadence-footer { font-size: 11px; fill: ${THEME.dim}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="1198" height="748" rx="10" fill="url(#cadence-bg-${kind})" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="1" y="1" width="1198" height="798" rx="10" fill="url(#cadence-bg-${kind})" stroke="${THEME.border}" stroke-width="2"/>
   <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
   <text x="52" y="62" class="cadence-eyebrow">${eyebrow}</text>
   <text x="52" y="103" class="cadence-title">${escapeXml(title)}</text>
@@ -360,12 +464,12 @@ export function renderCadenceSvg(cadence, kind) {
   <g transform="translate(288 166)"><text class="cadence-total">${exact(totals.commits)}</text><text y="21" class="cadence-total-label">UNIQUE COMMITS</text></g>
   <g transform="translate(524 166)"><text class="cadence-total">${exact(totals.buildDays)}</text><text y="21" class="cadence-total-label">BUILD DAYS</text></g>
   <g transform="translate(760 166)"><text class="cadence-total">${exact(totals.changed)}</text><text y="21" class="cadence-total-label">FOCUSED LINES</text></g>
-  <g transform="translate(996 166)"><text class="cadence-total">${exact(totals.net, true)}</text><text y="21" class="cadence-total-label">NET LINES</text></g>
+  <g transform="translate(996 166)"><text class="cadence-total">${hours(totals.focusSeconds)}</text><text y="21" class="cadence-total-label">FOCUS TIME</text></g>
   <text x="52" y="232" class="cadence-row-label">CONTRIBUTIONS</text>
   <line x1="184" y1="440" x2="1140" y2="440" stroke="${THEME.border}"/>
   ${columns}
   ${ledger}
-  <text x="52" y="724" class="cadence-footer">Exact aggregate values · focused lines exclude 100k+ line imports · private repository identities are never stored</text>
+  <text x="52" y="774" class="cadence-footer">Exact aggregate values · focused lines exclude 100k+ line imports · WakaTime project and file identities are never stored</text>
 </svg>`;
 }
 
@@ -382,7 +486,7 @@ export function renderMobileCadenceSvg(cadence, kind) {
       <rect x="20" y="${y}" width="335" height="84" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
       <text x="32" y="${y + 25}" class="mc-period">${escapeXml(period.label)}</text>
       <text x="32" y="${y + 45}" class="mc-range">${period.start}${period.end === period.start ? "" : ` → ${period.end}`}</text>
-      <text x="32" y="${y + 68}" class="mc-range">${period.contributionDays} contribution days</text>
+      <text x="32" y="${y + 68}" class="mc-range">${period.contributionDays} contribution days · ${hours(period.focusSeconds)} focus</text>
       <g transform="translate(126 ${y + 21})"><text class="mc-value">${exact(period.contributions)}</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 ${y + 21})"><text class="mc-value">${exact(period.commits)}</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 ${y + 21})"><text class="mc-value">${exact(period.buildDays)}</text><text y="17" class="mc-label">BUILD DAYS</text></g>
@@ -411,7 +515,7 @@ export function renderMobileCadenceSvg(cadence, kind) {
   <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
   <g transform="translate(20 124)"><text class="mc-total">${exact(totals.contributions)}</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
   <g transform="translate(132 124)"><text class="mc-total">${exact(totals.commits)}</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
-  <g transform="translate(244 124)"><text class="mc-total">${exact(totals.changed)}</text><text y="18" class="mc-total-label">FOCUSED LINES</text></g>
+  <g transform="translate(244 124)"><text class="mc-total">${hours(totals.focusSeconds)}</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   ${rows}
   <text x="20" y="${height - 16}" class="mc-footer">Private repository identities are never stored</text>
 </svg>`;
@@ -581,6 +685,108 @@ export function renderMobileLifetimeSvg(history) {
   <g transform="translate(254 122)"><text class="mh-head">${compact(commits)}</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
   ${rows}
   <text x="20" y="974" class="mh-footer">100k+ line imports filtered · repository identities are never stored</text>
+</svg>`;
+}
+
+function focusChart({ x, y, width, height, title, periods }) {
+  const chartLeft = x + 22;
+  const chartRight = x + width - 22;
+  const chartTop = y + 48;
+  const chartBottom = y + height - 34;
+  const values = periods.map((period) => period.seconds || 0);
+  const max = Math.max(1, ...values);
+  const points = periods.map((period, index) => {
+    const px = periods.length === 1 ? (chartLeft + chartRight) / 2 : chartLeft + (index / (periods.length - 1)) * (chartRight - chartLeft);
+    const py = chartBottom - ((period.seconds || 0) / max) * (chartBottom - chartTop);
+    return { ...period, x: px, y: py };
+  });
+  const polyline = points.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const labels = points.map((point, index) => {
+    const showAxis = periods.length <= 6 || index === 0 || index === periods.length - 1 || index % Math.ceil(periods.length / 4) === 0;
+    const valueY = Math.max(chartTop - 7, point.y - 8);
+    return `<g><circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3" fill="${THEME.accent}"><title>${point.start}${point.end === point.start ? "" : ` to ${point.end}`}: ${hours(point.seconds)}</title></circle><text x="${point.x.toFixed(1)}" y="${valueY.toFixed(1)}" text-anchor="middle" class="focus-point">${hours(point.seconds)}</text>${showAxis ? `<text x="${point.x.toFixed(1)}" y="${y + height - 13}" text-anchor="middle" class="focus-axis">${escapeXml(point.label)}</text>` : ""}</g>`;
+  }).join("");
+  return `<g>
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
+    <text x="${x + 20}" y="${y + 28}" class="focus-label">${escapeXml(title)}</text>
+    <line x1="${chartLeft}" y1="${chartBottom}" x2="${chartRight}" y2="${chartBottom}" stroke="${THEME.border}"/>
+    <polyline points="${polyline}" fill="none" stroke="${THEME.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    ${labels}
+  </g>`;
+}
+
+function focusSummaryCard(x, label, value, note) {
+  return `<g transform="translate(${x} 162)"><rect width="262" height="96" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="20" y="27" class="focus-label">${escapeXml(label)}</text><text x="20" y="61" class="focus-value">${escapeXml(value)}</text><text x="20" y="81" class="focus-note">${escapeXml(note)}</text></g>`;
+}
+
+export function renderFocusSvg(focus) {
+  const status = focus.connected ? `Tracking since ${focus.trackedSince}` : "Connect WakaTime to begin the lifelong focus record";
+  const leverage = focus.summary.commitsPerFocusHour30 == null ? "—" : focus.summary.commitsPerFocusHour30.toFixed(1);
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+  <title id="title">So's WakaTime focus and leverage tracker</title>
+  <desc id="desc">Privacy-safe active coding time with exact daily, weekly, monthly, and yearly trends. Project and file identities are excluded.</desc>
+  <defs><linearGradient id="focus-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+    .focus-eyebrow,.focus-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.6px; fill: ${THEME.accent}; }
+    .focus-eyebrow { font-size: 13px; letter-spacing: 2.6px; }.focus-label { font-size: 10px; fill: ${THEME.muted}; }
+    .focus-title { font-family: Georgia, "Times New Roman", serif; font-size: 40px; font-weight: 700; letter-spacing: -1.1px; }
+    .focus-subtitle { font-size: 15px; fill: ${THEME.muted}; }.focus-value { font-size: 29px; font-weight: 750; }.focus-note { font-size: 11px; fill: ${THEME.dim}; }
+    .focus-point { font-size: 9px; font-weight: 650; }.focus-axis,.focus-footer { font-size: 9px; fill: ${THEME.dim}; }.focus-footer { font-size: 11px; }
+  </style></defs>
+  <rect x="1" y="1" width="1198" height="848" rx="10" fill="url(#focus-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
+  <text x="52" y="64" class="focus-eyebrow">FOCUS &amp; LEVERAGE · WAKATIME</text>
+  <text x="52" y="106" class="focus-title">Time invested, momentum earned</text>
+  <text x="52" y="134" class="focus-subtitle">Active editor time · ${escapeXml(status)} · Asia/Bangkok</text>
+  ${focusSummaryCard(52, "TODAY", hours(focus.summary.todaySeconds), `${focus.summary.activeDays30} active days / 30`)}
+  ${focusSummaryCard(330, "LAST 7 DAYS", hours(focus.summary.last7Seconds), `${hours(focus.summary.averageSecondsPerActiveDay30)} avg / active day`)}
+  ${focusSummaryCard(608, "LAST 30 DAYS", hours(focus.summary.last30Seconds), `${leverage} commits / focus hour`)}
+  ${focusSummaryCard(886, "LIFETIME", hours(focus.summary.lifetimeSeconds), `${focus.summary.activeDaysLifetime} recorded focus days`)}
+  ${focusChart({ x: 52, y: 286, width: 538, height: 238, title: "DAILY · LAST 14 DAYS", periods: focus.daily })}
+  ${focusChart({ x: 610, y: 286, width: 538, height: 238, title: "WEEKLY · LAST 12 WEEKS", periods: focus.weekly })}
+  ${focusChart({ x: 52, y: 544, width: 538, height: 238, title: "MONTHLY · LAST 12 MONTHS", periods: focus.monthly })}
+  ${focusChart({ x: 610, y: 544, width: 538, height: 238, title: "YEARLY · WAKATIME LIFETIME", periods: focus.yearly })}
+  <text x="52" y="822" class="focus-footer">Aggregate active seconds only · no project, file, repository, branch, language, editor, or machine names are published</text>
+</svg>`;
+}
+
+function mobileFocusChart(focus, key, y, title) {
+  const periods = focus[key];
+  const values = periods.map((period) => period.seconds || 0);
+  const max = Math.max(1, ...values);
+  const left = 36;
+  const right = 339;
+  const top = y + 42;
+  const bottom = y + 112;
+  const points = periods.map((period, index) => ({
+    ...period,
+    x: periods.length === 1 ? (left + right) / 2 : left + (index / (periods.length - 1)) * (right - left),
+    y: bottom - ((period.seconds || 0) / max) * (bottom - top),
+  }));
+  const polyline = points.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const dots = points.map((point) => `<circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="2.5" fill="${THEME.accent}"><title>${point.start}${point.end === point.start ? "" : ` to ${point.end}`}: ${hours(point.seconds)}</title></circle>`).join("");
+  const total = values.reduce((sum, value) => sum + value, 0);
+  const endLabel = periods.length > 1 ? `<text x="${right}" y="${y + 130}" text-anchor="end" class="mf-axis">${escapeXml(periods.at(-1)?.label || "")}</text>` : "";
+  return `<g><rect x="20" y="${y}" width="335" height="140" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="34" y="${y + 25}" class="mf-label">${escapeXml(title)}</text><text x="341" y="${y + 25}" text-anchor="end" class="mf-total">${hours(total)}</text><line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="${THEME.border}"/><polyline points="${polyline}" fill="none" stroke="${THEME.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>${dots}<text x="${left}" y="${y + 130}" class="mf-axis">${escapeXml(periods[0]?.label || "")}</text>${endLabel}</g>`;
+}
+
+export function renderMobileFocusSvg(focus) {
+  const status = focus.connected ? `Since ${focus.trackedSince}` : "Connection pending";
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="930" viewBox="0 0 375 930" role="img" aria-labelledby="title desc">
+  <title id="title">So's mobile WakaTime focus tracker</title><desc id="desc">Privacy-safe active coding time across daily, weekly, monthly, and yearly periods.</desc>
+  <defs><linearGradient id="mf-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }.mf-eyebrow,.mf-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1px; fill: ${THEME.accent}; }.mf-eyebrow { font-size: 10px; letter-spacing: 1.7px; }.mf-label { font-size: 9px; fill: ${THEME.muted}; }.mf-title { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; }.mf-subtitle,.mf-axis,.mf-footer { font-size: 9px; fill: ${THEME.muted}; }.mf-number { font-size: 20px; font-weight: 750; }.mf-small { font-size: 8px; fill: ${THEME.dim}; }.mf-total { font-size: 13px; font-weight: 700; }
+  </style></defs>
+  <rect x="1" y="1" width="373" height="928" rx="8" fill="url(#mf-bg)" stroke="${THEME.border}" stroke-width="2"/><rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
+  <text x="20" y="45" class="mf-eyebrow">FOCUS &amp; LEVERAGE · WAKATIME</text><text x="20" y="78" class="mf-title">Time invested</text><text x="20" y="98" class="mf-subtitle">${escapeXml(status)} · aggregate active time only</text>
+  <g transform="translate(20 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">TODAY</text><text x="14" y="49" class="mf-number">${hours(focus.summary.todaySeconds)}</text><text x="14" y="66" class="mf-small">ACTIVE EDITOR TIME</text></g>
+  <g transform="translate(191 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 7 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last7Seconds)}</text><text x="14" y="66" class="mf-small">${focus.summary.activeDays30} ACTIVE DAYS / 30</text></g>
+  <g transform="translate(20 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 30 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last30Seconds)}</text><text x="14" y="66" class="mf-small">${hours(focus.summary.averageSecondsPerActiveDay30)} AVG / ACTIVE DAY</text></g>
+  <g transform="translate(191 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LIFETIME</text><text x="14" y="49" class="mf-number">${hours(focus.summary.lifetimeSeconds)}</text><text x="14" y="66" class="mf-small">${focus.summary.activeDaysLifetime} RECORDED DAYS</text></g>
+  ${mobileFocusChart(focus, "daily", 301, "DAILY · 14 DAYS")}${mobileFocusChart(focus, "weekly", 451, "WEEKLY · 12 WEEKS")}${mobileFocusChart(focus, "monthly", 601, "MONTHLY · 12 MONTHS")}${mobileFocusChart(focus, "yearly", 751, "YEARLY · WAKATIME LIFETIME")}
+  <text x="20" y="912" class="mf-footer">No project, file, repository, branch, language, editor, or machine names</text>
 </svg>`;
 }
 
@@ -757,13 +963,45 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.2.0",
+      "User-Agent": "founder-progress-tracker/1.3.0",
       ...options.headers,
     },
   });
   if (response.status === 409) return [];
   if (!response.ok) throw new Error(`GitHub API ${response.status} for ${pathname}`);
   return response.json();
+}
+
+async function wakatime(pathname, apiKey) {
+  const response = await fetch(`${WAKATIME_API}${pathname}`, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Basic ${Buffer.from(apiKey).toString("base64")}`,
+      "User-Agent": "founder-progress-tracker/1.3.0",
+    },
+  });
+  if (!response.ok) throw new Error(`WakaTime API ${response.status} for aggregate coding time`);
+  return response.json();
+}
+
+async function fetchWakaTimeFocus(apiKey, today) {
+  const fetchSummaries = async (days) => wakatime(`/users/current/summaries?start=${shiftDate(today, -(days - 1))}&end=${today}&timezone=${encodeURIComponent(TIMEZONE)}`, apiKey);
+  let summaries;
+  try {
+    summaries = await fetchSummaries(30);
+  } catch (error) {
+    console.warn(`${error.message}; retrying the privacy-safe seven-day window.`);
+    summaries = await fetchSummaries(7);
+  }
+  const lifetime = await wakatime("/users/current/all_time_since_today", apiKey);
+  return {
+    daily: (summaries.data || []).map((day) => ({
+      date: day.range.date,
+      seconds: Math.max(0, Math.round(day.grand_total?.total_seconds || 0)),
+    })),
+    lifetimeSeconds: Math.max(0, Math.round(lifetime.data?.total_seconds || 0)),
+    accountStartedAt: lifetime.data?.range?.start_date || null,
+  };
 }
 
 async function graphql(token, query, variables) {
@@ -1002,6 +1240,15 @@ async function loadHistory(root) {
   }
 }
 
+async function loadFocusHistory(root) {
+  try {
+    return JSON.parse(await fs.readFile(path.join(root, "metrics", "focus.json"), "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
 function mergeCodeHistory(existing, fresh, replaceFrom) {
   const byDate = new Map((existing || []).filter((day) => day.date < replaceFrom).map((day) => [day.date, day]));
   for (const day of fresh) byDate.set(day.date, day);
@@ -1040,9 +1287,10 @@ function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, ge
   };
 }
 
-function renderShareCopy(stats) {
+function renderShareCopy(stats, focus) {
   const direction = stats.contributions.momentumPercent >= 0 ? "up" : "down";
-  return `Founder ship log — last 30 days\n\n${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
+  const focusLine = focus.connected ? `${hours(focus.summary.last30Seconds)} of active building time across ${focus.summary.activeDays30} focus days.\n` : "";
+  return `Founder ship log — last 30 days\n\n${focusLine}${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
 }
 
 async function main() {
@@ -1051,7 +1299,7 @@ async function main() {
   const today = localDate();
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   const contributions = await fetchContributionData(token, today);
-  const existingHistory = await loadHistory(root);
+  const [existingHistory, existingFocus] = await Promise.all([loadHistory(root), loadFocusHistory(root)]);
   const accountStart = contributions.accountCreatedAt.slice(0, 10);
   const codeStart = existingHistory && process.env.BACKFILL_LIFETIME !== "1" ? `${today.slice(0, 4)}-01-01` : accountStart;
   const [yearlyContributions, codeResult] = await Promise.all([
@@ -1084,8 +1332,32 @@ async function main() {
     repositoriesSkipped: codeResult.repositoriesSkipped,
   };
   const stats = computeStats({ ...contributions, code: recentCode, today });
-  const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, today });
-  cadence.yearly = buildYearlyCadence(history);
+  let wakaResult = null;
+  const wakaKey = process.env.WAKATIME_API_KEY;
+  if (wakaKey) {
+    try {
+      wakaResult = await withRetry(() => fetchWakaTimeFocus(wakaKey, today), 2);
+    } catch (error) {
+      console.warn(`${error.message}; preserving the last privacy-safe WakaTime snapshot.`);
+    }
+  }
+  const focusDaily = mergeFocusHistory(existingFocus?.dailyHistory, wakaResult?.daily);
+  const focus = buildFocusData({
+    daily: focusDaily,
+    today,
+    lifetimeSeconds: wakaResult?.lifetimeSeconds ?? existingFocus?.summary?.lifetimeSeconds ?? null,
+    accountStartedAt: wakaResult?.accountStartedAt ?? existingFocus?.trackedSince ?? null,
+    commitsLast30: recentCode.commits,
+  });
+  stats.focus = {
+    source: focus.source,
+    connected: focus.connected,
+    trackedSince: focus.trackedSince,
+    ...focus.summary,
+    privacy: focus.privacy,
+  };
+  const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, focusDaily, today });
+  cadence.yearly = buildYearlyCadence(history, focusDaily);
   const svg = renderSvg(stats);
   const mobileSvg = renderMobileSvg(stats);
   const dailySvg = renderCadenceSvg(cadence, "daily");
@@ -1098,6 +1370,8 @@ async function main() {
   const mobileYearlySvg = renderMobileCadenceSvg(cadence, "yearly");
   const lifetimeSvg = renderLifetimeSvg(history);
   const mobileLifetimeSvg = renderMobileLifetimeSvg(history);
+  const focusSvg = renderFocusSvg(focus);
+  const mobileFocusSvg = renderMobileFocusSvg(focus);
   await fs.mkdir(path.join(root, "assets"), { recursive: true });
   await fs.mkdir(path.join(root, "metrics"), { recursive: true });
   await Promise.all([
@@ -1115,12 +1389,15 @@ async function main() {
     fs.writeFile(path.join(root, "assets", "founder-lifetime.svg"), lifetimeSvg),
     fs.writeFile(path.join(root, "assets", "founder-lifetime-mobile.svg"), mobileLifetimeSvg),
     sharp(Buffer.from(lifetimeSvg)).png().toFile(path.join(root, "assets", "founder-lifetime.png")),
-    fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats)),
+    fs.writeFile(path.join(root, "assets", "founder-focus.svg"), focusSvg),
+    fs.writeFile(path.join(root, "assets", "founder-focus-mobile.svg"), mobileFocusSvg),
+    fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats, focus)),
     fs.writeFile(path.join(root, "metrics", "latest.json"), `${JSON.stringify(stats, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "cadence.json"), `${JSON.stringify(cadence, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "history.json"), `${JSON.stringify(history, null, 2)}\n`),
+    fs.writeFile(path.join(root, "metrics", "focus.json"), `${JSON.stringify(focus, null, 2)}\n`),
   ]);
-  console.log(`Generated privacy-safe daily, weekly, monthly, and lifetime progress assets through ${stats.period.end}.`);
+  console.log(`Generated privacy-safe GitHub and WakaTime progress assets through ${stats.period.end}.`);
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

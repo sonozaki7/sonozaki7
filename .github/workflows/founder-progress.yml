@@ -43,6 +43,7 @@ jobs:
       - name: Generate aggregate progress tracker
         env:
           GITHUB_TOKEN: ${{ secrets.TRACKER_TOKEN }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           TRACKER_USERNAME: ${{ github.repository_owner }}
           TRACKER_TIMEZONE: Asia/Bangkok
         run: npm run generate
@@ -51,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/founder-progress.svg assets/founder-progress-mobile.svg assets/founder-progress.png assets/founder-daily.svg assets/founder-daily-mobile.svg assets/founder-weekly.svg assets/founder-weekly-mobile.svg assets/founder-monthly.svg assets/founder-monthly-mobile.svg assets/founder-yearly.svg assets/founder-yearly-mobile.svg assets/founder-lifetime.svg assets/founder-lifetime-mobile.svg assets/founder-lifetime.png assets/share-copy.txt metrics/latest.json metrics/cadence.json metrics/history.json
+          git add assets/founder-progress.svg assets/founder-progress-mobile.svg assets/founder-progress.png assets/founder-focus.svg assets/founder-focus-mobile.svg assets/founder-daily.svg assets/founder-daily-mobile.svg assets/founder-weekly.svg assets/founder-weekly-mobile.svg assets/founder-monthly.svg assets/founder-monthly-mobile.svg assets/founder-yearly.svg assets/founder-yearly-mobile.svg assets/founder-lifetime.svg assets/founder-lifetime-mobile.svg assets/founder-lifetime.png assets/share-copy.txt metrics/latest.json metrics/cadence.json metrics/history.json metrics/focus.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh founder progress"
           git push

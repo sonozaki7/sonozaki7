@@ -6,11 +6,11 @@
     "end": "2026-08-12"
   },
   "contributions": {
-    "today": 101,
-    "last7Days": 231,
-    "last30Days": 436,
+    "today": 102,
+    "last7Days": 232,
+    "last30Days": 437,
     "previous30Days": 46,
-    "momentumPercent": 848,
+    "momentumPercent": 850,
     "activeDays": 25,
     "currentStreak": 5,
     "longestStreak365Days": 12,
@@ -133,7 +133,7 @@
       },
       {
         "date": "2026-08-12",
-        "count": 101
+        "count": 102
       }
     ]
   },
@@ -157,5 +157,19 @@
     "issues": 0,
     "reviews": 0
   },
-  "privacy": "Aggregate metrics only; private repository identities are not published."
+  "privacy": "Aggregate metrics only; private repository identities are not published.",
+  "focus": {
+    "source": "WakaTime",
+    "connected": true,
+    "trackedSince": "2026-08-12",
+    "todaySeconds": 0,
+    "last7Seconds": 0,
+    "last30Seconds": 0,
+    "lifetimeSeconds": 0,
+    "activeDays30": 0,
+    "activeDaysLifetime": 0,
+    "averageSecondsPerActiveDay30": 0,
+    "commitsPerFocusHour30": null,
+    "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
+  }
 }
