@@ -26,17 +26,67 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 ## Monthly SaaS earnings
 
-This is the original profile earnings log, kept public for honest accountability. Blank months have not been recorded yet.
+Only includes SaaS.
 
-| Year | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
-|:----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|
-| 2024 | — | — | — | — | — | — | — | — | — | — | 0 MRR | 0 MRR |
-| 2025 | 0 MRR | 0 MRR | 0 MRR | 0 MRR | 0 MRR | 0 MRR | **170 MRR** | 0 MRR | 0 MRR | 0 MRR | 0 MRR | 0 MRR |
-| 2026 | 0 MRR | — | — | — | — | — | — | — | — | — | — | — |
-| 2027 | — | — | — | — | — | — | — | — | — | — | — | — |
-| 2028 | — | — | — | — | — | — | — | — | — | — | — | — |
+- 2024
+  - Nov: 0 MRR
+  - Dec: 0 MRR
 
-> Only includes SaaS MRR. Values are preserved from the original profile log.
+- 2025
+  - Jan: 0 MRR
+  - Feb: 0 MRR
+  - Mar: 0 MRR
+  - Apr: 0 MRR
+  - May: 0 MRR
+  - Jun: 0 MRR
+  - Jul: 170 MRR
+  - Aug: 0 MRR
+  - Sep: 0 MRR
+  - Oct: 0 MRR
+  - Nov: 0 MRR
+  - Dec: 0 MRR
+
+- 2026
+  - Jan: 0 MRR
+  - Feb:
+  - Mar:
+  - Apr:
+  - May:
+  - Jun:
+  - Jul:
+  - Aug:
+  - Sep:
+  - Oct:
+  - Nov:
+  - Dec:
+
+- 2027
+  - Jan:
+  - Feb:
+  - Mar:
+  - Apr:
+  - May:
+  - Jun:
+  - Jul:
+  - Aug:
+  - Sep:
+  - Oct:
+  - Nov:
+  - Dec:
+
+- 2028
+  - Jan:
+  - Feb:
+  - Mar:
+  - Apr:
+  - May:
+  - Jun:
+  - Jul:
+  - Aug:
+  - Sep:
+  - Oct:
+  - Nov:
+  - Dec:
 
 ## Share the momentum
 
@@ -45,7 +95,9 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 <details>
 <summary>How this tracker works</summary>
 
-The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json) and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files.
+The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json) and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files or retained in tracker history.
+
+Line metrics include authored commits from accessible, non-archived repositories on each repository's default branch. Unpushed work and commits that only exist on other branches are not included.
 
 Lines changed are a momentum signal, not a quality score. Shipping useful product remains the goal.
 

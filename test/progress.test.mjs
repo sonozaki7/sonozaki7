@@ -35,6 +35,9 @@ test("renders a responsive, privacy-safe SVG", () => {
   assert.match(svg, /30-day build velocity/);
   assert.match(svg, /Aggregate public \+ private activity/);
   assert.doesNotMatch(svg, /private-repo|commit message|source code here/);
+  assert.equal("repositories" in stats.code, false);
+  assert.equal("repositoryNames" in stats.code, false);
+  assert.doesNotMatch(JSON.stringify(stats), /repository(?:Name|Url|Identity)/i);
 });
 
 test("renders every lifetime metric as a separate trend", () => {
