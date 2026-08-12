@@ -16,7 +16,7 @@
   <text x="20" y="44" class="mc-eyebrow">WEEKLY PROGRESS LEDGER</text>
   <text x="20" y="76" class="mc-title">Weekly detail</text>
   <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
-  <g transform="translate(20 124)"><text class="mc-total">513</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(20 124)"><text class="mc-total">514</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
   <g transform="translate(132 124)"><text class="mc-total">497</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
   <g transform="translate(244 124)"><text class="mc-total">0h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   <g>
@@ -145,7 +145,7 @@
       <text x="32" y="1253" class="mc-period">08-10</text>
       <text x="32" y="1273" class="mc-range">2026-08-10 → 2026-08-12</text>
       <text x="32" y="1296" class="mc-range">3 contribution days · 0h focus</text>
-      <g transform="translate(126 1249)"><text class="mc-value">176</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(126 1249)"><text class="mc-value">177</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1249)"><text class="mc-value">169</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 1249)"><text class="mc-value">3</text><text y="17" class="mc-label">BUILD DAYS</text></g>
       <g transform="translate(126 1288)"><text class="mc-value">142,061</text><text y="17" class="mc-label">FOCUSED</text></g>

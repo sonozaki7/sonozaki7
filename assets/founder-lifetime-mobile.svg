@@ -19,15 +19,15 @@
   <text x="20" y="45" class="mh-eyebrow">FOUNDER OPERATING HISTORY</text>
   <text x="20" y="77" class="mh-title">Lifetime momentum</text>
   <text x="20" y="97" class="mh-subtitle">2018 → 2026 · each trend uses its own honest scale</text>
-  <g transform="translate(20 122)"><text class="mh-head">2,096</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(20 122)"><text class="mh-head">2,097</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
   <g transform="translate(137 122)"><text class="mh-head">2.7M</text><text y="18" class="mh-head-label">FOCUSED LINES</text></g>
   <g transform="translate(254 122)"><text class="mh-head">1,997</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
   <g>
     <rect x="20" y="183" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="211" class="mh-label">CONTRIBUTIONS</text>
-    <text x="34" y="238" class="mh-value">2,096</text>
+    <text x="34" y="238" class="mh-value">2,097</text>
     <line x1="151" y1="243" x2="334" y2="243" stroke="#DCE3E7"/>
-    <polyline points="151.0,242.0 173.9,226.2 196.8,234.4 219.6,240.4 242.5,240.8 265.4,236.0 288.3,241.1 311.1,239.1 334.0,208.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,242.0 173.9,226.3 196.8,234.4 219.6,240.4 242.5,240.8 265.4,236.0 288.3,241.1 311.1,239.1 334.0,208.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="255" class="mh-axis">2018</text><text x="334" y="255" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="269" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
