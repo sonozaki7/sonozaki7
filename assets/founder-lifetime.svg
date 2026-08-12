@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
+  <title id="title">So's lifetime founder operating history</title>
+  <desc id="desc">Yearly contribution, code movement, commit, pull request, issue, review, and active-day trends from GitHub account creation.</desc>
+  <defs>
+    <linearGradient id="history-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <linearGradient id="history-line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a371f7"/><stop offset="0.5" stop-color="#2f81f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+      .history-eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 2.4px; fill: #a371f7; }
+      .history-title { font-size: 38px; font-weight: 750; }
+      .history-subtitle { font-size: 15px; fill: #8b949e; }
+      .history-label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; fill: #8b949e; }
+      .history-total { font-size: 22px; font-weight: 750; }
+      .history-axis { font-size: 11px; fill: #6e7681; }
+      .headline-number { font-size: 27px; font-weight: 750; }
+      .headline-label { font-size: 11px; fill: #8b949e; letter-spacing: 0.7px; }
+      .history-footer { font-size: 12px; fill: #6e7681; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1198" height="878" rx="24" fill="url(#history-bg)" stroke="#30363d" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="4" rx="2" fill="url(#history-line)"/>
+  <text x="52" y="64" class="history-eyebrow">FOUNDER OPERATING HISTORY</text>
+  <text x="52" y="106" class="history-title">Lifetime momentum, year by year</text>
+  <text x="52" y="134" class="history-subtitle">2018 → 2026 · every chart has its own scale so the trend stays honest</text>
+  <g transform="translate(52 158)"><text class="headline-number">2,087</text><text y="22" class="headline-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(287 158)"><text class="headline-number">16.2M</text><text y="22" class="headline-label">LINES CHANGED</text></g>
+  <g transform="translate(522 158)"><text class="headline-number">1,487</text><text y="22" class="headline-label">COMMITS ANALYZED</text></g>
+  <g transform="translate(757 158)"><text class="headline-number">325</text><text y="22" class="headline-label">ACTIVE DAYS</text></g>
+  <g transform="translate(992 158)"><text class="headline-number">9</text><text y="22" class="headline-label">YEARS TRACKED</text></g>
+  <g>
+    <rect x="52" y="220" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="72" y="248" class="history-label">CONTRIBUTIONS</text>
+    <text x="374" y="249" text-anchor="end" class="history-total">2,087</text>
+    <line x1="74" y1="368.0" x2="372" y2="368.0" stroke="#30363d"/>
+    <path d="M 74.0 368.0 L 74.0 367.9 L 111.3 321.2 L 148.5 345.5 L 185.8 363.3 L 223.0 364.4 L 260.3 350.1 L 297.5 365.3 L 334.8 359.4 L 372.0 268.0 L 372.0 368.0 Z" fill="#58a6ff" opacity="0.12"/>
+    <polyline points="74.0,367.9 111.3,321.2 148.5,345.5 185.8,363.3 223.0,364.4 260.3,350.1 297.5,365.3 334.8,359.4 372.0,268.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="74.0" cy="367.9" r="3.5" fill="#58a6ff"><title>2018: 1</title></circle><circle cx="111.3" cy="321.2" r="3.5" fill="#58a6ff"><title>2019: 472</title></circle><circle cx="148.5" cy="345.5" r="3.5" fill="#58a6ff"><title>2020: 227</title></circle><circle cx="185.8" cy="363.3" r="3.5" fill="#58a6ff"><title>2021: 47</title></circle><circle cx="223.0" cy="364.4" r="3.5" fill="#58a6ff"><title>2022: 36</title></circle><circle cx="260.3" cy="350.1" r="3.5" fill="#58a6ff"><title>2023: 181</title></circle><circle cx="297.5" cy="365.3" r="3.5" fill="#58a6ff"><title>2024: 27</title></circle><circle cx="334.8" cy="359.4" r="3.5" fill="#58a6ff"><title>2025: 87</title></circle><circle cx="372.0" cy="268.0" r="3.5" fill="#58a6ff"><title>2026: 1,009</title></circle>
+    <text x="74" y="388" class="history-axis">2018</text>
+    <text x="372" y="388" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="418" y="220" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="438" y="248" class="history-label">ACTIVE DAYS</text>
+    <text x="740" y="249" text-anchor="end" class="history-total">325</text>
+    <line x1="440" y1="368.0" x2="738" y2="368.0" stroke="#30363d"/>
+    <path d="M 440.0 368.0 L 440.0 367.0 L 477.3 306.6 L 514.5 311.6 L 551.8 351.2 L 589.0 361.1 L 626.3 326.4 L 663.5 359.1 L 700.8 339.3 L 738.0 268.0 L 738.0 368.0 Z" fill="#3fb950" opacity="0.12"/>
+    <polyline points="440.0,367.0 477.3,306.6 514.5,311.6 551.8,351.2 589.0,361.1 626.3,326.4 663.5,359.1 700.8,339.3 738.0,268.0" fill="none" stroke="#3fb950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="440.0" cy="367.0" r="3.5" fill="#3fb950"><title>2018: 1</title></circle><circle cx="477.3" cy="306.6" r="3.5" fill="#3fb950"><title>2019: 62</title></circle><circle cx="514.5" cy="311.6" r="3.5" fill="#3fb950"><title>2020: 57</title></circle><circle cx="551.8" cy="351.2" r="3.5" fill="#3fb950"><title>2021: 17</title></circle><circle cx="589.0" cy="361.1" r="3.5" fill="#3fb950"><title>2022: 7</title></circle><circle cx="626.3" cy="326.4" r="3.5" fill="#3fb950"><title>2023: 42</title></circle><circle cx="663.5" cy="359.1" r="3.5" fill="#3fb950"><title>2024: 9</title></circle><circle cx="700.8" cy="339.3" r="3.5" fill="#3fb950"><title>2025: 29</title></circle><circle cx="738.0" cy="268.0" r="3.5" fill="#3fb950"><title>2026: 101</title></circle>
+    <text x="440" y="388" class="history-axis">2018</text>
+    <text x="738" y="388" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="784" y="220" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="804" y="248" class="history-label">LINES ADDED</text>
+    <text x="1106" y="249" text-anchor="end" class="history-total">12.7M</text>
+    <line x1="806" y1="368.0" x2="1104" y2="368.0" stroke="#30363d"/>
+    <path d="M 806.0 368.0 L 806.0 368.0 L 843.3 357.1 L 880.5 292.8 L 917.8 268.0 L 955.0 345.5 L 992.3 305.2 L 1029.5 366.8 L 1066.8 366.8 L 1104.0 352.0 L 1104.0 368.0 Z" fill="#3fb950" opacity="0.12"/>
+    <polyline points="806.0,368.0 843.3,357.1 880.5,292.8 917.8,268.0 955.0,345.5 992.3,305.2 1029.5,366.8 1066.8,366.8 1104.0,352.0" fill="none" stroke="#3fb950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="806.0" cy="368.0" r="3.5" fill="#3fb950"><title>2018: 0</title></circle><circle cx="843.3" cy="357.1" r="3.5" fill="#3fb950"><title>2019: 475,686</title></circle><circle cx="880.5" cy="292.8" r="3.5" fill="#3fb950"><title>2020: 3,291,825</title></circle><circle cx="917.8" cy="268.0" r="3.5" fill="#3fb950"><title>2021: 4,374,949</title></circle><circle cx="955.0" cy="345.5" r="3.5" fill="#3fb950"><title>2022: 982,543</title></circle><circle cx="992.3" cy="305.2" r="3.5" fill="#3fb950"><title>2023: 2,748,995</title></circle><circle cx="1029.5" cy="366.8" r="3.5" fill="#3fb950"><title>2024: 52,163</title></circle><circle cx="1066.8" cy="366.8" r="3.5" fill="#3fb950"><title>2025: 54,676</title></circle><circle cx="1104.0" cy="352.0" r="3.5" fill="#3fb950"><title>2026: 700,368</title></circle>
+    <text x="806" y="388" class="history-axis">2018</text>
+    <text x="1104" y="388" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="52" y="425" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="72" y="453" class="history-label">LINES REMOVED</text>
+    <text x="374" y="454" text-anchor="end" class="history-total">3.5M</text>
+    <line x1="74" y1="573.0" x2="372" y2="573.0" stroke="#30363d"/>
+    <path d="M 74.0 573.0 L 74.0 573.0 L 111.3 563.8 L 148.5 561.7 L 185.8 573.0 L 223.0 573.0 L 260.3 473.0 L 297.5 572.9 L 334.8 572.8 L 372.0 564.1 L 372.0 573.0 Z" fill="#f85149" opacity="0.12"/>
+    <polyline points="74.0,573.0 111.3,563.8 148.5,561.7 185.8,573.0 223.0,573.0 260.3,473.0 297.5,572.9 334.8,572.8 372.0,564.1" fill="none" stroke="#f85149" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="74.0" cy="573.0" r="3.5" fill="#f85149"><title>2018: 0</title></circle><circle cx="111.3" cy="563.8" r="3.5" fill="#f85149"><title>2019: 248,226</title></circle><circle cx="148.5" cy="561.7" r="3.5" fill="#f85149"><title>2020: 303,161</title></circle><circle cx="185.8" cy="573.0" r="3.5" fill="#f85149"><title>2021: 366</title></circle><circle cx="223.0" cy="573.0" r="3.5" fill="#f85149"><title>2022: 571</title></circle><circle cx="260.3" cy="473.0" r="3.5" fill="#f85149"><title>2023: 2,693,151</title></circle><circle cx="297.5" cy="572.9" r="3.5" fill="#f85149"><title>2024: 1,366</title></circle><circle cx="334.8" cy="572.8" r="3.5" fill="#f85149"><title>2025: 6,140</title></circle><circle cx="372.0" cy="564.1" r="3.5" fill="#f85149"><title>2026: 239,976</title></circle>
+    <text x="74" y="593" class="history-axis">2018</text>
+    <text x="372" y="593" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="418" y="425" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="438" y="453" class="history-label">NET LINES · YEARLY</text>
+    <text x="740" y="454" text-anchor="end" class="history-total">+9.2M</text>
+    <line x1="440" y1="573.0" x2="738" y2="573.0" stroke="#30363d"/>
+    <path d="M 440.0 573.0 L 440.0 573.0 L 477.3 567.8 L 514.5 504.7 L 551.8 473.0 L 589.0 550.6 L 626.3 571.7 L 663.5 571.8 L 700.8 571.9 L 738.0 562.5 L 738.0 573.0 Z" fill="#a371f7" opacity="0.12"/>
+    <polyline points="440.0,573.0 477.3,567.8 514.5,504.7 551.8,473.0 589.0,550.6 626.3,571.7 663.5,571.8 700.8,571.9 738.0,562.5" fill="none" stroke="#a371f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="440.0" cy="573.0" r="3.5" fill="#a371f7"><title>2018: 0</title></circle><circle cx="477.3" cy="567.8" r="3.5" fill="#a371f7"><title>2019: 227,460</title></circle><circle cx="514.5" cy="504.7" r="3.5" fill="#a371f7"><title>2020: 2,988,664</title></circle><circle cx="551.8" cy="473.0" r="3.5" fill="#a371f7"><title>2021: 4,374,583</title></circle><circle cx="589.0" cy="550.6" r="3.5" fill="#a371f7"><title>2022: 981,972</title></circle><circle cx="626.3" cy="571.7" r="3.5" fill="#a371f7"><title>2023: 55,844</title></circle><circle cx="663.5" cy="571.8" r="3.5" fill="#a371f7"><title>2024: 50,797</title></circle><circle cx="700.8" cy="571.9" r="3.5" fill="#a371f7"><title>2025: 48,536</title></circle><circle cx="738.0" cy="562.5" r="3.5" fill="#a371f7"><title>2026: 460,392</title></circle>
+    <text x="440" y="593" class="history-axis">2018</text>
+    <text x="738" y="593" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="784" y="425" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="804" y="453" class="history-label">COMMITS ANALYZED</text>
+    <text x="1106" y="454" text-anchor="end" class="history-total">1,487</text>
+    <line x1="806" y1="573.0" x2="1104" y2="573.0" stroke="#30363d"/>
+    <path d="M 806.0 573.0 L 806.0 573.0 L 843.3 473.4 L 880.5 531.7 L 917.8 564.7 L 955.0 567.0 L 992.3 532.4 L 1029.5 569.6 L 1066.8 555.8 L 1104.0 473.0 L 1104.0 573.0 Z" fill="#d29922" opacity="0.12"/>
+    <polyline points="806.0,573.0 843.3,473.4 880.5,531.7 917.8,564.7 955.0,567.0 992.3,532.4 1029.5,569.6 1066.8,555.8 1104.0,473.0" fill="none" stroke="#d29922" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="806.0" cy="573.0" r="3.5" fill="#d29922"><title>2018: 0</title></circle><circle cx="843.3" cy="473.4" r="3.5" fill="#d29922"><title>2019: 468</title></circle><circle cx="880.5" cy="531.7" r="3.5" fill="#d29922"><title>2020: 194</title></circle><circle cx="917.8" cy="564.7" r="3.5" fill="#d29922"><title>2021: 39</title></circle><circle cx="955.0" cy="567.0" r="3.5" fill="#d29922"><title>2022: 28</title></circle><circle cx="992.3" cy="532.4" r="3.5" fill="#d29922"><title>2023: 191</title></circle><circle cx="1029.5" cy="569.6" r="3.5" fill="#d29922"><title>2024: 16</title></circle><circle cx="1066.8" cy="555.8" r="3.5" fill="#d29922"><title>2025: 81</title></circle><circle cx="1104.0" cy="473.0" r="3.5" fill="#d29922"><title>2026: 470</title></circle>
+    <text x="806" y="593" class="history-axis">2018</text>
+    <text x="1104" y="593" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="52" y="630" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="72" y="658" class="history-label">PULL REQUESTS</text>
+    <text x="374" y="659" text-anchor="end" class="history-total">8</text>
+    <line x1="74" y1="778.0" x2="372" y2="778.0" stroke="#30363d"/>
+    <path d="M 74.0 778.0 L 74.0 778.0 L 111.3 778.0 L 148.5 778.0 L 185.8 778.0 L 223.0 718.0 L 260.3 678.0 L 297.5 778.0 L 334.8 778.0 L 372.0 778.0 L 372.0 778.0 Z" fill="#2f81f7" opacity="0.12"/>
+    <polyline points="74.0,778.0 111.3,778.0 148.5,778.0 185.8,778.0 223.0,718.0 260.3,678.0 297.5,778.0 334.8,778.0 372.0,778.0" fill="none" stroke="#2f81f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="74.0" cy="778.0" r="3.5" fill="#2f81f7"><title>2018: 0</title></circle><circle cx="111.3" cy="778.0" r="3.5" fill="#2f81f7"><title>2019: 0</title></circle><circle cx="148.5" cy="778.0" r="3.5" fill="#2f81f7"><title>2020: 0</title></circle><circle cx="185.8" cy="778.0" r="3.5" fill="#2f81f7"><title>2021: 0</title></circle><circle cx="223.0" cy="718.0" r="3.5" fill="#2f81f7"><title>2022: 3</title></circle><circle cx="260.3" cy="678.0" r="3.5" fill="#2f81f7"><title>2023: 5</title></circle><circle cx="297.5" cy="778.0" r="3.5" fill="#2f81f7"><title>2024: 0</title></circle><circle cx="334.8" cy="778.0" r="3.5" fill="#2f81f7"><title>2025: 0</title></circle><circle cx="372.0" cy="778.0" r="3.5" fill="#2f81f7"><title>2026: 0</title></circle>
+    <text x="74" y="798" class="history-axis">2018</text>
+    <text x="372" y="798" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="418" y="630" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="438" y="658" class="history-label">ISSUES</text>
+    <text x="740" y="659" text-anchor="end" class="history-total">1</text>
+    <line x1="440" y1="778.0" x2="738" y2="778.0" stroke="#30363d"/>
+    <path d="M 440.0 778.0 L 440.0 778.0 L 477.3 778.0 L 514.5 778.0 L 551.8 778.0 L 589.0 778.0 L 626.3 778.0 L 663.5 678.0 L 700.8 778.0 L 738.0 778.0 L 738.0 778.0 Z" fill="#db61a2" opacity="0.12"/>
+    <polyline points="440.0,778.0 477.3,778.0 514.5,778.0 551.8,778.0 589.0,778.0 626.3,778.0 663.5,678.0 700.8,778.0 738.0,778.0" fill="none" stroke="#db61a2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="440.0" cy="778.0" r="3.5" fill="#db61a2"><title>2018: 0</title></circle><circle cx="477.3" cy="778.0" r="3.5" fill="#db61a2"><title>2019: 0</title></circle><circle cx="514.5" cy="778.0" r="3.5" fill="#db61a2"><title>2020: 0</title></circle><circle cx="551.8" cy="778.0" r="3.5" fill="#db61a2"><title>2021: 0</title></circle><circle cx="589.0" cy="778.0" r="3.5" fill="#db61a2"><title>2022: 0</title></circle><circle cx="626.3" cy="778.0" r="3.5" fill="#db61a2"><title>2023: 0</title></circle><circle cx="663.5" cy="678.0" r="3.5" fill="#db61a2"><title>2024: 1</title></circle><circle cx="700.8" cy="778.0" r="3.5" fill="#db61a2"><title>2025: 0</title></circle><circle cx="738.0" cy="778.0" r="3.5" fill="#db61a2"><title>2026: 0</title></circle>
+    <text x="440" y="798" class="history-axis">2018</text>
+    <text x="738" y="798" text-anchor="end" class="history-axis">2026</text>
+  </g>
+<g>
+    <rect x="784" y="630" width="342" height="180" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="804" y="658" class="history-label">REVIEWS</text>
+    <text x="1106" y="659" text-anchor="end" class="history-total">0</text>
+    <line x1="806" y1="778.0" x2="1104" y2="778.0" stroke="#30363d"/>
+    <path d="M 806.0 778.0 L 806.0 778.0 L 843.3 778.0 L 880.5 778.0 L 917.8 778.0 L 955.0 778.0 L 992.3 778.0 L 1029.5 778.0 L 1066.8 778.0 L 1104.0 778.0 L 1104.0 778.0 Z" fill="#a371f7" opacity="0.12"/>
+    <polyline points="806.0,778.0 843.3,778.0 880.5,778.0 917.8,778.0 955.0,778.0 992.3,778.0 1029.5,778.0 1066.8,778.0 1104.0,778.0" fill="none" stroke="#a371f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="806.0" cy="778.0" r="3.5" fill="#a371f7"><title>2018: 0</title></circle><circle cx="843.3" cy="778.0" r="3.5" fill="#a371f7"><title>2019: 0</title></circle><circle cx="880.5" cy="778.0" r="3.5" fill="#a371f7"><title>2020: 0</title></circle><circle cx="917.8" cy="778.0" r="3.5" fill="#a371f7"><title>2021: 0</title></circle><circle cx="955.0" cy="778.0" r="3.5" fill="#a371f7"><title>2022: 0</title></circle><circle cx="992.3" cy="778.0" r="3.5" fill="#a371f7"><title>2023: 0</title></circle><circle cx="1029.5" cy="778.0" r="3.5" fill="#a371f7"><title>2024: 0</title></circle><circle cx="1066.8" cy="778.0" r="3.5" fill="#a371f7"><title>2025: 0</title></circle><circle cx="1104.0" cy="778.0" r="3.5" fill="#a371f7"><title>2026: 0</title></circle>
+    <text x="806" y="798" class="history-axis">2018</text>
+    <text x="1104" y="798" text-anchor="end" class="history-axis">2026</text>
+  </g>
+  <text x="52" y="852" class="history-footer">Contribution history: GitHub calendar · line history: authored commits on accessible default branches · aggregate only</text>
+</svg>

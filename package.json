@@ -1,0 +1,17 @@
+{
+  "name": "founder-progress-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-progress.mjs",
+    "test": "node --test",
+    "check": "npm test && node --check scripts/generate-progress.mjs"
+  },
+  "dependencies": {
+    "sharp": "0.35.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

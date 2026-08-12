@@ -1,0 +1,1606 @@
+{
+  "version": 1,
+  "accountCreatedAt": "2018-04-24T08:21:38Z",
+  "generatedAt": "2026-08-12T13:40:01.156Z",
+  "privacy": "Aggregate yearly and daily totals only; repository identities are not stored.",
+  "yearly": [
+    {
+      "year": 2018,
+      "contributions": 1,
+      "activeDays": 1,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 0,
+      "deletions": 0,
+      "net": 0,
+      "commits": 0
+    },
+    {
+      "year": 2019,
+      "contributions": 472,
+      "activeDays": 62,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 475686,
+      "deletions": 248226,
+      "net": 227460,
+      "commits": 468
+    },
+    {
+      "year": 2020,
+      "contributions": 227,
+      "activeDays": 57,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 3291825,
+      "deletions": 303161,
+      "net": 2988664,
+      "commits": 194
+    },
+    {
+      "year": 2021,
+      "contributions": 47,
+      "activeDays": 17,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 4374949,
+      "deletions": 366,
+      "net": 4374583,
+      "commits": 39
+    },
+    {
+      "year": 2022,
+      "contributions": 36,
+      "activeDays": 7,
+      "pullRequests": 3,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 982543,
+      "deletions": 571,
+      "net": 981972,
+      "commits": 28
+    },
+    {
+      "year": 2023,
+      "contributions": 181,
+      "activeDays": 42,
+      "pullRequests": 5,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 2748995,
+      "deletions": 2693151,
+      "net": 55844,
+      "commits": 191
+    },
+    {
+      "year": 2024,
+      "contributions": 27,
+      "activeDays": 9,
+      "pullRequests": 0,
+      "issues": 1,
+      "reviews": 0,
+      "additions": 52163,
+      "deletions": 1366,
+      "net": 50797,
+      "commits": 16
+    },
+    {
+      "year": 2025,
+      "contributions": 87,
+      "activeDays": 29,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 54676,
+      "deletions": 6140,
+      "net": 48536,
+      "commits": 81
+    },
+    {
+      "year": 2026,
+      "contributions": 1009,
+      "activeDays": 101,
+      "pullRequests": 0,
+      "issues": 0,
+      "reviews": 0,
+      "additions": 700368,
+      "deletions": 239976,
+      "net": 460392,
+      "commits": 470
+    }
+  ],
+  "codeDaily": [
+    {
+      "date": "2019-09-12",
+      "additions": 273,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-13",
+      "additions": 38,
+      "deletions": 5,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-14",
+      "additions": 5,
+      "deletions": 3,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-16",
+      "additions": 54,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-21",
+      "additions": 95,
+      "deletions": 10,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-23",
+      "additions": 143,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2019-09-26",
+      "additions": 92,
+      "deletions": 29,
+      "commits": 17
+    },
+    {
+      "date": "2019-10-03",
+      "additions": 151,
+      "deletions": 43,
+      "commits": 9
+    },
+    {
+      "date": "2019-10-05",
+      "additions": 220,
+      "deletions": 120,
+      "commits": 9
+    },
+    {
+      "date": "2019-10-06",
+      "additions": 0,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-07",
+      "additions": 54,
+      "deletions": 15,
+      "commits": 3
+    },
+    {
+      "date": "2019-10-08",
+      "additions": 13,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-09",
+      "additions": 293,
+      "deletions": 188,
+      "commits": 14
+    },
+    {
+      "date": "2019-10-12",
+      "additions": 46,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-13",
+      "additions": 108,
+      "deletions": 25,
+      "commits": 2
+    },
+    {
+      "date": "2019-10-17",
+      "additions": 86,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-18",
+      "additions": 101,
+      "deletions": 5,
+      "commits": 3
+    },
+    {
+      "date": "2019-10-19",
+      "additions": 35,
+      "deletions": 17,
+      "commits": 3
+    },
+    {
+      "date": "2019-10-20",
+      "additions": 48,
+      "deletions": 4,
+      "commits": 2
+    },
+    {
+      "date": "2019-10-22",
+      "additions": 35,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-23",
+      "additions": 233,
+      "deletions": 16,
+      "commits": 2
+    },
+    {
+      "date": "2019-10-24",
+      "additions": 53,
+      "deletions": 9,
+      "commits": 1
+    },
+    {
+      "date": "2019-10-25",
+      "additions": 29702,
+      "deletions": 105,
+      "commits": 24
+    },
+    {
+      "date": "2019-10-26",
+      "additions": 36061,
+      "deletions": 9609,
+      "commits": 24
+    },
+    {
+      "date": "2019-10-27",
+      "additions": 22291,
+      "deletions": 25617,
+      "commits": 15
+    },
+    {
+      "date": "2019-10-28",
+      "additions": 33735,
+      "deletions": 50251,
+      "commits": 26
+    },
+    {
+      "date": "2019-10-29",
+      "additions": 9902,
+      "deletions": 4692,
+      "commits": 9
+    },
+    {
+      "date": "2019-10-30",
+      "additions": 5662,
+      "deletions": 3803,
+      "commits": 7
+    },
+    {
+      "date": "2019-10-31",
+      "additions": 363,
+      "deletions": 1,
+      "commits": 2
+    },
+    {
+      "date": "2019-11-01",
+      "additions": 4352,
+      "deletions": 5093,
+      "commits": 6
+    },
+    {
+      "date": "2019-11-02",
+      "additions": 70472,
+      "deletions": 62778,
+      "commits": 23
+    },
+    {
+      "date": "2019-11-03",
+      "additions": 35318,
+      "deletions": 31029,
+      "commits": 18
+    },
+    {
+      "date": "2019-11-04",
+      "additions": 46696,
+      "deletions": 50259,
+      "commits": 23
+    },
+    {
+      "date": "2019-11-05",
+      "additions": 1216,
+      "deletions": 943,
+      "commits": 20
+    },
+    {
+      "date": "2019-11-06",
+      "additions": 609,
+      "deletions": 225,
+      "commits": 15
+    },
+    {
+      "date": "2019-11-07",
+      "additions": 413,
+      "deletions": 4,
+      "commits": 4
+    },
+    {
+      "date": "2019-11-09",
+      "additions": 609,
+      "deletions": 42,
+      "commits": 7
+    },
+    {
+      "date": "2019-11-11",
+      "additions": 1198,
+      "deletions": 2,
+      "commits": 2
+    },
+    {
+      "date": "2019-11-12",
+      "additions": 580,
+      "deletions": 543,
+      "commits": 4
+    },
+    {
+      "date": "2019-11-13",
+      "additions": 1302,
+      "deletions": 77,
+      "commits": 6
+    },
+    {
+      "date": "2019-11-14",
+      "additions": 4180,
+      "deletions": 12,
+      "commits": 2
+    },
+    {
+      "date": "2019-11-20",
+      "additions": 265,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-11-21",
+      "additions": 454,
+      "deletions": 11,
+      "commits": 6
+    },
+    {
+      "date": "2019-11-22",
+      "additions": 114,
+      "deletions": 29,
+      "commits": 6
+    },
+    {
+      "date": "2019-11-23",
+      "additions": 396,
+      "deletions": 75,
+      "commits": 6
+    },
+    {
+      "date": "2019-11-24",
+      "additions": 232,
+      "deletions": 114,
+      "commits": 8
+    },
+    {
+      "date": "2019-11-25",
+      "additions": 12,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-11-26",
+      "additions": 5,
+      "deletions": 4,
+      "commits": 2
+    },
+    {
+      "date": "2019-11-27",
+      "additions": 163870,
+      "deletions": 1288,
+      "commits": 9
+    },
+    {
+      "date": "2019-11-29",
+      "additions": 146,
+      "deletions": 40,
+      "commits": 7
+    },
+    {
+      "date": "2019-11-30",
+      "additions": 356,
+      "deletions": 70,
+      "commits": 11
+    },
+    {
+      "date": "2019-12-01",
+      "additions": 865,
+      "deletions": 178,
+      "commits": 28
+    },
+    {
+      "date": "2019-12-05",
+      "additions": 435,
+      "deletions": 198,
+      "commits": 24
+    },
+    {
+      "date": "2019-12-07",
+      "additions": 36,
+      "deletions": 13,
+      "commits": 2
+    },
+    {
+      "date": "2019-12-08",
+      "additions": 33,
+      "deletions": 29,
+      "commits": 1
+    },
+    {
+      "date": "2019-12-12",
+      "additions": 98,
+      "deletions": 3,
+      "commits": 2
+    },
+    {
+      "date": "2019-12-13",
+      "additions": 9,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2019-12-14",
+      "additions": 159,
+      "deletions": 62,
+      "commits": 10
+    },
+    {
+      "date": "2019-12-19",
+      "additions": 13,
+      "deletions": 2,
+      "commits": 2
+    },
+    {
+      "date": "2019-12-21",
+      "additions": 585,
+      "deletions": 254,
+      "commits": 12
+    },
+    {
+      "date": "2019-12-22",
+      "additions": 766,
+      "deletions": 267,
+      "commits": 16
+    },
+    {
+      "date": "2020-02-10",
+      "additions": 68,
+      "deletions": 0,
+      "commits": 3
+    },
+    {
+      "date": "2020-02-18",
+      "additions": 477,
+      "deletions": 29,
+      "commits": 12
+    },
+    {
+      "date": "2020-02-22",
+      "additions": 259,
+      "deletions": 69,
+      "commits": 8
+    },
+    {
+      "date": "2020-02-29",
+      "additions": 17,
+      "deletions": 62,
+      "commits": 2
+    },
+    {
+      "date": "2020-03-13",
+      "additions": 35896,
+      "deletions": 2,
+      "commits": 4
+    },
+    {
+      "date": "2020-03-14",
+      "additions": 93,
+      "deletions": 24,
+      "commits": 1
+    },
+    {
+      "date": "2020-05-02",
+      "additions": 925374,
+      "deletions": 49,
+      "commits": 17
+    },
+    {
+      "date": "2020-05-21",
+      "additions": 317,
+      "deletions": 9,
+      "commits": 1
+    },
+    {
+      "date": "2020-05-22",
+      "additions": 1180,
+      "deletions": 55,
+      "commits": 1
+    },
+    {
+      "date": "2020-05-23",
+      "additions": 237,
+      "deletions": 44,
+      "commits": 4
+    },
+    {
+      "date": "2020-05-30",
+      "additions": 4323,
+      "deletions": 214,
+      "commits": 8
+    },
+    {
+      "date": "2020-06-02",
+      "additions": 2116,
+      "deletions": 15,
+      "commits": 1
+    },
+    {
+      "date": "2020-06-07",
+      "additions": 9051,
+      "deletions": 191,
+      "commits": 2
+    },
+    {
+      "date": "2020-06-20",
+      "additions": 1158548,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2020-06-24",
+      "additions": 902755,
+      "deletions": 273815,
+      "commits": 2
+    },
+    {
+      "date": "2020-09-21",
+      "additions": 176290,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2020-09-22",
+      "additions": 430,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2020-09-30",
+      "additions": 328,
+      "deletions": 38,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-02",
+      "additions": 492,
+      "deletions": 6,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-04",
+      "additions": 718,
+      "deletions": 30,
+      "commits": 4
+    },
+    {
+      "date": "2020-10-05",
+      "additions": 127,
+      "deletions": 6,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-09",
+      "additions": 397,
+      "deletions": 4,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-11",
+      "additions": 79,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2020-10-17",
+      "additions": 253,
+      "deletions": 5,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-20",
+      "additions": 37,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2020-10-21",
+      "additions": 558,
+      "deletions": 290,
+      "commits": 16
+    },
+    {
+      "date": "2020-10-22",
+      "additions": 759,
+      "deletions": 752,
+      "commits": 14
+    },
+    {
+      "date": "2020-10-25",
+      "additions": 53,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2020-10-26",
+      "additions": 2021,
+      "deletions": 20,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-27",
+      "additions": 149,
+      "deletions": 3,
+      "commits": 1
+    },
+    {
+      "date": "2020-10-29",
+      "additions": 22834,
+      "deletions": 4,
+      "commits": 1
+    },
+    {
+      "date": "2020-10-30",
+      "additions": 243,
+      "deletions": 14,
+      "commits": 2
+    },
+    {
+      "date": "2020-10-31",
+      "additions": 166,
+      "deletions": 45,
+      "commits": 1
+    },
+    {
+      "date": "2020-11-02",
+      "additions": 192,
+      "deletions": 154,
+      "commits": 1
+    },
+    {
+      "date": "2020-11-04",
+      "additions": 68,
+      "deletions": 17,
+      "commits": 1
+    },
+    {
+      "date": "2020-11-06",
+      "additions": 59,
+      "deletions": 2518,
+      "commits": 3
+    },
+    {
+      "date": "2020-11-07",
+      "additions": 39725,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2020-11-09",
+      "additions": 345,
+      "deletions": 197,
+      "commits": 2
+    },
+    {
+      "date": "2020-11-10",
+      "additions": 455,
+      "deletions": 342,
+      "commits": 7
+    },
+    {
+      "date": "2020-11-11",
+      "additions": 604,
+      "deletions": 584,
+      "commits": 18
+    },
+    {
+      "date": "2020-11-12",
+      "additions": 1,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2020-11-17",
+      "additions": 172,
+      "deletions": 14,
+      "commits": 4
+    },
+    {
+      "date": "2020-11-19",
+      "additions": 1259,
+      "deletions": 2614,
+      "commits": 2
+    },
+    {
+      "date": "2020-11-20",
+      "additions": 383,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2020-11-25",
+      "additions": 445,
+      "deletions": 218,
+      "commits": 2
+    },
+    {
+      "date": "2020-11-27",
+      "additions": 249,
+      "deletions": 123,
+      "commits": 3
+    },
+    {
+      "date": "2020-11-28",
+      "additions": 18,
+      "deletions": 9,
+      "commits": 2
+    },
+    {
+      "date": "2020-11-30",
+      "additions": 30,
+      "deletions": 2,
+      "commits": 2
+    },
+    {
+      "date": "2020-12-04",
+      "additions": 473,
+      "deletions": 100,
+      "commits": 1
+    },
+    {
+      "date": "2020-12-07",
+      "additions": 353,
+      "deletions": 6,
+      "commits": 2
+    },
+    {
+      "date": "2020-12-09",
+      "additions": 146,
+      "deletions": 74,
+      "commits": 6
+    },
+    {
+      "date": "2020-12-10",
+      "additions": 203,
+      "deletions": 20393,
+      "commits": 9
+    },
+    {
+      "date": "2021-01-13",
+      "additions": 4,
+      "deletions": 16,
+      "commits": 2
+    },
+    {
+      "date": "2021-02-15",
+      "additions": 398,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2021-02-16",
+      "additions": 4011,
+      "deletions": 132,
+      "commits": 6
+    },
+    {
+      "date": "2021-02-17",
+      "additions": 157,
+      "deletions": 16,
+      "commits": 5
+    },
+    {
+      "date": "2021-02-20",
+      "additions": 1761,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2021-02-22",
+      "additions": 89,
+      "deletions": 1,
+      "commits": 2
+    },
+    {
+      "date": "2021-02-23",
+      "additions": 1652,
+      "deletions": 2,
+      "commits": 4
+    },
+    {
+      "date": "2021-03-06",
+      "additions": 1623737,
+      "deletions": 54,
+      "commits": 5
+    },
+    {
+      "date": "2021-03-16",
+      "additions": 2496,
+      "deletions": 132,
+      "commits": 5
+    },
+    {
+      "date": "2021-03-17",
+      "additions": 449,
+      "deletions": 3,
+      "commits": 2
+    },
+    {
+      "date": "2021-04-01",
+      "additions": 2739631,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2021-04-11",
+      "additions": 564,
+      "deletions": 10,
+      "commits": 4
+    },
+    {
+      "date": "2022-07-05",
+      "additions": 21,
+      "deletions": 21,
+      "commits": 2
+    },
+    {
+      "date": "2022-11-23",
+      "additions": 22159,
+      "deletions": 532,
+      "commits": 13
+    },
+    {
+      "date": "2022-11-25",
+      "additions": 957650,
+      "deletions": 12,
+      "commits": 9
+    },
+    {
+      "date": "2022-11-26",
+      "additions": 3,
+      "deletions": 3,
+      "commits": 1
+    },
+    {
+      "date": "2022-12-02",
+      "additions": 2707,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2022-12-10",
+      "additions": 3,
+      "deletions": 3,
+      "commits": 1
+    },
+    {
+      "date": "2023-01-04",
+      "additions": 6420,
+      "deletions": 3095,
+      "commits": 11
+    },
+    {
+      "date": "2023-01-05",
+      "additions": 72,
+      "deletions": 83,
+      "commits": 12
+    },
+    {
+      "date": "2023-01-06",
+      "additions": 1,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2023-01-10",
+      "additions": 1,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2023-01-26",
+      "additions": 40,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2023-01-27",
+      "additions": 155,
+      "deletions": 58,
+      "commits": 5
+    },
+    {
+      "date": "2023-01-28",
+      "additions": 168,
+      "deletions": 59,
+      "commits": 2
+    },
+    {
+      "date": "2023-01-29",
+      "additions": 141,
+      "deletions": 102,
+      "commits": 2
+    },
+    {
+      "date": "2023-01-30",
+      "additions": 2585,
+      "deletions": 1,
+      "commits": 3
+    },
+    {
+      "date": "2023-02-04",
+      "additions": 2,
+      "deletions": 2,
+      "commits": 2
+    },
+    {
+      "date": "2023-03-04",
+      "additions": 10447,
+      "deletions": 133,
+      "commits": 6
+    },
+    {
+      "date": "2023-03-17",
+      "additions": 392,
+      "deletions": 288,
+      "commits": 3
+    },
+    {
+      "date": "2023-03-18",
+      "additions": 366,
+      "deletions": 19,
+      "commits": 5
+    },
+    {
+      "date": "2023-04-04",
+      "additions": 1699,
+      "deletions": 0,
+      "commits": 3
+    },
+    {
+      "date": "2023-04-15",
+      "additions": 124,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2023-04-16",
+      "additions": 4500,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2023-05-01",
+      "additions": 2119,
+      "deletions": 0,
+      "commits": 2
+    },
+    {
+      "date": "2023-05-08",
+      "additions": 381,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2023-10-25",
+      "additions": 4,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2023-10-27",
+      "additions": 2245,
+      "deletions": 2,
+      "commits": 2
+    },
+    {
+      "date": "2023-10-28",
+      "additions": 1382,
+      "deletions": 82,
+      "commits": 6
+    },
+    {
+      "date": "2023-10-29",
+      "additions": 560,
+      "deletions": 99,
+      "commits": 11
+    },
+    {
+      "date": "2023-10-30",
+      "additions": 4,
+      "deletions": 2,
+      "commits": 1
+    },
+    {
+      "date": "2023-11-01",
+      "additions": 1140,
+      "deletions": 403,
+      "commits": 10
+    },
+    {
+      "date": "2023-11-02",
+      "additions": 287,
+      "deletions": 76,
+      "commits": 3
+    },
+    {
+      "date": "2023-11-03",
+      "additions": 1524,
+      "deletions": 509,
+      "commits": 7
+    },
+    {
+      "date": "2023-11-04",
+      "additions": 824,
+      "deletions": 383,
+      "commits": 8
+    },
+    {
+      "date": "2023-11-05",
+      "additions": 2682697,
+      "deletions": 2680941,
+      "commits": 14
+    },
+    {
+      "date": "2023-11-07",
+      "additions": 532,
+      "deletions": 129,
+      "commits": 8
+    },
+    {
+      "date": "2023-11-17",
+      "additions": 1923,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2023-11-18",
+      "additions": 4759,
+      "deletions": 414,
+      "commits": 3
+    },
+    {
+      "date": "2023-11-19",
+      "additions": 3630,
+      "deletions": 455,
+      "commits": 3
+    },
+    {
+      "date": "2023-11-20",
+      "additions": 573,
+      "deletions": 322,
+      "commits": 10
+    },
+    {
+      "date": "2023-11-21",
+      "additions": 240,
+      "deletions": 28,
+      "commits": 4
+    },
+    {
+      "date": "2023-11-22",
+      "additions": 299,
+      "deletions": 33,
+      "commits": 7
+    },
+    {
+      "date": "2023-11-23",
+      "additions": 316,
+      "deletions": 42,
+      "commits": 2
+    },
+    {
+      "date": "2023-11-24",
+      "additions": 3597,
+      "deletions": 475,
+      "commits": 6
+    },
+    {
+      "date": "2023-11-29",
+      "additions": 2752,
+      "deletions": 933,
+      "commits": 10
+    },
+    {
+      "date": "2023-11-30",
+      "additions": 2582,
+      "deletions": 74,
+      "commits": 1
+    },
+    {
+      "date": "2023-12-01",
+      "additions": 7512,
+      "deletions": 3905,
+      "commits": 10
+    },
+    {
+      "date": "2024-04-13",
+      "additions": 5,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2024-07-30",
+      "additions": 3923,
+      "deletions": 1239,
+      "commits": 1
+    },
+    {
+      "date": "2024-08-05",
+      "additions": 47106,
+      "deletions": 65,
+      "commits": 2
+    },
+    {
+      "date": "2024-12-15",
+      "additions": 224,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2024-12-17",
+      "additions": 876,
+      "deletions": 18,
+      "commits": 7
+    },
+    {
+      "date": "2024-12-18",
+      "additions": 29,
+      "deletions": 43,
+      "commits": 4
+    },
+    {
+      "date": "2025-01-06",
+      "additions": 5889,
+      "deletions": 0,
+      "commits": 3
+    },
+    {
+      "date": "2025-01-07",
+      "additions": 848,
+      "deletions": 665,
+      "commits": 1
+    },
+    {
+      "date": "2025-01-08",
+      "additions": 156,
+      "deletions": 9,
+      "commits": 1
+    },
+    {
+      "date": "2025-01-09",
+      "additions": 1803,
+      "deletions": 790,
+      "commits": 4
+    },
+    {
+      "date": "2025-01-17",
+      "additions": 1121,
+      "deletions": 825,
+      "commits": 2
+    },
+    {
+      "date": "2025-01-18",
+      "additions": 1028,
+      "deletions": 169,
+      "commits": 4
+    },
+    {
+      "date": "2025-03-03",
+      "additions": 2,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2025-03-04",
+      "additions": 2966,
+      "deletions": 5,
+      "commits": 2
+    },
+    {
+      "date": "2025-09-10",
+      "additions": 7311,
+      "deletions": 529,
+      "commits": 4
+    },
+    {
+      "date": "2025-09-11",
+      "additions": 509,
+      "deletions": 141,
+      "commits": 4
+    },
+    {
+      "date": "2025-09-12",
+      "additions": 180,
+      "deletions": 380,
+      "commits": 4
+    },
+    {
+      "date": "2025-09-14",
+      "additions": 29,
+      "deletions": 12,
+      "commits": 2
+    },
+    {
+      "date": "2025-09-15",
+      "additions": 62,
+      "deletions": 23,
+      "commits": 6
+    },
+    {
+      "date": "2025-09-19",
+      "additions": 67,
+      "deletions": 28,
+      "commits": 2
+    },
+    {
+      "date": "2025-09-20",
+      "additions": 992,
+      "deletions": 178,
+      "commits": 9
+    },
+    {
+      "date": "2025-09-21",
+      "additions": 2124,
+      "deletions": 177,
+      "commits": 10
+    },
+    {
+      "date": "2025-09-24",
+      "additions": 2,
+      "deletions": 20,
+      "commits": 1
+    },
+    {
+      "date": "2025-10-03",
+      "additions": 1,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2025-10-12",
+      "additions": 58,
+      "deletions": 78,
+      "commits": 2
+    },
+    {
+      "date": "2025-11-14",
+      "additions": 6962,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-02",
+      "additions": 2576,
+      "deletions": 1,
+      "commits": 2
+    },
+    {
+      "date": "2025-12-05",
+      "additions": 4226,
+      "deletions": 236,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-06",
+      "additions": 7310,
+      "deletions": 851,
+      "commits": 8
+    },
+    {
+      "date": "2025-12-07",
+      "additions": 2,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-10",
+      "additions": 7783,
+      "deletions": 1002,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-12",
+      "additions": 0,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-17",
+      "additions": 97,
+      "deletions": 1,
+      "commits": 1
+    },
+    {
+      "date": "2025-12-24",
+      "additions": 572,
+      "deletions": 18,
+      "commits": 2
+    },
+    {
+      "date": "2026-01-08",
+      "additions": 13,
+      "deletions": 11,
+      "commits": 2
+    },
+    {
+      "date": "2026-01-30",
+      "additions": 1526,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2026-03-02",
+      "additions": 109,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2026-03-03",
+      "additions": 2774,
+      "deletions": 14,
+      "commits": 1
+    },
+    {
+      "date": "2026-03-06",
+      "additions": 4700,
+      "deletions": 3013,
+      "commits": 4
+    },
+    {
+      "date": "2026-03-08",
+      "additions": 1013,
+      "deletions": 217,
+      "commits": 1
+    },
+    {
+      "date": "2026-04-04",
+      "additions": 422,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2026-04-06",
+      "additions": 7163,
+      "deletions": 4,
+      "commits": 1
+    },
+    {
+      "date": "2026-04-24",
+      "additions": 4789,
+      "deletions": 0,
+      "commits": 1
+    },
+    {
+      "date": "2026-04-30",
+      "additions": 30895,
+      "deletions": 2896,
+      "commits": 4
+    },
+    {
+      "date": "2026-05-01",
+      "additions": 2416,
+      "deletions": 214,
+      "commits": 4
+    },
+    {
+      "date": "2026-05-02",
+      "additions": 90,
+      "deletions": 8,
+      "commits": 1
+    },
+    {
+      "date": "2026-05-05",
+      "additions": 1048,
+      "deletions": 77,
+      "commits": 1
+    },
+    {
+      "date": "2026-05-09",
+      "additions": 3,
+      "deletions": 3,
+      "commits": 1
+    },
+    {
+      "date": "2026-06-01",
+      "additions": 3754,
+      "deletions": 377,
+      "commits": 3
+    },
+    {
+      "date": "2026-06-02",
+      "additions": 403,
+      "deletions": 43,
+      "commits": 3
+    },
+    {
+      "date": "2026-06-08",
+      "additions": 182,
+      "deletions": 136,
+      "commits": 1
+    },
+    {
+      "date": "2026-06-16",
+      "additions": 30410,
+      "deletions": 7245,
+      "commits": 12
+    },
+    {
+      "date": "2026-07-14",
+      "additions": 59192,
+      "deletions": 21051,
+      "commits": 9
+    },
+    {
+      "date": "2026-07-15",
+      "additions": 33621,
+      "deletions": 19444,
+      "commits": 20
+    },
+    {
+      "date": "2026-07-16",
+      "additions": 80703,
+      "deletions": 47762,
+      "commits": 20
+    },
+    {
+      "date": "2026-07-17",
+      "additions": 55492,
+      "deletions": 24212,
+      "commits": 14
+    },
+    {
+      "date": "2026-07-18",
+      "additions": 21082,
+      "deletions": 2182,
+      "commits": 7
+    },
+    {
+      "date": "2026-07-19",
+      "additions": 11242,
+      "deletions": 4985,
+      "commits": 15
+    },
+    {
+      "date": "2026-07-20",
+      "additions": 40339,
+      "deletions": 10568,
+      "commits": 12
+    },
+    {
+      "date": "2026-07-21",
+      "additions": 14278,
+      "deletions": 9862,
+      "commits": 11
+    },
+    {
+      "date": "2026-07-22",
+      "additions": 28798,
+      "deletions": 8418,
+      "commits": 10
+    },
+    {
+      "date": "2026-07-23",
+      "additions": 15689,
+      "deletions": 6758,
+      "commits": 10
+    },
+    {
+      "date": "2026-07-24",
+      "additions": 6432,
+      "deletions": 1645,
+      "commits": 10
+    },
+    {
+      "date": "2026-07-26",
+      "additions": 5358,
+      "deletions": 1027,
+      "commits": 5
+    },
+    {
+      "date": "2026-07-27",
+      "additions": 4444,
+      "deletions": 3239,
+      "commits": 4
+    },
+    {
+      "date": "2026-07-28",
+      "additions": 22100,
+      "deletions": 996,
+      "commits": 8
+    },
+    {
+      "date": "2026-07-29",
+      "additions": 3920,
+      "deletions": 367,
+      "commits": 3
+    },
+    {
+      "date": "2026-07-30",
+      "additions": 7013,
+      "deletions": 3561,
+      "commits": 27
+    },
+    {
+      "date": "2026-07-31",
+      "additions": 19332,
+      "deletions": 521,
+      "commits": 4
+    },
+    {
+      "date": "2026-08-02",
+      "additions": 5,
+      "deletions": 5,
+      "commits": 1
+    },
+    {
+      "date": "2026-08-04",
+      "additions": 5776,
+      "deletions": 1778,
+      "commits": 10
+    },
+    {
+      "date": "2026-08-06",
+      "additions": 25293,
+      "deletions": 3900,
+      "commits": 6
+    },
+    {
+      "date": "2026-08-08",
+      "additions": 16616,
+      "deletions": 8871,
+      "commits": 27
+    },
+    {
+      "date": "2026-08-09",
+      "additions": 25038,
+      "deletions": 9400,
+      "commits": 25
+    },
+    {
+      "date": "2026-08-10",
+      "additions": 43955,
+      "deletions": 24471,
+      "commits": 52
+    },
+    {
+      "date": "2026-08-11",
+      "additions": 14949,
+      "deletions": 6350,
+      "commits": 22
+    },
+    {
+      "date": "2026-08-12",
+      "additions": 47991,
+      "deletions": 4345,
+      "commits": 95
+    }
+  ]
+}
