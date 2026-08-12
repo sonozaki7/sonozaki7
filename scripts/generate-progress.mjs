@@ -157,6 +157,266 @@ export function classifyCommitChange(commit) {
   };
 }
 
+function monthStart(dateString, offset = 0) {
+  const date = new Date(`${dateString.slice(0, 7)}-01T12:00:00Z`);
+  date.setUTCMonth(date.getUTCMonth() + offset);
+  return date.toISOString().slice(0, 10);
+}
+
+function weekStart(dateString) {
+  const date = new Date(`${dateString}T12:00:00Z`);
+  const mondayOffset = (date.getUTCDay() + 6) % 7;
+  date.setUTCDate(date.getUTCDate() - mondayOffset);
+  return date.toISOString().slice(0, 10);
+}
+
+function periodTotals(dates, contributionsByDate, codeByDate) {
+  const days = dates.map((date) => {
+    const code = codeByDate.get(date) || {};
+    return {
+      date,
+      contributions: contributionsByDate.get(date) || 0,
+      commits: code.commits || 0,
+      additions: code.additions || 0,
+      deletions: code.deletions || 0,
+      bulkCommitsExcluded: code.bulkCommitsExcluded || 0,
+    };
+  });
+  const additions = sumBy(days, "additions");
+  const deletions = sumBy(days, "deletions");
+  return {
+    contributions: sumBy(days, "contributions"),
+    commits: sumBy(days, "commits"),
+    buildDays: days.filter((day) => day.commits > 0).length,
+    contributionDays: days.filter((day) => day.contributions > 0).length,
+    additions,
+    deletions,
+    changed: additions + deletions,
+    net: additions - deletions,
+    bulkCommitsExcluded: sumBy(days, "bulkCommitsExcluded"),
+  };
+}
+
+export function buildCadenceData({ calendarDays, codeDaily, today }) {
+  const contributionsByDate = new Map(calendarDays.map((day) => [day.date, day.count]));
+  const codeByDate = new Map(codeDaily.map((day) => [day.date, day]));
+  const daily = dateRange(14, today).map((date) => ({
+    key: date,
+    label: date.slice(5),
+    start: date,
+    end: date,
+    daysElapsed: 1,
+    ...periodTotals([date], contributionsByDate, codeByDate),
+  }));
+  const currentWeekStart = weekStart(today);
+  const weekly = Array.from({ length: 12 }, (_, index) => {
+    const start = shiftDate(currentWeekStart, (index - 11) * 7);
+    const end = [shiftDate(start, 6), today].sort()[0];
+    const dates = dateRange(Math.round((new Date(`${end}T12:00:00Z`) - new Date(`${start}T12:00:00Z`)) / 86_400_000) + 1, end);
+    return {
+      key: start,
+      label: start.slice(5),
+      start,
+      end,
+      daysElapsed: dates.length,
+      ...periodTotals(dates, contributionsByDate, codeByDate),
+    };
+  });
+  const currentMonthStart = monthStart(today);
+  const monthly = Array.from({ length: 12 }, (_, index) => {
+    const start = monthStart(currentMonthStart, index - 11);
+    const naturalEnd = shiftDate(monthStart(start, 1), -1);
+    const end = [naturalEnd, today].sort()[0];
+    const dates = dateRange(Math.round((new Date(`${end}T12:00:00Z`) - new Date(`${start}T12:00:00Z`)) / 86_400_000) + 1, end);
+    return {
+      key: start.slice(0, 7),
+      label: start.slice(0, 7),
+      start,
+      end,
+      daysElapsed: dates.length,
+      ...periodTotals(dates, contributionsByDate, codeByDate),
+    };
+  });
+  return {
+    generatedAt: today,
+    timezone: TIMEZONE,
+    privacy: "Aggregate period totals only; repository identities are not stored.",
+    daily,
+    weekly,
+    monthly,
+  };
+}
+
+export function buildYearlyCadence(history) {
+  return history.yearly.map((year) => ({
+    key: String(year.year),
+    label: String(year.year),
+    start: `${year.year}-01-01`,
+    end: year.year === Number(history.generatedAt.slice(0, 4)) ? history.generatedAt : `${year.year}-12-31`,
+    daysElapsed: year.year === Number(history.generatedAt.slice(0, 4))
+      ? Math.round((new Date(`${history.generatedAt}T12:00:00Z`) - new Date(`${year.year}-01-01T12:00:00Z`)) / 86_400_000) + 1
+      : 365 + (new Date(`${year.year}-02-29T12:00:00Z`).getUTCDate() === 29 ? 1 : 0),
+    contributions: year.contributions || 0,
+    contributionDays: year.activeDays || 0,
+    commits: year.commits || 0,
+    buildDays: year.buildDays || 0,
+    additions: year.additions || 0,
+    deletions: year.deletions || 0,
+    changed: year.changed || 0,
+    net: year.net || 0,
+    bulkCommitsExcluded: year.bulkCommitsExcluded || 0,
+  }));
+}
+
+function cadenceTotals(periods) {
+  return {
+    contributions: sumBy(periods, "contributions"),
+    commits: sumBy(periods, "commits"),
+    buildDays: sumBy(periods, "buildDays"),
+    additions: sumBy(periods, "additions"),
+    deletions: sumBy(periods, "deletions"),
+    changed: sumBy(periods, "changed"),
+    net: sumBy(periods, "net"),
+  };
+}
+
+function cadenceMetricRows(kind) {
+  return kind === "daily"
+    ? [
+        { key: "contributions", label: "CONTRIBUTIONS" },
+        { key: "commits", label: "UNIQUE COMMITS" },
+        { key: "changed", label: "FOCUSED LINES" },
+        { key: "net", label: "NET LINES", signed: true },
+      ]
+    : [
+        { key: "contributions", label: "CONTRIBUTIONS" },
+        { key: "commits", label: "UNIQUE COMMITS" },
+        { key: "buildDays", label: "BUILD DAYS" },
+        { key: "changed", label: "FOCUSED LINES" },
+      ];
+}
+
+function exact(value, signedValue = false) {
+  if (value === 0) return "0";
+  if (signedValue && value !== 0) return `${value > 0 ? "+" : "−"}${Math.abs(value).toLocaleString("en")}`;
+  return value.toLocaleString("en");
+}
+
+export function renderCadenceSvg(cadence, kind) {
+  const periods = cadence[kind];
+  const totals = cadenceTotals(periods);
+  const rows = cadenceMetricRows(kind);
+  const title = kind === "daily" ? "Day-by-day, every number" : kind === "weekly" ? "Twelve weeks of shipping" : kind === "monthly" ? "Twelve months of momentum" : "Every year, exact totals";
+  const eyebrow = `${kind.toUpperCase()} PROGRESS LEDGER`;
+  const subtitle = kind === "daily" ? "Last 14 days · exact aggregate values" : kind === "weekly" ? "Monday-based weeks · the current week is still in progress" : kind === "monthly" ? "Calendar months · the current month is still in progress" : "Account lifetime · the current year is still in progress";
+  const chartX = 184;
+  const chartWidth = 956;
+  const columnWidth = chartWidth / periods.length;
+  const chartTop = 260;
+  const chartBottom = 440;
+  const maxContributions = Math.max(1, ...periods.map((period) => period.contributions));
+  const columns = periods.map((period, index) => {
+    const center = chartX + columnWidth * index + columnWidth / 2;
+    const barWidth = Math.min(44, columnWidth - 16);
+    const height = period.contributions ? Math.max(5, Math.round((period.contributions / maxContributions) * (chartBottom - chartTop))) : 2;
+    const x = center - barWidth / 2;
+    const y = chartBottom - height;
+    return `<g>
+      <rect x="${x.toFixed(1)}" y="${y}" width="${barWidth.toFixed(1)}" height="${height}" rx="2" fill="${period.contributions === maxContributions ? THEME.accent : THEME.accentLow}"/>
+      <text x="${center.toFixed(1)}" y="${Math.max(chartTop - 8, y - 8)}" text-anchor="middle" class="cadence-bar-value">${exact(period.contributions)}</text>
+      <text x="${center.toFixed(1)}" y="466" text-anchor="middle" class="cadence-axis">${escapeXml(period.label)}</text>
+    </g>`;
+  }).join("");
+  const ledger = rows.map((row, rowIndex) => {
+    const y = 512 + rowIndex * 48;
+    const values = periods.map((period, index) => {
+      const center = chartX + columnWidth * index + columnWidth / 2;
+      return `<text x="${center.toFixed(1)}" y="${y}" text-anchor="middle" class="cadence-cell"><title>${period.start}${period.end === period.start ? "" : ` to ${period.end}`} · ${row.label.toLowerCase()}: ${exact(period[row.key], row.signed)}</title>${exact(period[row.key], row.signed)}</text>`;
+    }).join("");
+    return `<text x="52" y="${y}" class="cadence-row-label">${row.label}</text>${values}<line x1="52" y1="${y + 14}" x2="1140" y2="${y + 14}" stroke="${THEME.faint}"/>`;
+  }).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(title)}</title>
+  <desc id="desc">${escapeXml(subtitle)}. Exact aggregate contributions, unique commits, build days, and focused code movement without repository identities.</desc>
+  <defs><linearGradient id="cadence-bg-${kind}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .cadence-eyebrow,.cadence-row-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.7px; fill: ${THEME.accent}; }
+      .cadence-eyebrow { font-size: 12px; }.cadence-row-label { font-size: 11px; fill: ${THEME.muted}; }
+      .cadence-title { font-family: Georgia, "Times New Roman", serif; font-size: 39px; font-weight: 700; letter-spacing: -1px; }
+      .cadence-subtitle { font-size: 14px; fill: ${THEME.muted}; }
+      .cadence-total { font-size: 25px; font-weight: 750; }.cadence-total-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; fill: ${THEME.muted}; letter-spacing: .8px; }
+      .cadence-axis { font-size: 10px; fill: ${THEME.dim}; }.cadence-bar-value { font-size: 11px; font-weight: 650; }.cadence-cell { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+      .cadence-footer { font-size: 11px; fill: ${THEME.dim}; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1198" height="748" rx="10" fill="url(#cadence-bg-${kind})" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
+  <text x="52" y="62" class="cadence-eyebrow">${eyebrow}</text>
+  <text x="52" y="103" class="cadence-title">${escapeXml(title)}</text>
+  <text x="52" y="130" class="cadence-subtitle">${escapeXml(subtitle)}</text>
+  <g transform="translate(52 166)"><text class="cadence-total">${exact(totals.contributions)}</text><text y="21" class="cadence-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(288 166)"><text class="cadence-total">${exact(totals.commits)}</text><text y="21" class="cadence-total-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(524 166)"><text class="cadence-total">${exact(totals.buildDays)}</text><text y="21" class="cadence-total-label">BUILD DAYS</text></g>
+  <g transform="translate(760 166)"><text class="cadence-total">${exact(totals.changed)}</text><text y="21" class="cadence-total-label">FOCUSED LINES</text></g>
+  <g transform="translate(996 166)"><text class="cadence-total">${exact(totals.net, true)}</text><text y="21" class="cadence-total-label">NET LINES</text></g>
+  <text x="52" y="232" class="cadence-row-label">CONTRIBUTIONS</text>
+  <line x1="184" y1="440" x2="1140" y2="440" stroke="${THEME.border}"/>
+  ${columns}
+  ${ledger}
+  <text x="52" y="724" class="cadence-footer">Exact aggregate values · focused lines exclude 100k+ line imports · private repository identities are never stored</text>
+</svg>`;
+}
+
+export function renderMobileCadenceSvg(cadence, kind) {
+  const periods = cadence[kind];
+  const totals = cadenceTotals(periods);
+  const title = kind === "daily" ? "Daily detail" : kind === "weekly" ? "Weekly detail" : kind === "monthly" ? "Monthly detail" : "Yearly detail";
+  const rowHeight = 94;
+  const headerHeight = 194;
+  const height = headerHeight + periods.length * rowHeight + 40;
+  const rows = periods.map((period, index) => {
+    const y = headerHeight + index * rowHeight;
+    return `<g>
+      <rect x="20" y="${y}" width="335" height="84" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
+      <text x="32" y="${y + 25}" class="mc-period">${escapeXml(period.label)}</text>
+      <text x="32" y="${y + 45}" class="mc-range">${period.start}${period.end === period.start ? "" : ` → ${period.end}`}</text>
+      <text x="32" y="${y + 68}" class="mc-range">${period.contributionDays} contribution days</text>
+      <g transform="translate(126 ${y + 21})"><text class="mc-value">${exact(period.contributions)}</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 ${y + 21})"><text class="mc-value">${exact(period.commits)}</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 ${y + 21})"><text class="mc-value">${exact(period.buildDays)}</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 ${y + 60})"><text class="mc-value">${exact(period.changed)}</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 ${y + 60})"><text class="mc-value">${exact(period.additions, true)}</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 ${y + 60})"><text class="mc-value">${exact(-period.deletions, true)}</text><text y="17" class="mc-label">REMOVED</text></g>
+    </g>`;
+  }).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="${height}" viewBox="0 0 375 ${height}" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(title)}</title>
+  <desc id="desc">Exact aggregate period values for contributions, unique commits, and focused lines without repository identities.</desc>
+  <defs><linearGradient id="mc-bg-${kind}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .mc-eyebrow,.mc-period { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.2px; fill: ${THEME.accent}; }.mc-eyebrow { font-size: 10px; }.mc-period { font-size: 10px; }
+      .mc-title { font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 700; }.mc-subtitle,.mc-range,.mc-footer { font-size: 8px; fill: ${THEME.muted}; }
+      .mc-total { font-size: 18px; font-weight: 750; }.mc-total-label,.mc-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 7px; fill: ${THEME.muted}; letter-spacing: .4px; }
+      .mc-value { font-size: 11px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="373" height="${height - 2}" rx="8" fill="url(#mc-bg-${kind})" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
+  <text x="20" y="44" class="mc-eyebrow">${kind.toUpperCase()} PROGRESS LEDGER</text>
+  <text x="20" y="76" class="mc-title">${escapeXml(title)}</text>
+  <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
+  <g transform="translate(20 124)"><text class="mc-total">${exact(totals.contributions)}</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(132 124)"><text class="mc-total">${exact(totals.commits)}</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(244 124)"><text class="mc-total">${exact(totals.changed)}</text><text y="18" class="mc-total-label">FOCUSED LINES</text></g>
+  ${rows}
+  <text x="20" y="${height - 16}" class="mc-footer">Private repository identities are never stored</text>
+</svg>`;
+}
+
 function chartPanel({ x, y, width, height, title, values, years, color, format = compact, signedValues = false, summary = "sum" }) {
   const chartLeft = x + 22;
   const chartTop = y + 48;
@@ -497,7 +757,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.1.0",
+      "User-Agent": "founder-progress-tracker/1.2.0",
       ...options.headers,
     },
   });
@@ -824,8 +1084,18 @@ async function main() {
     repositoriesSkipped: codeResult.repositoriesSkipped,
   };
   const stats = computeStats({ ...contributions, code: recentCode, today });
+  const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, today });
+  cadence.yearly = buildYearlyCadence(history);
   const svg = renderSvg(stats);
   const mobileSvg = renderMobileSvg(stats);
+  const dailySvg = renderCadenceSvg(cadence, "daily");
+  const mobileDailySvg = renderMobileCadenceSvg(cadence, "daily");
+  const weeklySvg = renderCadenceSvg(cadence, "weekly");
+  const mobileWeeklySvg = renderMobileCadenceSvg(cadence, "weekly");
+  const monthlySvg = renderCadenceSvg(cadence, "monthly");
+  const mobileMonthlySvg = renderMobileCadenceSvg(cadence, "monthly");
+  const yearlySvg = renderCadenceSvg(cadence, "yearly");
+  const mobileYearlySvg = renderMobileCadenceSvg(cadence, "yearly");
   const lifetimeSvg = renderLifetimeSvg(history);
   const mobileLifetimeSvg = renderMobileLifetimeSvg(history);
   await fs.mkdir(path.join(root, "assets"), { recursive: true });
@@ -834,14 +1104,23 @@ async function main() {
     fs.writeFile(path.join(root, "assets", "founder-progress.svg"), svg),
     fs.writeFile(path.join(root, "assets", "founder-progress-mobile.svg"), mobileSvg),
     sharp(Buffer.from(svg)).png().toFile(path.join(root, "assets", "founder-progress.png")),
+    fs.writeFile(path.join(root, "assets", "founder-daily.svg"), dailySvg),
+    fs.writeFile(path.join(root, "assets", "founder-daily-mobile.svg"), mobileDailySvg),
+    fs.writeFile(path.join(root, "assets", "founder-weekly.svg"), weeklySvg),
+    fs.writeFile(path.join(root, "assets", "founder-weekly-mobile.svg"), mobileWeeklySvg),
+    fs.writeFile(path.join(root, "assets", "founder-monthly.svg"), monthlySvg),
+    fs.writeFile(path.join(root, "assets", "founder-monthly-mobile.svg"), mobileMonthlySvg),
+    fs.writeFile(path.join(root, "assets", "founder-yearly.svg"), yearlySvg),
+    fs.writeFile(path.join(root, "assets", "founder-yearly-mobile.svg"), mobileYearlySvg),
     fs.writeFile(path.join(root, "assets", "founder-lifetime.svg"), lifetimeSvg),
     fs.writeFile(path.join(root, "assets", "founder-lifetime-mobile.svg"), mobileLifetimeSvg),
     sharp(Buffer.from(lifetimeSvg)).png().toFile(path.join(root, "assets", "founder-lifetime.png")),
     fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats)),
     fs.writeFile(path.join(root, "metrics", "latest.json"), `${JSON.stringify(stats, null, 2)}\n`),
+    fs.writeFile(path.join(root, "metrics", "cadence.json"), `${JSON.stringify(cadence, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "history.json"), `${JSON.stringify(history, null, 2)}\n`),
   ]);
-  console.log(`Generated privacy-safe 30-day and lifetime progress assets through ${stats.period.end}.`);
+  console.log(`Generated privacy-safe daily, weekly, monthly, and lifetime progress assets through ${stats.period.end}.`);
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

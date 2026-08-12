@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Twelve weeks of shipping</title>
+  <desc id="desc">Monday-based weeks · the current week is still in progress. Exact aggregate contributions, unique commits, build days, and focused code movement without repository identities.</desc>
+  <defs><linearGradient id="cadence-bg-weekly" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #181915; }
+      .cadence-eyebrow,.cadence-row-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.7px; fill: #355F78; }
+      .cadence-eyebrow { font-size: 12px; }.cadence-row-label { font-size: 11px; fill: #68757C; }
+      .cadence-title { font-family: Georgia, "Times New Roman", serif; font-size: 39px; font-weight: 700; letter-spacing: -1px; }
+      .cadence-subtitle { font-size: 14px; fill: #68757C; }
+      .cadence-total { font-size: 25px; font-weight: 750; }.cadence-total-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; fill: #68757C; letter-spacing: .8px; }
+      .cadence-axis { font-size: 10px; fill: #98A3A9; }.cadence-bar-value { font-size: 11px; font-weight: 650; }.cadence-cell { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+      .cadence-footer { font-size: 11px; fill: #98A3A9; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1198" height="748" rx="10" fill="url(#cadence-bg-weekly)" stroke="#DCE3E7" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="#355F78"/>
+  <text x="52" y="62" class="cadence-eyebrow">WEEKLY PROGRESS LEDGER</text>
+  <text x="52" y="103" class="cadence-title">Twelve weeks of shipping</text>
+  <text x="52" y="130" class="cadence-subtitle">Monday-based weeks · the current week is still in progress</text>
+  <g transform="translate(52 166)"><text class="cadence-total">512</text><text y="21" class="cadence-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(288 166)"><text class="cadence-total">497</text><text y="21" class="cadence-total-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(524 166)"><text class="cadence-total">42</text><text y="21" class="cadence-total-label">BUILD DAYS</text></g>
+  <g transform="translate(760 166)"><text class="cadence-total">970,643</text><text y="21" class="cadence-total-label">FOCUSED LINES</text></g>
+  <g transform="translate(996 166)"><text class="cadence-total">+446,797</text><text y="21" class="cadence-total-label">NET LINES</text></g>
+  <text x="52" y="232" class="cadence-row-label">CONTRIBUTIONS</text>
+  <line x1="184" y1="440" x2="1140" y2="440" stroke="#DCE3E7"/>
+  <g>
+      <rect x="201.8" y="433" width="44.0" height="7" rx="2" fill="#B8C8D1"/>
+      <text x="223.8" y="425" text-anchor="middle" class="cadence-bar-value">7</text>
+      <text x="223.8" y="466" text-anchor="middle" class="cadence-axis">05-25</text>
+    </g><g>
+      <rect x="281.5" y="420" width="44.0" height="20" rx="2" fill="#B8C8D1"/>
+      <text x="303.5" y="412" text-anchor="middle" class="cadence-bar-value">19</text>
+      <text x="303.5" y="466" text-anchor="middle" class="cadence-axis">06-01</text>
+    </g><g>
+      <rect x="361.2" y="435" width="44.0" height="5" rx="2" fill="#B8C8D1"/>
+      <text x="383.2" y="427" text-anchor="middle" class="cadence-bar-value">4</text>
+      <text x="383.2" y="466" text-anchor="middle" class="cadence-axis">06-08</text>
+    </g><g>
+      <rect x="440.8" y="417" width="44.0" height="23" rx="2" fill="#B8C8D1"/>
+      <text x="462.8" y="409" text-anchor="middle" class="cadence-bar-value">22</text>
+      <text x="462.8" y="466" text-anchor="middle" class="cadence-axis">06-15</text>
+    </g><g>
+      <rect x="520.5" y="435" width="44.0" height="5" rx="2" fill="#B8C8D1"/>
+      <text x="542.5" y="427" text-anchor="middle" class="cadence-bar-value">2</text>
+      <text x="542.5" y="466" text-anchor="middle" class="cadence-axis">06-22</text>
+    </g><g>
+      <rect x="600.2" y="431" width="44.0" height="9" rx="2" fill="#B8C8D1"/>
+      <text x="622.2" y="423" text-anchor="middle" class="cadence-bar-value">9</text>
+      <text x="622.2" y="466" text-anchor="middle" class="cadence-axis">06-29</text>
+    </g><g>
+      <rect x="679.8" y="434" width="44.0" height="6" rx="2" fill="#B8C8D1"/>
+      <text x="701.8" y="426" text-anchor="middle" class="cadence-bar-value">6</text>
+      <text x="701.8" y="466" text-anchor="middle" class="cadence-axis">07-06</text>
+    </g><g>
+      <rect x="759.5" y="344" width="44.0" height="96" rx="2" fill="#B8C8D1"/>
+      <text x="781.5" y="336" text-anchor="middle" class="cadence-bar-value">93</text>
+      <text x="781.5" y="466" text-anchor="middle" class="cadence-axis">07-13</text>
+    </g><g>
+      <rect x="839.2" y="378" width="44.0" height="62" rx="2" fill="#B8C8D1"/>
+      <text x="861.2" y="370" text-anchor="middle" class="cadence-bar-value">60</text>
+      <text x="861.2" y="466" text-anchor="middle" class="cadence-axis">07-20</text>
+    </g><g>
+      <rect x="918.8" y="390" width="44.0" height="50" rx="2" fill="#B8C8D1"/>
+      <text x="940.8" y="382" text-anchor="middle" class="cadence-bar-value">49</text>
+      <text x="940.8" y="466" text-anchor="middle" class="cadence-axis">07-27</text>
+    </g><g>
+      <rect x="998.5" y="372" width="44.0" height="68" rx="2" fill="#B8C8D1"/>
+      <text x="1020.5" y="364" text-anchor="middle" class="cadence-bar-value">66</text>
+      <text x="1020.5" y="466" text-anchor="middle" class="cadence-axis">08-03</text>
+    </g><g>
+      <rect x="1078.2" y="260" width="44.0" height="180" rx="2" fill="#355F78"/>
+      <text x="1100.2" y="252" text-anchor="middle" class="cadence-bar-value">175</text>
+      <text x="1100.2" y="466" text-anchor="middle" class="cadence-axis">08-10</text>
+    </g>
+  <text x="52" y="512" class="cadence-row-label">CONTRIBUTIONS</text><text x="223.8" y="512" text-anchor="middle" class="cadence-cell"><title>2026-05-25 to 2026-05-31 · contributions: 7</title>7</text><text x="303.5" y="512" text-anchor="middle" class="cadence-cell"><title>2026-06-01 to 2026-06-07 · contributions: 19</title>19</text><text x="383.2" y="512" text-anchor="middle" class="cadence-cell"><title>2026-06-08 to 2026-06-14 · contributions: 4</title>4</text><text x="462.8" y="512" text-anchor="middle" class="cadence-cell"><title>2026-06-15 to 2026-06-21 · contributions: 22</title>22</text><text x="542.5" y="512" text-anchor="middle" class="cadence-cell"><title>2026-06-22 to 2026-06-28 · contributions: 2</title>2</text><text x="622.2" y="512" text-anchor="middle" class="cadence-cell"><title>2026-06-29 to 2026-07-05 · contributions: 9</title>9</text><text x="701.8" y="512" text-anchor="middle" class="cadence-cell"><title>2026-07-06 to 2026-07-12 · contributions: 6</title>6</text><text x="781.5" y="512" text-anchor="middle" class="cadence-cell"><title>2026-07-13 to 2026-07-19 · contributions: 93</title>93</text><text x="861.2" y="512" text-anchor="middle" class="cadence-cell"><title>2026-07-20 to 2026-07-26 · contributions: 60</title>60</text><text x="940.8" y="512" text-anchor="middle" class="cadence-cell"><title>2026-07-27 to 2026-08-02 · contributions: 49</title>49</text><text x="1020.5" y="512" text-anchor="middle" class="cadence-cell"><title>2026-08-03 to 2026-08-09 · contributions: 66</title>66</text><text x="1100.2" y="512" text-anchor="middle" class="cadence-cell"><title>2026-08-10 to 2026-08-12 · contributions: 175</title>175</text><line x1="52" y1="526" x2="1140" y2="526" stroke="#EDF2F4"/><text x="52" y="560" class="cadence-row-label">UNIQUE COMMITS</text><text x="223.8" y="560" text-anchor="middle" class="cadence-cell"><title>2026-05-25 to 2026-05-31 · unique commits: 6</title>6</text><text x="303.5" y="560" text-anchor="middle" class="cadence-cell"><title>2026-06-01 to 2026-06-07 · unique commits: 18</title>18</text><text x="383.2" y="560" text-anchor="middle" class="cadence-cell"><title>2026-06-08 to 2026-06-14 · unique commits: 4</title>4</text><text x="462.8" y="560" text-anchor="middle" class="cadence-cell"><title>2026-06-15 to 2026-06-21 · unique commits: 22</title>22</text><text x="542.5" y="560" text-anchor="middle" class="cadence-cell"><title>2026-06-22 to 2026-06-28 · unique commits: 2</title>2</text><text x="622.2" y="560" text-anchor="middle" class="cadence-cell"><title>2026-06-29 to 2026-07-05 · unique commits: 5</title>5</text><text x="701.8" y="560" text-anchor="middle" class="cadence-cell"><title>2026-07-06 to 2026-07-12 · unique commits: 6</title>6</text><text x="781.5" y="560" text-anchor="middle" class="cadence-cell"><title>2026-07-13 to 2026-07-19 · unique commits: 92</title>92</text><text x="861.2" y="560" text-anchor="middle" class="cadence-cell"><title>2026-07-20 to 2026-07-26 · unique commits: 58</title>58</text><text x="940.8" y="560" text-anchor="middle" class="cadence-cell"><title>2026-07-27 to 2026-08-02 · unique commits: 47</title>47</text><text x="1020.5" y="560" text-anchor="middle" class="cadence-cell"><title>2026-08-03 to 2026-08-09 · unique commits: 68</title>68</text><text x="1100.2" y="560" text-anchor="middle" class="cadence-cell"><title>2026-08-10 to 2026-08-12 · unique commits: 169</title>169</text><line x1="52" y1="574" x2="1140" y2="574" stroke="#EDF2F4"/><text x="52" y="608" class="cadence-row-label">BUILD DAYS</text><text x="223.8" y="608" text-anchor="middle" class="cadence-cell"><title>2026-05-25 to 2026-05-31 · build days: 2</title>2</text><text x="303.5" y="608" text-anchor="middle" class="cadence-cell"><title>2026-06-01 to 2026-06-07 · build days: 6</title>6</text><text x="383.2" y="608" text-anchor="middle" class="cadence-cell"><title>2026-06-08 to 2026-06-14 · build days: 1</title>1</text><text x="462.8" y="608" text-anchor="middle" class="cadence-cell"><title>2026-06-15 to 2026-06-21 · build days: 2</title>2</text><text x="542.5" y="608" text-anchor="middle" class="cadence-cell"><title>2026-06-22 to 2026-06-28 · build days: 1</title>1</text><text x="622.2" y="608" text-anchor="middle" class="cadence-cell"><title>2026-06-29 to 2026-07-05 · build days: 3</title>3</text><text x="701.8" y="608" text-anchor="middle" class="cadence-cell"><title>2026-07-06 to 2026-07-12 · build days: 1</title>1</text><text x="781.5" y="608" text-anchor="middle" class="cadence-cell"><title>2026-07-13 to 2026-07-19 · build days: 7</title>7</text><text x="861.2" y="608" text-anchor="middle" class="cadence-cell"><title>2026-07-20 to 2026-07-26 · build days: 6</title>6</text><text x="940.8" y="608" text-anchor="middle" class="cadence-cell"><title>2026-07-27 to 2026-08-02 · build days: 6</title>6</text><text x="1020.5" y="608" text-anchor="middle" class="cadence-cell"><title>2026-08-03 to 2026-08-09 · build days: 4</title>4</text><text x="1100.2" y="608" text-anchor="middle" class="cadence-cell"><title>2026-08-10 to 2026-08-12 · build days: 3</title>3</text><line x1="52" y1="622" x2="1140" y2="622" stroke="#EDF2F4"/><text x="52" y="656" class="cadence-row-label">FOCUSED LINES</text><text x="223.8" y="656" text-anchor="middle" class="cadence-cell"><title>2026-05-25 to 2026-05-31 · focused lines: 4,904</title>4,904</text><text x="303.5" y="656" text-anchor="middle" class="cadence-cell"><title>2026-06-01 to 2026-06-07 · focused lines: 22,327</title>22,327</text><text x="383.2" y="656" text-anchor="middle" class="cadence-cell"><title>2026-06-08 to 2026-06-14 · focused lines: 4,158</title>4,158</text><text x="462.8" y="656" text-anchor="middle" class="cadence-cell"><title>2026-06-15 to 2026-06-21 · focused lines: 54,470</title>54,470</text><text x="542.5" y="656" text-anchor="middle" class="cadence-cell"><title>2026-06-22 to 2026-06-28 · focused lines: 3,069</title>3,069</text><text x="622.2" y="656" text-anchor="middle" class="cadence-cell"><title>2026-06-29 to 2026-07-05 · focused lines: 7,980</title>7,980</text><text x="701.8" y="656" text-anchor="middle" class="cadence-cell"><title>2026-07-06 to 2026-07-12 · focused lines: 5,701</title>5,701</text><text x="781.5" y="656" text-anchor="middle" class="cadence-cell"><title>2026-07-13 to 2026-07-19 · focused lines: 414,626</title>414,626</text><text x="861.2" y="656" text-anchor="middle" class="cadence-cell"><title>2026-07-20 to 2026-07-26 · focused lines: 149,172</title>149,172</text><text x="940.8" y="656" text-anchor="middle" class="cadence-cell"><title>2026-07-27 to 2026-08-02 · focused lines: 65,503</title>65,503</text><text x="1020.5" y="656" text-anchor="middle" class="cadence-cell"><title>2026-08-03 to 2026-08-09 · focused lines: 96,672</title>96,672</text><text x="1100.2" y="656" text-anchor="middle" class="cadence-cell"><title>2026-08-10 to 2026-08-12 · focused lines: 142,061</title>142,061</text><line x1="52" y1="670" x2="1140" y2="670" stroke="#EDF2F4"/>
+  <text x="52" y="724" class="cadence-footer">Exact aggregate values · focused lines exclude 100k+ line imports · private repository identities are never stored</text>
+</svg>

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { classifyCommitChange, computeStats, longestStreak, renderLifetimeSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { buildCadenceData, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, renderCadenceSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -116,3 +116,62 @@ test("finds the strongest yearly shipping streak", () => {
     { contributionCount: 1 },
   ]), 3);
 });
+
+test("aggregates exact daily, weekly, and monthly cadence values", () => {
+  const calendarDays = dateFixture("2026-07-01", "2026-08-12").map((date, index) => ({ date, count: index % 3 }));
+  const codeDaily = [
+    { date: "2026-08-11", commits: 2, additions: 100, deletions: 20 },
+    { date: "2026-08-12", commits: 3, additions: 200, deletions: 50 },
+  ];
+  const cadence = buildCadenceData({ calendarDays, codeDaily, today: "2026-08-12" });
+  assert.equal(cadence.daily.length, 14);
+  assert.equal(cadence.weekly.length, 12);
+  assert.equal(cadence.monthly.length, 12);
+  assert.equal(cadence.daily.at(-1).commits, 3);
+  assert.equal(cadence.daily.at(-1).changed, 250);
+  assert.equal(cadence.weekly.at(-1).commits, 5);
+  assert.equal(cadence.weekly.at(-1).buildDays, 2);
+  assert.equal(cadence.monthly.at(-1).net, 230);
+  assert.equal(cadence.monthly.at(-1).label, "2026-08");
+});
+
+test("renders exact cadence ledgers for desktop and mobile", () => {
+  const cadence = buildCadenceData({
+    calendarDays: dateFixture("2025-09-01", "2026-08-12").map((date) => ({ date, count: date === "2026-08-12" ? 123 : 1 })),
+    codeDaily: [{ date: "2026-08-12", commits: 45, additions: 123456, deletions: 23456 }],
+    today: "2026-08-12",
+  });
+  const desktop = renderCadenceSvg(cadence, "daily");
+  const mobile = renderMobileCadenceSvg(cadence, "monthly");
+  assert.match(desktop, /viewBox="0 0 1200 750"/);
+  assert.match(desktop, /Day-by-day, every number/);
+  assert.match(desktop, /146,912/);
+  assert.match(mobile, /Monthly detail/);
+  assert.match(mobile, /2026-08/);
+  assert.doesNotMatch(`${desktop}${mobile}`, /private-repo|repositoryName|commit message/);
+});
+
+test("builds a visible exact yearly ledger", () => {
+  const yearly = buildYearlyCadence({
+    generatedAt: "2026-08-12",
+    yearly: [{ year: 2025, contributions: 87, activeDays: 29, commits: 81, buildDays: 27, additions: 50000, deletions: 6000, changed: 56000, net: 44000 }],
+  });
+  assert.equal(yearly[0].label, "2025");
+  assert.equal(yearly[0].contributionDays, 29);
+  assert.equal(yearly[0].changed, 56000);
+  const cadence = { yearly };
+  assert.match(renderCadenceSvg(cadence, "yearly"), /Every year, exact totals/);
+  assert.match(renderMobileCadenceSvg(cadence, "yearly"), /Yearly detail/);
+});
+
+function dateFixture(start, end) {
+  const values = [];
+  for (let current = start; current <= end; current = shiftFixture(current, 1)) values.push(current);
+  return values;
+}
+
+function shiftFixture(dateString, amount) {
+  const date = new Date(`${dateString}T12:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + amount);
+  return date.toISOString().slice(0, 10);
+}

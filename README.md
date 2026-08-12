@@ -15,7 +15,35 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 </div>
 
-## Lifetime operating history
+## Daily detail · last 14 days
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-daily-mobile.svg" />
+  <img src="./assets/founder-daily.svg" alt="Exact daily contributions, unique commits, focused lines, and net line movement for the last 14 days" width="100%" />
+</picture>
+
+## Weekly detail · last 12 weeks
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-weekly-mobile.svg" />
+  <img src="./assets/founder-weekly.svg" alt="Exact weekly contributions, unique commits, build days, and focused lines for the last 12 weeks" width="100%" />
+</picture>
+
+## Monthly detail · last 12 months
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-monthly-mobile.svg" />
+  <img src="./assets/founder-monthly.svg" alt="Exact monthly contributions, unique commits, build days, and focused lines for the last 12 calendar months" width="100%" />
+</picture>
+
+## Yearly detail · account lifetime
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-yearly-mobile.svg" />
+  <img src="./assets/founder-yearly.svg" alt="Exact yearly contributions, unique commits, build days, and focused lines across the lifetime of the account" width="100%" />
+</picture>
+
+## Lifetime trend overview
 
 <picture>
   <source media="(max-width: 800px)" srcset="./assets/founder-lifetime-mobile.svg" />
@@ -95,7 +123,7 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 <details>
 <summary>How this tracker works</summary>
 
-The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json) and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files or retained in tracker history.
+The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files or retained in tracker history.
 
 The public tracker emphasizes shipping consistency, unique commits, active-product breadth, and focused code movement. It deduplicates identical commits and filters individual 100k+ line imports or generated snapshots from line totals so a handful of bulk operations cannot dominate years of ordinary work. Those commits still count as commits.
 
