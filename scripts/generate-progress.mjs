@@ -7,6 +7,18 @@ import sharp from "sharp";
 const USERNAME = process.env.TRACKER_USERNAME || "sonozaki7";
 const TIMEZONE = process.env.TRACKER_TIMEZONE || "Asia/Bangkok";
 const API = "https://api.github.com";
+const THEME = Object.freeze({
+  background: "#FFFFFF",
+  surface: "#FBFBF9",
+  border: "#DEDFD9",
+  text: "#181915",
+  muted: "#6F706A",
+  dim: "#9B9C95",
+  faint: "#ECEDE8",
+  accent: "#20211D",
+  accentMid: "#777970",
+  accentLow: "#B7B8B1",
+});
 
 function localDate(date = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -137,12 +149,12 @@ function chartPanel({ x, y, width, height, title, values, years, color, format =
   const circles = points.map((point, index) => `<circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3.5" fill="${color}"><title>${years[index]}: ${point.value.toLocaleString("en")}</title></circle>`).join("");
 
   return `<g>
-    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="16" fill="#161b22" stroke="#30363d"/>
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="${x + 20}" y="${y + 28}" class="history-label">${escapeXml(title)}</text>
     <text x="${x + width - 20}" y="${y + 29}" text-anchor="end" class="history-total">${escapeXml(format(total))}</text>
-    <line x1="${chartLeft}" y1="${baselineY.toFixed(1)}" x2="${chartLeft + chartWidth}" y2="${baselineY.toFixed(1)}" stroke="#30363d"/>
-    <path d="${area}" fill="${color}" opacity="0.12"/>
-    <polyline points="${polyline}" fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="${chartLeft}" y1="${baselineY.toFixed(1)}" x2="${chartLeft + chartWidth}" y2="${baselineY.toFixed(1)}" stroke="${THEME.border}"/>
+    <path d="${area}" fill="${color}" opacity="0.08"/>
+    <polyline points="${polyline}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     ${circles}
     <text x="${chartLeft}" y="${y + height - 12}" class="history-axis">${years[0]}</text>
     <text x="${chartLeft + chartWidth}" y="${y + height - 12}" text-anchor="end" class="history-axis">${years.at(-1)}</text>
@@ -152,15 +164,15 @@ function chartPanel({ x, y, width, height, title, values, years, color, format =
 export function renderLifetimeSvg(history) {
   const years = history.yearly.map((item) => item.year);
   const metrics = [
-    { title: "CONTRIBUTIONS", key: "contributions", color: "#58a6ff" },
-    { title: "ACTIVE DAYS", key: "activeDays", color: "#3fb950" },
-    { title: "LINES ADDED", key: "additions", color: "#3fb950" },
-    { title: "LINES REMOVED", key: "deletions", color: "#f85149" },
-    { title: "NET LINES · YEARLY", key: "net", color: "#a371f7", signedValues: true, latest: true },
-    { title: "COMMITS ANALYZED", key: "commits", color: "#d29922" },
-    { title: "PULL REQUESTS", key: "pullRequests", color: "#2f81f7" },
-    { title: "ISSUES", key: "issues", color: "#db61a2" },
-    { title: "REVIEWS", key: "reviews", color: "#a371f7" },
+    { title: "CONTRIBUTIONS", key: "contributions", color: THEME.accent },
+    { title: "ACTIVE DAYS", key: "activeDays", color: THEME.accent },
+    { title: "LINES ADDED", key: "additions", color: THEME.accent },
+    { title: "LINES REMOVED", key: "deletions", color: THEME.accent },
+    { title: "NET LINES · YEARLY", key: "net", color: THEME.accent, signedValues: true },
+    { title: "COMMITS ANALYZED", key: "commits", color: THEME.accent },
+    { title: "PULL REQUESTS", key: "pullRequests", color: THEME.accent },
+    { title: "ISSUES", key: "issues", color: THEME.accent },
+    { title: "REVIEWS", key: "reviews", color: THEME.accent },
   ];
   const panels = metrics.map((metric, index) => chartPanel({
     x: 52 + (index % 3) * 366,
@@ -184,23 +196,22 @@ export function renderLifetimeSvg(history) {
   <title id="title">So's lifetime founder operating history</title>
   <desc id="desc">Yearly contribution, code movement, commit, pull request, issue, review, and active-day trends from GitHub account creation.</desc>
   <defs>
-    <linearGradient id="history-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
-    <linearGradient id="history-line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a371f7"/><stop offset="0.5" stop-color="#2f81f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+    <linearGradient id="history-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
-      .history-eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 2.4px; fill: #a371f7; }
-      .history-title { font-size: 38px; font-weight: 750; }
-      .history-subtitle { font-size: 15px; fill: #8b949e; }
-      .history-label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; fill: #8b949e; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .history-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; letter-spacing: 2.6px; fill: ${THEME.accent}; }
+      .history-title { font-family: Georgia, "Times New Roman", serif; font-size: 40px; font-weight: 700; letter-spacing: -1.2px; }
+      .history-subtitle { font-size: 15px; fill: ${THEME.muted}; }
+      .history-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; fill: ${THEME.muted}; }
       .history-total { font-size: 22px; font-weight: 750; }
-      .history-axis { font-size: 11px; fill: #6e7681; }
+      .history-axis { font-size: 11px; fill: ${THEME.dim}; }
       .headline-number { font-size: 27px; font-weight: 750; }
-      .headline-label { font-size: 11px; fill: #8b949e; letter-spacing: 0.7px; }
-      .history-footer { font-size: 12px; fill: #6e7681; }
+      .headline-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; fill: ${THEME.muted}; letter-spacing: 0.8px; }
+      .history-footer { font-size: 12px; fill: ${THEME.dim}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="1198" height="878" rx="24" fill="url(#history-bg)" stroke="#30363d" stroke-width="2"/>
-  <rect x="28" y="24" width="1144" height="4" rx="2" fill="url(#history-line)"/>
+  <rect x="1" y="1" width="1198" height="878" rx="10" fill="url(#history-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
   <text x="52" y="64" class="history-eyebrow">FOUNDER OPERATING HISTORY</text>
   <text x="52" y="106" class="history-title">Lifetime momentum, year by year</text>
   <text x="52" y="134" class="history-subtitle">${escapeXml(history.accountCreatedAt.slice(0, 4))} → ${escapeXml(String(years.at(-1)))} · every chart has its own scale so the trend stays honest</text>
@@ -226,11 +237,11 @@ function mobileHistoryRow(metric, index, values, years) {
   }).join(" ");
   const total = values.reduce((sum, value) => sum + value, 0);
   return `<g>
-    <rect x="20" y="${y}" width="335" height="76" rx="12" fill="#161b22" stroke="#30363d"/>
+    <rect x="20" y="${y}" width="335" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="34" y="${y + 28}" class="mh-label">${escapeXml(metric.title)}</text>
     <text x="34" y="${y + 55}" class="mh-value">${escapeXml((metric.signedValues ? signed : compact)(total))}</text>
-    <line x1="151" y1="${y + 60}" x2="334" y2="${y + 60}" stroke="#30363d"/>
-    <polyline points="${points}" fill="none" stroke="${metric.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="151" y1="${y + 60}" x2="334" y2="${y + 60}" stroke="${THEME.border}"/>
+    <polyline points="${points}" fill="none" stroke="${metric.color}" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="${y + 72}" class="mh-axis">${years[0]}</text><text x="334" y="${y + 72}" text-anchor="end" class="mh-axis">${years.at(-1)}</text>
   </g>`;
 }
@@ -238,15 +249,15 @@ function mobileHistoryRow(metric, index, values, years) {
 export function renderMobileLifetimeSvg(history) {
   const years = history.yearly.map((item) => item.year);
   const metrics = [
-    { title: "CONTRIBUTIONS", key: "contributions", color: "#58a6ff" },
-    { title: "ACTIVE DAYS", key: "activeDays", color: "#3fb950" },
-    { title: "LINES ADDED", key: "additions", color: "#3fb950" },
-    { title: "LINES REMOVED", key: "deletions", color: "#f85149" },
-    { title: "NET LINES", key: "net", color: "#a371f7", signedValues: true },
-    { title: "COMMITS", key: "commits", color: "#d29922" },
-    { title: "PULL REQUESTS", key: "pullRequests", color: "#2f81f7" },
-    { title: "ISSUES", key: "issues", color: "#db61a2" },
-    { title: "REVIEWS", key: "reviews", color: "#a371f7" },
+    { title: "CONTRIBUTIONS", key: "contributions", color: THEME.accent },
+    { title: "ACTIVE DAYS", key: "activeDays", color: THEME.accent },
+    { title: "LINES ADDED", key: "additions", color: THEME.accent },
+    { title: "LINES REMOVED", key: "deletions", color: THEME.accent },
+    { title: "NET LINES", key: "net", color: THEME.accent, signedValues: true },
+    { title: "COMMITS", key: "commits", color: THEME.accent },
+    { title: "PULL REQUESTS", key: "pullRequests", color: THEME.accent },
+    { title: "ISSUES", key: "issues", color: THEME.accent },
+    { title: "REVIEWS", key: "reviews", color: THEME.accent },
   ];
   const rows = metrics.map((metric, index) => mobileHistoryRow(metric, index, history.yearly.map((item) => item[metric.key] || 0), years)).join("");
   const contributions = sumBy(history.yearly, "contributions");
@@ -256,21 +267,20 @@ export function renderMobileLifetimeSvg(history) {
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="990" viewBox="0 0 375 990" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile lifetime founder operating history</title>
   <desc id="desc">Mobile yearly trends for contributions, code movement, commits, and collaboration.</desc>
-  <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
-    <linearGradient id="mh-line"><stop stop-color="#a371f7"/><stop offset="0.5" stop-color="#2f81f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+  <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
-      .mh-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.7px; fill: #a371f7; }
-      .mh-title { font-size: 25px; font-weight: 750; }
-      .mh-subtitle,.mh-axis,.mh-footer { font-size: 9px; fill: #8b949e; }
-      .mh-label { font-size: 9px; font-weight: 700; letter-spacing: .8px; fill: #8b949e; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .mh-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.7px; fill: ${THEME.accent}; }
+      .mh-title { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -.7px; }
+      .mh-subtitle,.mh-axis,.mh-footer { font-size: 9px; fill: ${THEME.muted}; }
+      .mh-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 600; letter-spacing: .8px; fill: ${THEME.muted}; }
       .mh-value { font-size: 18px; font-weight: 750; }
       .mh-head { font-size: 20px; font-weight: 750; }
-      .mh-head-label { font-size: 8px; fill: #8b949e; letter-spacing: .5px; }
+      .mh-head-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 8px; fill: ${THEME.muted}; letter-spacing: .5px; }
     </style>
   </defs>
-  <rect x="1" y="1" width="373" height="988" rx="19" fill="url(#mh-bg)" stroke="#30363d" stroke-width="2"/>
-  <rect x="16" y="15" width="343" height="4" rx="2" fill="url(#mh-line)"/>
+  <rect x="1" y="1" width="373" height="988" rx="8" fill="url(#mh-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
   <text x="20" y="45" class="mh-eyebrow">FOUNDER OPERATING HISTORY</text>
   <text x="20" y="77" class="mh-title">Lifetime momentum</text>
   <text x="20" y="97" class="mh-subtitle">${years[0]} → ${years.at(-1)} · each trend uses its own honest scale</text>
@@ -282,10 +292,10 @@ export function renderMobileLifetimeSvg(history) {
 </svg>`;
 }
 
-function metricCard(x, y, label, value, note, accent = "#2f81f7") {
+function metricCard(x, y, label, value, note, index) {
   return `<g transform="translate(${x} ${y})">
-    <rect width="270" height="104" rx="16" fill="#161b22" stroke="#30363d"/>
-    <rect x="0" y="0" width="5" height="104" rx="3" fill="${accent}"/>
+    <rect width="270" height="104" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
+    <text x="248" y="27" text-anchor="end" class="index">0${index}</text>
     <text x="22" y="29" class="label">${escapeXml(label)}</text>
     <text x="22" y="68" class="value">${escapeXml(value)}</text>
     <text x="22" y="90" class="note">${escapeXml(note)}</text>
@@ -304,15 +314,14 @@ export function renderSvg(stats) {
     const height = day.count === 0 ? 3 : Math.max(8, Math.round((day.count / max) * graphHeight));
     const x = graphX + index * (barWidth + gap);
     const y = graphBottom - height;
-    const color = day.count === 0 ? "#30363d" : day.count >= max * 0.67 ? "#3fb950" : day.count >= max * 0.34 ? "#2f81f7" : "#58a6ff";
-    return `<rect x="${x}" y="${y}" width="${barWidth}" height="${height}" rx="5" fill="${color}"><title>${day.date}: ${day.count} contributions</title></rect>`;
+    const color = day.count === 0 ? THEME.faint : day.count >= max * 0.67 ? THEME.accent : day.count >= max * 0.34 ? THEME.accentMid : THEME.accentLow;
+    return `<rect x="${x}" y="${y}" width="${barWidth}" height="${height}" rx="2" fill="${color}"><title>${day.date}: ${day.count} contributions</title></rect>`;
   }).join("\n");
   const labels = daily.map((day, index) => {
     if (index !== 0 && index !== daily.length - 1 && index % 5 !== 0) return "";
     const x = graphX + index * (barWidth + gap) + barWidth / 2;
     return `<text x="${x}" y="482" text-anchor="middle" class="axis">${day.date.slice(5)}</text>`;
   }).join("\n");
-  const momentumColor = stats.contributions.momentumPercent >= 0 ? "#3fb950" : "#f85149";
   const momentumText = `${signed(stats.contributions.momentumPercent)}% vs previous 30 days`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -320,56 +329,56 @@ export function renderSvg(stats) {
   <title id="title">So's 30-day founder build velocity</title>
   <desc id="desc">Daily contribution streak, code movement, and collaboration totals. Aggregate public and private activity without repository names.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2f81f7"/><stop offset="0.55" stop-color="#a371f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
-      .eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 2.4px; fill: #58a6ff; }
-      .title { font-size: 39px; font-weight: 750; }
-      .subtitle { font-size: 16px; fill: #8b949e; }
-      .label { font-size: 13px; font-weight: 700; letter-spacing: 1.3px; fill: #8b949e; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; letter-spacing: 2.6px; fill: ${THEME.accent}; }
+      .title { font-family: Georgia, "Times New Roman", serif; font-size: 42px; font-weight: 700; letter-spacing: -1.3px; }
+      .subtitle { font-size: 16px; fill: ${THEME.muted}; }
+      .label,.index { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; font-weight: 600; letter-spacing: 1.3px; fill: ${THEME.muted}; }
+      .index { fill: ${THEME.dim}; }
       .value { font-size: 31px; font-weight: 750; }
-      .note { font-size: 13px; fill: #8b949e; }
-      .section { font-size: 14px; font-weight: 700; letter-spacing: 1.6px; fill: #8b949e; }
-      .axis { font-size: 11px; fill: #6e7681; }
+      .note { font-size: 13px; fill: ${THEME.muted}; }
+      .section { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 600; letter-spacing: 1.6px; fill: ${THEME.muted}; }
+      .axis { font-size: 11px; fill: ${THEME.dim}; }
       .mini-value { font-size: 24px; font-weight: 700; }
-      .mini-label { font-size: 12px; fill: #8b949e; }
-      .footer { font-size: 12px; fill: #6e7681; }
+      .mini-label { font-size: 12px; fill: ${THEME.muted}; }
+      .footer { font-size: 12px; fill: ${THEME.dim}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="1198" height="678" rx="24" fill="url(#bg)" stroke="#30363d" stroke-width="2"/>
-  <rect x="28" y="24" width="1144" height="4" rx="2" fill="url(#line)"/>
+  <rect x="1" y="1" width="1198" height="678" rx="10" fill="url(#bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
   <text x="52" y="64" class="eyebrow">FOUNDER SHIP LOG</text>
   <text x="52" y="108" class="title">30-day build velocity</text>
   <text x="52" y="137" class="subtitle">AI-first SaaS · progress measured in consistent shipping, not vanity</text>
   <g transform="translate(925 53)">
-    <rect width="220" height="38" rx="19" fill="#122b1a" stroke="#238636"/>
-    <circle cx="20" cy="19" r="5" fill="#3fb950"/>
-    <text x="34" y="24" font-size="13" fill="#7ee787">UPDATED ${escapeXml(stats.period.end)}</text>
+    <rect width="220" height="38" rx="4" fill="${THEME.surface}" stroke="${THEME.border}"/>
+    <line x1="18" y1="19" x2="30" y2="19" stroke="${THEME.accent}" stroke-width="2"/>
+    <text x="41" y="24" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1" fill="${THEME.muted}">UPDATED ${escapeXml(stats.period.end)}</text>
   </g>
 
-  ${metricCard(52, 168, "TODAY", compact(stats.contributions.today), "contributions", "#3fb950")}
-  ${metricCard(340, 168, "LAST 7 DAYS", compact(stats.contributions.last7Days), "contributions", "#2f81f7")}
-  ${metricCard(628, 168, "LAST 30 DAYS", compact(stats.contributions.last30Days), momentumText, momentumColor)}
-  ${metricCard(916, 168, "CURRENT STREAK", `${stats.contributions.currentStreak}d`, `best: ${stats.contributions.longestStreak365Days} days`, "#a371f7")}
+  ${metricCard(52, 168, "TODAY", compact(stats.contributions.today), "contributions", 1)}
+  ${metricCard(340, 168, "LAST 7 DAYS", compact(stats.contributions.last7Days), "contributions", 2)}
+  ${metricCard(628, 168, "LAST 30 DAYS", compact(stats.contributions.last30Days), momentumText, 3)}
+  ${metricCard(916, 168, "CURRENT STREAK", `${stats.contributions.currentStreak}d`, `best: ${stats.contributions.longestStreak365Days} days`, 4)}
 
   <text x="52" y="317" class="section">DAILY CONTRIBUTIONS · LAST 30 DAYS</text>
-  <line x1="52" y1="456" x2="1148" y2="456" stroke="#21262d"/>
+  <line x1="52" y1="456" x2="1148" y2="456" stroke="${THEME.faint}"/>
   ${bars}
   ${labels}
 
   <g transform="translate(52 520)">
-    <rect width="706" height="112" rx="16" fill="#161b22" stroke="#30363d"/>
+    <rect width="706" height="112" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="22" y="29" class="section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value" fill="#3fb950">+${compact(stats.code.additions)}</text><text y="27" class="mini-label">lines added</text></g>
-    <g transform="translate(160 49)"><text class="mini-value" fill="#f85149">−${compact(stats.code.deletions)}</text><text y="27" class="mini-label">lines removed</text></g>
+    <g transform="translate(22 49)"><text class="mini-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="27" class="mini-label">lines added</text></g>
+    <g transform="translate(160 49)"><text class="mini-value">−${compact(stats.code.deletions)}</text><text y="27" class="mini-label">lines removed</text></g>
     <g transform="translate(298 49)"><text class="mini-value">${signed(stats.code.net)}</text><text y="27" class="mini-label">net lines</text></g>
     <g transform="translate(436 49)"><text class="mini-value">${compact(stats.code.commitsAnalyzed)}</text><text y="27" class="mini-label">commits analyzed</text></g>
     <g transform="translate(574 49)"><text class="mini-value">${compact(stats.code.averageChangedPerCommit)}</text><text y="27" class="mini-label">avg change / commit</text></g>
   </g>
 
   <g transform="translate(776 520)">
-    <rect width="372" height="112" rx="16" fill="#161b22" stroke="#30363d"/>
+    <rect width="372" height="112" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="22" y="29" class="section">SHIP SIGNALS · 30 DAYS</text>
     <g transform="translate(22 49)"><text class="mini-value">${stats.contributions.activeDays}/30</text><text y="27" class="mini-label">active days</text></g>
     <g transform="translate(143 49)"><text class="mini-value">${compact(stats.collaboration.pullRequests)}</text><text y="27" class="mini-label">pull requests</text></g>
@@ -379,10 +388,10 @@ export function renderSvg(stats) {
 </svg>`;
 }
 
-function mobileMetric(x, y, label, value, note, accent) {
+function mobileMetric(x, y, label, value, note, index) {
   return `<g transform="translate(${x} ${y})">
-    <rect width="164" height="83" rx="13" fill="#161b22" stroke="#30363d"/>
-    <rect width="4" height="83" rx="2" fill="${accent}"/>
+    <rect width="164" height="83" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
+    <text x="148" y="21" text-anchor="end" class="m-index">0${index}</text>
     <text x="15" y="23" class="m-label">${escapeXml(label)}</text>
     <text x="15" y="52" class="m-value">${escapeXml(value)}</text>
     <text x="15" y="71" class="m-note">${escapeXml(note)}</text>
@@ -396,50 +405,50 @@ export function renderMobileSvg(stats) {
     const height = day.count === 0 ? 2 : Math.max(5, Math.round((day.count / max) * 82));
     const x = 20 + index * 11;
     const y = 475 - height;
-    const color = day.count === 0 ? "#30363d" : day.count >= max * 0.67 ? "#3fb950" : day.count >= max * 0.34 ? "#2f81f7" : "#58a6ff";
-    return `<rect x="${x}" y="${y}" width="7" height="${height}" rx="2.5" fill="${color}"><title>${day.date}: ${day.count} contributions</title></rect>`;
+    const color = day.count === 0 ? THEME.faint : day.count >= max * 0.67 ? THEME.accent : day.count >= max * 0.34 ? THEME.accentMid : THEME.accentLow;
+    return `<rect x="${x}" y="${y}" width="7" height="${height}" rx="1" fill="${color}"><title>${day.date}: ${day.count} contributions</title></rect>`;
   }).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="830" viewBox="0 0 375 830" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile 30-day founder build velocity</title>
   <desc id="desc">Mobile view of daily contributions, streaks, code movement, and collaboration totals.</desc>
-  <defs><linearGradient id="m-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
-    <linearGradient id="m-line"><stop stop-color="#2f81f7"/><stop offset="0.55" stop-color="#a371f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+  <defs><linearGradient id="m-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
-      .m-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.8px; fill: #58a6ff; }
-      .m-title { font-size: 26px; font-weight: 750; }
-      .m-subtitle,.m-note,.m-footer { font-size: 10px; fill: #8b949e; }
-      .m-label,.m-section { font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #8b949e; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+      .m-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.8px; fill: ${THEME.accent}; }
+      .m-title { font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 700; letter-spacing: -.8px; }
+      .m-subtitle,.m-note,.m-footer { font-size: 10px; fill: ${THEME.muted}; }
+      .m-label,.m-section,.m-index { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 600; letter-spacing: 1px; fill: ${THEME.muted}; }
+      .m-index { fill: ${THEME.dim}; }
       .m-value { font-size: 23px; font-weight: 750; }
       .m-small-value { font-size: 19px; font-weight: 750; }
-      .m-small-label { font-size: 9px; fill: #8b949e; }
+      .m-small-label { font-size: 9px; fill: ${THEME.muted}; }
     </style>
   </defs>
-  <rect x="1" y="1" width="373" height="828" rx="19" fill="url(#m-bg)" stroke="#30363d" stroke-width="2"/>
-  <rect x="16" y="15" width="343" height="4" rx="2" fill="url(#m-line)"/>
+  <rect x="1" y="1" width="373" height="828" rx="8" fill="url(#m-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
   <text x="20" y="45" class="m-eyebrow">FOUNDER SHIP LOG</text>
   <text x="20" y="78" class="m-title">30-day build velocity</text>
   <text x="20" y="98" class="m-subtitle">AI-first SaaS · updated ${escapeXml(stats.period.end)}</text>
-  ${mobileMetric(20, 120, "TODAY", compact(stats.contributions.today), "contributions", "#3fb950")}
-  ${mobileMetric(191, 120, "LAST 7 DAYS", compact(stats.contributions.last7Days), "contributions", "#2f81f7")}
-  ${mobileMetric(20, 211, "LAST 30 DAYS", compact(stats.contributions.last30Days), `${signed(stats.contributions.momentumPercent)}% momentum`, "#3fb950")}
-  ${mobileMetric(191, 211, "CURRENT STREAK", `${stats.contributions.currentStreak}d`, `best: ${stats.contributions.longestStreak365Days} days`, "#a371f7")}
+  ${mobileMetric(20, 120, "TODAY", compact(stats.contributions.today), "contributions", 1)}
+  ${mobileMetric(191, 120, "LAST 7 DAYS", compact(stats.contributions.last7Days), "contributions", 2)}
+  ${mobileMetric(20, 211, "LAST 30 DAYS", compact(stats.contributions.last30Days), `${signed(stats.contributions.momentumPercent)}% momentum`, 3)}
+  ${mobileMetric(191, 211, "CURRENT STREAK", `${stats.contributions.currentStreak}d`, `best: ${stats.contributions.longestStreak365Days} days`, 4)}
   <text x="20" y="329" class="m-section">DAILY CONTRIBUTIONS · LAST 30 DAYS</text>
-  <line x1="20" y1="476" x2="355" y2="476" stroke="#21262d"/>
+  <line x1="20" y1="476" x2="355" y2="476" stroke="${THEME.faint}"/>
   ${bars}
   <text x="20" y="494" class="m-note">${daily[0].date.slice(5)}</text><text x="355" y="494" text-anchor="end" class="m-note">${daily.at(-1).date.slice(5)}</text>
   <g transform="translate(20 520)">
-    <rect width="335" height="151" rx="14" fill="#161b22" stroke="#30363d"/>
+    <rect width="335" height="151" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="15" y="24" class="m-section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(15 47)"><text class="m-small-value" fill="#3fb950">+${compact(stats.code.additions)}</text><text y="19" class="m-small-label">lines added</text></g>
-    <g transform="translate(124 47)"><text class="m-small-value" fill="#f85149">−${compact(stats.code.deletions)}</text><text y="19" class="m-small-label">lines removed</text></g>
+    <g transform="translate(15 47)"><text class="m-small-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="19" class="m-small-label">lines added</text></g>
+    <g transform="translate(124 47)"><text class="m-small-value">−${compact(stats.code.deletions)}</text><text y="19" class="m-small-label">lines removed</text></g>
     <g transform="translate(233 47)"><text class="m-small-value">${signed(stats.code.net)}</text><text y="19" class="m-small-label">net lines</text></g>
     <g transform="translate(15 106)"><text class="m-small-value">${compact(stats.code.commitsAnalyzed)}</text><text y="19" class="m-small-label">commits analyzed</text></g>
     <g transform="translate(170 106)"><text class="m-small-value">${compact(stats.code.averageChangedPerCommit)}</text><text y="19" class="m-small-label">avg change / commit</text></g>
   </g>
   <g transform="translate(20 686)">
-    <rect width="335" height="105" rx="14" fill="#161b22" stroke="#30363d"/>
+    <rect width="335" height="105" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="15" y="24" class="m-section">SHIP SIGNALS · 30 DAYS</text>
     <g transform="translate(15 50)"><text class="m-small-value">${stats.contributions.activeDays}/30</text><text y="19" class="m-small-label">active days</text></g>
     <g transform="translate(130 50)"><text class="m-small-value">${stats.collaboration.pullRequests}</text><text y="19" class="m-small-label">pull requests</text></g>
@@ -456,7 +465,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.3",
+      "User-Agent": "founder-progress-tracker/1.0.4",
       ...options.headers,
     },
   });
