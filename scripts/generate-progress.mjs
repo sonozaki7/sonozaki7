@@ -318,7 +318,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.1",
+      "User-Agent": "founder-progress-tracker/1.0.2",
       ...options.headers,
     },
   });
