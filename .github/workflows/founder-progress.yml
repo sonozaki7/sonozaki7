@@ -51,7 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/founder-progress.svg assets/founder-progress.png assets/founder-lifetime.svg assets/founder-lifetime.png assets/share-copy.txt metrics/latest.json metrics/history.json
+          git add assets/founder-progress.svg assets/founder-progress-mobile.svg assets/founder-progress.png assets/founder-lifetime.svg assets/founder-lifetime-mobile.svg assets/founder-lifetime.png assets/share-copy.txt metrics/latest.json metrics/history.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh founder progress"
           git push

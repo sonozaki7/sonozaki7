@@ -214,6 +214,74 @@ export function renderLifetimeSvg(history) {
 </svg>`;
 }
 
+function mobileHistoryRow(metric, index, values, years) {
+  const y = 183 + index * 86;
+  const min = metric.signedValues ? Math.min(0, ...values) : 0;
+  const max = Math.max(1, ...values);
+  const range = Math.max(1, max - min);
+  const points = values.map((value, pointIndex) => {
+    const x = 151 + (pointIndex / Math.max(1, values.length - 1)) * 183;
+    const pointY = y + 59 - ((value - min) / range) * 34;
+    return `${x.toFixed(1)},${pointY.toFixed(1)}`;
+  }).join(" ");
+  const total = values.reduce((sum, value) => sum + value, 0);
+  return `<g>
+    <rect x="20" y="${y}" width="335" height="76" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="34" y="${y + 28}" class="mh-label">${escapeXml(metric.title)}</text>
+    <text x="34" y="${y + 55}" class="mh-value">${escapeXml((metric.signedValues ? signed : compact)(total))}</text>
+    <line x1="151" y1="${y + 60}" x2="334" y2="${y + 60}" stroke="#30363d"/>
+    <polyline points="${points}" fill="none" stroke="${metric.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="151" y="${y + 72}" class="mh-axis">${years[0]}</text><text x="334" y="${y + 72}" text-anchor="end" class="mh-axis">${years.at(-1)}</text>
+  </g>`;
+}
+
+export function renderMobileLifetimeSvg(history) {
+  const years = history.yearly.map((item) => item.year);
+  const metrics = [
+    { title: "CONTRIBUTIONS", key: "contributions", color: "#58a6ff" },
+    { title: "ACTIVE DAYS", key: "activeDays", color: "#3fb950" },
+    { title: "LINES ADDED", key: "additions", color: "#3fb950" },
+    { title: "LINES REMOVED", key: "deletions", color: "#f85149" },
+    { title: "NET LINES", key: "net", color: "#a371f7", signedValues: true },
+    { title: "COMMITS", key: "commits", color: "#d29922" },
+    { title: "PULL REQUESTS", key: "pullRequests", color: "#2f81f7" },
+    { title: "ISSUES", key: "issues", color: "#db61a2" },
+    { title: "REVIEWS", key: "reviews", color: "#a371f7" },
+  ];
+  const rows = metrics.map((metric, index) => mobileHistoryRow(metric, index, history.yearly.map((item) => item[metric.key] || 0), years)).join("");
+  const contributions = sumBy(history.yearly, "contributions");
+  const lines = sumBy(history.yearly, "additions") + sumBy(history.yearly, "deletions");
+  const commits = sumBy(history.yearly, "commits");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="990" viewBox="0 0 375 990" role="img" aria-labelledby="title desc">
+  <title id="title">So's mobile lifetime founder operating history</title>
+  <desc id="desc">Mobile yearly trends for contributions, code movement, commits, and collaboration.</desc>
+  <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <linearGradient id="mh-line"><stop stop-color="#a371f7"/><stop offset="0.5" stop-color="#2f81f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+      .mh-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.7px; fill: #a371f7; }
+      .mh-title { font-size: 25px; font-weight: 750; }
+      .mh-subtitle,.mh-axis,.mh-footer { font-size: 9px; fill: #8b949e; }
+      .mh-label { font-size: 9px; font-weight: 700; letter-spacing: .8px; fill: #8b949e; }
+      .mh-value { font-size: 18px; font-weight: 750; }
+      .mh-head { font-size: 20px; font-weight: 750; }
+      .mh-head-label { font-size: 8px; fill: #8b949e; letter-spacing: .5px; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="373" height="988" rx="19" fill="url(#mh-bg)" stroke="#30363d" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="4" rx="2" fill="url(#mh-line)"/>
+  <text x="20" y="45" class="mh-eyebrow">FOUNDER OPERATING HISTORY</text>
+  <text x="20" y="77" class="mh-title">Lifetime momentum</text>
+  <text x="20" y="97" class="mh-subtitle">${years[0]} → ${years.at(-1)} · each trend uses its own honest scale</text>
+  <g transform="translate(20 122)"><text class="mh-head">${compact(contributions)}</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(137 122)"><text class="mh-head">${compact(lines)}</text><text y="18" class="mh-head-label">LINES CHANGED</text></g>
+  <g transform="translate(254 122)"><text class="mh-head">${compact(commits)}</text><text y="18" class="mh-head-label">COMMITS</text></g>
+  ${rows}
+  <text x="20" y="974" class="mh-footer">Aggregate history only · repository identities are never stored</text>
+</svg>`;
+}
+
 function metricCard(x, y, label, value, note, accent = "#2f81f7") {
   return `<g transform="translate(${x} ${y})">
     <rect width="270" height="104" rx="16" fill="#161b22" stroke="#30363d"/>
@@ -311,6 +379,76 @@ export function renderSvg(stats) {
 </svg>`;
 }
 
+function mobileMetric(x, y, label, value, note, accent) {
+  return `<g transform="translate(${x} ${y})">
+    <rect width="164" height="83" rx="13" fill="#161b22" stroke="#30363d"/>
+    <rect width="4" height="83" rx="2" fill="${accent}"/>
+    <text x="15" y="23" class="m-label">${escapeXml(label)}</text>
+    <text x="15" y="52" class="m-value">${escapeXml(value)}</text>
+    <text x="15" y="71" class="m-note">${escapeXml(note)}</text>
+  </g>`;
+}
+
+export function renderMobileSvg(stats) {
+  const daily = stats.contributions.daily;
+  const max = Math.max(1, ...daily.map((day) => day.count));
+  const bars = daily.map((day, index) => {
+    const height = day.count === 0 ? 2 : Math.max(5, Math.round((day.count / max) * 82));
+    const x = 20 + index * 11;
+    const y = 475 - height;
+    const color = day.count === 0 ? "#30363d" : day.count >= max * 0.67 ? "#3fb950" : day.count >= max * 0.34 ? "#2f81f7" : "#58a6ff";
+    return `<rect x="${x}" y="${y}" width="7" height="${height}" rx="2.5" fill="${color}"><title>${day.date}: ${day.count} contributions</title></rect>`;
+  }).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="830" viewBox="0 0 375 830" role="img" aria-labelledby="title desc">
+  <title id="title">So's mobile 30-day founder build velocity</title>
+  <desc id="desc">Mobile view of daily contributions, streaks, code movement, and collaboration totals.</desc>
+  <defs><linearGradient id="m-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <linearGradient id="m-line"><stop stop-color="#2f81f7"/><stop offset="0.55" stop-color="#a371f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+      .m-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.8px; fill: #58a6ff; }
+      .m-title { font-size: 26px; font-weight: 750; }
+      .m-subtitle,.m-note,.m-footer { font-size: 10px; fill: #8b949e; }
+      .m-label,.m-section { font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #8b949e; }
+      .m-value { font-size: 23px; font-weight: 750; }
+      .m-small-value { font-size: 19px; font-weight: 750; }
+      .m-small-label { font-size: 9px; fill: #8b949e; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="373" height="828" rx="19" fill="url(#m-bg)" stroke="#30363d" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="4" rx="2" fill="url(#m-line)"/>
+  <text x="20" y="45" class="m-eyebrow">FOUNDER SHIP LOG</text>
+  <text x="20" y="78" class="m-title">30-day build velocity</text>
+  <text x="20" y="98" class="m-subtitle">AI-first SaaS · updated ${escapeXml(stats.period.end)}</text>
+  ${mobileMetric(20, 120, "TODAY", compact(stats.contributions.today), "contributions", "#3fb950")}
+  ${mobileMetric(191, 120, "LAST 7 DAYS", compact(stats.contributions.last7Days), "contributions", "#2f81f7")}
+  ${mobileMetric(20, 211, "LAST 30 DAYS", compact(stats.contributions.last30Days), `${signed(stats.contributions.momentumPercent)}% momentum`, "#3fb950")}
+  ${mobileMetric(191, 211, "CURRENT STREAK", `${stats.contributions.currentStreak}d`, `best: ${stats.contributions.longestStreak365Days} days`, "#a371f7")}
+  <text x="20" y="329" class="m-section">DAILY CONTRIBUTIONS · LAST 30 DAYS</text>
+  <line x1="20" y1="476" x2="355" y2="476" stroke="#21262d"/>
+  ${bars}
+  <text x="20" y="494" class="m-note">${daily[0].date.slice(5)}</text><text x="355" y="494" text-anchor="end" class="m-note">${daily.at(-1).date.slice(5)}</text>
+  <g transform="translate(20 520)">
+    <rect width="335" height="151" rx="14" fill="#161b22" stroke="#30363d"/>
+    <text x="15" y="24" class="m-section">CODE MOVEMENT · 30 DAYS</text>
+    <g transform="translate(15 47)"><text class="m-small-value" fill="#3fb950">+${compact(stats.code.additions)}</text><text y="19" class="m-small-label">lines added</text></g>
+    <g transform="translate(124 47)"><text class="m-small-value" fill="#f85149">−${compact(stats.code.deletions)}</text><text y="19" class="m-small-label">lines removed</text></g>
+    <g transform="translate(233 47)"><text class="m-small-value">${signed(stats.code.net)}</text><text y="19" class="m-small-label">net lines</text></g>
+    <g transform="translate(15 106)"><text class="m-small-value">${compact(stats.code.commitsAnalyzed)}</text><text y="19" class="m-small-label">commits analyzed</text></g>
+    <g transform="translate(170 106)"><text class="m-small-value">${compact(stats.code.averageChangedPerCommit)}</text><text y="19" class="m-small-label">avg change / commit</text></g>
+  </g>
+  <g transform="translate(20 686)">
+    <rect width="335" height="105" rx="14" fill="#161b22" stroke="#30363d"/>
+    <text x="15" y="24" class="m-section">SHIP SIGNALS · 30 DAYS</text>
+    <g transform="translate(15 50)"><text class="m-small-value">${stats.contributions.activeDays}/30</text><text y="19" class="m-small-label">active days</text></g>
+    <g transform="translate(130 50)"><text class="m-small-value">${stats.collaboration.pullRequests}</text><text y="19" class="m-small-label">pull requests</text></g>
+    <g transform="translate(245 50)"><text class="m-small-value">${stats.collaboration.reviews}</text><text y="19" class="m-small-label">reviews</text></g>
+  </g>
+  <text x="20" y="813" class="m-footer">Aggregate public + private activity · private work stays private</text>
+</svg>`;
+}
+
 async function github(pathname, token, options = {}) {
   const response = await fetch(`${API}${pathname}`, {
     ...options,
@@ -318,7 +456,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.2",
+      "User-Agent": "founder-progress-tracker/1.0.3",
       ...options.headers,
     },
   });
@@ -573,13 +711,17 @@ async function main() {
   };
   const stats = computeStats({ ...contributions, code: recentCode, today });
   const svg = renderSvg(stats);
+  const mobileSvg = renderMobileSvg(stats);
   const lifetimeSvg = renderLifetimeSvg(history);
+  const mobileLifetimeSvg = renderMobileLifetimeSvg(history);
   await fs.mkdir(path.join(root, "assets"), { recursive: true });
   await fs.mkdir(path.join(root, "metrics"), { recursive: true });
   await Promise.all([
     fs.writeFile(path.join(root, "assets", "founder-progress.svg"), svg),
+    fs.writeFile(path.join(root, "assets", "founder-progress-mobile.svg"), mobileSvg),
     sharp(Buffer.from(svg)).png().toFile(path.join(root, "assets", "founder-progress.png")),
     fs.writeFile(path.join(root, "assets", "founder-lifetime.svg"), lifetimeSvg),
+    fs.writeFile(path.join(root, "assets", "founder-lifetime-mobile.svg"), mobileLifetimeSvg),
     sharp(Buffer.from(lifetimeSvg)).png().toFile(path.join(root, "assets", "founder-lifetime.png")),
     fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats)),
     fs.writeFile(path.join(root, "metrics", "latest.json"), `${JSON.stringify(stats, null, 2)}\n`),

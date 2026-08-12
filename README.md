@@ -5,7 +5,10 @@
 I build, launch, measure, and iterate on AI products at founder speed.
 
 <a href="https://github.com/sonozaki7/sonozaki7/blob/main/metrics/latest.json">
-  <img src="./assets/founder-progress.svg" alt="So's daily founder build progress: contributions, streaks, code movement, and shipping momentum" width="100%" />
+  <picture>
+    <source media="(max-width: 800px)" srcset="./assets/founder-progress-mobile.svg" />
+    <img src="./assets/founder-progress.svg" alt="So's daily founder build progress: contributions, streaks, code movement, and shipping momentum" width="100%" />
+  </picture>
 </a>
 
 <sub>Updates every day at 00:10 Asia/Bangkok · public and private work is combined without exposing private repository names</sub>
@@ -14,7 +17,10 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 ## Lifetime operating history
 
-<img src="./assets/founder-lifetime.svg" alt="Lifetime yearly graphs for contributions, active days, code added and removed, net lines, commits, pull requests, issues, and reviews" width="100%" />
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-lifetime-mobile.svg" />
+  <img src="./assets/founder-lifetime.svg" alt="Lifetime yearly graphs for contributions, active days, code added and removed, net lines, commits, pull requests, issues, and reviews" width="100%" />
+</picture>
 
 <sub>Year-by-year history from account creation · line metrics cover accessible, authored commits on repository default branches</sub>
 

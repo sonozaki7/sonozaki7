@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { computeStats, renderLifetimeSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { computeStats, renderLifetimeSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -58,4 +58,18 @@ test("renders every lifetime metric as a separate trend", () => {
     assert.match(svg, new RegExp(label));
   }
   assert.match(svg, /2018 → 2020/);
+  assert.match(renderMobileLifetimeSvg(history), /viewBox="0 0 375 990"/);
+});
+
+test("renders a dedicated mobile progress layout", () => {
+  const stats = computeStats({
+    calendarDays: days,
+    today: "2026-08-12",
+    code: { additions: 1200, deletions: 300, commits: 10 },
+    recent: { pullRequests: 3, issues: 2, reviews: 1 },
+  });
+  const svg = renderMobileSvg(stats);
+  assert.match(svg, /viewBox="0 0 375 830"/);
+  assert.match(svg, /CODE MOVEMENT/);
+  assert.match(svg, /SHIP SIGNALS/);
 });
