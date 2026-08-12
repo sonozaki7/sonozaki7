@@ -35,22 +35,22 @@
     <rect width="270" height="104" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="248" y="27" text-anchor="end" class="index">01</text>
     <text x="22" y="29" class="label">TODAY</text>
-    <text x="22" y="68" class="value">98</text>
+    <text x="22" y="68" class="value">100</text>
     <text x="22" y="90" class="note">contributions</text>
   </g>
   <g transform="translate(340 168)">
     <rect width="270" height="104" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="248" y="27" text-anchor="end" class="index">02</text>
     <text x="22" y="29" class="label">LAST 7 DAYS</text>
-    <text x="22" y="68" class="value">228</text>
+    <text x="22" y="68" class="value">230</text>
     <text x="22" y="90" class="note">contributions</text>
   </g>
   <g transform="translate(628 168)">
     <rect width="270" height="104" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="248" y="27" text-anchor="end" class="index">03</text>
     <text x="22" y="29" class="label">LAST 30 DAYS</text>
-    <text x="22" y="68" class="value">433</text>
-    <text x="22" y="90" class="note">+841% vs previous 30 days</text>
+    <text x="22" y="68" class="value">435</text>
+    <text x="22" y="90" class="note">+846% vs previous 30 days</text>
   </g>
   <g transform="translate(916 168)">
     <rect width="270" height="104" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
@@ -63,22 +63,22 @@
   <text x="52" y="317" class="section">DAILY CONTRIBUTIONS · LAST 30 DAYS</text>
   <line x1="52" y1="456" x2="1148" y2="456" stroke="#EDF2F4"/>
   <rect x="62" y="444" width="22" height="11" rx="2" fill="#B8C8D1"><title>2026-07-14: 10 contributions</title></rect>
-<rect x="96" y="432" width="22" height="23" rx="2" fill="#B8C8D1"><title>2026-07-15: 20 contributions</title></rect>
-<rect x="130" y="432" width="22" height="23" rx="2" fill="#B8C8D1"><title>2026-07-16: 20 contributions</title></rect>
+<rect x="96" y="433" width="22" height="22" rx="2" fill="#B8C8D1"><title>2026-07-15: 20 contributions</title></rect>
+<rect x="130" y="433" width="22" height="22" rx="2" fill="#B8C8D1"><title>2026-07-16: 20 contributions</title></rect>
 <rect x="164" y="439" width="22" height="16" rx="2" fill="#B8C8D1"><title>2026-07-17: 14 contributions</title></rect>
 <rect x="198" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-07-18: 7 contributions</title></rect>
 <rect x="232" y="438" width="22" height="17" rx="2" fill="#B8C8D1"><title>2026-07-19: 15 contributions</title></rect>
 <rect x="266" y="440" width="22" height="15" rx="2" fill="#B8C8D1"><title>2026-07-20: 13 contributions</title></rect>
-<rect x="300" y="442" width="22" height="13" rx="2" fill="#B8C8D1"><title>2026-07-21: 11 contributions</title></rect>
+<rect x="300" y="443" width="22" height="12" rx="2" fill="#B8C8D1"><title>2026-07-21: 11 contributions</title></rect>
 <rect x="334" y="444" width="22" height="11" rx="2" fill="#B8C8D1"><title>2026-07-22: 10 contributions</title></rect>
 <rect x="368" y="444" width="22" height="11" rx="2" fill="#B8C8D1"><title>2026-07-23: 10 contributions</title></rect>
-<rect x="402" y="442" width="22" height="13" rx="2" fill="#B8C8D1"><title>2026-07-24: 11 contributions</title></rect>
+<rect x="402" y="443" width="22" height="12" rx="2" fill="#B8C8D1"><title>2026-07-24: 11 contributions</title></rect>
 <rect x="436" y="452" width="22" height="3" rx="2" fill="#EDF2F4"><title>2026-07-25: 0 contributions</title></rect>
 <rect x="470" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-07-26: 5 contributions</title></rect>
 <rect x="504" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-07-27: 4 contributions</title></rect>
 <rect x="538" y="446" width="22" height="9" rx="2" fill="#B8C8D1"><title>2026-07-28: 8 contributions</title></rect>
 <rect x="572" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-07-29: 4 contributions</title></rect>
-<rect x="606" y="424" width="22" height="31" rx="2" fill="#B8C8D1"><title>2026-07-30: 27 contributions</title></rect>
+<rect x="606" y="425" width="22" height="30" rx="2" fill="#B8C8D1"><title>2026-07-30: 27 contributions</title></rect>
 <rect x="640" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-07-31: 5 contributions</title></rect>
 <rect x="674" y="452" width="22" height="3" rx="2" fill="#EDF2F4"><title>2026-08-01: 0 contributions</title></rect>
 <rect x="708" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-08-02: 1 contributions</title></rect>
@@ -87,11 +87,11 @@
 <rect x="810" y="452" width="22" height="3" rx="2" fill="#EDF2F4"><title>2026-08-05: 0 contributions</title></rect>
 <rect x="844" y="447" width="22" height="8" rx="2" fill="#B8C8D1"><title>2026-08-06: 6 contributions</title></rect>
 <rect x="878" y="452" width="22" height="3" rx="2" fill="#EDF2F4"><title>2026-08-07: 0 contributions</title></rect>
-<rect x="912" y="424" width="22" height="31" rx="2" fill="#B8C8D1"><title>2026-08-08: 27 contributions</title></rect>
+<rect x="912" y="425" width="22" height="30" rx="2" fill="#B8C8D1"><title>2026-08-08: 27 contributions</title></rect>
 <rect x="946" y="429" width="22" height="26" rx="2" fill="#B8C8D1"><title>2026-08-09: 23 contributions</title></rect>
-<rect x="980" y="396" width="22" height="59" rx="2" fill="#7894A5"><title>2026-08-10: 52 contributions</title></rect>
+<rect x="980" y="397" width="22" height="58" rx="2" fill="#7894A5"><title>2026-08-10: 52 contributions</title></rect>
 <rect x="1014" y="430" width="22" height="25" rx="2" fill="#B8C8D1"><title>2026-08-11: 22 contributions</title></rect>
-<rect x="1048" y="343" width="22" height="112" rx="2" fill="#355F78"><title>2026-08-12: 98 contributions</title></rect>
+<rect x="1048" y="343" width="22" height="112" rx="2" fill="#355F78"><title>2026-08-12: 100 contributions</title></rect>
   <text x="73" y="482" text-anchor="middle" class="axis">07-14</text>
 
 
@@ -126,11 +126,11 @@
   <g transform="translate(52 520)">
     <rect width="706" height="112" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="22" y="29" class="section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value" fill="#355F78">+608.7K</text><text y="27" class="mini-label">lines added</text></g>
-    <g transform="translate(160 49)"><text class="mini-value">−225.7K</text><text y="27" class="mini-label">lines removed</text></g>
-    <g transform="translate(298 49)"><text class="mini-value">+382.9K</text><text y="27" class="mini-label">net lines</text></g>
-    <g transform="translate(436 49)"><text class="mini-value">427</text><text y="27" class="mini-label">commits analyzed</text></g>
-    <g transform="translate(574 49)"><text class="mini-value">1,954</text><text y="27" class="mini-label">avg change / commit</text></g>
+    <g transform="translate(22 49)"><text class="mini-value" fill="#355F78">+207K</text><text y="27" class="mini-label">lines added</text></g>
+    <g transform="translate(160 49)"><text class="mini-value">−22.5K</text><text y="27" class="mini-label">lines removed</text></g>
+    <g transform="translate(298 49)"><text class="mini-value">+184.4K</text><text y="27" class="mini-label">net lines</text></g>
+    <g transform="translate(436 49)"><text class="mini-value">228</text><text y="27" class="mini-label">commits analyzed</text></g>
+    <g transform="translate(574 49)"><text class="mini-value">1,006</text><text y="27" class="mini-label">avg change / commit</text></g>
   </g>
 
   <g transform="translate(776 520)">
