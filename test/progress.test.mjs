@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildCadenceData, buildFocusData, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { buildCadenceData, buildFocusData, buildOperatingReview, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileOperatingReviewSvg, renderMobileSvg, renderOperatingReviewSvg, renderSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -205,6 +205,37 @@ test("builds and renders granular privacy-safe WakaTime progress", () => {
   assert.match(desktop, /Time invested, momentum earned/);
   assert.match(mobile, /viewBox="0 0 375 930"/);
   assert.doesNotMatch(`${JSON.stringify(focus)}${desktop}${mobile}`, /secret-private-repo|private-file-path|machine-hostname/);
+});
+
+test("builds a pace-adjusted twelve-month operating review", () => {
+  const monthly = Array.from({ length: 12 }, (_, index) => {
+    const key = new Date(Date.UTC(2025, 8 + index, 1)).toISOString().slice(0, 7);
+    return ({
+    key,
+    label: key.slice(2),
+    start: "2025-09-01",
+    end: "2025-09-30",
+    daysElapsed: index === 11 ? 12 : 30,
+    contributions: index === 11 ? 60 : 100 + index * 10,
+    commits: index === 11 ? 48 : 60 + index * 5,
+    buildDays: index === 11 ? 10 : 15,
+    changed: index === 11 ? 40000 : 30000 + index * 1000,
+    focusSeconds: index === 11 ? 36000 : null,
+  });
+  });
+  const review = buildOperatingReview({ generatedAt: "2026-08-12", timezone: "Asia/Bangkok", privacy: "aggregate", monthly });
+  assert.equal(review.months.length, 12);
+  assert.equal(review.current.daysElapsed, 12);
+  assert.ok(review.currentPace.commits > 0, "partial current month should be compared by daily pace");
+  assert.equal(review.guidance.length, 3);
+  const desktop = renderOperatingReviewSvg(review);
+  const mobile = renderMobileOperatingReviewSvg(review);
+  assert.match(desktop, /One year of compounding/);
+  assert.match(desktop, /pace comparisons adjust for partial months/);
+  assert.match(desktop, /3-MONTH SIGNAL/);
+  assert.match(mobile, /MONTH BY MONTH · EXACT VALUES/);
+  assert.doesNotMatch(`${desktop}${mobile}`, /foreignObject/);
+  assert.doesNotMatch(JSON.stringify(review), /repositoryName|private-repo|filePath/);
 });
 
 function dateFixture(start, end) {

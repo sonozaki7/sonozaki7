@@ -791,6 +791,167 @@ export function renderMobileFocusSvg(focus) {
 </svg>`;
 }
 
+function paceDelta(current, previous, key) {
+  const currentRate = (current?.[key] || 0) / Math.max(1, current?.daysElapsed || 1);
+  const previousRate = (previous?.[key] || 0) / Math.max(1, previous?.daysElapsed || 1);
+  if (!previousRate) return currentRate ? 100 : 0;
+  return Math.round(((currentRate - previousRate) / previousRate) * 100);
+}
+
+function sumMetric(periods, key) {
+  return periods.reduce((total, period) => total + (period[key] || 0), 0);
+}
+
+function wrapText(value, maxCharacters) {
+  const words = String(value).split(/\s+/);
+  const lines = [];
+  let current = "";
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (candidate.length > maxCharacters && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
+function svgTextBlock(value, { x, y, width = 48, lineHeight = 17, className }) {
+  const lines = wrapText(value, width);
+  return `<text x="${x}" y="${y}" class="${className}">${lines.map((line, index) => `<tspan x="${x}" dy="${index ? lineHeight : 0}">${escapeXml(line)}</tspan>`).join("")}</text>`;
+}
+
+export function buildOperatingReview(cadence) {
+  const months = cadence.monthly;
+  const current = months.at(-1);
+  const previous = months.at(-2);
+  const completed = months.slice(0, -1);
+  const recentThree = completed.slice(-3);
+  const priorThree = completed.slice(-6, -3);
+  const threeMonthDelta = (key) => {
+    const recent = sumMetric(recentThree, key);
+    const prior = sumMetric(priorThree, key);
+    return prior ? Math.round(((recent - prior) / prior) * 100) : recent ? 100 : 0;
+  };
+  const currentPace = {
+    contributions: paceDelta(current, previous, "contributions"),
+    commits: paceDelta(current, previous, "commits"),
+    buildDays: paceDelta(current, previous, "buildDays"),
+    changed: paceDelta(current, previous, "changed"),
+  };
+  const currentDensity = current.buildDays ? current.commits / current.buildDays : 0;
+  const previousDensity = previous?.buildDays ? previous.commits / previous.buildDays : 0;
+  const densityDelta = previousDensity ? Math.round(((currentDensity - previousDensity) / previousDensity) * 100) : currentDensity ? 100 : 0;
+  const bestMonth = completed.reduce((best, month) => {
+    if (!best || month.buildDays > best.buildDays || (month.buildDays === best.buildDays && month.commits > best.commits)) return month;
+    return best;
+  }, null) || current;
+  const guidance = [];
+  if (currentPace.buildDays >= 10 && currentPace.commits >= 10) {
+    guidance.push({ label: "CURRENT PACE", tone: "up", text: `Shipping cadence and commit throughput are rising together (${signed(currentPace.buildDays)}% and ${signed(currentPace.commits)}%). Protect the routine behind this month.` });
+  } else if (currentPace.buildDays < -10 && densityDelta > 15) {
+    guidance.push({ label: "BATCH SIZE", tone: "watch", text: `Fewer build days, but denser batches (${signed(densityDelta)}% commits per ship day). Watch integration risk and keep releases small.` });
+  } else if (currentPace.buildDays > 10 && densityDelta < -15) {
+    guidance.push({ label: "SMALLER LOOPS", tone: "up", text: `You are building more often with smaller batches. That usually makes feedback and rollback easier; verify those changes are reaching users.` });
+  } else {
+    guidance.push({ label: "CURRENT PACE", tone: "steady", text: `Shipping rhythm is broadly steady versus last month. Improve one repeatable step—testing, release, or customer feedback—before chasing more volume.` });
+  }
+  const threeMonthCommits = threeMonthDelta("commits");
+  guidance.push({
+    label: "3-MONTH SIGNAL",
+    tone: threeMonthCommits >= 0 ? "up" : "watch",
+    text: `${signed(threeMonthCommits)}% commit throughput versus the prior three complete months. Use the direction as a workflow signal, not a quality score.`,
+  });
+  const focusCovered = months.some((month) => month.focusSeconds != null && month.focusSeconds > 0);
+  guidance.push(focusCovered
+    ? { label: "FOCUS LEVERAGE", tone: "steady", text: "Compare focus hours with shipped commits and releases. More output per focused hour can indicate better tooling, automation, and AI leverage." }
+    : { label: "FOCUS BASELINE", tone: "steady", text: "WakaTime starts now. Future reports will connect time invested to shipped output; GitHub history before tracking cannot reconstruct focus hours." });
+  return {
+    generatedAt: cadence.generatedAt,
+    timezone: cadence.timezone,
+    months,
+    current,
+    previous,
+    currentPace,
+    densityDelta,
+    threeMonth: {
+      contributions: threeMonthDelta("contributions"),
+      commits: threeMonthCommits,
+      buildDays: threeMonthDelta("buildDays"),
+      changed: threeMonthDelta("changed"),
+    },
+    bestMonth,
+    guidance,
+    privacy: cadence.privacy,
+  };
+}
+
+function reviewChart({ x, y, title, periods, key, formatter = compact }) {
+  const width = 530;
+  const height = 205;
+  const left = x + 22;
+  const right = x + width - 22;
+  const top = y + 53;
+  const bottom = y + height - 34;
+  const values = periods.map((period) => period[key] || 0);
+  const max = Math.max(1, ...values);
+  const points = periods.map((period, index) => ({
+    ...period,
+    value: values[index],
+    x: left + (index / Math.max(1, periods.length - 1)) * (right - left),
+    y: bottom - (values[index] / max) * (bottom - top),
+  }));
+  const hasActivity = values.some((value) => value > 0);
+  const line = points.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const marks = hasActivity ? points.map((point, index) => `<g><circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3" fill="${THEME.accent}"><title>${point.key}: ${formatter(point.value)}</title></circle><text x="${point.x.toFixed(1)}" y="${Math.max(top - 7, point.y - 8).toFixed(1)}" text-anchor="middle" class="review-point">${formatter(point.value)}</text>${index % 3 === 0 || index === points.length - 1 ? `<text x="${point.x.toFixed(1)}" y="${y + height - 13}" text-anchor="middle" class="review-axis">${escapeXml(point.label)}</text>` : ""}</g>`).join("") : `<text x="${((left + right) / 2).toFixed(1)}" y="${((top + bottom) / 2).toFixed(1)}" text-anchor="middle" class="review-empty">Baseline collecting</text>`;
+  return `<g><rect x="${x}" y="${y}" width="${width}" height="${height}" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="${x + 20}" y="${y + 28}" class="review-label">${escapeXml(title)}</text><line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="${THEME.border}"/>${hasActivity ? `<polyline points="${line}" fill="none" stroke="${THEME.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>` : ""}${marks}</g>`;
+}
+
+function reviewSummary(x, label, value, note) {
+  return `<g transform="translate(${x} 151)"><rect width="262" height="92" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="20" y="26" class="review-label">${escapeXml(label)}</text><text x="20" y="58" class="review-value">${escapeXml(value)}</text><text x="20" y="78" class="review-note">${escapeXml(note)}</text></g>`;
+}
+
+export function renderOperatingReviewSvg(review) {
+  const first = review.months[0];
+  const current = review.current;
+  const currentFocus = current.focusSeconds == null ? "—" : hours(current.focusSeconds);
+  const guidance = review.guidance.map((item, index) => `<g transform="translate(${52 + index * 366} 719)"><rect width="342" height="122" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/><rect x="0" y="0" width="4" height="122" rx="2" fill="${item.tone === "watch" ? "#A8753A" : THEME.accent}"/><text x="22" y="28" class="review-label">${escapeXml(item.label)}</text>${svgTextBlock(item.text, { x: 22, y: 52, width: 48, lineHeight: 16, className: "review-guidance" })}</g>`).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="885" viewBox="0 0 1200 885" role="img" aria-labelledby="title desc">
+  <title id="title">So's twelve-month founder operating review</title><desc id="desc">Month-by-month workflow and SaaS-building signals with pace-adjusted comparisons and practical guidance.</desc>
+  <defs><linearGradient id="review-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }.review-eyebrow,.review-label { font-family: ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;letter-spacing:1.5px;fill:${THEME.accent}; }.review-eyebrow{font-size:13px;letter-spacing:2.5px}.review-label{font-size:10px;fill:${THEME.muted}}.review-title{font-family:Georgia,"Times New Roman",serif;font-size:40px;font-weight:700;letter-spacing:-1.1px}.review-subtitle{font-size:15px;fill:${THEME.muted}}.review-value{font-size:28px;font-weight:750}.review-note{font-size:11px;fill:${THEME.dim}}.review-point{font-size:9px;font-weight:650}.review-axis,.review-empty,.review-footer{font-size:9px;fill:${THEME.dim}}.review-empty{font-size:12px}.review-footer{font-size:11px}.review-guidance{font-size:12px;fill:${THEME.muted}}
+  </style></defs>
+  <rect x="1" y="1" width="1198" height="883" rx="10" fill="url(#review-bg)" stroke="${THEME.border}" stroke-width="2"/><rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
+  <text x="52" y="62" class="review-eyebrow">12-MONTH FOUNDER OPERATING REVIEW</text><text x="52" y="104" class="review-title">One year of compounding</text><text x="52" y="132" class="review-subtitle">${escapeXml(first.key)} → ${escapeXml(current.key)} · current month: ${current.daysElapsed} days elapsed · pace comparisons adjust for partial months</text>
+  ${reviewSummary(52, "CURRENT CONTRIBUTIONS", exact(current.contributions), `${signed(review.currentPace.contributions)}% pace vs last month`)}${reviewSummary(330, "CURRENT SHIP DAYS", `${current.buildDays}/${current.daysElapsed}`, `${signed(review.currentPace.buildDays)}% pace vs last month`)}${reviewSummary(608, "COMMITS / SHIP DAY", current.buildDays ? (current.commits / current.buildDays).toFixed(1) : "0", `${signed(review.densityDelta)}% batch density`)}${reviewSummary(886, "FOCUS TIME", currentFocus, current.focusSeconds ? "active editor time" : "WakaTime baseline collecting")}
+  ${reviewChart({ x: 52, y: 270, title: "MONTHLY CONTRIBUTIONS · ACTIVITY", periods: review.months, key: "contributions", formatter: exact })}${reviewChart({ x: 618, y: 270, title: "UNIQUE COMMITS · THROUGHPUT", periods: review.months, key: "commits", formatter: exact })}${reviewChart({ x: 52, y: 491, title: "SHIP DAYS · CONSISTENCY", periods: review.months, key: "buildDays", formatter: exact })}${reviewChart({ x: 618, y: 491, title: "FOCUS HOURS · ATTENTION", periods: review.months, key: "focusSeconds", formatter: (value) => hours(value) })}
+  ${guidance}
+  <text x="52" y="864" class="review-footer">Operating signals, not a quality score · pair with launches, customer feedback, and the monthly SaaS earnings record below · aggregate only</text>
+</svg>`;
+}
+
+export function renderMobileOperatingReviewSvg(review) {
+  const current = review.current;
+  const guidance = review.guidance.map((item, index) => `<g transform="translate(20 ${278 + index * 104})"><rect width="335" height="94" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><rect width="3" height="94" rx="2" fill="${item.tone === "watch" ? "#A8753A" : THEME.accent}"/><text x="16" y="22" class="mr-label">${escapeXml(item.label)}</text>${svgTextBlock(item.text, { x: 16, y: 42, width: 58, lineHeight: 13, className: "mr-guidance" })}</g>`).join("");
+  const startY = 606;
+  const rows = review.months.map((month, index) => {
+    const y = startY + index * 94;
+    const delta = index ? paceDelta(month, review.months[index - 1], "commits") : 0;
+    return `<g><rect x="20" y="${y}" width="335" height="84" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="32" y="${y + 24}" class="mr-month">${escapeXml(month.key)}</text><text x="32" y="${y + 44}" class="mr-small">${month.daysElapsed} days · ${signed(delta)}% commit pace</text><g transform="translate(145 ${y + 23})"><text class="mr-number">${exact(month.contributions)}</text><text y="16" class="mr-tiny">CONTRIB</text></g><g transform="translate(215 ${y + 23})"><text class="mr-number">${exact(month.commits)}</text><text y="16" class="mr-tiny">COMMITS</text></g><g transform="translate(285 ${y + 23})"><text class="mr-number">${exact(month.buildDays)}</text><text y="16" class="mr-tiny">SHIP DAYS</text></g><text x="145" y="${y + 66}" class="mr-small">${compact(month.changed)} focused lines</text><text x="285" y="${y + 66}" class="mr-small">${hours(month.focusSeconds)} focus</text></g>`;
+  }).join("");
+  const height = startY + review.months.length * 94 + 44;
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="${height}" viewBox="0 0 375 ${height}" role="img" aria-labelledby="title desc"><title id="title">So's mobile twelve-month founder operating review</title><desc id="desc">Exact month-by-month workflow signals with pace-adjusted guidance.</desc><defs><linearGradient id="mr-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+  text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:${THEME.text}}.mr-eyebrow,.mr-label,.mr-month{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;letter-spacing:1px;fill:${THEME.accent}}.mr-eyebrow{font-size:9px;letter-spacing:1.5px}.mr-label,.mr-month{font-size:9px}.mr-label{fill:${THEME.muted}}.mr-title{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:700}.mr-subtitle,.mr-small,.mr-footer,.mr-guidance{font-size:8px;fill:${THEME.muted}}.mr-guidance{font-size:9px}.mr-head{font-size:19px;font-weight:750}.mr-tiny{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:6px;fill:${THEME.dim};letter-spacing:.3px}.mr-number{font-size:12px;font-weight:750}
+  </style></defs><rect x="1" y="1" width="373" height="${height - 2}" rx="8" fill="url(#mr-bg)" stroke="${THEME.border}" stroke-width="2"/><rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/><text x="20" y="43" class="mr-eyebrow">12-MONTH FOUNDER OPERATING REVIEW</text><text x="20" y="76" class="mr-title">One year of compounding</text><text x="20" y="96" class="mr-subtitle">${review.months[0].key} → ${current.key} · partial months are pace-adjusted</text>
+  <g transform="translate(20 119)"><rect width="164" height="65" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="13" y="19" class="mr-label">CONTRIBUTIONS</text><text x="13" y="45" class="mr-head">${exact(current.contributions)}</text><text x="13" y="58" class="mr-small">${signed(review.currentPace.contributions)}% pace</text></g><g transform="translate(191 119)"><rect width="164" height="65" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="13" y="19" class="mr-label">SHIP DAYS</text><text x="13" y="45" class="mr-head">${current.buildDays}/${current.daysElapsed}</text><text x="13" y="58" class="mr-small">${signed(review.currentPace.buildDays)}% pace</text></g><g transform="translate(20 191)"><rect width="164" height="65" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="13" y="19" class="mr-label">COMMITS / DAY</text><text x="13" y="45" class="mr-head">${current.buildDays ? (current.commits / current.buildDays).toFixed(1) : "0"}</text><text x="13" y="58" class="mr-small">${signed(review.densityDelta)}% density</text></g><g transform="translate(191 191)"><rect width="164" height="65" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="13" y="19" class="mr-label">FOCUS</text><text x="13" y="45" class="mr-head">${hours(current.focusSeconds)}</text><text x="13" y="58" class="mr-small">WakaTime active time</text></g>
+  ${guidance}<text x="20" y="592" class="mr-label">MONTH BY MONTH · EXACT VALUES</text>${rows}<text x="20" y="${height - 17}" class="mr-footer">Signals only · compare with launches, customer feedback, and MRR</text></svg>`;
+}
+
 function metricCard(x, y, label, value, note, index) {
   return `<g transform="translate(${x} ${y})">
     <rect width="270" height="104" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
@@ -964,7 +1125,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.3.0",
+      "User-Agent": "founder-progress-tracker/1.4.0",
       ...options.headers,
     },
   });
@@ -978,7 +1139,7 @@ async function wakatime(pathname, apiKey) {
     headers: {
       Accept: "application/json",
       Authorization: `Basic ${Buffer.from(apiKey).toString("base64")}`,
-      "User-Agent": "founder-progress-tracker/1.3.0",
+      "User-Agent": "founder-progress-tracker/1.4.0",
     },
   });
   if (!response.ok) throw new Error(`WakaTime API ${response.status} for aggregate coding time`);
@@ -1359,8 +1520,9 @@ async function main() {
   };
   const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, focusDaily, today });
   cadence.yearly = buildYearlyCadence(history, focusDaily);
-  const svg = renderSvg(stats);
-  const mobileSvg = renderMobileSvg(stats);
+  const operatingReview = buildOperatingReview(cadence);
+  const svg = renderOperatingReviewSvg(operatingReview);
+  const mobileSvg = renderMobileOperatingReviewSvg(operatingReview);
   const dailySvg = renderCadenceSvg(cadence, "daily");
   const mobileDailySvg = renderMobileCadenceSvg(cadence, "daily");
   const weeklySvg = renderCadenceSvg(cadence, "weekly");

@@ -7,11 +7,11 @@ I build, launch, measure, and iterate on AI products at founder speed.
 <a href="https://github.com/sonozaki7/sonozaki7/blob/main/metrics/latest.json">
   <picture>
     <source media="(max-width: 800px)" srcset="./assets/founder-progress-mobile.svg" />
-    <img src="./assets/founder-progress.svg" alt="So's daily founder progress: contribution momentum, shipping consistency, unique commits, active products, and focused code movement" width="100%" />
+    <img src="./assets/founder-progress.svg" alt="So's twelve-month founder operating review with monthly workflow comparisons, exact progress signals, and practical guidance" width="100%" />
   </picture>
 </a>
 
-<sub>Updates every day at 00:10 Asia/Bangkok · public and private work is combined without exposing private repository names</sub>
+<sub>Month-by-month comparison for the last year · pace-adjusted guidance for partial months · updates daily at 00:10 Asia/Bangkok</sub>
 
 </div>
 
