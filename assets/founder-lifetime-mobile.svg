@@ -19,13 +19,13 @@
   <text x="20" y="45" class="mh-eyebrow">FOUNDER OPERATING HISTORY</text>
   <text x="20" y="77" class="mh-title">Lifetime momentum</text>
   <text x="20" y="97" class="mh-subtitle">2018 → 2026 · each trend uses its own honest scale</text>
-  <g transform="translate(20 122)"><text class="mh-head">2,098</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(20 122)"><text class="mh-head">2,099</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
   <g transform="translate(137 122)"><text class="mh-head">2.7M</text><text y="18" class="mh-head-label">FOCUSED LINES</text></g>
-  <g transform="translate(254 122)"><text class="mh-head">1,997</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(254 122)"><text class="mh-head">1,998</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
   <g>
     <rect x="20" y="183" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="211" class="mh-label">CONTRIBUTIONS</text>
-    <text x="34" y="238" class="mh-value">2,098</text>
+    <text x="34" y="238" class="mh-value">2,099</text>
     <line x1="151" y1="243" x2="334" y2="243" stroke="#DCE3E7"/>
     <polyline points="151.0,242.0 173.9,226.3 196.8,234.4 219.6,240.4 242.5,240.8 265.4,236.0 288.3,241.1 311.1,239.1 334.0,208.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="255" class="mh-axis">2018</text><text x="334" y="255" text-anchor="end" class="mh-axis">2026</text>
@@ -46,7 +46,7 @@
   </g><g>
     <rect x="20" y="441" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="469" class="mh-label">UNIQUE COMMITS</text>
-    <text x="34" y="496" class="mh-value">1,997</text>
+    <text x="34" y="496" class="mh-value">1,998</text>
     <line x1="151" y1="501" x2="334" y2="501" stroke="#DCE3E7"/>
     <polyline points="151.0,500.0 173.9,483.9 196.8,493.5 219.6,498.7 242.5,499.1 265.4,493.4 288.3,499.4 311.1,497.2 334.0,466.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="513" class="mh-axis">2018</text><text x="334" y="513" text-anchor="end" class="mh-axis">2026</text>
@@ -62,14 +62,14 @@
     <text x="34" y="641" class="mh-label">FOCUSED CODE</text>
     <text x="34" y="668" class="mh-value">2.7M</text>
     <line x1="151" y1="673" x2="334" y2="673" stroke="#DCE3E7"/>
-    <polyline points="151.0,672.0 173.9,660.5 196.8,667.0 219.6,671.8 242.5,671.5 265.4,670.3 288.3,670.9 311.1,670.8 334.0,638.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,672.0 173.9,660.6 196.8,667.0 219.6,671.8 242.5,671.5 265.4,670.3 288.3,670.9 311.1,670.8 334.0,638.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="685" class="mh-axis">2018</text><text x="334" y="685" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="699" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="727" class="mh-label">ACTIVE PRODUCTS</text>
-    <text x="34" y="754" class="mh-value">91</text>
+    <text x="34" y="754" class="mh-value">92</text>
     <line x1="151" y1="759" x2="334" y2="759" stroke="#DCE3E7"/>
-    <polyline points="151.0,758.0 173.9,724.0 196.8,734.3 219.6,747.7 242.5,752.1 265.4,740.3 288.3,752.1 311.1,741.7 334.0,737.3" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,758.0 173.9,724.0 196.8,734.3 219.6,747.7 242.5,752.1 265.4,740.3 288.3,752.1 311.1,741.7 334.0,735.8" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="771" class="mh-axis">2018</text><text x="334" y="771" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="785" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
