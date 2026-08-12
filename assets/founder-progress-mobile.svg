@@ -55,11 +55,11 @@
   <g transform="translate(20 520)">
     <rect width="335" height="151" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="15" y="24" class="m-section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(15 47)"><text class="m-small-value" fill="#355F78">+207K</text><text y="19" class="m-small-label">lines added</text></g>
-    <g transform="translate(124 47)"><text class="m-small-value">−22.5K</text><text y="19" class="m-small-label">lines removed</text></g>
-    <g transform="translate(233 47)"><text class="m-small-value">+184.4K</text><text y="19" class="m-small-label">net lines</text></g>
-    <g transform="translate(15 106)"><text class="m-small-value">228</text><text y="19" class="m-small-label">commits analyzed</text></g>
-    <g transform="translate(170 106)"><text class="m-small-value">1,006</text><text y="19" class="m-small-label">avg change / commit</text></g>
+    <g transform="translate(15 47)"><text class="m-small-value" fill="#355F78">+608.7K</text><text y="19" class="m-small-label">lines added</text></g>
+    <g transform="translate(124 47)"><text class="m-small-value">−225.7K</text><text y="19" class="m-small-label">lines removed</text></g>
+    <g transform="translate(233 47)"><text class="m-small-value">+382.9K</text><text y="19" class="m-small-label">net lines</text></g>
+    <g transform="translate(15 106)"><text class="m-small-value">427</text><text y="19" class="m-small-label">commits analyzed</text></g>
+    <g transform="translate(170 106)"><text class="m-small-value">1,954</text><text y="19" class="m-small-label">avg change / commit</text></g>
   </g>
   <g transform="translate(20 686)">
     <rect width="335" height="105" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>

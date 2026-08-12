@@ -138,14 +138,14 @@
     ]
   },
   "code": {
-    "additions": 206953,
-    "deletions": 22527,
-    "changed": 229480,
-    "net": 184426,
-    "commitsAnalyzed": 228,
-    "averageChangedPerCommit": 1006,
-    "repositoriesAnalyzed": 9,
-    "repositoriesSkipped": 1
+    "additions": 608658,
+    "deletions": 225718,
+    "changed": 834376,
+    "net": 382940,
+    "commitsAnalyzed": 427,
+    "averageChangedPerCommit": 1954,
+    "repositoriesAnalyzed": 10,
+    "repositoriesSkipped": 0
   },
   "collaboration": {
     "pullRequests": 0,
