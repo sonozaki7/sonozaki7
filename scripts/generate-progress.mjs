@@ -695,22 +695,23 @@ function focusChart({ x, y, width, height, title, periods }) {
   const chartBottom = y + height - 34;
   const values = periods.map((period) => period.seconds || 0);
   const max = Math.max(1, ...values);
+  const hasActivity = values.some((value) => value > 0);
   const points = periods.map((period, index) => {
     const px = periods.length === 1 ? (chartLeft + chartRight) / 2 : chartLeft + (index / (periods.length - 1)) * (chartRight - chartLeft);
     const py = chartBottom - ((period.seconds || 0) / max) * (chartBottom - chartTop);
     return { ...period, x: px, y: py };
   });
   const polyline = points.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
-  const labels = points.map((point, index) => {
+  const labels = hasActivity ? points.map((point, index) => {
     const showAxis = periods.length <= 6 || index === 0 || index === periods.length - 1 || index % Math.ceil(periods.length / 4) === 0;
     const valueY = Math.max(chartTop - 7, point.y - 8);
     return `<g><circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3" fill="${THEME.accent}"><title>${point.start}${point.end === point.start ? "" : ` to ${point.end}`}: ${hours(point.seconds)}</title></circle><text x="${point.x.toFixed(1)}" y="${valueY.toFixed(1)}" text-anchor="middle" class="focus-point">${hours(point.seconds)}</text>${showAxis ? `<text x="${point.x.toFixed(1)}" y="${y + height - 13}" text-anchor="middle" class="focus-axis">${escapeXml(point.label)}</text>` : ""}</g>`;
-  }).join("");
+  }).join("") : `<text x="${((chartLeft + chartRight) / 2).toFixed(1)}" y="${((chartTop + chartBottom) / 2).toFixed(1)}" text-anchor="middle" class="focus-empty">Tracking begins with your next coding session</text>`;
   return `<g>
     <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="${x + 20}" y="${y + 28}" class="focus-label">${escapeXml(title)}</text>
     <line x1="${chartLeft}" y1="${chartBottom}" x2="${chartRight}" y2="${chartBottom}" stroke="${THEME.border}"/>
-    <polyline points="${polyline}" fill="none" stroke="${THEME.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+${hasActivity ? `    <polyline points="${polyline}" fill="none" stroke="${THEME.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>` : ""}
     ${labels}
   </g>`;
 }
@@ -732,7 +733,7 @@ export function renderFocusSvg(focus) {
     .focus-eyebrow { font-size: 13px; letter-spacing: 2.6px; }.focus-label { font-size: 10px; fill: ${THEME.muted}; }
     .focus-title { font-family: Georgia, "Times New Roman", serif; font-size: 40px; font-weight: 700; letter-spacing: -1.1px; }
     .focus-subtitle { font-size: 15px; fill: ${THEME.muted}; }.focus-value { font-size: 29px; font-weight: 750; }.focus-note { font-size: 11px; fill: ${THEME.dim}; }
-    .focus-point { font-size: 9px; font-weight: 650; }.focus-axis,.focus-footer { font-size: 9px; fill: ${THEME.dim}; }.focus-footer { font-size: 11px; }
+    .focus-point { font-size: 9px; font-weight: 650; }.focus-axis,.focus-footer,.focus-empty { font-size: 9px; fill: ${THEME.dim}; }.focus-footer { font-size: 11px; }.focus-empty { font-size: 12px; }
   </style></defs>
   <rect x="1" y="1" width="1198" height="848" rx="10" fill="url(#focus-bg)" stroke="${THEME.border}" stroke-width="2"/>
   <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
