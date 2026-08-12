@@ -79,7 +79,7 @@ export function computeStats({ calendarDays, code, recent, today }) {
   const streaks = calculateStreaks(calendarDays, today);
 
   return {
-    generatedAt: new Date().toISOString(),
+    generatedAt: today,
     timezone: TIMEZONE,
     period: { start: last30Dates[0], end: today },
     contributions: {
@@ -318,7 +318,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.0",
+      "User-Agent": "founder-progress-tracker/1.0.1",
       ...options.headers,
     },
   });
@@ -561,7 +561,7 @@ async function main() {
     accountCreatedAt: contributions.accountCreatedAt,
     yearlyContributions,
     codeDaily,
-    generatedAt: new Date().toISOString(),
+    generatedAt: today,
   });
   const recentCodeDays = codeDaily.filter((day) => day.date >= shiftDate(today, -29));
   const recentCode = {

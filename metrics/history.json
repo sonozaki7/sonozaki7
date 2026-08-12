@@ -1,7 +1,7 @@
 {
   "version": 1,
   "accountCreatedAt": "2018-04-24T08:21:38Z",
-  "generatedAt": "2026-08-12T13:42:38.951Z",
+  "generatedAt": "2026-08-12",
   "privacy": "Aggregate yearly and daily totals only; repository identities are not stored.",
   "yearly": [
     {
@@ -107,10 +107,10 @@
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
-      "additions": 298663,
-      "deletions": 36785,
-      "net": 261878,
-      "commits": 271
+      "additions": 700368,
+      "deletions": 239976,
+      "net": 460392,
+      "commits": 470
     }
   ],
   "codeDaily": [
@@ -1454,57 +1454,99 @@
     },
     {
       "date": "2026-07-14",
-      "additions": 15445,
-      "deletions": 0,
-      "commits": 1
+      "additions": 59192,
+      "deletions": 21051,
+      "commits": 9
     },
     {
       "date": "2026-07-15",
-      "additions": 7992,
-      "deletions": 7440,
-      "commits": 5
+      "additions": 33621,
+      "deletions": 19444,
+      "commits": 20
     },
     {
       "date": "2026-07-16",
-      "additions": 5149,
-      "deletions": 2047,
-      "commits": 8
+      "additions": 80703,
+      "deletions": 47762,
+      "commits": 20
+    },
+    {
+      "date": "2026-07-17",
+      "additions": 55492,
+      "deletions": 24212,
+      "commits": 14
     },
     {
       "date": "2026-07-18",
-      "additions": 5874,
-      "deletions": 151,
-      "commits": 5
+      "additions": 21082,
+      "deletions": 2182,
+      "commits": 7
     },
     {
       "date": "2026-07-19",
-      "additions": 268,
-      "deletions": 69,
-      "commits": 10
+      "additions": 11242,
+      "deletions": 4985,
+      "commits": 15
     },
     {
       "date": "2026-07-20",
-      "additions": 28597,
-      "deletions": 835,
-      "commits": 2
+      "additions": 40339,
+      "deletions": 10568,
+      "commits": 12
+    },
+    {
+      "date": "2026-07-21",
+      "additions": 14278,
+      "deletions": 9862,
+      "commits": 11
+    },
+    {
+      "date": "2026-07-22",
+      "additions": 28798,
+      "deletions": 8418,
+      "commits": 10
+    },
+    {
+      "date": "2026-07-23",
+      "additions": 15689,
+      "deletions": 6758,
+      "commits": 10
     },
     {
       "date": "2026-07-24",
-      "additions": 2262,
-      "deletions": 168,
-      "commits": 8
+      "additions": 6432,
+      "deletions": 1645,
+      "commits": 10
     },
     {
       "date": "2026-07-26",
-      "additions": 4359,
-      "deletions": 198,
+      "additions": 5358,
+      "deletions": 1027,
+      "commits": 5
+    },
+    {
+      "date": "2026-07-27",
+      "additions": 4444,
+      "deletions": 3239,
       "commits": 4
     },
     {
+      "date": "2026-07-28",
+      "additions": 22100,
+      "deletions": 996,
+      "commits": 8
+    },
+    {
+      "date": "2026-07-29",
+      "additions": 3920,
+      "deletions": 367,
+      "commits": 3
+    },
+    {
       "date": "2026-07-30",
-      "additions": 1853,
-      "deletions": 59,
-      "commits": 7
+      "additions": 7013,
+      "deletions": 3561,
+      "commits": 27
     },
     {
       "date": "2026-07-31",
@@ -1519,34 +1561,40 @@
       "commits": 1
     },
     {
+      "date": "2026-08-04",
+      "additions": 5776,
+      "deletions": 1778,
+      "commits": 10
+    },
+    {
       "date": "2026-08-06",
-      "additions": 21290,
-      "deletions": 496,
-      "commits": 1
+      "additions": 25293,
+      "deletions": 3900,
+      "commits": 6
     },
     {
       "date": "2026-08-08",
-      "additions": 4667,
-      "deletions": 276,
-      "commits": 18
+      "additions": 16616,
+      "deletions": 8871,
+      "commits": 27
     },
     {
       "date": "2026-08-09",
-      "additions": 15921,
-      "deletions": 3205,
-      "commits": 18
+      "additions": 25038,
+      "deletions": 9400,
+      "commits": 25
     },
     {
       "date": "2026-08-10",
-      "additions": 16942,
-      "deletions": 1447,
-      "commits": 24
+      "additions": 43955,
+      "deletions": 24471,
+      "commits": 52
     },
     {
       "date": "2026-08-11",
-      "additions": 9006,
-      "deletions": 1265,
-      "commits": 17
+      "additions": 14949,
+      "deletions": 6350,
+      "commits": 22
     },
     {
       "date": "2026-08-12",
