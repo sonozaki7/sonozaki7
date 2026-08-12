@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { computeStats, renderLifetimeSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { classifyCommitChange, computeStats, longestStreak, renderLifetimeSvg, renderMobileLifetimeSvg, renderMobileSvg, renderSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -12,7 +12,7 @@ test("computes rolling totals, streaks, and code metrics", () => {
   const stats = computeStats({
     calendarDays: days,
     today: "2026-08-12",
-    code: { additions: 1200, deletions: 300, commits: 10 },
+    code: { additions: 1200, deletions: 300, commits: 10, buildDays: 5, activeProducts: 3, bulkCommitsExcluded: 1 },
     recent: { pullRequests: 3, issues: 2, reviews: 1 },
   });
   assert.equal(stats.contributions.today, 4);
@@ -20,6 +20,8 @@ test("computes rolling totals, streaks, and code metrics", () => {
   assert.equal(stats.code.changed, 1500);
   assert.equal(stats.code.net, 900);
   assert.equal(stats.code.averageChangedPerCommit, 150);
+  assert.equal(stats.code.commitsPerBuildDay, 2);
+  assert.equal(stats.code.activeProducts, 3);
   assert.equal(stats.collaboration.pullRequests, 3);
 });
 
@@ -27,13 +29,16 @@ test("renders a responsive, privacy-safe SVG", () => {
   const stats = computeStats({
     calendarDays: days,
     today: "2026-08-12",
-    code: { additions: 1200, deletions: 300, commits: 10 },
+    code: { additions: 1200, deletions: 300, commits: 10, buildDays: 5, activeProducts: 3, bulkCommitsExcluded: 1 },
     recent: { pullRequests: 3, issues: 2, reviews: 1 },
   });
   const svg = renderSvg(stats);
   assert.match(svg, /viewBox="0 0 1200 680"/);
   assert.match(svg, /30-day build velocity/);
   assert.match(svg, /Aggregate public \+ private activity/);
+  assert.match(svg, /SHIPPING RHYTHM/);
+  assert.match(svg, /active products/);
+  assert.match(svg, /bulk imports filtered/);
   assert.doesNotMatch(svg, /private-repo|commit message|source code here/);
   assert.equal("repositories" in stats.code, false);
   assert.equal("repositoryNames" in stats.code, false);
@@ -47,17 +52,24 @@ test("renders every lifetime metric as a separate trend", () => {
       year,
       contributions: 100 + index * 20,
       activeDays: 30 + index * 5,
+      longestStreak: 5 + index,
       additions: 1000 + index * 100,
       deletions: 300 + index * 50,
+      changed: 1300 + index * 150,
       net: 700 + index * 50,
       commits: 40 + index * 10,
+      commitsPerBuildDay: 2 + index * 0.5,
+      bulkCommitsExcluded: index,
+      activeProducts: 2 + index,
+      buildDays: 20 + index,
       pullRequests: 3 + index,
       issues: 2 + index,
       reviews: 1 + index,
+      collaborationSignals: 6 + index * 3,
     })),
   };
   const svg = renderLifetimeSvg(history);
-  for (const label of ["CONTRIBUTIONS", "ACTIVE DAYS", "LINES ADDED", "LINES REMOVED", "NET LINES", "COMMITS ANALYZED", "PULL REQUESTS", "ISSUES", "REVIEWS"]) {
+  for (const label of ["CONTRIBUTIONS", "SHIP DAYS", "LONGEST STREAK", "UNIQUE COMMITS", "COMMITS / SHIP DAY", "FOCUSED CODE CHANGED", "ACTIVE PRODUCTS", "BUILD DAYS", "COLLABORATION SIGNALS"]) {
     assert.match(svg, new RegExp(label));
   }
   assert.match(svg, /2018 → 2020/);
@@ -68,11 +80,39 @@ test("renders a dedicated mobile progress layout", () => {
   const stats = computeStats({
     calendarDays: days,
     today: "2026-08-12",
-    code: { additions: 1200, deletions: 300, commits: 10 },
+    code: { additions: 1200, deletions: 300, commits: 10, buildDays: 5, activeProducts: 3, bulkCommitsExcluded: 1 },
     recent: { pullRequests: 3, issues: 2, reviews: 1 },
   });
   const svg = renderMobileSvg(stats);
   assert.match(svg, /viewBox="0 0 375 830"/);
-  assert.match(svg, /CODE MOVEMENT/);
-  assert.match(svg, /SHIP SIGNALS/);
+  assert.match(svg, /SHIPPING RHYTHM/);
+  assert.match(svg, /FOCUSED CODE/);
+});
+
+test("filters giant import snapshots without discarding the commit", () => {
+  assert.deepEqual(classifyCommitChange({ additions: 800, deletions: 200 }), {
+    additions: 800,
+    deletions: 200,
+    rawAdditions: 800,
+    rawDeletions: 200,
+    bulkCommitsExcluded: 0,
+  });
+  assert.deepEqual(classifyCommitChange({ additions: 2_739_000, deletions: 631 }), {
+    additions: 0,
+    deletions: 0,
+    rawAdditions: 2_739_000,
+    rawDeletions: 631,
+    bulkCommitsExcluded: 1,
+  });
+});
+
+test("finds the strongest yearly shipping streak", () => {
+  assert.equal(longestStreak([
+    { contributionCount: 1 },
+    { contributionCount: 2 },
+    { contributionCount: 0 },
+    { contributionCount: 3 },
+    { contributionCount: 4 },
+    { contributionCount: 1 },
+  ]), 3);
 });

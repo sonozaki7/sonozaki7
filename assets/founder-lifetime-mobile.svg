@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="990" viewBox="0 0 375 990" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile lifetime founder operating history</title>
-  <desc id="desc">Mobile yearly trends for contributions, code movement, commits, and collaboration.</desc>
+  <desc id="desc">Mobile yearly trends for shipping consistency, unique commits, focused code movement, and collaboration.</desc>
   <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #181915; }
@@ -20,8 +20,8 @@
   <text x="20" y="77" class="mh-title">Lifetime momentum</text>
   <text x="20" y="97" class="mh-subtitle">2018 → 2026 · each trend uses its own honest scale</text>
   <g transform="translate(20 122)"><text class="mh-head">2,094</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
-  <g transform="translate(137 122)"><text class="mh-head">15.6M</text><text y="18" class="mh-head-label">LINES CHANGED</text></g>
-  <g transform="translate(254 122)"><text class="mh-head">1,288</text><text y="18" class="mh-head-label">COMMITS</text></g>
+  <g transform="translate(137 122)"><text class="mh-head">2.7M</text><text y="18" class="mh-head-label">FOCUSED LINES</text></g>
+  <g transform="translate(254 122)"><text class="mh-head">1,997</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
   <g>
     <rect x="20" y="183" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="211" class="mh-label">CONTRIBUTIONS</text>
@@ -31,60 +31,60 @@
     <text x="151" y="255" class="mh-axis">2018</text><text x="334" y="255" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="269" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="297" class="mh-label">ACTIVE DAYS</text>
+    <text x="34" y="297" class="mh-label">SHIP DAYS</text>
     <text x="34" y="324" class="mh-value">325</text>
     <line x1="151" y1="329" x2="334" y2="329" stroke="#DCE3E7"/>
     <polyline points="151.0,327.7 173.9,307.1 196.8,308.8 219.6,322.3 242.5,325.6 265.4,313.9 288.3,325.0 311.1,318.2 334.0,294.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="341" class="mh-axis">2018</text><text x="334" y="341" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="355" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="383" class="mh-label">LINES ADDED</text>
-    <text x="34" y="410" class="mh-value">12.3M</text>
+    <text x="34" y="383" class="mh-label">LONGEST STREAK</text>
+    <text x="34" y="410" class="mh-value">16</text>
     <line x1="151" y1="415" x2="334" y2="415" stroke="#DCE3E7"/>
-    <polyline points="151.0,414.0 173.9,410.3 196.8,388.4 219.6,380.0 242.5,406.4 265.4,392.6 288.3,413.6 311.1,413.6 334.0,411.7" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,411.9 173.9,380.0 196.8,401.3 219.6,407.6 242.5,409.8 265.4,390.6 288.3,409.8 311.1,405.5 334.0,388.5" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="427" class="mh-axis">2018</text><text x="334" y="427" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="441" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="469" class="mh-label">LINES REMOVED</text>
-    <text x="34" y="496" class="mh-value">3.3M</text>
+    <text x="34" y="469" class="mh-label">UNIQUE COMMITS</text>
+    <text x="34" y="496" class="mh-value">1,997</text>
     <line x1="151" y1="501" x2="334" y2="501" stroke="#DCE3E7"/>
-    <polyline points="151.0,500.0 173.9,496.9 196.8,496.2 219.6,500.0 242.5,500.0 265.4,466.0 288.3,500.0 311.1,499.9 334.0,499.5" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,500.0 173.9,483.9 196.8,493.5 219.6,498.7 242.5,499.1 265.4,493.4 288.3,499.4 311.1,497.2 334.0,466.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="513" class="mh-axis">2018</text><text x="334" y="513" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="527" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="555" class="mh-label">NET LINES</text>
-    <text x="34" y="582" class="mh-value">+9M</text>
+    <text x="34" y="555" class="mh-label">COMMITS / SHIP DAY</text>
+    <text x="34" y="582" class="mh-value">10.3</text>
     <line x1="151" y1="587" x2="334" y2="587" stroke="#DCE3E7"/>
-    <polyline points="151.0,586.0 173.9,584.2 196.8,562.8 219.6,552.0 242.5,578.4 265.4,585.6 288.3,585.6 311.1,585.6 334.0,584.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,586.0 173.9,559.3 196.8,573.5 219.6,575.1 242.5,568.2 265.4,568.5 288.3,577.1 311.1,576.1 334.0,552.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="599" class="mh-axis">2018</text><text x="334" y="599" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="613" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="641" class="mh-label">COMMITS</text>
-    <text x="34" y="668" class="mh-value">1,288</text>
+    <text x="34" y="641" class="mh-label">FOCUSED CODE</text>
+    <text x="34" y="668" class="mh-value">2.7M</text>
     <line x1="151" y1="673" x2="334" y2="673" stroke="#DCE3E7"/>
-    <polyline points="151.0,672.0 173.9,638.0 196.8,657.9 219.6,669.2 242.5,670.0 265.4,658.1 288.3,670.8 311.1,666.1 334.0,652.3" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,672.0 173.9,660.5 196.8,667.0 219.6,671.8 242.5,671.5 265.4,670.3 288.3,670.9 311.1,670.8 334.0,638.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="685" class="mh-axis">2018</text><text x="334" y="685" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="699" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="727" class="mh-label">PULL REQUESTS</text>
-    <text x="34" y="754" class="mh-value">8</text>
+    <text x="34" y="727" class="mh-label">ACTIVE PRODUCTS</text>
+    <text x="34" y="754" class="mh-value">91</text>
     <line x1="151" y1="759" x2="334" y2="759" stroke="#DCE3E7"/>
-    <polyline points="151.0,758.0 173.9,758.0 196.8,758.0 219.6,758.0 242.5,737.6 265.4,724.0 288.3,758.0 311.1,758.0 334.0,758.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,758.0 173.9,724.0 196.8,734.3 219.6,747.7 242.5,752.1 265.4,740.3 288.3,752.1 311.1,741.7 334.0,737.3" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="771" class="mh-axis">2018</text><text x="334" y="771" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="785" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="813" class="mh-label">ISSUES</text>
-    <text x="34" y="840" class="mh-value">1</text>
+    <text x="34" y="813" class="mh-label">BUILD DAYS</text>
+    <text x="34" y="840" class="mh-value">290</text>
     <line x1="151" y1="845" x2="334" y2="845" stroke="#DCE3E7"/>
-    <polyline points="151.0,844.0 173.9,844.0 196.8,844.0 219.6,844.0 242.5,844.0 265.4,844.0 288.3,810.0 311.1,844.0 334.0,844.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,844.0 173.9,823.5 196.8,826.3 219.6,839.8 242.5,842.2 265.4,831.3 288.3,841.9 311.1,834.4 334.0,810.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="857" class="mh-axis">2018</text><text x="334" y="857" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="871" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="34" y="899" class="mh-label">REVIEWS</text>
-    <text x="34" y="926" class="mh-value">0</text>
+    <text x="34" y="899" class="mh-label">COLLAB SIGNALS</text>
+    <text x="34" y="926" class="mh-value">9</text>
     <line x1="151" y1="931" x2="334" y2="931" stroke="#DCE3E7"/>
-    <polyline points="151.0,930.0 173.9,930.0 196.8,930.0 219.6,930.0 242.5,930.0 265.4,930.0 288.3,930.0 311.1,930.0 334.0,930.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,930.0 173.9,930.0 196.8,930.0 219.6,930.0 242.5,909.6 265.4,896.0 288.3,923.2 311.1,930.0 334.0,930.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="943" class="mh-axis">2018</text><text x="334" y="943" text-anchor="end" class="mh-axis">2026</text>
   </g>
-  <text x="20" y="974" class="mh-footer">Aggregate history only · repository identities are never stored</text>
+  <text x="20" y="974" class="mh-footer">100k+ line imports filtered · repository identities are never stored</text>
 </svg>

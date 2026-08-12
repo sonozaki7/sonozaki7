@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "accountCreatedAt": "2018-04-24T08:21:38Z",
   "generatedAt": "2026-08-12",
   "privacy": "Aggregate yearly and daily totals only; repository identities are not stored.",
@@ -8,1551 +8,2812 @@
       "year": 2018,
       "contributions": 1,
       "activeDays": 1,
+      "longestStreak": 1,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
       "additions": 0,
       "deletions": 0,
+      "changed": 0,
       "net": 0,
-      "commits": 0
+      "rawAdditions": 0,
+      "rawDeletions": 0,
+      "commits": 0,
+      "buildDays": 0,
+      "commitsPerBuildDay": 0,
+      "activeProducts": 0,
+      "bulkCommitsExcluded": 0,
+      "collaborationSignals": 0
     },
     {
       "year": 2019,
       "contributions": 472,
       "activeDays": 62,
+      "longestStreak": 16,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
-      "additions": 475686,
-      "deletions": 248226,
-      "net": 227460,
-      "commits": 468
+      "additions": 312334,
+      "deletions": 247036,
+      "changed": 559370,
+      "net": 65298,
+      "rawAdditions": 475686,
+      "rawDeletions": 248226,
+      "commits": 468,
+      "buildDays": 58,
+      "commitsPerBuildDay": 8.1,
+      "activeProducts": 23,
+      "bulkCommitsExcluded": 1,
+      "collaborationSignals": 0
     },
     {
       "year": 2020,
       "contributions": 227,
       "activeDays": 57,
+      "longestStreak": 6,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
-      "additions": 3291825,
-      "deletions": 303161,
-      "net": 2988664,
-      "commits": 194
+      "additions": 216077,
+      "deletions": 29309,
+      "changed": 245386,
+      "net": 186768,
+      "rawAdditions": 3202696,
+      "rawDeletions": 303124,
+      "commits": 188,
+      "buildDays": 50,
+      "commitsPerBuildDay": 3.8,
+      "activeProducts": 16,
+      "bulkCommitsExcluded": 3,
+      "collaborationSignals": 0
     },
     {
       "year": 2021,
       "contributions": 47,
       "activeDays": 17,
+      "longestStreak": 3,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
-      "additions": 4374949,
+      "additions": 11640,
       "deletions": 366,
-      "net": 4374583,
-      "commits": 39
+      "changed": 12006,
+      "net": 11274,
+      "rawAdditions": 4374949,
+      "rawDeletions": 366,
+      "commits": 39,
+      "buildDays": 12,
+      "commitsPerBuildDay": 3.3,
+      "activeProducts": 7,
+      "bulkCommitsExcluded": 2,
+      "collaborationSignals": 0
     },
     {
       "year": 2022,
       "contributions": 36,
       "activeDays": 7,
+      "longestStreak": 2,
       "pullRequests": 3,
       "issues": 0,
       "reviews": 0,
-      "additions": 982543,
-      "deletions": 571,
-      "net": 981972,
-      "commits": 28
+      "additions": 24941,
+      "deletions": 567,
+      "changed": 25508,
+      "net": 24374,
+      "rawAdditions": 982541,
+      "rawDeletions": 571,
+      "commits": 27,
+      "buildDays": 5,
+      "commitsPerBuildDay": 5.4,
+      "activeProducts": 4,
+      "bulkCommitsExcluded": 2,
+      "collaborationSignals": 3
     },
     {
       "year": 2023,
       "contributions": 181,
       "activeDays": 42,
+      "longestStreak": 11,
       "pullRequests": 5,
       "issues": 0,
       "reviews": 0,
-      "additions": 2748995,
-      "deletions": 2693151,
-      "net": 55844,
-      "commits": 191
+      "additions": 68521,
+      "deletions": 12701,
+      "changed": 81222,
+      "net": 55820,
+      "rawAdditions": 2748995,
+      "rawDeletions": 2693151,
+      "commits": 191,
+      "buildDays": 36,
+      "commitsPerBuildDay": 5.3,
+      "activeProducts": 12,
+      "bulkCommitsExcluded": 2,
+      "collaborationSignals": 5
     },
     {
       "year": 2024,
       "contributions": 27,
       "activeDays": 9,
+      "longestStreak": 2,
       "pullRequests": 0,
       "issues": 1,
       "reviews": 0,
       "additions": 52163,
       "deletions": 1366,
+      "changed": 53529,
       "net": 50797,
-      "commits": 16
+      "rawAdditions": 52163,
+      "rawDeletions": 1366,
+      "commits": 16,
+      "buildDays": 6,
+      "commitsPerBuildDay": 2.7,
+      "activeProducts": 4,
+      "bulkCommitsExcluded": 0,
+      "collaborationSignals": 1
     },
     {
       "year": 2025,
       "contributions": 87,
       "activeDays": 29,
+      "longestStreak": 4,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
       "additions": 54676,
       "deletions": 6140,
+      "changed": 60816,
       "net": 48536,
-      "commits": 81
+      "rawAdditions": 54676,
+      "rawDeletions": 6140,
+      "commits": 81,
+      "buildDays": 27,
+      "commitsPerBuildDay": 3,
+      "activeProducts": 11,
+      "bulkCommitsExcluded": 0,
+      "collaborationSignals": 0
     },
     {
       "year": 2026,
       "contributions": 1016,
       "activeDays": 101,
+      "longestStreak": 12,
       "pullRequests": 0,
       "issues": 0,
       "reviews": 0,
-      "additions": 298663,
-      "deletions": 36785,
-      "net": 261878,
-      "commits": 271
+      "additions": 1251450,
+      "deletions": 406316,
+      "changed": 1657766,
+      "net": 845134,
+      "rawAdditions": 1251450,
+      "rawDeletions": 406316,
+      "commits": 987,
+      "buildDays": 96,
+      "commitsPerBuildDay": 10.3,
+      "activeProducts": 14,
+      "bulkCommitsExcluded": 0,
+      "collaborationSignals": 0
     }
   ],
   "codeDaily": [
     {
-      "date": "2019-09-12",
+      "date": "2019-09-13",
       "additions": 273,
       "deletions": 2,
-      "commits": 1
-    },
-    {
-      "date": "2019-09-13",
-      "additions": 38,
-      "deletions": 5,
-      "commits": 1
+      "rawAdditions": 273,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-09-14",
-      "additions": 5,
-      "deletions": 3,
-      "commits": 1
+      "additions": 43,
+      "deletions": 8,
+      "rawAdditions": 43,
+      "rawDeletions": 8,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-09-16",
       "additions": 54,
       "deletions": 2,
-      "commits": 1
+      "rawAdditions": 54,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2019-09-21",
+      "date": "2019-09-22",
       "additions": 95,
       "deletions": 10,
-      "commits": 1
+      "rawAdditions": 95,
+      "rawDeletions": 10,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-09-23",
       "additions": 143,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 143,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-09-26",
       "additions": 92,
       "deletions": 29,
-      "commits": 17
+      "rawAdditions": 92,
+      "rawDeletions": 29,
+      "commits": 17,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2019-10-03",
+      "date": "2019-10-04",
       "additions": 151,
       "deletions": 43,
-      "commits": 9
+      "rawAdditions": 151,
+      "rawDeletions": 43,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-05",
-      "additions": 220,
-      "deletions": 120,
-      "commits": 9
+      "additions": 121,
+      "deletions": 57,
+      "rawAdditions": 121,
+      "rawDeletions": 57,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-06",
-      "additions": 0,
-      "deletions": 1,
-      "commits": 1
+      "additions": 99,
+      "deletions": 64,
+      "rawAdditions": 99,
+      "rawDeletions": 64,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-07",
       "additions": 54,
       "deletions": 15,
-      "commits": 3
+      "rawAdditions": 54,
+      "rawDeletions": 15,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-08",
       "additions": 13,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 13,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-09",
       "additions": 293,
       "deletions": 188,
-      "commits": 14
+      "rawAdditions": 293,
+      "rawDeletions": 188,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-12",
       "additions": 46,
       "deletions": 2,
-      "commits": 1
+      "rawAdditions": 46,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-13",
       "additions": 108,
       "deletions": 25,
-      "commits": 2
-    },
-    {
-      "date": "2019-10-17",
-      "additions": 86,
-      "deletions": 1,
-      "commits": 1
+      "rawAdditions": 108,
+      "rawDeletions": 25,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-18",
-      "additions": 101,
-      "deletions": 5,
-      "commits": 3
+      "additions": 89,
+      "deletions": 4,
+      "rawAdditions": 89,
+      "rawDeletions": 4,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-19",
-      "additions": 35,
-      "deletions": 17,
-      "commits": 3
+      "additions": 133,
+      "deletions": 19,
+      "rawAdditions": 133,
+      "rawDeletions": 19,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-20",
-      "additions": 48,
+      "additions": 39,
       "deletions": 4,
-      "commits": 2
+      "rawAdditions": 39,
+      "rawDeletions": 4,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2019-10-22",
-      "additions": 35,
+      "date": "2019-10-21",
+      "additions": 9,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 9,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-23",
-      "additions": 233,
-      "deletions": 16,
-      "commits": 2
+      "additions": 167,
+      "deletions": 9,
+      "rawAdditions": 167,
+      "rawDeletions": 9,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-24",
-      "additions": 53,
-      "deletions": 9,
-      "commits": 1
+      "additions": 101,
+      "deletions": 7,
+      "rawAdditions": 101,
+      "rawDeletions": 7,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-25",
-      "additions": 29702,
-      "deletions": 105,
-      "commits": 24
+      "additions": 325,
+      "deletions": 83,
+      "rawAdditions": 325,
+      "rawDeletions": 83,
+      "commits": 19,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-26",
-      "additions": 36061,
-      "deletions": 9609,
-      "commits": 24
+      "additions": 32459,
+      "deletions": 445,
+      "rawAdditions": 32459,
+      "rawDeletions": 445,
+      "commits": 21,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-27",
-      "additions": 22291,
-      "deletions": 25617,
-      "commits": 15
+      "additions": 35154,
+      "deletions": 32703,
+      "rawAdditions": 35154,
+      "rawDeletions": 32703,
+      "commits": 15,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-28",
-      "additions": 33735,
-      "deletions": 50251,
-      "commits": 26
+      "additions": 38694,
+      "deletions": 32303,
+      "rawAdditions": 38694,
+      "rawDeletions": 32303,
+      "commits": 21,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-29",
-      "additions": 9902,
-      "deletions": 4692,
-      "commits": 9
+      "additions": 23507,
+      "deletions": 24079,
+      "rawAdditions": 23507,
+      "rawDeletions": 24079,
+      "commits": 19,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-30",
-      "additions": 5662,
-      "deletions": 3803,
-      "commits": 7
+      "additions": 6214,
+      "deletions": 4352,
+      "rawAdditions": 6214,
+      "rawDeletions": 4352,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-10-31",
-      "additions": 363,
-      "deletions": 1,
-      "commits": 2
+      "additions": 1053,
+      "deletions": 121,
+      "rawAdditions": 1053,
+      "rawDeletions": 121,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-01",
-      "additions": 4352,
-      "deletions": 5093,
-      "commits": 6
+      "additions": 439,
+      "deletions": 5,
+      "rawAdditions": 439,
+      "rawDeletions": 5,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-02",
-      "additions": 70472,
-      "deletions": 62778,
-      "commits": 23
+      "additions": 61954,
+      "deletions": 59829,
+      "rawAdditions": 61954,
+      "rawDeletions": 59829,
+      "commits": 15,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-03",
-      "additions": 35318,
-      "deletions": 31029,
-      "commits": 18
+      "additions": 12941,
+      "deletions": 8059,
+      "rawAdditions": 12941,
+      "rawDeletions": 8059,
+      "commits": 19,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-04",
-      "additions": 46696,
-      "deletions": 50259,
-      "commits": 23
+      "additions": 78558,
+      "deletions": 34145,
+      "rawAdditions": 78558,
+      "rawDeletions": 34145,
+      "commits": 25,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-05",
-      "additions": 1216,
-      "deletions": 943,
-      "commits": 20
+      "additions": 4332,
+      "deletions": 47926,
+      "rawAdditions": 4332,
+      "rawDeletions": 47926,
+      "commits": 16,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-06",
-      "additions": 609,
-      "deletions": 225,
-      "commits": 15
+      "additions": 432,
+      "deletions": 236,
+      "rawAdditions": 432,
+      "rawDeletions": 236,
+      "commits": 24,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-07",
-      "additions": 413,
-      "deletions": 4,
-      "commits": 4
+      "additions": 783,
+      "deletions": 132,
+      "rawAdditions": 783,
+      "rawDeletions": 132,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-09",
-      "additions": 609,
+      "additions": 328,
       "deletions": 42,
-      "commits": 7
+      "rawAdditions": 328,
+      "rawDeletions": 42,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2019-11-10",
+      "additions": 281,
+      "deletions": 0,
+      "rawAdditions": 281,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-11",
-      "additions": 1198,
+      "additions": 0,
       "deletions": 2,
-      "commits": 2
+      "rawAdditions": 0,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-12",
-      "additions": 580,
-      "deletions": 543,
-      "commits": 4
+      "additions": 1757,
+      "deletions": 542,
+      "rawAdditions": 1757,
+      "rawDeletions": 542,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-13",
-      "additions": 1302,
-      "deletions": 77,
-      "commits": 6
+      "additions": 1323,
+      "deletions": 78,
+      "rawAdditions": 1323,
+      "rawDeletions": 78,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2019-11-14",
+      "date": "2019-11-15",
       "additions": 4180,
       "deletions": 12,
-      "commits": 2
+      "rawAdditions": 4180,
+      "rawDeletions": 12,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-20",
       "additions": 265,
       "deletions": 2,
-      "commits": 1
+      "rawAdditions": 265,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-21",
-      "additions": 454,
-      "deletions": 11,
-      "commits": 6
+      "additions": 135,
+      "deletions": 8,
+      "rawAdditions": 135,
+      "rawDeletions": 8,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-22",
-      "additions": 114,
-      "deletions": 29,
-      "commits": 6
+      "additions": 433,
+      "deletions": 32,
+      "rawAdditions": 433,
+      "rawDeletions": 32,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-23",
       "additions": 396,
-      "deletions": 75,
-      "commits": 6
+      "deletions": 74,
+      "rawAdditions": 396,
+      "rawDeletions": 74,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-24",
-      "additions": 232,
-      "deletions": 114,
-      "commits": 8
+      "additions": 119,
+      "deletions": 67,
+      "rawAdditions": 119,
+      "rawDeletions": 67,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-25",
-      "additions": 12,
-      "deletions": 2,
-      "commits": 1
-    },
-    {
-      "date": "2019-11-26",
-      "additions": 5,
-      "deletions": 4,
-      "commits": 2
+      "additions": 125,
+      "deletions": 50,
+      "rawAdditions": 125,
+      "rawDeletions": 50,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-27",
-      "additions": 163870,
-      "deletions": 1288,
-      "commits": 9
+      "additions": 91,
+      "deletions": 102,
+      "rawAdditions": 91,
+      "rawDeletions": 102,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2019-11-28",
+      "additions": 432,
+      "deletions": 0,
+      "rawAdditions": 163784,
+      "rawDeletions": 1190,
+      "commits": 3,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2019-11-29",
-      "additions": 146,
-      "deletions": 40,
-      "commits": 7
+      "additions": 97,
+      "deletions": 26,
+      "rawAdditions": 97,
+      "rawDeletions": 26,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-11-30",
-      "additions": 356,
-      "deletions": 70,
-      "commits": 11
+      "additions": 345,
+      "deletions": 80,
+      "rawAdditions": 345,
+      "rawDeletions": 80,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-01",
-      "additions": 865,
-      "deletions": 178,
-      "commits": 28
+      "additions": 925,
+      "deletions": 182,
+      "rawAdditions": 925,
+      "rawDeletions": 182,
+      "commits": 31,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-05",
       "additions": 435,
       "deletions": 198,
-      "commits": 24
-    },
-    {
-      "date": "2019-12-07",
-      "additions": 36,
-      "deletions": 13,
-      "commits": 2
+      "rawAdditions": 435,
+      "rawDeletions": 198,
+      "commits": 24,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-08",
-      "additions": 33,
-      "deletions": 29,
-      "commits": 1
+      "additions": 69,
+      "deletions": 42,
+      "rawAdditions": 69,
+      "rawDeletions": 42,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-12",
       "additions": 98,
       "deletions": 3,
-      "commits": 2
-    },
-    {
-      "date": "2019-12-13",
-      "additions": 9,
-      "deletions": 2,
-      "commits": 1
+      "rawAdditions": 98,
+      "rawDeletions": 3,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-14",
-      "additions": 159,
-      "deletions": 62,
-      "commits": 10
+      "additions": 168,
+      "deletions": 64,
+      "rawAdditions": 168,
+      "rawDeletions": 64,
+      "commits": 11,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2019-12-19",
+      "date": "2019-12-20",
       "additions": 13,
       "deletions": 2,
-      "commits": 2
+      "rawAdditions": 13,
+      "rawDeletions": 2,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-21",
-      "additions": 585,
-      "deletions": 254,
-      "commits": 12
+      "additions": 35,
+      "deletions": 32,
+      "rawAdditions": 35,
+      "rawDeletions": 32,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2019-12-22",
-      "additions": 766,
-      "deletions": 267,
-      "commits": 16
+      "additions": 1316,
+      "deletions": 489,
+      "rawAdditions": 1316,
+      "rawDeletions": 489,
+      "commits": 25,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-02-10",
       "additions": 68,
       "deletions": 0,
-      "commits": 3
+      "rawAdditions": 68,
+      "rawDeletions": 0,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-02-18",
-      "additions": 477,
-      "deletions": 29,
-      "commits": 12
+      "additions": 475,
+      "deletions": 27,
+      "rawAdditions": 475,
+      "rawDeletions": 27,
+      "commits": 11,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2020-02-19",
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-02-22",
-      "additions": 259,
-      "deletions": 69,
-      "commits": 8
+      "additions": 208,
+      "deletions": 51,
+      "rawAdditions": 208,
+      "rawDeletions": 51,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2020-02-23",
+      "additions": 51,
+      "deletions": 18,
+      "rawAdditions": 51,
+      "rawDeletions": 18,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-02-29",
-      "additions": 17,
-      "deletions": 62,
-      "commits": 2
+      "additions": 12,
+      "deletions": 31,
+      "rawAdditions": 12,
+      "rawDeletions": 31,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-03-13",
-      "additions": 35896,
-      "deletions": 2,
-      "commits": 4
+      "date": "2020-03-01",
+      "additions": 5,
+      "deletions": 31,
+      "rawAdditions": 5,
+      "rawDeletions": 31,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-03-14",
-      "additions": 93,
-      "deletions": 24,
-      "commits": 1
+      "additions": 35989,
+      "deletions": 26,
+      "rawAdditions": 35989,
+      "rawDeletions": 26,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-05-02",
-      "additions": 925374,
+      "date": "2020-05-03",
+      "additions": 56,
       "deletions": 49,
-      "commits": 17
-    },
-    {
-      "date": "2020-05-21",
-      "additions": 317,
-      "deletions": 9,
-      "commits": 1
+      "rawAdditions": 925374,
+      "rawDeletions": 49,
+      "commits": 17,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2020-05-22",
-      "additions": 1180,
-      "deletions": 55,
-      "commits": 1
+      "additions": 317,
+      "deletions": 9,
+      "rawAdditions": 317,
+      "rawDeletions": 9,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-05-23",
-      "additions": 237,
-      "deletions": 44,
-      "commits": 4
+      "additions": 1417,
+      "deletions": 99,
+      "rawAdditions": 1417,
+      "rawDeletions": 99,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-05-30",
       "additions": 4323,
       "deletions": 214,
-      "commits": 8
+      "rawAdditions": 4323,
+      "rawDeletions": 214,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-06-02",
+      "date": "2020-06-03",
       "additions": 2116,
       "deletions": 15,
-      "commits": 1
+      "rawAdditions": 2116,
+      "rawDeletions": 15,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-06-07",
+      "date": "2020-06-08",
       "additions": 9051,
       "deletions": 191,
-      "commits": 2
+      "rawAdditions": 9051,
+      "rawDeletions": 191,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-06-20",
-      "additions": 1158548,
+      "additions": 0,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 1158548,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2020-06-24",
-      "additions": 902755,
-      "deletions": 273815,
-      "commits": 2
-    },
-    {
-      "date": "2020-09-21",
-      "additions": 176290,
+      "additions": 2,
       "deletions": 0,
-      "commits": 2
+      "rawAdditions": 902755,
+      "rawDeletions": 273815,
+      "commits": 2,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2020-09-22",
-      "additions": 430,
+      "additions": 88360,
       "deletions": 0,
-      "commits": 2
+      "rawAdditions": 88360,
+      "rawDeletions": 0,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-09-30",
-      "additions": 328,
-      "deletions": 38,
-      "commits": 2
+      "additions": 164,
+      "deletions": 19,
+      "rawAdditions": 164,
+      "rawDeletions": 19,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-10-02",
-      "additions": 492,
-      "deletions": 6,
-      "commits": 2
+      "date": "2020-10-03",
+      "additions": 246,
+      "deletions": 3,
+      "rawAdditions": 246,
+      "rawDeletions": 3,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-04",
-      "additions": 718,
-      "deletions": 30,
-      "commits": 4
+      "additions": 359,
+      "deletions": 15,
+      "rawAdditions": 359,
+      "rawDeletions": 15,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-05",
       "additions": 127,
       "deletions": 6,
-      "commits": 2
+      "rawAdditions": 127,
+      "rawDeletions": 6,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-09",
       "additions": 397,
       "deletions": 4,
-      "commits": 2
+      "rawAdditions": 397,
+      "rawDeletions": 4,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-11",
       "additions": 79,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 79,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-17",
       "additions": 253,
       "deletions": 5,
-      "commits": 2
-    },
-    {
-      "date": "2020-10-20",
-      "additions": 37,
-      "deletions": 0,
-      "commits": 1
+      "rawAdditions": 253,
+      "rawDeletions": 5,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-21",
-      "additions": 558,
-      "deletions": 290,
-      "commits": 16
+      "additions": 515,
+      "deletions": 246,
+      "rawAdditions": 515,
+      "rawDeletions": 246,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-22",
-      "additions": 759,
-      "deletions": 752,
-      "commits": 14
+      "additions": 839,
+      "deletions": 796,
+      "rawAdditions": 839,
+      "rawDeletions": 796,
+      "commits": 17,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-25",
       "additions": 53,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 53,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-26",
       "additions": 2021,
       "deletions": 20,
-      "commits": 2
+      "rawAdditions": 2021,
+      "rawDeletions": 20,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-27",
       "additions": 149,
       "deletions": 3,
-      "commits": 1
+      "rawAdditions": 149,
+      "rawDeletions": 3,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-29",
       "additions": 22834,
       "deletions": 4,
-      "commits": 1
+      "rawAdditions": 22834,
+      "rawDeletions": 4,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-30",
       "additions": 243,
       "deletions": 14,
-      "commits": 2
+      "rawAdditions": 243,
+      "rawDeletions": 14,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-10-31",
       "additions": 166,
       "deletions": 45,
-      "commits": 1
+      "rawAdditions": 166,
+      "rawDeletions": 45,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-02",
       "additions": 192,
       "deletions": 154,
-      "commits": 1
+      "rawAdditions": 192,
+      "rawDeletions": 154,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-04",
       "additions": 68,
       "deletions": 17,
-      "commits": 1
-    },
-    {
-      "date": "2020-11-06",
-      "additions": 59,
-      "deletions": 2518,
-      "commits": 3
+      "rawAdditions": 68,
+      "rawDeletions": 17,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-07",
-      "additions": 39725,
-      "deletions": 0,
-      "commits": 2
+      "additions": 39784,
+      "deletions": 2518,
+      "rawAdditions": 39784,
+      "rawDeletions": 2518,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-09",
       "additions": 345,
       "deletions": 197,
-      "commits": 2
+      "rawAdditions": 345,
+      "rawDeletions": 197,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-10",
       "additions": 455,
       "deletions": 342,
-      "commits": 7
+      "rawAdditions": 455,
+      "rawDeletions": 342,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-11",
-      "additions": 604,
-      "deletions": 584,
-      "commits": 18
+      "additions": 547,
+      "deletions": 481,
+      "rawAdditions": 547,
+      "rawDeletions": 481,
+      "commits": 13,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-12",
-      "additions": 1,
-      "deletions": 0,
-      "commits": 1
+      "additions": 58,
+      "deletions": 103,
+      "rawAdditions": 58,
+      "rawDeletions": 103,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-17",
       "additions": 172,
       "deletions": 14,
-      "commits": 4
+      "rawAdditions": 172,
+      "rawDeletions": 14,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-19",
       "additions": 1259,
       "deletions": 2614,
-      "commits": 2
+      "rawAdditions": 1259,
+      "rawDeletions": 2614,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-20",
       "additions": 383,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 383,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-25",
       "additions": 445,
       "deletions": 218,
-      "commits": 2
+      "rawAdditions": 445,
+      "rawDeletions": 218,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-27",
       "additions": 249,
       "deletions": 123,
-      "commits": 3
+      "rawAdditions": 249,
+      "rawDeletions": 123,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-28",
       "additions": 18,
       "deletions": 9,
-      "commits": 2
+      "rawAdditions": 18,
+      "rawDeletions": 9,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-11-30",
       "additions": 30,
       "deletions": 2,
-      "commits": 2
+      "rawAdditions": 30,
+      "rawDeletions": 2,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2020-12-04",
+      "date": "2020-12-05",
       "additions": 473,
       "deletions": 100,
-      "commits": 1
+      "rawAdditions": 473,
+      "rawDeletions": 100,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-12-07",
       "additions": 353,
       "deletions": 6,
-      "commits": 2
+      "rawAdditions": 353,
+      "rawDeletions": 6,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-12-09",
       "additions": 146,
       "deletions": 74,
-      "commits": 6
+      "rawAdditions": 146,
+      "rawDeletions": 74,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2020-12-10",
       "additions": 203,
       "deletions": 20393,
-      "commits": 9
+      "rawAdditions": 203,
+      "rawDeletions": 20393,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-01-13",
       "additions": 4,
       "deletions": 16,
-      "commits": 2
+      "rawAdditions": 4,
+      "rawDeletions": 16,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-02-15",
       "additions": 398,
       "deletions": 0,
-      "commits": 2
+      "rawAdditions": 398,
+      "rawDeletions": 0,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-02-16",
       "additions": 4011,
       "deletions": 132,
-      "commits": 6
+      "rawAdditions": 4011,
+      "rawDeletions": 132,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-02-17",
       "additions": 157,
       "deletions": 16,
-      "commits": 5
+      "rawAdditions": 157,
+      "rawDeletions": 16,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-02-20",
       "additions": 1761,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 1761,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-02-22",
       "additions": 89,
       "deletions": 1,
-      "commits": 2
+      "rawAdditions": 89,
+      "rawDeletions": 1,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2021-02-23",
+      "date": "2021-02-24",
       "additions": 1652,
       "deletions": 2,
-      "commits": 4
+      "rawAdditions": 1652,
+      "rawDeletions": 2,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-03-06",
-      "additions": 1623737,
+      "additions": 59,
       "deletions": 54,
-      "commits": 5
+      "rawAdditions": 1623737,
+      "rawDeletions": 54,
+      "commits": 5,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2021-03-16",
       "additions": 2496,
       "deletions": 132,
-      "commits": 5
+      "rawAdditions": 2496,
+      "rawDeletions": 132,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-03-17",
       "additions": 449,
       "deletions": 3,
-      "commits": 2
+      "rawAdditions": 449,
+      "rawDeletions": 3,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2021-04-01",
-      "additions": 2739631,
+      "additions": 0,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 2739631,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 1
     },
     {
       "date": "2021-04-11",
       "additions": 564,
       "deletions": 10,
-      "commits": 4
+      "rawAdditions": 564,
+      "rawDeletions": 10,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2022-07-05",
+      "date": "2022-07-06",
       "additions": 21,
       "deletions": 21,
-      "commits": 2
+      "rawAdditions": 21,
+      "rawDeletions": 21,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2022-11-23",
-      "additions": 22159,
+      "additions": 22157,
       "deletions": 532,
-      "commits": 13
-    },
-    {
-      "date": "2022-11-25",
-      "additions": 957650,
-      "deletions": 12,
-      "commits": 9
+      "rawAdditions": 22157,
+      "rawDeletions": 532,
+      "commits": 12,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2022-11-26",
-      "additions": 3,
-      "deletions": 3,
-      "commits": 1
+      "additions": 53,
+      "deletions": 11,
+      "rawAdditions": 957653,
+      "rawDeletions": 15,
+      "commits": 10,
+      "bulkCommitsExcluded": 2
     },
     {
       "date": "2022-12-02",
       "additions": 2707,
       "deletions": 0,
-      "commits": 2
+      "rawAdditions": 2707,
+      "rawDeletions": 0,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2022-12-10",
+      "date": "2022-12-11",
       "additions": 3,
       "deletions": 3,
-      "commits": 1
-    },
-    {
-      "date": "2023-01-04",
-      "additions": 6420,
-      "deletions": 3095,
-      "commits": 11
+      "rawAdditions": 3,
+      "rawDeletions": 3,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-05",
-      "additions": 72,
-      "deletions": 83,
-      "commits": 12
+      "additions": 6433,
+      "deletions": 3114,
+      "rawAdditions": 6433,
+      "rawDeletions": 3114,
+      "commits": 17,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-06",
-      "additions": 1,
-      "deletions": 1,
-      "commits": 1
+      "additions": 60,
+      "deletions": 65,
+      "rawAdditions": 60,
+      "rawDeletions": 65,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2023-01-10",
+      "date": "2023-01-11",
       "additions": 1,
       "deletions": 1,
-      "commits": 1
-    },
-    {
-      "date": "2023-01-26",
-      "additions": 40,
-      "deletions": 0,
-      "commits": 1
+      "rawAdditions": 1,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-27",
-      "additions": 155,
+      "additions": 195,
       "deletions": 58,
-      "commits": 5
+      "rawAdditions": 195,
+      "rawDeletions": 58,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-28",
       "additions": 168,
       "deletions": 59,
-      "commits": 2
+      "rawAdditions": 168,
+      "rawDeletions": 59,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-29",
       "additions": 141,
       "deletions": 102,
-      "commits": 2
+      "rawAdditions": 141,
+      "rawDeletions": 102,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-01-30",
       "additions": 2585,
       "deletions": 1,
-      "commits": 3
+      "rawAdditions": 2585,
+      "rawDeletions": 1,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2023-02-04",
+      "date": "2023-02-05",
       "additions": 2,
       "deletions": 2,
-      "commits": 2
+      "rawAdditions": 2,
+      "rawDeletions": 2,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-03-04",
       "additions": 10447,
       "deletions": 133,
-      "commits": 6
-    },
-    {
-      "date": "2023-03-17",
-      "additions": 392,
-      "deletions": 288,
-      "commits": 3
+      "rawAdditions": 10447,
+      "rawDeletions": 133,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-03-18",
-      "additions": 366,
-      "deletions": 19,
-      "commits": 5
+      "additions": 751,
+      "deletions": 305,
+      "rawAdditions": 751,
+      "rawDeletions": 305,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2023-03-19",
+      "additions": 7,
+      "deletions": 2,
+      "rawAdditions": 7,
+      "rawDeletions": 2,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-04-04",
       "additions": 1699,
       "deletions": 0,
-      "commits": 3
-    },
-    {
-      "date": "2023-04-15",
-      "additions": 124,
-      "deletions": 0,
-      "commits": 2
+      "rawAdditions": 1699,
+      "rawDeletions": 0,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-04-16",
-      "additions": 4500,
+      "additions": 4624,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 4624,
+      "rawDeletions": 0,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-05-01",
       "additions": 2119,
       "deletions": 0,
-      "commits": 2
+      "rawAdditions": 2119,
+      "rawDeletions": 0,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-05-08",
       "additions": 381,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 381,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-10-25",
       "additions": 4,
       "deletions": 2,
-      "commits": 1
-    },
-    {
-      "date": "2023-10-27",
-      "additions": 2245,
-      "deletions": 2,
-      "commits": 2
+      "rawAdditions": 4,
+      "rawDeletions": 2,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-10-28",
-      "additions": 1382,
-      "deletions": 82,
-      "commits": 6
+      "additions": 3616,
+      "deletions": 77,
+      "rawAdditions": 3616,
+      "rawDeletions": 77,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-10-29",
-      "additions": 560,
-      "deletions": 99,
-      "commits": 11
+      "additions": 187,
+      "deletions": 69,
+      "rawAdditions": 187,
+      "rawDeletions": 69,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-10-30",
-      "additions": 4,
-      "deletions": 2,
-      "commits": 1
+      "additions": 388,
+      "deletions": 39,
+      "rawAdditions": 388,
+      "rawDeletions": 39,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-01",
-      "additions": 1140,
-      "deletions": 403,
-      "commits": 10
+      "additions": 903,
+      "deletions": 381,
+      "rawAdditions": 903,
+      "rawDeletions": 381,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-02",
-      "additions": 287,
-      "deletions": 76,
-      "commits": 3
+      "additions": 524,
+      "deletions": 98,
+      "rawAdditions": 524,
+      "rawDeletions": 98,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-03",
-      "additions": 1524,
-      "deletions": 509,
-      "commits": 7
+      "additions": 295,
+      "deletions": 120,
+      "rawAdditions": 295,
+      "rawDeletions": 120,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-04",
-      "additions": 824,
-      "deletions": 383,
-      "commits": 8
+      "additions": 1229,
+      "deletions": 389,
+      "rawAdditions": 1229,
+      "rawDeletions": 389,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-05",
-      "additions": 2682697,
-      "deletions": 2680941,
-      "commits": 14
+      "additions": 3047,
+      "deletions": 874,
+      "rawAdditions": 2683521,
+      "rawDeletions": 2681324,
+      "commits": 22,
+      "bulkCommitsExcluded": 2
     },
     {
       "date": "2023-11-07",
       "additions": 532,
       "deletions": 129,
-      "commits": 8
-    },
-    {
-      "date": "2023-11-17",
-      "additions": 1923,
-      "deletions": 0,
-      "commits": 1
+      "rawAdditions": 532,
+      "rawDeletions": 129,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-18",
-      "additions": 4759,
-      "deletions": 414,
-      "commits": 3
+      "additions": 5572,
+      "deletions": 1,
+      "rawAdditions": 5572,
+      "rawDeletions": 1,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-19",
-      "additions": 3630,
-      "deletions": 455,
-      "commits": 3
+      "additions": 4424,
+      "deletions": 545,
+      "rawAdditions": 4424,
+      "rawDeletions": 545,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-20",
-      "additions": 573,
-      "deletions": 322,
-      "commits": 10
+      "additions": 697,
+      "deletions": 498,
+      "rawAdditions": 697,
+      "rawDeletions": 498,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-21",
-      "additions": 240,
-      "deletions": 28,
-      "commits": 4
+      "additions": 432,
+      "deletions": 175,
+      "rawAdditions": 432,
+      "rawDeletions": 175,
+      "commits": 11,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-22",
       "additions": 299,
       "deletions": 33,
-      "commits": 7
+      "rawAdditions": 299,
+      "rawDeletions": 33,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-23",
       "additions": 316,
       "deletions": 42,
-      "commits": 2
+      "rawAdditions": 316,
+      "rawDeletions": 42,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-24",
-      "additions": 3597,
-      "deletions": 475,
-      "commits": 6
+      "additions": 3249,
+      "deletions": 437,
+      "rawAdditions": 3249,
+      "rawDeletions": 437,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
-      "date": "2023-11-29",
-      "additions": 2752,
-      "deletions": 933,
-      "commits": 10
+      "date": "2023-11-25",
+      "additions": 348,
+      "deletions": 38,
+      "rawAdditions": 348,
+      "rawDeletions": 38,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-11-30",
-      "additions": 2582,
-      "deletions": 74,
-      "commits": 1
+      "additions": 2752,
+      "deletions": 933,
+      "rawAdditions": 2752,
+      "rawDeletions": 933,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2023-12-01",
-      "additions": 7512,
-      "deletions": 3905,
-      "commits": 10
+      "additions": 2708,
+      "deletions": 103,
+      "rawAdditions": 2708,
+      "rawDeletions": 103,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2023-12-02",
+      "additions": 7386,
+      "deletions": 3876,
+      "rawAdditions": 7386,
+      "rawDeletions": 3876,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-04-13",
       "additions": 5,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 5,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-07-30",
       "additions": 3923,
       "deletions": 1239,
-      "commits": 1
+      "rawAdditions": 3923,
+      "rawDeletions": 1239,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-08-05",
       "additions": 47106,
       "deletions": 65,
-      "commits": 2
+      "rawAdditions": 47106,
+      "rawDeletions": 65,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-12-15",
       "additions": 224,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 224,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-12-17",
-      "additions": 876,
-      "deletions": 18,
-      "commits": 7
+      "additions": 47,
+      "deletions": 0,
+      "rawAdditions": 47,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2024-12-18",
-      "additions": 29,
-      "deletions": 43,
-      "commits": 4
+      "additions": 858,
+      "deletions": 61,
+      "rawAdditions": 858,
+      "rawDeletions": 61,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-06",
       "additions": 5889,
       "deletions": 0,
-      "commits": 3
+      "rawAdditions": 5889,
+      "rawDeletions": 0,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-07",
       "additions": 848,
       "deletions": 665,
-      "commits": 1
+      "rawAdditions": 848,
+      "rawDeletions": 665,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-08",
       "additions": 156,
       "deletions": 9,
-      "commits": 1
+      "rawAdditions": 156,
+      "rawDeletions": 9,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-09",
       "additions": 1803,
       "deletions": 790,
-      "commits": 4
+      "rawAdditions": 1803,
+      "rawDeletions": 790,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-17",
       "additions": 1121,
       "deletions": 825,
-      "commits": 2
+      "rawAdditions": 1121,
+      "rawDeletions": 825,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-01-18",
       "additions": 1028,
       "deletions": 169,
-      "commits": 4
-    },
-    {
-      "date": "2025-03-03",
-      "additions": 2,
-      "deletions": 0,
-      "commits": 1
+      "rawAdditions": 1028,
+      "rawDeletions": 169,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-03-04",
-      "additions": 2966,
+      "additions": 2968,
       "deletions": 5,
-      "commits": 2
+      "rawAdditions": 2968,
+      "rawDeletions": 5,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-10",
       "additions": 7311,
       "deletions": 529,
-      "commits": 4
+      "rawAdditions": 7311,
+      "rawDeletions": 529,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-11",
       "additions": 509,
       "deletions": 141,
-      "commits": 4
+      "rawAdditions": 509,
+      "rawDeletions": 141,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-12",
       "additions": 180,
       "deletions": 380,
-      "commits": 4
+      "rawAdditions": 180,
+      "rawDeletions": 380,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-14",
       "additions": 29,
       "deletions": 12,
-      "commits": 2
+      "rawAdditions": 29,
+      "rawDeletions": 12,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-15",
       "additions": 62,
       "deletions": 23,
-      "commits": 6
+      "rawAdditions": 62,
+      "rawDeletions": 23,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-19",
       "additions": 67,
       "deletions": 28,
-      "commits": 2
+      "rawAdditions": 67,
+      "rawDeletions": 28,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-20",
       "additions": 992,
       "deletions": 178,
-      "commits": 9
+      "rawAdditions": 992,
+      "rawDeletions": 178,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-21",
       "additions": 2124,
       "deletions": 177,
-      "commits": 10
+      "rawAdditions": 2124,
+      "rawDeletions": 177,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-09-24",
       "additions": 2,
       "deletions": 20,
-      "commits": 1
+      "rawAdditions": 2,
+      "rawDeletions": 20,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-10-03",
       "additions": 1,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 1,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-10-12",
       "additions": 58,
       "deletions": 78,
-      "commits": 2
+      "rawAdditions": 58,
+      "rawDeletions": 78,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-11-14",
       "additions": 6962,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 6962,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-02",
       "additions": 2576,
       "deletions": 1,
-      "commits": 2
+      "rawAdditions": 2576,
+      "rawDeletions": 1,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-05",
       "additions": 4226,
       "deletions": 236,
-      "commits": 1
+      "rawAdditions": 4226,
+      "rawDeletions": 236,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-06",
       "additions": 7310,
       "deletions": 851,
-      "commits": 8
+      "rawAdditions": 7310,
+      "rawDeletions": 851,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-07",
       "additions": 2,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 2,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-10",
       "additions": 7783,
       "deletions": 1002,
-      "commits": 1
+      "rawAdditions": 7783,
+      "rawDeletions": 1002,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-12",
       "additions": 0,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 0,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-17",
       "additions": 97,
       "deletions": 1,
-      "commits": 1
+      "rawAdditions": 97,
+      "rawDeletions": 1,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2025-12-24",
       "additions": 572,
       "deletions": 18,
-      "commits": 2
+      "rawAdditions": 572,
+      "rawDeletions": 18,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-01-08",
       "additions": 13,
       "deletions": 11,
-      "commits": 2
+      "rawAdditions": 13,
+      "rawDeletions": 11,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-01-30",
       "additions": 1526,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 1526,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-03-02",
       "additions": 109,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 109,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-03-03",
       "additions": 2774,
       "deletions": 14,
-      "commits": 1
+      "rawAdditions": 2774,
+      "rawDeletions": 14,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-03-06",
       "additions": 4700,
       "deletions": 3013,
-      "commits": 4
+      "rawAdditions": 4700,
+      "rawDeletions": 3013,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-03-08",
       "additions": 1013,
       "deletions": 217,
-      "commits": 1
+      "rawAdditions": 1013,
+      "rawDeletions": 217,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-15",
+      "additions": 9278,
+      "deletions": 0,
+      "rawAdditions": 9278,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-21",
+      "additions": 3803,
+      "deletions": 570,
+      "rawAdditions": 3803,
+      "rawDeletions": 570,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-26",
+      "additions": 2176,
+      "deletions": 794,
+      "rawAdditions": 2176,
+      "rawDeletions": 794,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-27",
+      "additions": 1779,
+      "deletions": 483,
+      "rawAdditions": 1779,
+      "rawDeletions": 483,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-28",
+      "additions": 3968,
+      "deletions": 545,
+      "rawAdditions": 3968,
+      "rawDeletions": 545,
+      "commits": 13,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-30",
+      "additions": 750,
+      "deletions": 270,
+      "rawAdditions": 750,
+      "rawDeletions": 270,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-03-31",
+      "additions": 18415,
+      "deletions": 6942,
+      "rawAdditions": 18415,
+      "rawDeletions": 6942,
+      "commits": 20,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-01",
+      "additions": 2463,
+      "deletions": 233,
+      "rawAdditions": 2463,
+      "rawDeletions": 233,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-02",
+      "additions": 15444,
+      "deletions": 1606,
+      "rawAdditions": 15444,
+      "rawDeletions": 1606,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-03",
+      "additions": 963,
+      "deletions": 62,
+      "rawAdditions": 963,
+      "rawDeletions": 62,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-04-04",
-      "additions": 422,
-      "deletions": 0,
-      "commits": 1
+      "additions": 5793,
+      "deletions": 894,
+      "rawAdditions": 5793,
+      "rawDeletions": 894,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-04-06",
-      "additions": 7163,
-      "deletions": 4,
-      "commits": 1
+      "additions": 10609,
+      "deletions": 998,
+      "rawAdditions": 10609,
+      "rawDeletions": 998,
+      "commits": 19,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-07",
+      "additions": 1788,
+      "deletions": 823,
+      "rawAdditions": 1788,
+      "rawDeletions": 823,
+      "commits": 25,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-08",
+      "additions": 31617,
+      "deletions": 4476,
+      "rawAdditions": 31617,
+      "rawDeletions": 4476,
+      "commits": 47,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-09",
+      "additions": 770,
+      "deletions": 14,
+      "rawAdditions": 770,
+      "rawDeletions": 14,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-10",
+      "additions": 47,
+      "deletions": 8,
+      "rawAdditions": 47,
+      "rawDeletions": 8,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-11",
+      "additions": 8,
+      "deletions": 10,
+      "rawAdditions": 8,
+      "rawDeletions": 10,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-15",
+      "additions": 18605,
+      "deletions": 1652,
+      "rawAdditions": 18605,
+      "rawDeletions": 1652,
+      "commits": 44,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-16",
+      "additions": 117072,
+      "deletions": 6250,
+      "rawAdditions": 117072,
+      "rawDeletions": 6250,
+      "commits": 27,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-17",
+      "additions": 14733,
+      "deletions": 4078,
+      "rawAdditions": 14733,
+      "rawDeletions": 4078,
+      "commits": 15,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-22",
+      "additions": 7255,
+      "deletions": 1434,
+      "rawAdditions": 7255,
+      "rawDeletions": 1434,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-23",
+      "additions": 5537,
+      "deletions": 2529,
+      "rawAdditions": 5537,
+      "rawDeletions": 2529,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-04-24",
       "additions": 4789,
       "deletions": 0,
-      "commits": 1
+      "rawAdditions": 4789,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-25",
+      "additions": 10807,
+      "deletions": 1387,
+      "rawAdditions": 10807,
+      "rawDeletions": 1387,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-26",
+      "additions": 14471,
+      "deletions": 564,
+      "rawAdditions": 14471,
+      "rawDeletions": 564,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-27",
+      "additions": 4905,
+      "deletions": 9358,
+      "rawAdditions": 4905,
+      "rawDeletions": 9358,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-04-28",
+      "additions": 1301,
+      "deletions": 262,
+      "rawAdditions": 1301,
+      "rawDeletions": 262,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-04-30",
-      "additions": 30895,
-      "deletions": 2896,
-      "commits": 4
+      "additions": 8568,
+      "deletions": 2656,
+      "rawAdditions": 8568,
+      "rawDeletions": 2656,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-05-01",
-      "additions": 2416,
-      "deletions": 214,
-      "commits": 4
+      "additions": 41104,
+      "deletions": 8296,
+      "rawAdditions": 41104,
+      "rawDeletions": 8296,
+      "commits": 15,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-05-02",
-      "additions": 90,
-      "deletions": 8,
-      "commits": 1
+      "additions": 20732,
+      "deletions": 7327,
+      "rawAdditions": 20732,
+      "rawDeletions": 7327,
+      "commits": 28,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-03",
+      "additions": 19942,
+      "deletions": 14465,
+      "rawAdditions": 19942,
+      "rawDeletions": 14465,
+      "commits": 20,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-04",
+      "additions": 15243,
+      "deletions": 5538,
+      "rawAdditions": 15243,
+      "rawDeletions": 5538,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-05-05",
-      "additions": 1048,
-      "deletions": 77,
-      "commits": 1
+      "additions": 5257,
+      "deletions": 1891,
+      "rawAdditions": 5257,
+      "rawDeletions": 1891,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-06",
+      "additions": 4773,
+      "deletions": 2763,
+      "rawAdditions": 4773,
+      "rawDeletions": 2763,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-07",
+      "additions": 4092,
+      "deletions": 2909,
+      "rawAdditions": 4092,
+      "rawDeletions": 2909,
+      "commits": 11,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-08",
+      "additions": 30630,
+      "deletions": 8499,
+      "rawAdditions": 30630,
+      "rawDeletions": 8499,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-05-09",
-      "additions": 3,
-      "deletions": 3,
-      "commits": 1
+      "additions": 20904,
+      "deletions": 6423,
+      "rawAdditions": 20904,
+      "rawDeletions": 6423,
+      "commits": 12,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-11",
+      "additions": 2842,
+      "deletions": 1471,
+      "rawAdditions": 2842,
+      "rawDeletions": 1471,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-12",
+      "additions": 16401,
+      "deletions": 9051,
+      "rawAdditions": 16401,
+      "rawDeletions": 9051,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-13",
+      "additions": 5521,
+      "deletions": 3446,
+      "rawAdditions": 5521,
+      "rawDeletions": 3446,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-14",
+      "additions": 2645,
+      "deletions": 1090,
+      "rawAdditions": 2645,
+      "rawDeletions": 1090,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-15",
+      "additions": 6608,
+      "deletions": 3818,
+      "rawAdditions": 6608,
+      "rawDeletions": 3818,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-16",
+      "additions": 544,
+      "deletions": 571,
+      "rawAdditions": 544,
+      "rawDeletions": 571,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-17",
+      "additions": 4606,
+      "deletions": 4570,
+      "rawAdditions": 4606,
+      "rawDeletions": 4570,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-21",
+      "additions": 7346,
+      "deletions": 5598,
+      "rawAdditions": 7346,
+      "rawDeletions": 5598,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-22",
+      "additions": 3317,
+      "deletions": 2886,
+      "rawAdditions": 3317,
+      "rawDeletions": 2886,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-23",
+      "additions": 1869,
+      "deletions": 1123,
+      "rawAdditions": 1869,
+      "rawDeletions": 1123,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-24",
+      "additions": 505,
+      "deletions": 505,
+      "rawAdditions": 505,
+      "rawDeletions": 505,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-25",
+      "additions": 1347,
+      "deletions": 995,
+      "rawAdditions": 1347,
+      "rawDeletions": 995,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-05-29",
+      "additions": 1450,
+      "deletions": 1112,
+      "rawAdditions": 1450,
+      "rawDeletions": 1112,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-06-01",
-      "additions": 3754,
-      "deletions": 377,
-      "commits": 3
+      "additions": 2930,
+      "deletions": 0,
+      "rawAdditions": 2930,
+      "rawDeletions": 0,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-06-02",
-      "additions": 403,
-      "deletions": 43,
-      "commits": 3
+      "additions": 1227,
+      "deletions": 420,
+      "rawAdditions": 1227,
+      "rawDeletions": 420,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-03",
+      "additions": 1419,
+      "deletions": 1062,
+      "rawAdditions": 1419,
+      "rawDeletions": 1062,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-04",
+      "additions": 2537,
+      "deletions": 1456,
+      "rawAdditions": 2537,
+      "rawDeletions": 1456,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-05",
+      "additions": 6115,
+      "deletions": 3870,
+      "rawAdditions": 6115,
+      "rawDeletions": 3870,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-07",
+      "additions": 762,
+      "deletions": 529,
+      "rawAdditions": 762,
+      "rawDeletions": 529,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-06-08",
-      "additions": 182,
-      "deletions": 136,
-      "commits": 1
+      "additions": 2787,
+      "deletions": 1371,
+      "rawAdditions": 2787,
+      "rawDeletions": 1371,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-15",
+      "additions": 9273,
+      "deletions": 4610,
+      "rawAdditions": 9273,
+      "rawDeletions": 4610,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-06-16",
-      "additions": 30410,
-      "deletions": 7245,
-      "commits": 12
+      "additions": 32263,
+      "deletions": 8324,
+      "rawAdditions": 32263,
+      "rawDeletions": 8324,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-27",
+      "additions": 1940,
+      "deletions": 1129,
+      "rawAdditions": 1940,
+      "rawDeletions": 1129,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-06-30",
+      "additions": 1476,
+      "deletions": 1164,
+      "rawAdditions": 1476,
+      "rawDeletions": 1164,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-01",
+      "additions": 1080,
+      "deletions": 988,
+      "rawAdditions": 1080,
+      "rawDeletions": 988,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-03",
+      "additions": 2171,
+      "deletions": 1101,
+      "rawAdditions": 2171,
+      "rawDeletions": 1101,
+      "commits": 2,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-08",
+      "additions": 4086,
+      "deletions": 1615,
+      "rawAdditions": 4086,
+      "rawDeletions": 1615,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-13",
+      "additions": 27199,
+      "deletions": 6459,
+      "rawAdditions": 27199,
+      "rawDeletions": 6459,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-14",
-      "additions": 15445,
-      "deletions": 0,
-      "commits": 1
+      "additions": 59192,
+      "deletions": 21051,
+      "rawAdditions": 59192,
+      "rawDeletions": 21051,
+      "commits": 9,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-15",
-      "additions": 7992,
-      "deletions": 7440,
-      "commits": 5
+      "additions": 33621,
+      "deletions": 19444,
+      "rawAdditions": 33621,
+      "rawDeletions": 19444,
+      "commits": 20,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-16",
-      "additions": 5149,
-      "deletions": 2047,
-      "commits": 8
+      "additions": 80703,
+      "deletions": 47762,
+      "rawAdditions": 80703,
+      "rawDeletions": 47762,
+      "commits": 20,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-17",
+      "additions": 55492,
+      "deletions": 24212,
+      "rawAdditions": 55492,
+      "rawDeletions": 24212,
+      "commits": 14,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-18",
-      "additions": 5874,
-      "deletions": 151,
-      "commits": 5
+      "additions": 21082,
+      "deletions": 2182,
+      "rawAdditions": 21082,
+      "rawDeletions": 2182,
+      "commits": 7,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-19",
-      "additions": 268,
-      "deletions": 69,
-      "commits": 10
+      "additions": 11242,
+      "deletions": 4985,
+      "rawAdditions": 11242,
+      "rawDeletions": 4985,
+      "commits": 15,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-20",
-      "additions": 28597,
-      "deletions": 835,
-      "commits": 2
+      "additions": 40339,
+      "deletions": 10568,
+      "rawAdditions": 40339,
+      "rawDeletions": 10568,
+      "commits": 12,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-21",
+      "additions": 14278,
+      "deletions": 9862,
+      "rawAdditions": 14278,
+      "rawDeletions": 9862,
+      "commits": 11,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-22",
+      "additions": 28798,
+      "deletions": 8418,
+      "rawAdditions": 28798,
+      "rawDeletions": 8418,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-23",
+      "additions": 15689,
+      "deletions": 6758,
+      "rawAdditions": 15689,
+      "rawDeletions": 6758,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-24",
-      "additions": 2262,
-      "deletions": 168,
-      "commits": 8
+      "additions": 6432,
+      "deletions": 1645,
+      "rawAdditions": 6432,
+      "rawDeletions": 1645,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-26",
-      "additions": 4359,
-      "deletions": 198,
-      "commits": 4
+      "additions": 5358,
+      "deletions": 1027,
+      "rawAdditions": 5358,
+      "rawDeletions": 1027,
+      "commits": 5,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-27",
+      "additions": 4444,
+      "deletions": 3239,
+      "rawAdditions": 4444,
+      "rawDeletions": 3239,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-28",
+      "additions": 22100,
+      "deletions": 996,
+      "rawAdditions": 22100,
+      "rawDeletions": 996,
+      "commits": 8,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-07-29",
+      "additions": 3920,
+      "deletions": 367,
+      "rawAdditions": 3920,
+      "rawDeletions": 367,
+      "commits": 3,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-30",
-      "additions": 1853,
-      "deletions": 59,
-      "commits": 7
+      "additions": 7013,
+      "deletions": 3561,
+      "rawAdditions": 7013,
+      "rawDeletions": 3561,
+      "commits": 27,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-07-31",
       "additions": 19332,
       "deletions": 521,
-      "commits": 4
+      "rawAdditions": 19332,
+      "rawDeletions": 521,
+      "commits": 4,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-02",
       "additions": 5,
       "deletions": 5,
-      "commits": 1
+      "rawAdditions": 5,
+      "rawDeletions": 5,
+      "commits": 1,
+      "bulkCommitsExcluded": 0
+    },
+    {
+      "date": "2026-08-04",
+      "additions": 5776,
+      "deletions": 1778,
+      "rawAdditions": 5776,
+      "rawDeletions": 1778,
+      "commits": 10,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-06",
-      "additions": 21290,
-      "deletions": 496,
-      "commits": 1
+      "additions": 25293,
+      "deletions": 3900,
+      "rawAdditions": 25293,
+      "rawDeletions": 3900,
+      "commits": 6,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-08",
-      "additions": 4667,
-      "deletions": 276,
-      "commits": 18
+      "additions": 16616,
+      "deletions": 8871,
+      "rawAdditions": 16616,
+      "rawDeletions": 8871,
+      "commits": 27,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-09",
-      "additions": 15921,
-      "deletions": 3205,
-      "commits": 18
+      "additions": 25038,
+      "deletions": 9400,
+      "rawAdditions": 25038,
+      "rawDeletions": 9400,
+      "commits": 25,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-10",
-      "additions": 16942,
-      "deletions": 1447,
-      "commits": 24
+      "additions": 43955,
+      "deletions": 24471,
+      "rawAdditions": 43955,
+      "rawDeletions": 24471,
+      "commits": 52,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-11",
-      "additions": 9006,
-      "deletions": 1265,
-      "commits": 17
+      "additions": 14949,
+      "deletions": 6350,
+      "rawAdditions": 14949,
+      "rawDeletions": 6350,
+      "commits": 22,
+      "bulkCommitsExcluded": 0
     },
     {
       "date": "2026-08-12",
       "additions": 47991,
       "deletions": 4345,
-      "commits": 95
+      "rawAdditions": 47991,
+      "rawDeletions": 4345,
+      "commits": 95,
+      "bulkCommitsExcluded": 0
     }
-  ]
+  ],
+  "repositoryYearCounts": {
+    "2019": 23,
+    "2020": 16,
+    "2021": 7,
+    "2022": 4,
+    "2023": 12,
+    "2024": 4,
+    "2025": 11,
+    "2026": 14
+  }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
   <title id="title">So's 30-day founder build velocity</title>
-  <desc id="desc">Daily contribution streak, code movement, and collaboration totals. Aggregate public and private activity without repository names.</desc>
+  <desc id="desc">Daily contribution momentum, shipping consistency, unique commit throughput, product breadth, and focused code movement. Aggregate public and private activity without repository names.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
@@ -125,20 +125,20 @@
 
   <g transform="translate(52 520)">
     <rect width="706" height="112" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="22" y="29" class="section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value" fill="#355F78">+207K</text><text y="27" class="mini-label">lines added</text></g>
-    <g transform="translate(160 49)"><text class="mini-value">−22.5K</text><text y="27" class="mini-label">lines removed</text></g>
-    <g transform="translate(298 49)"><text class="mini-value">+184.4K</text><text y="27" class="mini-label">net lines</text></g>
-    <g transform="translate(436 49)"><text class="mini-value">228</text><text y="27" class="mini-label">commits analyzed</text></g>
-    <g transform="translate(574 49)"><text class="mini-value">1,006</text><text y="27" class="mini-label">avg change / commit</text></g>
+    <text x="22" y="29" class="section">SHIPPING RHYTHM · 30 DAYS</text>
+    <g transform="translate(22 49)"><text class="mini-value" fill="#355F78">25/30</text><text y="27" class="mini-label">build days</text></g>
+    <g transform="translate(160 49)"><text class="mini-value">427</text><text y="27" class="mini-label">unique commits</text></g>
+    <g transform="translate(298 49)"><text class="mini-value">7</text><text y="27" class="mini-label">active products</text></g>
+    <g transform="translate(436 49)"><text class="mini-value">17.1</text><text y="27" class="mini-label">commits / build day</text></g>
+    <g transform="translate(574 49)"><text class="mini-value">0</text><text y="27" class="mini-label">bulk imports filtered</text></g>
   </g>
 
   <g transform="translate(776 520)">
     <rect width="372" height="112" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
-    <text x="22" y="29" class="section">SHIP SIGNALS · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value">25/30</text><text y="27" class="mini-label">active days</text></g>
-    <g transform="translate(143 49)"><text class="mini-value">0</text><text y="27" class="mini-label">pull requests</text></g>
-    <g transform="translate(263 49)"><text class="mini-value">0</text><text y="27" class="mini-label">reviews</text></g>
+    <text x="22" y="29" class="section">FOCUSED CODE · 30 DAYS</text>
+    <g transform="translate(22 49)"><text class="mini-value" fill="#355F78">+608.7K</text><text y="27" class="mini-label">lines added</text></g>
+    <g transform="translate(143 49)"><text class="mini-value">−225.7K</text><text y="27" class="mini-label">lines removed</text></g>
+    <g transform="translate(263 49)"><text class="mini-value">+382.9K</text><text y="27" class="mini-label">net lines</text></g>
   </g>
   <text x="52" y="660" class="footer">Aggregate public + private activity · private repositories and source remain private · Asia/Bangkok</text>
 </svg>

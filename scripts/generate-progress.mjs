@@ -7,6 +7,7 @@ import sharp from "sharp";
 const USERNAME = process.env.TRACKER_USERNAME || "sonozaki7";
 const TIMEZONE = process.env.TRACKER_TIMEZONE || "Asia/Bangkok";
 const API = "https://api.github.com";
+const BULK_CHANGE_THRESHOLD = 100_000;
 const THEME = Object.freeze({
   background: "#FFFFFF",
   surface: "#FAFBFC",
@@ -79,6 +80,16 @@ function calculateStreaks(days, today) {
   return { current, longest };
 }
 
+export function longestStreak(days) {
+  let longest = 0;
+  let run = 0;
+  for (const day of days) {
+    run = day.contributionCount > 0 ? run + 1 : 0;
+    longest = Math.max(longest, run);
+  }
+  return longest;
+}
+
 export function computeStats({ calendarDays, code, recent, today }) {
   const byDate = new Map(calendarDays.map((day) => [day.date, day.count]));
   const sum = (dates) => dates.reduce((total, date) => total + (byDate.get(date) || 0), 0);
@@ -112,6 +123,11 @@ export function computeStats({ calendarDays, code, recent, today }) {
       net: code.additions - code.deletions,
       commitsAnalyzed: code.commits,
       averageChangedPerCommit: code.commits ? Math.round((code.additions + code.deletions) / code.commits) : 0,
+      buildDays: code.buildDays || 0,
+      commitsPerBuildDay: code.buildDays ? Number((code.commits / code.buildDays).toFixed(1)) : 0,
+      activeProducts: code.activeProducts || 0,
+      bulkCommitsExcluded: code.bulkCommitsExcluded || 0,
+      duplicateCommitsExcluded: code.duplicateCommitsExcluded || 0,
       repositoriesAnalyzed: code.repositoriesAnalyzed || 0,
       repositoriesSkipped: code.repositoriesSkipped || 0,
     },
@@ -128,7 +144,20 @@ function sumBy(items, key) {
   return items.reduce((total, item) => total + (item[key] || 0), 0);
 }
 
-function chartPanel({ x, y, width, height, title, values, years, color, format = compact, signedValues = false }) {
+export function classifyCommitChange(commit) {
+  const rawAdditions = commit.additions || 0;
+  const rawDeletions = commit.deletions || 0;
+  const isBulk = rawAdditions + rawDeletions > BULK_CHANGE_THRESHOLD;
+  return {
+    additions: isBulk ? 0 : rawAdditions,
+    deletions: isBulk ? 0 : rawDeletions,
+    rawAdditions,
+    rawDeletions,
+    bulkCommitsExcluded: isBulk ? 1 : 0,
+  };
+}
+
+function chartPanel({ x, y, width, height, title, values, years, color, format = compact, signedValues = false, summary = "sum" }) {
   const chartLeft = x + 22;
   const chartTop = y + 48;
   const chartWidth = width - 44;
@@ -145,7 +174,7 @@ function chartPanel({ x, y, width, height, title, values, years, color, format =
   const polyline = points.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
   const linePath = points.map((point) => `L ${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ");
   const area = points.length ? `M ${points[0].x.toFixed(1)} ${baselineY.toFixed(1)} ${linePath} L ${points.at(-1).x.toFixed(1)} ${baselineY.toFixed(1)} Z` : "";
-  const total = values.reduce((sum, value) => sum + value, 0);
+  const total = summary === "max" ? Math.max(0, ...values) : summary === "latest" ? (values.at(-1) || 0) : values.reduce((sum, value) => sum + value, 0);
   const circles = points.map((point, index) => `<circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3.5" fill="${color}"><title>${years[index]}: ${point.value.toLocaleString("en")}</title></circle>`).join("");
 
   return `<g>
@@ -165,14 +194,14 @@ export function renderLifetimeSvg(history) {
   const years = history.yearly.map((item) => item.year);
   const metrics = [
     { title: "CONTRIBUTIONS", key: "contributions", color: THEME.accent },
-    { title: "ACTIVE DAYS", key: "activeDays", color: THEME.accent },
-    { title: "LINES ADDED", key: "additions", color: THEME.accent },
-    { title: "LINES REMOVED", key: "deletions", color: THEME.accent },
-    { title: "NET LINES · YEARLY", key: "net", color: THEME.accent, signedValues: true },
-    { title: "COMMITS ANALYZED", key: "commits", color: THEME.accent },
-    { title: "PULL REQUESTS", key: "pullRequests", color: THEME.accent },
-    { title: "ISSUES", key: "issues", color: THEME.accent },
-    { title: "REVIEWS", key: "reviews", color: THEME.accent },
+    { title: "SHIP DAYS", key: "activeDays", color: THEME.accent },
+    { title: "LONGEST STREAK", key: "longestStreak", color: THEME.accent, summary: "max" },
+    { title: "UNIQUE COMMITS", key: "commits", color: THEME.accent },
+    { title: "COMMITS / SHIP DAY", key: "commitsPerBuildDay", color: THEME.accent, summary: "latest", format: (value) => value.toFixed(1) },
+    { title: "FOCUSED CODE CHANGED", key: "changed", color: THEME.accent },
+    { title: "ACTIVE PRODUCTS", key: "activeProducts", color: THEME.accent },
+    { title: "BUILD DAYS", key: "buildDays", color: THEME.accent },
+    { title: "COLLABORATION SIGNALS", key: "collaborationSignals", color: THEME.accent },
   ];
   const panels = metrics.map((metric, index) => chartPanel({
     x: 52 + (index % 3) * 366,
@@ -184,17 +213,19 @@ export function renderLifetimeSvg(history) {
     years,
     color: metric.color,
     signedValues: metric.signedValues,
-    format: metric.signedValues ? signed : compact,
+    summary: metric.summary,
+    format: metric.format || (metric.signedValues ? signed : compact),
   })).join("\n");
   const lifetimeContributions = sumBy(history.yearly, "contributions");
-  const linesChanged = sumBy(history.yearly, "additions") + sumBy(history.yearly, "deletions");
+  const linesChanged = sumBy(history.yearly, "changed");
   const commits = sumBy(history.yearly, "commits");
   const activeDays = sumBy(history.yearly, "activeDays");
+  const bulkFiltered = sumBy(history.yearly, "bulkCommitsExcluded");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
   <title id="title">So's lifetime founder operating history</title>
-  <desc id="desc">Yearly contribution, code movement, commit, pull request, issue, review, and active-day trends from GitHub account creation.</desc>
+  <desc id="desc">Yearly shipping consistency, deduplicated commit throughput, focused code movement, and collaboration trends from GitHub account creation.</desc>
   <defs>
     <linearGradient id="history-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
@@ -216,12 +247,12 @@ export function renderLifetimeSvg(history) {
   <text x="52" y="106" class="history-title">Lifetime momentum, year by year</text>
   <text x="52" y="134" class="history-subtitle">${escapeXml(history.accountCreatedAt.slice(0, 4))} → ${escapeXml(String(years.at(-1)))} · every chart has its own scale so the trend stays honest</text>
   <g transform="translate(52 158)"><text class="headline-number">${compact(lifetimeContributions)}</text><text y="22" class="headline-label">CONTRIBUTIONS</text></g>
-  <g transform="translate(287 158)"><text class="headline-number">${compact(linesChanged)}</text><text y="22" class="headline-label">LINES CHANGED</text></g>
-  <g transform="translate(522 158)"><text class="headline-number">${compact(commits)}</text><text y="22" class="headline-label">COMMITS ANALYZED</text></g>
-  <g transform="translate(757 158)"><text class="headline-number">${compact(activeDays)}</text><text y="22" class="headline-label">ACTIVE DAYS</text></g>
-  <g transform="translate(992 158)"><text class="headline-number">${years.length}</text><text y="22" class="headline-label">YEARS TRACKED</text></g>
+  <g transform="translate(287 158)"><text class="headline-number">${compact(linesChanged)}</text><text y="22" class="headline-label">FOCUSED LINES</text></g>
+  <g transform="translate(522 158)"><text class="headline-number">${compact(commits)}</text><text y="22" class="headline-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(757 158)"><text class="headline-number">${compact(activeDays)}</text><text y="22" class="headline-label">SHIP DAYS</text></g>
+  <g transform="translate(992 158)"><text class="headline-number">${compact(bulkFiltered)}</text><text y="22" class="headline-label">BULK IMPORTS FILTERED</text></g>
   ${panels}
-  <text x="52" y="852" class="history-footer">Contribution history: GitHub calendar · line history: authored commits on accessible default branches · aggregate only</text>
+  <text x="52" y="852" class="history-footer">Unique authored commits on accessible default branches · 100k+ line imports filtered · aggregate only</text>
 </svg>`;
 }
 
@@ -235,11 +266,12 @@ function mobileHistoryRow(metric, index, values, years) {
     const pointY = y + 59 - ((value - min) / range) * 34;
     return `${x.toFixed(1)},${pointY.toFixed(1)}`;
   }).join(" ");
-  const total = values.reduce((sum, value) => sum + value, 0);
+  const total = metric.summary === "max" ? Math.max(0, ...values) : metric.summary === "latest" ? (values.at(-1) || 0) : values.reduce((sum, value) => sum + value, 0);
+  const valueFormat = metric.format || (metric.signedValues ? signed : compact);
   return `<g>
     <rect x="20" y="${y}" width="335" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
     <text x="34" y="${y + 28}" class="mh-label">${escapeXml(metric.title)}</text>
-    <text x="34" y="${y + 55}" class="mh-value">${escapeXml((metric.signedValues ? signed : compact)(total))}</text>
+    <text x="34" y="${y + 55}" class="mh-value">${escapeXml(valueFormat(total))}</text>
     <line x1="151" y1="${y + 60}" x2="334" y2="${y + 60}" stroke="${THEME.border}"/>
     <polyline points="${points}" fill="none" stroke="${metric.color}" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="${y + 72}" class="mh-axis">${years[0]}</text><text x="334" y="${y + 72}" text-anchor="end" class="mh-axis">${years.at(-1)}</text>
@@ -250,23 +282,23 @@ export function renderMobileLifetimeSvg(history) {
   const years = history.yearly.map((item) => item.year);
   const metrics = [
     { title: "CONTRIBUTIONS", key: "contributions", color: THEME.accent },
-    { title: "ACTIVE DAYS", key: "activeDays", color: THEME.accent },
-    { title: "LINES ADDED", key: "additions", color: THEME.accent },
-    { title: "LINES REMOVED", key: "deletions", color: THEME.accent },
-    { title: "NET LINES", key: "net", color: THEME.accent, signedValues: true },
-    { title: "COMMITS", key: "commits", color: THEME.accent },
-    { title: "PULL REQUESTS", key: "pullRequests", color: THEME.accent },
-    { title: "ISSUES", key: "issues", color: THEME.accent },
-    { title: "REVIEWS", key: "reviews", color: THEME.accent },
+    { title: "SHIP DAYS", key: "activeDays", color: THEME.accent },
+    { title: "LONGEST STREAK", key: "longestStreak", color: THEME.accent, summary: "max" },
+    { title: "UNIQUE COMMITS", key: "commits", color: THEME.accent },
+    { title: "COMMITS / SHIP DAY", key: "commitsPerBuildDay", color: THEME.accent, summary: "latest", format: (value) => value.toFixed(1) },
+    { title: "FOCUSED CODE", key: "changed", color: THEME.accent },
+    { title: "ACTIVE PRODUCTS", key: "activeProducts", color: THEME.accent },
+    { title: "BUILD DAYS", key: "buildDays", color: THEME.accent },
+    { title: "COLLAB SIGNALS", key: "collaborationSignals", color: THEME.accent },
   ];
   const rows = metrics.map((metric, index) => mobileHistoryRow(metric, index, history.yearly.map((item) => item[metric.key] || 0), years)).join("");
   const contributions = sumBy(history.yearly, "contributions");
-  const lines = sumBy(history.yearly, "additions") + sumBy(history.yearly, "deletions");
+  const lines = sumBy(history.yearly, "changed");
   const commits = sumBy(history.yearly, "commits");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="990" viewBox="0 0 375 990" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile lifetime founder operating history</title>
-  <desc id="desc">Mobile yearly trends for contributions, code movement, commits, and collaboration.</desc>
+  <desc id="desc">Mobile yearly trends for shipping consistency, unique commits, focused code movement, and collaboration.</desc>
   <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
@@ -285,10 +317,10 @@ export function renderMobileLifetimeSvg(history) {
   <text x="20" y="77" class="mh-title">Lifetime momentum</text>
   <text x="20" y="97" class="mh-subtitle">${years[0]} → ${years.at(-1)} · each trend uses its own honest scale</text>
   <g transform="translate(20 122)"><text class="mh-head">${compact(contributions)}</text><text y="18" class="mh-head-label">CONTRIBUTIONS</text></g>
-  <g transform="translate(137 122)"><text class="mh-head">${compact(lines)}</text><text y="18" class="mh-head-label">LINES CHANGED</text></g>
-  <g transform="translate(254 122)"><text class="mh-head">${compact(commits)}</text><text y="18" class="mh-head-label">COMMITS</text></g>
+  <g transform="translate(137 122)"><text class="mh-head">${compact(lines)}</text><text y="18" class="mh-head-label">FOCUSED LINES</text></g>
+  <g transform="translate(254 122)"><text class="mh-head">${compact(commits)}</text><text y="18" class="mh-head-label">UNIQUE COMMITS</text></g>
   ${rows}
-  <text x="20" y="974" class="mh-footer">Aggregate history only · repository identities are never stored</text>
+  <text x="20" y="974" class="mh-footer">100k+ line imports filtered · repository identities are never stored</text>
 </svg>`;
 }
 
@@ -327,7 +359,7 @@ export function renderSvg(stats) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
   <title id="title">So's 30-day founder build velocity</title>
-  <desc id="desc">Daily contribution streak, code movement, and collaboration totals. Aggregate public and private activity without repository names.</desc>
+  <desc id="desc">Daily contribution momentum, shipping consistency, unique commit throughput, product breadth, and focused code movement. Aggregate public and private activity without repository names.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
@@ -369,20 +401,20 @@ export function renderSvg(stats) {
 
   <g transform="translate(52 520)">
     <rect width="706" height="112" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
-    <text x="22" y="29" class="section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="27" class="mini-label">lines added</text></g>
-    <g transform="translate(160 49)"><text class="mini-value">−${compact(stats.code.deletions)}</text><text y="27" class="mini-label">lines removed</text></g>
-    <g transform="translate(298 49)"><text class="mini-value">${signed(stats.code.net)}</text><text y="27" class="mini-label">net lines</text></g>
-    <g transform="translate(436 49)"><text class="mini-value">${compact(stats.code.commitsAnalyzed)}</text><text y="27" class="mini-label">commits analyzed</text></g>
-    <g transform="translate(574 49)"><text class="mini-value">${compact(stats.code.averageChangedPerCommit)}</text><text y="27" class="mini-label">avg change / commit</text></g>
+    <text x="22" y="29" class="section">SHIPPING RHYTHM · 30 DAYS</text>
+    <g transform="translate(22 49)"><text class="mini-value" fill="${THEME.accent}">${stats.code.buildDays}/30</text><text y="27" class="mini-label">build days</text></g>
+    <g transform="translate(160 49)"><text class="mini-value">${compact(stats.code.commitsAnalyzed)}</text><text y="27" class="mini-label">unique commits</text></g>
+    <g transform="translate(298 49)"><text class="mini-value">${compact(stats.code.activeProducts)}</text><text y="27" class="mini-label">active products</text></g>
+    <g transform="translate(436 49)"><text class="mini-value">${stats.code.commitsPerBuildDay.toFixed(1)}</text><text y="27" class="mini-label">commits / build day</text></g>
+    <g transform="translate(574 49)"><text class="mini-value">${compact(stats.code.bulkCommitsExcluded)}</text><text y="27" class="mini-label">bulk imports filtered</text></g>
   </g>
 
   <g transform="translate(776 520)">
     <rect width="372" height="112" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
-    <text x="22" y="29" class="section">SHIP SIGNALS · 30 DAYS</text>
-    <g transform="translate(22 49)"><text class="mini-value">${stats.contributions.activeDays}/30</text><text y="27" class="mini-label">active days</text></g>
-    <g transform="translate(143 49)"><text class="mini-value">${compact(stats.collaboration.pullRequests)}</text><text y="27" class="mini-label">pull requests</text></g>
-    <g transform="translate(263 49)"><text class="mini-value">${compact(stats.collaboration.reviews)}</text><text y="27" class="mini-label">reviews</text></g>
+    <text x="22" y="29" class="section">FOCUSED CODE · 30 DAYS</text>
+    <g transform="translate(22 49)"><text class="mini-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="27" class="mini-label">lines added</text></g>
+    <g transform="translate(143 49)"><text class="mini-value">−${compact(stats.code.deletions)}</text><text y="27" class="mini-label">lines removed</text></g>
+    <g transform="translate(263 49)"><text class="mini-value">${signed(stats.code.net)}</text><text y="27" class="mini-label">net lines</text></g>
   </g>
   <text x="52" y="660" class="footer">Aggregate public + private activity · private repositories and source remain private · Asia/Bangkok</text>
 </svg>`;
@@ -411,7 +443,7 @@ export function renderMobileSvg(stats) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="830" viewBox="0 0 375 830" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile 30-day founder build velocity</title>
-  <desc id="desc">Mobile view of daily contributions, streaks, code movement, and collaboration totals.</desc>
+  <desc id="desc">Mobile view of daily momentum, shipping consistency, unique commits, product breadth, and focused code movement.</desc>
   <defs><linearGradient id="m-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
@@ -440,19 +472,19 @@ export function renderMobileSvg(stats) {
   <text x="20" y="494" class="m-note">${daily[0].date.slice(5)}</text><text x="355" y="494" text-anchor="end" class="m-note">${daily.at(-1).date.slice(5)}</text>
   <g transform="translate(20 520)">
     <rect width="335" height="151" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
-    <text x="15" y="24" class="m-section">CODE MOVEMENT · 30 DAYS</text>
-    <g transform="translate(15 47)"><text class="m-small-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="19" class="m-small-label">lines added</text></g>
-    <g transform="translate(124 47)"><text class="m-small-value">−${compact(stats.code.deletions)}</text><text y="19" class="m-small-label">lines removed</text></g>
-    <g transform="translate(233 47)"><text class="m-small-value">${signed(stats.code.net)}</text><text y="19" class="m-small-label">net lines</text></g>
-    <g transform="translate(15 106)"><text class="m-small-value">${compact(stats.code.commitsAnalyzed)}</text><text y="19" class="m-small-label">commits analyzed</text></g>
-    <g transform="translate(170 106)"><text class="m-small-value">${compact(stats.code.averageChangedPerCommit)}</text><text y="19" class="m-small-label">avg change / commit</text></g>
+    <text x="15" y="24" class="m-section">SHIPPING RHYTHM · 30 DAYS</text>
+    <g transform="translate(15 47)"><text class="m-small-value" fill="${THEME.accent}">${stats.code.buildDays}/30</text><text y="19" class="m-small-label">build days</text></g>
+    <g transform="translate(124 47)"><text class="m-small-value">${compact(stats.code.commitsAnalyzed)}</text><text y="19" class="m-small-label">unique commits</text></g>
+    <g transform="translate(233 47)"><text class="m-small-value">${compact(stats.code.activeProducts)}</text><text y="19" class="m-small-label">active products</text></g>
+    <g transform="translate(15 106)"><text class="m-small-value">${stats.code.commitsPerBuildDay.toFixed(1)}</text><text y="19" class="m-small-label">commits / build day</text></g>
+    <g transform="translate(170 106)"><text class="m-small-value">${compact(stats.code.bulkCommitsExcluded)}</text><text y="19" class="m-small-label">bulk imports filtered</text></g>
   </g>
   <g transform="translate(20 686)">
     <rect width="335" height="105" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/>
-    <text x="15" y="24" class="m-section">SHIP SIGNALS · 30 DAYS</text>
-    <g transform="translate(15 50)"><text class="m-small-value">${stats.contributions.activeDays}/30</text><text y="19" class="m-small-label">active days</text></g>
-    <g transform="translate(130 50)"><text class="m-small-value">${stats.collaboration.pullRequests}</text><text y="19" class="m-small-label">pull requests</text></g>
-    <g transform="translate(245 50)"><text class="m-small-value">${stats.collaboration.reviews}</text><text y="19" class="m-small-label">reviews</text></g>
+    <text x="15" y="24" class="m-section">FOCUSED CODE · 30 DAYS</text>
+    <g transform="translate(15 50)"><text class="m-small-value" fill="${THEME.accent}">+${compact(stats.code.additions)}</text><text y="19" class="m-small-label">lines added</text></g>
+    <g transform="translate(130 50)"><text class="m-small-value">−${compact(stats.code.deletions)}</text><text y="19" class="m-small-label">lines removed</text></g>
+    <g transform="translate(245 50)"><text class="m-small-value">${signed(stats.code.net)}</text><text y="19" class="m-small-label">net lines</text></g>
   </g>
   <text x="20" y="813" class="m-footer">Aggregate public + private activity · private work stays private</text>
 </svg>`;
@@ -465,7 +497,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.5",
+      "User-Agent": "founder-progress-tracker/1.1.0",
       ...options.headers,
     },
   });
@@ -509,6 +541,19 @@ async function mapLimit(items, limit, mapper) {
   return results;
 }
 
+async function withRetry(operation, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 300));
+    }
+  }
+  throw lastError;
+}
+
 async function fetchContributionData(token, today) {
   const query = `query FounderProgress($login: String!, $yearFrom: DateTime!, $recentFrom: DateTime!, $to: DateTime!) {
     user(login: $login) {
@@ -549,7 +594,7 @@ async function fetchYearlyContributions(token, startYear, endYear) {
   const query = `query YearProgress($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
       contributionsCollection(from: $from, to: $to) {
-        contributionCalendar { totalContributions weeks { contributionDays { contributionCount } } }
+        contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
         totalPullRequestContributions
         totalIssueContributions
         totalPullRequestReviewContributions
@@ -564,11 +609,14 @@ async function fetchYearlyContributions(token, startYear, endYear) {
       to: `${year}-12-31T23:59:59Z`,
     });
     const collection = data.user.contributionsCollection;
-    const contributionDays = collection.contributionCalendar.weeks.flatMap((week) => week.contributionDays);
+    const contributionDays = collection.contributionCalendar.weeks
+      .flatMap((week) => week.contributionDays)
+      .filter((day) => day.date.startsWith(`${year}-`));
     return {
       year,
       contributions: collection.contributionCalendar.totalContributions,
       activeDays: contributionDays.filter((day) => day.contributionCount > 0).length,
+      longestStreak: longestStreak(contributionDays),
       pullRequests: collection.totalPullRequestContributions,
       issues: collection.totalIssueContributions,
       reviews: collection.totalPullRequestReviewContributions,
@@ -582,8 +630,8 @@ async function fetchRepositoryCommitHistory(token, repo, authorId, since, until)
       defaultBranchRef {
         target {
           ... on Commit {
-            history(first: 100, after: $cursor, author: {id: $author}, since: $since, until: $until) {
-              nodes { additions deletions committedDate }
+            history(first: 50, after: $cursor, author: {id: $author}, since: $since, until: $until) {
+              nodes { oid additions deletions committedDate }
               pageInfo { hasNextPage endCursor }
             }
           }
@@ -616,32 +664,69 @@ async function fetchCodeMovement(token, today, authorId, sinceDate) {
   const since = `${shiftDate(sinceDate, -1)}T00:00:00Z`;
   const until = `${shiftDate(today, 1)}T23:59:59Z`;
   const repositories = await paginate("/user/repos?affiliation=owner,collaborator,organization_member&sort=pushed&direction=desc", token);
-  const candidates = repositories.filter((repo) => !repo.archived && repo.full_name !== `${USERNAME}/${USERNAME}` && repo.pushed_at >= since);
+  // Inspect every eligible repository. REST `pushed_at` can be stale after transfers,
+  // mirrors, and other history changes, so using it here silently dropped valid work.
+  const candidates = repositories.filter((repo) => !repo.archived && repo.full_name !== `${USERNAME}/${USERNAME}`);
   let repositoriesSkipped = 0;
-  const commitLists = await mapLimit(candidates, 4, async (repo) => {
+  const repositoryResults = await mapLimit(candidates, 4, async (repo) => {
     try {
-      return await fetchRepositoryCommitHistory(token, repo, authorId, since, until);
-    } catch {
+      return { commits: await withRetry(() => fetchRepositoryCommitHistory(token, repo, authorId, since, until)) };
+    } catch (error) {
       repositoriesSkipped += 1;
-      return [];
+      console.warn(`Skipped one repository after retries: ${error.message}`);
+      return { commits: [] };
     }
   });
-  const commits = commitLists.flat();
+  const seenOids = new Set();
+  let duplicateCommitsExcluded = 0;
   const dailyMap = new Map();
-  for (const commit of commits) {
-    const date = localDate(new Date(commit.committedDate));
-    if (date < sinceDate || date > today) continue;
-    const current = dailyMap.get(date) || { date, additions: 0, deletions: 0, commits: 0 };
-    current.additions += commit.additions || 0;
-    current.deletions += commit.deletions || 0;
-    current.commits += 1;
-    dailyMap.set(date, current);
+  const repositoryYears = new Map();
+  const recentStart = shiftDate(today, -29);
+  let recentRepositoriesActive = 0;
+  for (const result of repositoryResults) {
+    const years = new Set();
+    let recentActive = false;
+    for (const commit of result.commits) {
+      const date = localDate(new Date(commit.committedDate));
+      if (date < sinceDate || date > today) continue;
+      years.add(date.slice(0, 4));
+      if (date >= recentStart) recentActive = true;
+      if (seenOids.has(commit.oid)) {
+        duplicateCommitsExcluded += 1;
+        continue;
+      }
+      seenOids.add(commit.oid);
+      const change = classifyCommitChange(commit);
+      const current = dailyMap.get(date) || {
+        date,
+        additions: 0,
+        deletions: 0,
+        rawAdditions: 0,
+        rawDeletions: 0,
+        commits: 0,
+        bulkCommitsExcluded: 0,
+      };
+      current.rawAdditions += change.rawAdditions;
+      current.rawDeletions += change.rawDeletions;
+      current.additions += change.additions;
+      current.deletions += change.deletions;
+      current.bulkCommitsExcluded += change.bulkCommitsExcluded;
+      current.commits += 1;
+      dailyMap.set(date, current);
+    }
+    if (recentActive) recentRepositoriesActive += 1;
+    for (const year of years) repositoryYears.set(year, (repositoryYears.get(year) || 0) + 1);
   }
   const daily = [...dailyMap.values()].sort((a, b) => a.date.localeCompare(b.date));
   return {
     additions: sumBy(daily, "additions"),
     deletions: sumBy(daily, "deletions"),
     commits: sumBy(daily, "commits"),
+    buildDays: daily.length,
+    bulkCommitsExcluded: sumBy(daily, "bulkCommitsExcluded"),
+    duplicateCommitsExcluded,
+    recentRepositoriesActive,
+    repositoryYearCounts: Object.fromEntries(repositoryYears),
     repositoriesAnalyzed: candidates.length - repositoriesSkipped,
     repositoriesSkipped,
     daily,
@@ -663,9 +748,9 @@ function mergeCodeHistory(existing, fresh, replaceFrom) {
   return [...byDate.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
-function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, generatedAt }) {
+function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, generatedAt, repositoryYearCounts }) {
   return {
-    version: 1,
+    version: 2,
     accountCreatedAt,
     generatedAt,
     privacy: "Aggregate yearly and daily totals only; repository identities are not stored.",
@@ -673,12 +758,22 @@ function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, ge
       const code = codeDaily.filter((day) => Number(day.date.slice(0, 4)) === year.year);
       const additions = sumBy(code, "additions");
       const deletions = sumBy(code, "deletions");
+      const commits = sumBy(code, "commits");
+      const buildDays = code.length;
       return {
         ...year,
         additions,
         deletions,
+        changed: additions + deletions,
         net: additions - deletions,
-        commits: sumBy(code, "commits"),
+        rawAdditions: sumBy(code, "rawAdditions"),
+        rawDeletions: sumBy(code, "rawDeletions"),
+        commits,
+        buildDays,
+        commitsPerBuildDay: buildDays ? Number((commits / buildDays).toFixed(1)) : 0,
+        activeProducts: repositoryYearCounts?.[year.year] || 0,
+        bulkCommitsExcluded: sumBy(code, "bulkCommitsExcluded"),
+        collaborationSignals: year.pullRequests + year.issues + year.reviews,
       };
     }),
     codeDaily,
@@ -687,7 +782,7 @@ function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, ge
 
 function renderShareCopy(stats) {
   const direction = stats.contributions.momentumPercent >= 0 ? "up" : "down";
-  return `Founder ship log — last 30 days\n\n${stats.contributions.last30Days} GitHub contributions across ${stats.contributions.activeDays}/30 active days.\n${compact(stats.code.changed)} lines changed across ${stats.code.commitsAnalyzed} commits analyzed.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
+  return `Founder ship log — last 30 days\n\n${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
 }
 
 async function main() {
@@ -698,23 +793,33 @@ async function main() {
   const contributions = await fetchContributionData(token, today);
   const existingHistory = await loadHistory(root);
   const accountStart = contributions.accountCreatedAt.slice(0, 10);
-  const codeStart = existingHistory && process.env.BACKFILL_LIFETIME !== "1" ? shiftDate(today, -29) : accountStart;
+  const codeStart = existingHistory && process.env.BACKFILL_LIFETIME !== "1" ? `${today.slice(0, 4)}-01-01` : accountStart;
   const [yearlyContributions, codeResult] = await Promise.all([
     fetchYearlyContributions(token, Number(accountStart.slice(0, 4)), Number(today.slice(0, 4))),
     fetchCodeMovement(token, today, contributions.authorId, codeStart),
   ]);
   const codeDaily = mergeCodeHistory(existingHistory?.codeDaily, codeResult.daily, codeStart);
+  const repositoryYearCounts = {
+    ...(existingHistory?.repositoryYearCounts || {}),
+    ...codeResult.repositoryYearCounts,
+  };
   const history = summarizeHistory({
     accountCreatedAt: contributions.accountCreatedAt,
     yearlyContributions,
     codeDaily,
     generatedAt: today,
+    repositoryYearCounts,
   });
+  history.repositoryYearCounts = repositoryYearCounts;
   const recentCodeDays = codeDaily.filter((day) => day.date >= shiftDate(today, -29));
   const recentCode = {
     additions: sumBy(recentCodeDays, "additions"),
     deletions: sumBy(recentCodeDays, "deletions"),
     commits: sumBy(recentCodeDays, "commits"),
+    buildDays: recentCodeDays.length,
+    activeProducts: codeResult.recentRepositoriesActive,
+    bulkCommitsExcluded: sumBy(recentCodeDays, "bulkCommitsExcluded"),
+    duplicateCommitsExcluded: codeResult.duplicateCommitsExcluded,
     repositoriesAnalyzed: codeResult.repositoriesAnalyzed,
     repositoriesSkipped: codeResult.repositoriesSkipped,
   };

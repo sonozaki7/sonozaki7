@@ -7,7 +7,7 @@ I build, launch, measure, and iterate on AI products at founder speed.
 <a href="https://github.com/sonozaki7/sonozaki7/blob/main/metrics/latest.json">
   <picture>
     <source media="(max-width: 800px)" srcset="./assets/founder-progress-mobile.svg" />
-    <img src="./assets/founder-progress.svg" alt="So's daily founder build progress: contributions, streaks, code movement, and shipping momentum" width="100%" />
+    <img src="./assets/founder-progress.svg" alt="So's daily founder progress: contribution momentum, shipping consistency, unique commits, active products, and focused code movement" width="100%" />
   </picture>
 </a>
 
@@ -19,10 +19,10 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 <picture>
   <source media="(max-width: 800px)" srcset="./assets/founder-lifetime-mobile.svg" />
-  <img src="./assets/founder-lifetime.svg" alt="Lifetime yearly graphs for contributions, active days, code added and removed, net lines, commits, pull requests, issues, and reviews" width="100%" />
+  <img src="./assets/founder-lifetime.svg" alt="Lifetime yearly graphs for shipping days, streaks, unique commits, focused code movement, pull requests, issues, and reviews" width="100%" />
 </picture>
 
-<sub>Year-by-year history from account creation · line metrics cover accessible, authored commits on repository default branches</sub>
+<sub>Year-by-year history from account creation · giant 100k+ line imports are filtered so ordinary shipping work stays visible</sub>
 
 ## Monthly SaaS earnings
 
@@ -97,7 +97,9 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 
 The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json) and [`history.json`](./metrics/history.json). Private activity is included only in aggregate. Repository names, commit messages, source code, and secrets are never written into the generated files or retained in tracker history.
 
-Line metrics include authored commits from accessible, non-archived repositories on each repository's default branch. Unpushed work and commits that only exist on other branches are not included.
+The public tracker emphasizes shipping consistency, unique commits, active-product breadth, and focused code movement. It deduplicates identical commits and filters individual 100k+ line imports or generated snapshots from line totals so a handful of bulk operations cannot dominate years of ordinary work. Those commits still count as commits.
+
+Metrics include authored commits from accessible, non-archived repositories on each repository's default branch. Unpushed work and commits that only exist on other branches are not included.
 
 Lines changed are a momentum signal, not a quality score. Shipping useful product remains the goal.
 
