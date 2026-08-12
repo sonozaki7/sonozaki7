@@ -9,15 +9,15 @@ const TIMEZONE = process.env.TRACKER_TIMEZONE || "Asia/Bangkok";
 const API = "https://api.github.com";
 const THEME = Object.freeze({
   background: "#FFFFFF",
-  surface: "#FBFBF9",
-  border: "#DEDFD9",
+  surface: "#FAFBFC",
+  border: "#DCE3E7",
   text: "#181915",
-  muted: "#6F706A",
-  dim: "#9B9C95",
-  faint: "#ECEDE8",
-  accent: "#20211D",
-  accentMid: "#777970",
-  accentLow: "#B7B8B1",
+  muted: "#68757C",
+  dim: "#98A3A9",
+  faint: "#EDF2F4",
+  accent: "#355F78",
+  accentMid: "#7894A5",
+  accentLow: "#B8C8D1",
 });
 
 function localDate(date = new Date()) {
@@ -196,7 +196,7 @@ export function renderLifetimeSvg(history) {
   <title id="title">So's lifetime founder operating history</title>
   <desc id="desc">Yearly contribution, code movement, commit, pull request, issue, review, and active-day trends from GitHub account creation.</desc>
   <defs>
-    <linearGradient id="history-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
+    <linearGradient id="history-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
       .history-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; letter-spacing: 2.6px; fill: ${THEME.accent}; }
@@ -267,7 +267,7 @@ export function renderMobileLifetimeSvg(history) {
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="990" viewBox="0 0 375 990" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile lifetime founder operating history</title>
   <desc id="desc">Mobile yearly trends for contributions, code movement, commits, and collaboration.</desc>
-  <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
+  <defs><linearGradient id="mh-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
       .mh-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.7px; fill: ${THEME.accent}; }
@@ -329,7 +329,7 @@ export function renderSvg(stats) {
   <title id="title">So's 30-day founder build velocity</title>
   <desc id="desc">Daily contribution streak, code movement, and collaboration totals. Aggregate public and private activity without repository names.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
       .eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; letter-spacing: 2.6px; fill: ${THEME.accent}; }
@@ -412,7 +412,7 @@ export function renderMobileSvg(stats) {
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="830" viewBox="0 0 375 830" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile 30-day founder build velocity</title>
   <desc id="desc">Mobile view of daily contributions, streaks, code movement, and collaboration totals.</desc>
-  <defs><linearGradient id="m-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#FAFAF7"/></linearGradient>
+  <defs><linearGradient id="m-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
       .m-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.8px; fill: ${THEME.accent}; }
@@ -465,7 +465,7 @@ async function github(pathname, token, options = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "founder-progress-tracker/1.0.4",
+      "User-Agent": "founder-progress-tracker/1.0.5",
       ...options.headers,
     },
   });
