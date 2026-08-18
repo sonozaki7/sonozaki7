@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-17",
+  "generatedAt": "2026-08-19",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -17,24 +17,6 @@
     "commitsPerFocusHour30": null
   },
   "daily": [
-    {
-      "key": "2026-08-04",
-      "label": "08-04",
-      "start": "2026-08-04",
-      "end": "2026-08-04",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
-    {
-      "key": "2026-08-05",
-      "label": "08-05",
-      "start": "2026-08-05",
-      "end": "2026-08-05",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-08-06",
       "label": "08-06",
@@ -139,6 +121,24 @@
       "label": "08-17",
       "start": "2026-08-17",
       "end": "2026-08-17",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-18",
+      "label": "08-18",
+      "start": "2026-08-18",
+      "end": "2026-08-18",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-08-19",
+      "label": "08-19",
+      "start": "2026-08-19",
+      "end": "2026-08-19",
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
@@ -248,10 +248,10 @@
       "key": "2026-08-17",
       "label": "08-17",
       "start": "2026-08-17",
-      "end": "2026-08-17",
+      "end": "2026-08-19",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 1
+      "coverageDays": 3
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-08",
       "label": "26-08",
       "start": "2026-08-01",
-      "end": "2026-08-17",
+      "end": "2026-08-19",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 17
+      "coverageDays": 19
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-08-17",
+      "end": "2026-08-19",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 35
+      "coverageDays": 37
     }
   ],
   "dailyHistory": [
@@ -514,6 +514,14 @@
     },
     {
       "date": "2026-08-17",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-18",
+      "seconds": 0
+    },
+    {
+      "date": "2026-08-19",
       "seconds": 0
     }
   ]
