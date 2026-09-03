@@ -143,7 +143,7 @@
     </g><g>
       <rect x="20" y="1228" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="1253" class="mc-period">2026-09</text>
-      <text x="32" y="1273" class="mc-range">2026-09-01 → 2026-09-03</text>
+      <text x="32" y="1273" class="mc-range">2026-09-01 → 2026-09-04</text>
       <text x="32" y="1296" class="mc-range">2 contribution days · 0h focus</text>
       <g transform="translate(126 1249)"><text class="mc-value">3</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1249)"><text class="mc-value">2</text><text y="17" class="mc-label">COMMITS</text></g>
