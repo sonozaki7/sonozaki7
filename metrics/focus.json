@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-07",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -17,15 +17,6 @@
     "commitsPerFocusHour30": null
   },
   "daily": [
-    {
-      "key": "2026-08-24",
-      "label": "08-24",
-      "start": "2026-08-24",
-      "end": "2026-08-24",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-08-25",
       "label": "08-25",
@@ -142,18 +133,18 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-09-07",
+      "label": "09-07",
+      "start": "2026-09-07",
+      "end": "2026-09-07",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "weekly": [
-    {
-      "key": "2026-06-15",
-      "label": "06-15",
-      "start": "2026-06-15",
-      "end": "2026-06-21",
-      "seconds": null,
-      "activeDays": 0,
-      "coverageDays": 0
-    },
     {
       "key": "2026-06-22",
       "label": "06-22",
@@ -252,6 +243,15 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 7
+    },
+    {
+      "key": "2026-09-07",
+      "label": "09-07",
+      "start": "2026-09-07",
+      "end": "2026-09-07",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-09",
       "label": "26-09",
       "start": "2026-09-01",
-      "end": "2026-09-06",
+      "end": "2026-09-07",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 6
+      "coverageDays": 7
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-09-06",
+      "end": "2026-09-07",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 55
+      "coverageDays": 56
     }
   ],
   "dailyHistory": [
@@ -594,6 +594,10 @@
     },
     {
       "date": "2026-09-06",
+      "seconds": 0
+    },
+    {
+      "date": "2026-09-07",
       "seconds": 0
     }
   ]
