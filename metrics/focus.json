@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-15",
+  "generatedAt": "2026-09-16",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -17,15 +17,6 @@
     "commitsPerFocusHour30": null
   },
   "daily": [
-    {
-      "key": "2026-09-02",
-      "label": "09-02",
-      "start": "2026-09-02",
-      "end": "2026-09-02",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-09-03",
       "label": "09-03",
@@ -142,6 +133,15 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-09-16",
+      "label": "09-16",
+      "start": "2026-09-16",
+      "end": "2026-09-16",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "weekly": [
@@ -248,10 +248,10 @@
       "key": "2026-09-14",
       "label": "09-14",
       "start": "2026-09-14",
-      "end": "2026-09-15",
+      "end": "2026-09-16",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 2
+      "coverageDays": 3
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-09",
       "label": "26-09",
       "start": "2026-09-01",
-      "end": "2026-09-15",
+      "end": "2026-09-16",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 15
+      "coverageDays": 16
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-09-15",
+      "end": "2026-09-16",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 64
+      "coverageDays": 65
     }
   ],
   "dailyHistory": [
@@ -630,6 +630,10 @@
     },
     {
       "date": "2026-09-15",
+      "seconds": 0
+    },
+    {
+      "date": "2026-09-16",
       "seconds": 0
     }
   ]
