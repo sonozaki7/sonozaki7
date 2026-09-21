@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-09-21",
+  "generatedAt": "2026-09-22",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-08-23",
-    "end": "2026-09-21"
+    "start": "2026-08-24",
+    "end": "2026-09-22"
   },
   "contributions": {
     "today": 0,
-    "last7Days": 14,
-    "last30Days": 184,
-    "previous30Days": 585,
-    "momentumPercent": -69,
-    "activeDays": 24,
+    "last7Days": 13,
+    "last30Days": 159,
+    "previous30Days": 599,
+    "momentumPercent": -73,
+    "activeDays": 23,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-08-23",
-        "count": 25
-      },
       {
         "date": "2026-08-24",
         "count": 16
@@ -134,18 +130,22 @@
       {
         "date": "2026-09-21",
         "count": 0
+      },
+      {
+        "date": "2026-09-22",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 197732,
-    "deletions": 80110,
-    "changed": 277842,
-    "net": 117622,
-    "commitsAnalyzed": 178,
-    "averageChangedPerCommit": 1561,
-    "buildDays": 21,
-    "commitsPerBuildDay": 8.5,
+    "additions": 179439,
+    "deletions": 63767,
+    "changed": 243206,
+    "net": 115672,
+    "commitsAnalyzed": 153,
+    "averageChangedPerCommit": 1590,
+    "buildDays": 20,
+    "commitsPerBuildDay": 7.7,
     "activeProducts": 8,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
