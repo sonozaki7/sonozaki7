@@ -1,26 +1,8 @@
 {
-  "generatedAt": "2026-09-27",
+  "generatedAt": "2026-09-28",
   "timezone": "Asia/Bangkok",
   "privacy": "Aggregate period totals only; repository identities are not stored.",
   "daily": [
-    {
-      "key": "2026-09-14",
-      "label": "09-14",
-      "start": "2026-09-14",
-      "end": "2026-09-14",
-      "daysElapsed": 1,
-      "contributions": 16,
-      "commits": 16,
-      "buildDays": 1,
-      "contributionDays": 1,
-      "additions": 12934,
-      "deletions": 6334,
-      "changed": 19268,
-      "net": 6600,
-      "bulkCommitsExcluded": 0,
-      "focusSeconds": 0,
-      "focusCoverageDays": 1
-    },
     {
       "key": "2026-09-15",
       "label": "09-15",
@@ -254,27 +236,27 @@
       "bulkCommitsExcluded": 0,
       "focusSeconds": 0,
       "focusCoverageDays": 1
+    },
+    {
+      "key": "2026-09-28",
+      "label": "09-28",
+      "start": "2026-09-28",
+      "end": "2026-09-28",
+      "daysElapsed": 1,
+      "contributions": 0,
+      "commits": 0,
+      "buildDays": 0,
+      "contributionDays": 0,
+      "additions": 0,
+      "deletions": 0,
+      "changed": 0,
+      "net": 0,
+      "bulkCommitsExcluded": 0,
+      "focusSeconds": 0,
+      "focusCoverageDays": 1
     }
   ],
   "weekly": [
-    {
-      "key": "2026-07-06",
-      "label": "07-06",
-      "start": "2026-07-06",
-      "end": "2026-07-12",
-      "daysElapsed": 7,
-      "contributions": 6,
-      "commits": 6,
-      "buildDays": 1,
-      "contributionDays": 1,
-      "additions": 4086,
-      "deletions": 1615,
-      "changed": 5701,
-      "net": 2471,
-      "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
-    },
     {
       "key": "2026-07-13",
       "label": "07-13",
@@ -472,6 +454,24 @@
       "bulkCommitsExcluded": 0,
       "focusSeconds": 0,
       "focusCoverageDays": 7
+    },
+    {
+      "key": "2026-09-28",
+      "label": "09-28",
+      "start": "2026-09-28",
+      "end": "2026-09-28",
+      "daysElapsed": 1,
+      "contributions": 0,
+      "commits": 0,
+      "buildDays": 0,
+      "contributionDays": 0,
+      "additions": 0,
+      "deletions": 0,
+      "changed": 0,
+      "net": 0,
+      "bulkCommitsExcluded": 0,
+      "focusSeconds": 0,
+      "focusCoverageDays": 1
     }
   ],
   "monthly": [
@@ -677,8 +677,8 @@
       "key": "2026-09",
       "label": "2026-09",
       "start": "2026-09-01",
-      "end": "2026-09-27",
-      "daysElapsed": 27,
+      "end": "2026-09-28",
+      "daysElapsed": 28,
       "contributions": 122,
       "commits": 116,
       "buildDays": 15,
@@ -689,7 +689,7 @@
       "net": 105504,
       "bulkCommitsExcluded": 0,
       "focusSeconds": 0,
-      "focusCoverageDays": 27
+      "focusCoverageDays": 28
     }
   ],
   "yearly": [
@@ -841,8 +841,8 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-09-27",
-      "daysElapsed": 270,
+      "end": "2026-09-28",
+      "daysElapsed": 271,
       "contributions": 1483,
       "contributionDays": 137,
       "commits": 1393,
@@ -853,7 +853,7 @@
       "net": 1117806,
       "bulkCommitsExcluded": 0,
       "focusSeconds": 0,
-      "focusCoverageDays": 76
+      "focusCoverageDays": 77
     }
   ]
 }
