@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-28",
+  "generatedAt": "2026-09-29",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -8,24 +8,15 @@
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
     "todaySeconds": 0,
-    "last7Seconds": 0,
-    "last30Seconds": 0,
+    "last7Seconds": 8292,
+    "last30Seconds": 8292,
     "lifetimeSeconds": 0,
-    "activeDays30": 0,
-    "activeDaysLifetime": 0,
-    "averageSecondsPerActiveDay30": 0,
-    "commitsPerFocusHour30": null
+    "activeDays30": 1,
+    "activeDaysLifetime": 1,
+    "averageSecondsPerActiveDay30": 8292,
+    "commitsPerFocusHour30": 53
   },
   "daily": [
-    {
-      "key": "2026-09-15",
-      "label": "09-15",
-      "start": "2026-09-15",
-      "end": "2026-09-15",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-09-16",
       "label": "09-16",
@@ -139,6 +130,15 @@
       "label": "09-28",
       "start": "2026-09-28",
       "end": "2026-09-28",
+      "seconds": 8292,
+      "activeDays": 1,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-09-29",
+      "label": "09-29",
+      "start": "2026-09-29",
+      "end": "2026-09-29",
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
@@ -248,10 +248,10 @@
       "key": "2026-09-28",
       "label": "09-28",
       "start": "2026-09-28",
-      "end": "2026-09-28",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
+      "end": "2026-09-29",
+      "seconds": 8292,
+      "activeDays": 1,
+      "coverageDays": 2
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-09",
       "label": "26-09",
       "start": "2026-09-01",
-      "end": "2026-09-28",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 28
+      "end": "2026-09-29",
+      "seconds": 8292,
+      "activeDays": 1,
+      "coverageDays": 29
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-09-28",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 77
+      "end": "2026-09-29",
+      "seconds": 8292,
+      "activeDays": 1,
+      "coverageDays": 78
     }
   ],
   "dailyHistory": [
@@ -682,6 +682,10 @@
     },
     {
       "date": "2026-09-28",
+      "seconds": 8292
+    },
+    {
+      "date": "2026-09-29",
       "seconds": 0
     }
   ]
