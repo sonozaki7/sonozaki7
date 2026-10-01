@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-01",
+  "generatedAt": "2026-10-02",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-02",
-    "end": "2026-10-01"
+    "start": "2026-09-03",
+    "end": "2026-10-02"
   },
   "contributions": {
     "today": 0,
-    "last7Days": 2,
-    "last30Days": 122,
-    "previous30Days": 587,
+    "last7Days": 1,
+    "last30Days": 121,
+    "previous30Days": 588,
     "momentumPercent": -79,
-    "activeDays": 18,
+    "activeDays": 17,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-02",
-        "count": 1
-      },
       {
         "date": "2026-09-03",
         "count": 0
@@ -133,6 +129,10 @@
       },
       {
         "date": "2026-10-01",
+        "count": 0
+      },
+      {
+        "date": "2026-10-02",
         "count": 0
       }
     ]
