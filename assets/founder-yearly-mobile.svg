@@ -16,9 +16,9 @@
   <text x="20" y="44" class="mc-eyebrow">YEARLY PROGRESS LEDGER</text>
   <text x="20" y="76" class="mc-title">Yearly detail</text>
   <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
-  <g transform="translate(20 124)"><text class="mc-total">2,563</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
-  <g transform="translate(132 124)"><text class="mc-total">2,405</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
-  <g transform="translate(244 124)"><text class="mc-total">3.6h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
+  <g transform="translate(20 124)"><text class="mc-total">2,564</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(132 124)"><text class="mc-total">2,406</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
+  <g transform="translate(244 124)"><text class="mc-total">3.7h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   <g>
       <rect x="20" y="194" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="219" class="mc-period">2018</text>
@@ -110,14 +110,14 @@
     </g><g>
       <rect x="20" y="946" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="971" class="mc-period">2026</text>
-      <text x="32" y="991" class="mc-range">2026-01-01 → 2026-10-05</text>
-      <text x="32" y="1014" class="mc-range">138 contribution days · 3.6h focus</text>
-      <g transform="translate(126 967)"><text class="mc-value">1,485</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 967)"><text class="mc-value">1,395</text><text y="17" class="mc-label">COMMITS</text></g>
-      <g transform="translate(278 967)"><text class="mc-value">130</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 1006)"><text class="mc-value">2,177,491</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 1006)"><text class="mc-value">+1,652,007</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 1006)"><text class="mc-value">−525,484</text><text y="17" class="mc-label">REMOVED</text></g>
+      <text x="32" y="991" class="mc-range">2026-01-01 → 2026-10-06</text>
+      <text x="32" y="1014" class="mc-range">139 contribution days · 3.7h focus</text>
+      <g transform="translate(126 967)"><text class="mc-value">1,486</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 967)"><text class="mc-value">1,396</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 967)"><text class="mc-value">131</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 1006)"><text class="mc-value">2,179,721</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 1006)"><text class="mc-value">+1,653,162</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 1006)"><text class="mc-value">−526,559</text><text y="17" class="mc-label">REMOVED</text></g>
     </g>
   <text x="20" y="1064" class="mc-footer">Private repository identities are never stored</text>
 </svg>
