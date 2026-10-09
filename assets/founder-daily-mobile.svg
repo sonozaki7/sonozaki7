@@ -21,8 +21,8 @@
   <g transform="translate(244 124)"><text class="mc-total">4.2h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   <g>
       <rect x="20" y="194" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="219" class="mc-period">09-26</text>
-      <text x="32" y="239" class="mc-range">2026-09-26</text>
+      <text x="32" y="219" class="mc-period">09-27</text>
+      <text x="32" y="239" class="mc-range">2026-09-27</text>
       <text x="32" y="262" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 215)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 215)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
@@ -32,30 +32,30 @@
       <g transform="translate(278 254)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="288" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="313" class="mc-period">09-27</text>
-      <text x="32" y="333" class="mc-range">2026-09-27</text>
-      <text x="32" y="356" class="mc-range">0 contribution days · 0h focus</text>
-      <g transform="translate(126 309)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 309)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
-      <g transform="translate(278 309)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 348)"><text class="mc-value">0</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 348)"><text class="mc-value">0</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 348)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
+      <text x="32" y="313" class="mc-period">09-28</text>
+      <text x="32" y="333" class="mc-range">2026-09-28</text>
+      <text x="32" y="356" class="mc-range">1 contribution days · 2.3h focus</text>
+      <g transform="translate(126 309)"><text class="mc-value">1</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 309)"><text class="mc-value">1</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 309)"><text class="mc-value">1</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 348)"><text class="mc-value">8,765</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 348)"><text class="mc-value">+8,739</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 348)"><text class="mc-value">−26</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="382" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="407" class="mc-period">09-28</text>
-      <text x="32" y="427" class="mc-range">2026-09-28</text>
-      <text x="32" y="450" class="mc-range">1 contribution days · 2.3h focus</text>
-      <g transform="translate(126 403)"><text class="mc-value">1</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 403)"><text class="mc-value">1</text><text y="17" class="mc-label">COMMITS</text></g>
-      <g transform="translate(278 403)"><text class="mc-value">1</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 442)"><text class="mc-value">8,765</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 442)"><text class="mc-value">+8,739</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 442)"><text class="mc-value">−26</text><text y="17" class="mc-label">REMOVED</text></g>
+      <text x="32" y="407" class="mc-period">09-29</text>
+      <text x="32" y="427" class="mc-range">2026-09-29</text>
+      <text x="32" y="450" class="mc-range">0 contribution days · 0h focus</text>
+      <g transform="translate(126 403)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 403)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 403)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 442)"><text class="mc-value">0</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 442)"><text class="mc-value">0</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 442)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="476" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="501" class="mc-period">09-29</text>
-      <text x="32" y="521" class="mc-range">2026-09-29</text>
+      <text x="32" y="501" class="mc-period">09-30</text>
+      <text x="32" y="521" class="mc-range">2026-09-30</text>
       <text x="32" y="544" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 497)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 497)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
@@ -65,9 +65,9 @@
       <g transform="translate(278 536)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="570" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="595" class="mc-period">09-30</text>
-      <text x="32" y="615" class="mc-range">2026-09-30</text>
-      <text x="32" y="638" class="mc-range">0 contribution days · 0h focus</text>
+      <text x="32" y="595" class="mc-period">10-01</text>
+      <text x="32" y="615" class="mc-range">2026-10-01</text>
+      <text x="32" y="638" class="mc-range">0 contribution days · 0.0h focus</text>
       <g transform="translate(126 591)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 591)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 591)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
@@ -76,9 +76,9 @@
       <g transform="translate(278 630)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="664" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="689" class="mc-period">10-01</text>
-      <text x="32" y="709" class="mc-range">2026-10-01</text>
-      <text x="32" y="732" class="mc-range">0 contribution days · 0.0h focus</text>
+      <text x="32" y="689" class="mc-period">10-02</text>
+      <text x="32" y="709" class="mc-range">2026-10-02</text>
+      <text x="32" y="732" class="mc-range">0 contribution days · 1.3h focus</text>
       <g transform="translate(126 685)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 685)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 685)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
@@ -87,9 +87,9 @@
       <g transform="translate(278 724)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="758" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="783" class="mc-period">10-02</text>
-      <text x="32" y="803" class="mc-range">2026-10-02</text>
-      <text x="32" y="826" class="mc-range">0 contribution days · 1.3h focus</text>
+      <text x="32" y="783" class="mc-period">10-03</text>
+      <text x="32" y="803" class="mc-range">2026-10-03</text>
+      <text x="32" y="826" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 779)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 779)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 779)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
@@ -98,8 +98,8 @@
       <g transform="translate(278 818)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="852" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="877" class="mc-period">10-03</text>
-      <text x="32" y="897" class="mc-range">2026-10-03</text>
+      <text x="32" y="877" class="mc-period">10-04</text>
+      <text x="32" y="897" class="mc-range">2026-10-04</text>
       <text x="32" y="920" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 873)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 873)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
@@ -109,41 +109,41 @@
       <g transform="translate(278 912)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="946" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="971" class="mc-period">10-04</text>
-      <text x="32" y="991" class="mc-range">2026-10-04</text>
-      <text x="32" y="1014" class="mc-range">0 contribution days · 0h focus</text>
-      <g transform="translate(126 967)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 967)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
-      <g transform="translate(278 967)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 1006)"><text class="mc-value">0</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 1006)"><text class="mc-value">0</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 1006)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
+      <text x="32" y="971" class="mc-period">10-05</text>
+      <text x="32" y="991" class="mc-range">2026-10-05</text>
+      <text x="32" y="1014" class="mc-range">1 contribution days · 0.6h focus</text>
+      <g transform="translate(126 967)"><text class="mc-value">1</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 967)"><text class="mc-value">1</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 967)"><text class="mc-value">1</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 1006)"><text class="mc-value">2,230</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 1006)"><text class="mc-value">+1,155</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 1006)"><text class="mc-value">−1,075</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="1040" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="1065" class="mc-period">10-05</text>
-      <text x="32" y="1085" class="mc-range">2026-10-05</text>
-      <text x="32" y="1108" class="mc-range">1 contribution days · 0.6h focus</text>
-      <g transform="translate(126 1061)"><text class="mc-value">1</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 1061)"><text class="mc-value">1</text><text y="17" class="mc-label">COMMITS</text></g>
+      <text x="32" y="1065" class="mc-period">10-06</text>
+      <text x="32" y="1085" class="mc-range">2026-10-06</text>
+      <text x="32" y="1108" class="mc-range">1 contribution days · 0h focus</text>
+      <g transform="translate(126 1061)"><text class="mc-value">6</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 1061)"><text class="mc-value">4</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 1061)"><text class="mc-value">1</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 1100)"><text class="mc-value">2,230</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 1100)"><text class="mc-value">+1,155</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 1100)"><text class="mc-value">−1,075</text><text y="17" class="mc-label">REMOVED</text></g>
+      <g transform="translate(126 1100)"><text class="mc-value">9,631</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 1100)"><text class="mc-value">+8,020</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 1100)"><text class="mc-value">−1,611</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="1134" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="1159" class="mc-period">10-06</text>
-      <text x="32" y="1179" class="mc-range">2026-10-06</text>
-      <text x="32" y="1202" class="mc-range">1 contribution days · 0h focus</text>
-      <g transform="translate(126 1155)"><text class="mc-value">6</text><text y="17" class="mc-label">CONTRIB</text></g>
-      <g transform="translate(202 1155)"><text class="mc-value">4</text><text y="17" class="mc-label">COMMITS</text></g>
-      <g transform="translate(278 1155)"><text class="mc-value">1</text><text y="17" class="mc-label">BUILD DAYS</text></g>
-      <g transform="translate(126 1194)"><text class="mc-value">9,631</text><text y="17" class="mc-label">FOCUSED</text></g>
-      <g transform="translate(202 1194)"><text class="mc-value">+8,020</text><text y="17" class="mc-label">ADDED</text></g>
-      <g transform="translate(278 1194)"><text class="mc-value">−1,611</text><text y="17" class="mc-label">REMOVED</text></g>
+      <text x="32" y="1159" class="mc-period">10-07</text>
+      <text x="32" y="1179" class="mc-range">2026-10-07</text>
+      <text x="32" y="1202" class="mc-range">0 contribution days · 0h focus</text>
+      <g transform="translate(126 1155)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <g transform="translate(202 1155)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
+      <g transform="translate(278 1155)"><text class="mc-value">0</text><text y="17" class="mc-label">BUILD DAYS</text></g>
+      <g transform="translate(126 1194)"><text class="mc-value">0</text><text y="17" class="mc-label">FOCUSED</text></g>
+      <g transform="translate(202 1194)"><text class="mc-value">0</text><text y="17" class="mc-label">ADDED</text></g>
+      <g transform="translate(278 1194)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="1228" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="1253" class="mc-period">10-07</text>
-      <text x="32" y="1273" class="mc-range">2026-10-07</text>
+      <text x="32" y="1253" class="mc-period">10-08</text>
+      <text x="32" y="1273" class="mc-range">2026-10-08</text>
       <text x="32" y="1296" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 1249)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1249)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
@@ -153,8 +153,8 @@
       <g transform="translate(278 1288)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="1322" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="1347" class="mc-period">10-08</text>
-      <text x="32" y="1367" class="mc-range">2026-10-08</text>
+      <text x="32" y="1347" class="mc-period">10-09</text>
+      <text x="32" y="1367" class="mc-range">2026-10-09</text>
       <text x="32" y="1390" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 1343)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1343)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
@@ -164,8 +164,8 @@
       <g transform="translate(278 1382)"><text class="mc-value">0</text><text y="17" class="mc-label">REMOVED</text></g>
     </g><g>
       <rect x="20" y="1416" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
-      <text x="32" y="1441" class="mc-period">10-09</text>
-      <text x="32" y="1461" class="mc-range">2026-10-09</text>
+      <text x="32" y="1441" class="mc-period">10-10</text>
+      <text x="32" y="1461" class="mc-range">2026-10-10</text>
       <text x="32" y="1484" class="mc-range">0 contribution days · 0h focus</text>
       <g transform="translate(126 1437)"><text class="mc-value">0</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1437)"><text class="mc-value">0</text><text y="17" class="mc-label">COMMITS</text></g>
