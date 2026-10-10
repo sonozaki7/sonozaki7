@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-10",
+  "generatedAt": "2026-10-11",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-11",
-    "end": "2026-10-10"
+    "start": "2026-09-12",
+    "end": "2026-10-11"
   },
   "contributions": {
     "today": 0,
     "last7Days": 7,
-    "last30Days": 58,
-    "previous30Days": 436,
-    "momentumPercent": -87,
-    "activeDays": 13,
+    "last30Days": 50,
+    "previous30Days": 317,
+    "momentumPercent": -84,
+    "activeDays": 12,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-11",
-        "count": 8
-      },
       {
         "date": "2026-09-12",
         "count": 5
@@ -134,18 +130,22 @@
       {
         "date": "2026-10-10",
         "count": 0
+      },
+      {
+        "date": "2026-10-11",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 48097,
-    "deletions": 20918,
-    "changed": 69015,
-    "net": 27179,
-    "commitsAnalyzed": 53,
-    "averageChangedPerCommit": 1302,
-    "buildDays": 11,
-    "commitsPerBuildDay": 4.8,
+    "additions": 43597,
+    "deletions": 17605,
+    "changed": 61202,
+    "net": 25992,
+    "commitsAnalyzed": 45,
+    "averageChangedPerCommit": 1360,
+    "buildDays": 10,
+    "commitsPerBuildDay": 4.5,
     "activeProducts": 7,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
@@ -169,7 +169,7 @@
     "activeDays30": 4,
     "activeDaysLifetime": 4,
     "averageSecondsPerActiveDay30": 3800,
-    "commitsPerFocusHour30": 12.6,
+    "commitsPerFocusHour30": 10.7,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }
