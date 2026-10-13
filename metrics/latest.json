@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-14",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-14",
-    "end": "2026-10-13"
+    "start": "2026-09-15",
+    "end": "2026-10-14"
   },
   "contributions": {
     "today": 0,
     "last7Days": 0,
-    "last30Days": 42,
-    "previous30Days": 232,
-    "momentumPercent": -82,
-    "activeDays": 10,
+    "last30Days": 26,
+    "previous30Days": 241,
+    "momentumPercent": -89,
+    "activeDays": 9,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-14",
-        "count": 16
-      },
       {
         "date": "2026-09-15",
         "count": 1
@@ -134,19 +130,23 @@
       {
         "date": "2026-10-13",
         "count": 0
+      },
+      {
+        "date": "2026-10-14",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 41179,
-    "deletions": 17436,
-    "changed": 58615,
-    "net": 23743,
-    "commitsAnalyzed": 37,
-    "averageChangedPerCommit": 1584,
-    "buildDays": 8,
-    "commitsPerBuildDay": 4.6,
-    "activeProducts": 7,
+    "additions": 28245,
+    "deletions": 11102,
+    "changed": 39347,
+    "net": 17143,
+    "commitsAnalyzed": 21,
+    "averageChangedPerCommit": 1874,
+    "buildDays": 7,
+    "commitsPerBuildDay": 3,
+    "activeProducts": 6,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
     "repositoriesAnalyzed": 145,
@@ -163,13 +163,13 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
-    "last7Seconds": 0,
-    "last30Seconds": 15201,
+    "last7Seconds": 1243,
+    "last30Seconds": 20195,
     "lifetimeSeconds": 15202,
-    "activeDays30": 4,
-    "activeDaysLifetime": 4,
-    "averageSecondsPerActiveDay30": 3800,
-    "commitsPerFocusHour30": 8.8,
+    "activeDays30": 9,
+    "activeDaysLifetime": 9,
+    "averageSecondsPerActiveDay30": 2244,
+    "commitsPerFocusHour30": 3.7,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }

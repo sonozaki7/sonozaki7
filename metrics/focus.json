@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-14",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -8,24 +8,15 @@
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
     "todaySeconds": 0,
-    "last7Seconds": 0,
-    "last30Seconds": 15201,
+    "last7Seconds": 1243,
+    "last30Seconds": 20195,
     "lifetimeSeconds": 15202,
-    "activeDays30": 4,
-    "activeDaysLifetime": 4,
-    "averageSecondsPerActiveDay30": 3800,
-    "commitsPerFocusHour30": 8.8
+    "activeDays30": 9,
+    "activeDaysLifetime": 9,
+    "averageSecondsPerActiveDay30": 2244,
+    "commitsPerFocusHour30": 3.7
   },
   "daily": [
-    {
-      "key": "2026-09-30",
-      "label": "09-30",
-      "start": "2026-09-30",
-      "end": "2026-09-30",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-10-01",
       "label": "10-01",
@@ -76,8 +67,8 @@
       "label": "10-06",
       "start": "2026-10-06",
       "end": "2026-10-06",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 3746,
+      "activeDays": 1,
       "coverageDays": 1
     },
     {
@@ -85,8 +76,8 @@
       "label": "10-07",
       "start": "2026-10-07",
       "end": "2026-10-07",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 5,
+      "activeDays": 1,
       "coverageDays": 1
     },
     {
@@ -94,8 +85,8 @@
       "label": "10-08",
       "start": "2026-10-08",
       "end": "2026-10-08",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 381,
+      "activeDays": 1,
       "coverageDays": 1
     },
     {
@@ -103,8 +94,8 @@
       "label": "10-09",
       "start": "2026-10-09",
       "end": "2026-10-09",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 41,
+      "activeDays": 1,
       "coverageDays": 1
     },
     {
@@ -112,8 +103,8 @@
       "label": "10-10",
       "start": "2026-10-10",
       "end": "2026-10-10",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 821,
+      "activeDays": 1,
       "coverageDays": 1
     },
     {
@@ -139,6 +130,15 @@
       "label": "10-13",
       "start": "2026-10-13",
       "end": "2026-10-13",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
+    },
+    {
+      "key": "2026-10-14",
+      "label": "10-14",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
@@ -240,18 +240,18 @@
       "label": "10-05",
       "start": "2026-10-05",
       "end": "2026-10-11",
-      "seconds": 2319,
-      "activeDays": 1,
+      "seconds": 7313,
+      "activeDays": 6,
       "coverageDays": 7
     },
     {
       "key": "2026-10-12",
       "label": "10-12",
       "start": "2026-10-12",
-      "end": "2026-10-13",
+      "end": "2026-10-14",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 2
+      "coverageDays": 3
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-10",
       "label": "26-10",
       "start": "2026-10-01",
-      "end": "2026-10-13",
-      "seconds": 6909,
-      "activeDays": 3,
-      "coverageDays": 13
+      "end": "2026-10-14",
+      "seconds": 11903,
+      "activeDays": 8,
+      "coverageDays": 14
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-10-13",
-      "seconds": 15201,
-      "activeDays": 4,
-      "coverageDays": 92
+      "end": "2026-10-14",
+      "seconds": 20195,
+      "activeDays": 9,
+      "coverageDays": 93
     }
   ],
   "dailyHistory": [
@@ -714,23 +714,23 @@
     },
     {
       "date": "2026-10-06",
-      "seconds": 0
+      "seconds": 3746
     },
     {
       "date": "2026-10-07",
-      "seconds": 0
+      "seconds": 5
     },
     {
       "date": "2026-10-08",
-      "seconds": 0
+      "seconds": 381
     },
     {
       "date": "2026-10-09",
-      "seconds": 0
+      "seconds": 41
     },
     {
       "date": "2026-10-10",
-      "seconds": 0
+      "seconds": 821
     },
     {
       "date": "2026-10-11",
@@ -742,6 +742,10 @@
     },
     {
       "date": "2026-10-13",
+      "seconds": 0
+    },
+    {
+      "date": "2026-10-14",
       "seconds": 0
     }
   ]
