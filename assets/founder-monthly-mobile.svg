@@ -18,7 +18,7 @@
   <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
   <g transform="translate(20 124)"><text class="mc-total">1,509</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
   <g transform="translate(132 124)"><text class="mc-total">1,418</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
-  <g transform="translate(244 124)"><text class="mc-total">5.6h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
+  <g transform="translate(244 124)"><text class="mc-total">6.3h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   <g>
       <rect x="20" y="194" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="219" class="mc-period">2025-11</text>
@@ -143,8 +143,8 @@
     </g><g>
       <rect x="20" y="1228" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="1253" class="mc-period">2026-10</text>
-      <text x="32" y="1273" class="mc-range">2026-10-01 → 2026-10-15</text>
-      <text x="32" y="1296" class="mc-range">2 contribution days · 3.3h focus</text>
+      <text x="32" y="1273" class="mc-range">2026-10-01 → 2026-10-16</text>
+      <text x="32" y="1296" class="mc-range">2 contribution days · 4.0h focus</text>
       <g transform="translate(126 1249)"><text class="mc-value">7</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 1249)"><text class="mc-value">5</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 1249)"><text class="mc-value">2</text><text y="17" class="mc-label">BUILD DAYS</text></g>
