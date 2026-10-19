@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-19",
+  "generatedAt": "2026-10-20",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -8,7 +8,7 @@
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
     "todaySeconds": 0,
-    "last7Seconds": 7328,
+    "last7Seconds": 7306,
     "last30Seconds": 35316,
     "lifetimeSeconds": 20327,
     "activeDays30": 14,
@@ -17,15 +17,6 @@
     "commitsPerFocusHour30": 0.9
   },
   "daily": [
-    {
-      "key": "2026-10-06",
-      "label": "10-06",
-      "start": "2026-10-06",
-      "end": "2026-10-06",
-      "seconds": 5569,
-      "activeDays": 1,
-      "coverageDays": 1
-    },
     {
       "key": "2026-10-07",
       "label": "10-07",
@@ -142,6 +133,15 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-10-20",
+      "label": "10-20",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "weekly": [
@@ -248,10 +248,10 @@
       "key": "2026-10-19",
       "label": "10-19",
       "start": "2026-10-19",
-      "end": "2026-10-19",
+      "end": "2026-10-20",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 1
+      "coverageDays": 2
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-10",
       "label": "26-10",
       "start": "2026-10-01",
-      "end": "2026-10-19",
+      "end": "2026-10-20",
       "seconds": 27024,
       "activeDays": 13,
-      "coverageDays": 19
+      "coverageDays": 20
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-10-19",
+      "end": "2026-10-20",
       "seconds": 35316,
       "activeDays": 14,
-      "coverageDays": 98
+      "coverageDays": 99
     }
   ],
   "dailyHistory": [
@@ -766,6 +766,10 @@
     },
     {
       "date": "2026-10-19",
+      "seconds": 0
+    },
+    {
+      "date": "2026-10-20",
       "seconds": 0
     }
   ]
