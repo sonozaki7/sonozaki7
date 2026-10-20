@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-21",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-21",
-    "end": "2026-10-20"
+    "start": "2026-09-22",
+    "end": "2026-10-21"
   },
   "contributions": {
     "today": 0,
-    "last7Days": 0,
-    "last30Days": 11,
-    "previous30Days": 186,
-    "momentumPercent": -94,
-    "activeDays": 5,
+    "last7Days": 2,
+    "last30Days": 13,
+    "previous30Days": 185,
+    "momentumPercent": -93,
+    "activeDays": 6,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-21",
-        "count": 0
-      },
       {
         "date": "2026-09-22",
         "count": 0
@@ -133,18 +129,22 @@
       },
       {
         "date": "2026-10-20",
+        "count": 2
+      },
+      {
+        "date": "2026-10-21",
         "count": 0
       }
     ]
   },
   "code": {
-    "additions": 22456,
-    "deletions": 6476,
-    "changed": 28932,
-    "net": 15980,
-    "commitsAnalyzed": 9,
-    "averageChangedPerCommit": 3215,
-    "buildDays": 5,
+    "additions": 25148,
+    "deletions": 8655,
+    "changed": 33803,
+    "net": 16493,
+    "commitsAnalyzed": 11,
+    "averageChangedPerCommit": 3073,
+    "buildDays": 6,
     "commitsPerBuildDay": 1.8,
     "activeProducts": 3,
     "bulkCommitsExcluded": 0,
@@ -163,13 +163,13 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
-    "last7Seconds": 7306,
-    "last30Seconds": 35316,
+    "last7Seconds": 13380,
+    "last30Seconds": 41400,
     "lifetimeSeconds": 20327,
-    "activeDays30": 14,
-    "activeDaysLifetime": 14,
-    "averageSecondsPerActiveDay30": 2523,
-    "commitsPerFocusHour30": 0.9,
+    "activeDays30": 15,
+    "activeDaysLifetime": 15,
+    "averageSecondsPerActiveDay30": 2760,
+    "commitsPerFocusHour30": 1,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }
