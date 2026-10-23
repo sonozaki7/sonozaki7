@@ -32,9 +32,9 @@
   </g><g>
     <rect x="20" y="269" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="34" y="297" class="mh-label">SHIP DAYS</text>
-    <text x="34" y="324" class="mh-value">365</text>
+    <text x="34" y="324" class="mh-value">366</text>
     <line x1="151" y1="329" x2="334" y2="329" stroke="#DCE3E7"/>
-    <polyline points="151.0,327.8 173.9,313.0 196.8,314.3 219.6,323.9 242.5,326.3 265.4,317.9 288.3,325.8 311.1,321.0 334.0,294.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="151.0,327.8 173.9,313.0 196.8,314.3 219.6,323.9 242.5,326.1 265.4,317.9 288.3,325.8 311.1,321.0 334.0,294.0" fill="none" stroke="#355F78" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
     <text x="151" y="341" class="mh-axis">2018</text><text x="334" y="341" text-anchor="end" class="mh-axis">2026</text>
   </g><g>
     <rect x="20" y="355" width="335" height="76" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
