@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-24",
+  "generatedAt": "2026-10-25",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-25",
-    "end": "2026-10-24"
+    "start": "2026-09-26",
+    "end": "2026-10-25"
   },
   "contributions": {
     "today": 0,
     "last7Days": 2,
-    "last30Days": 11,
-    "previous30Days": 138,
-    "momentumPercent": -92,
-    "activeDays": 5,
+    "last30Days": 10,
+    "previous30Days": 134,
+    "momentumPercent": -93,
+    "activeDays": 4,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-25",
-        "count": 1
-      },
       {
         "date": "2026-09-26",
         "count": 0
@@ -134,18 +130,22 @@
       {
         "date": "2026-10-24",
         "count": 0
+      },
+      {
+        "date": "2026-10-25",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 22286,
-    "deletions": 6217,
-    "changed": 28503,
-    "net": 16069,
-    "commitsAnalyzed": 9,
-    "averageChangedPerCommit": 3167,
-    "buildDays": 5,
-    "commitsPerBuildDay": 1.8,
+    "additions": 20606,
+    "deletions": 4891,
+    "changed": 25497,
+    "net": 15715,
+    "commitsAnalyzed": 8,
+    "averageChangedPerCommit": 3187,
+    "buildDays": 4,
+    "commitsPerBuildDay": 2,
     "activeProducts": 3,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
@@ -163,13 +163,13 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
-    "last7Seconds": 11750,
-    "last30Seconds": 47066,
-    "lifetimeSeconds": 26706,
-    "activeDays30": 17,
-    "activeDaysLifetime": 17,
-    "averageSecondsPerActiveDay30": 2769,
-    "commitsPerFocusHour30": 0.7,
+    "last7Seconds": 12971,
+    "last30Seconds": 48287,
+    "lifetimeSeconds": 30386,
+    "activeDays30": 18,
+    "activeDaysLifetime": 18,
+    "averageSecondsPerActiveDay30": 2683,
+    "commitsPerFocusHour30": 0.6,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }
