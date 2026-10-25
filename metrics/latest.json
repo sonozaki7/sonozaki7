@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-10-26",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-26",
-    "end": "2026-10-25"
+    "start": "2026-09-27",
+    "end": "2026-10-26"
   },
   "contributions": {
     "today": 0,
     "last7Days": 2,
     "last30Days": 10,
-    "previous30Days": 134,
-    "momentumPercent": -93,
+    "previous30Days": 132,
+    "momentumPercent": -92,
     "activeDays": 4,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-26",
-        "count": 0
-      },
       {
         "date": "2026-09-27",
         "count": 0
@@ -134,6 +130,10 @@
       {
         "date": "2026-10-25",
         "count": 0
+      },
+      {
+        "date": "2026-10-26",
+        "count": 0
       }
     ]
   },
@@ -163,12 +163,12 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
-    "last7Seconds": 12971,
-    "last30Seconds": 48287,
-    "lifetimeSeconds": 30386,
-    "activeDays30": 18,
-    "activeDaysLifetime": 18,
-    "averageSecondsPerActiveDay30": 2683,
+    "last7Seconds": 13581,
+    "last30Seconds": 48897,
+    "lifetimeSeconds": 31607,
+    "activeDays30": 19,
+    "activeDaysLifetime": 19,
+    "averageSecondsPerActiveDay30": 2574,
     "commitsPerFocusHour30": 0.6,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
