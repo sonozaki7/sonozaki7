@@ -1,26 +1,8 @@
 {
-  "generatedAt": "2026-10-27",
+  "generatedAt": "2026-10-28",
   "timezone": "Asia/Bangkok",
   "privacy": "Aggregate period totals only; repository identities are not stored.",
   "daily": [
-    {
-      "key": "2026-10-14",
-      "label": "10-14",
-      "start": "2026-10-14",
-      "end": "2026-10-14",
-      "daysElapsed": 1,
-      "contributions": 0,
-      "commits": 0,
-      "buildDays": 0,
-      "contributionDays": 0,
-      "additions": 0,
-      "deletions": 0,
-      "changed": 0,
-      "net": 0,
-      "bulkCommitsExcluded": 0,
-      "focusSeconds": 10,
-      "focusCoverageDays": 1
-    },
     {
       "key": "2026-10-15",
       "label": "10-15",
@@ -254,6 +236,24 @@
       "bulkCommitsExcluded": 0,
       "focusSeconds": 0,
       "focusCoverageDays": 1
+    },
+    {
+      "key": "2026-10-28",
+      "label": "10-28",
+      "start": "2026-10-28",
+      "end": "2026-10-28",
+      "daysElapsed": 1,
+      "contributions": 0,
+      "commits": 0,
+      "buildDays": 0,
+      "contributionDays": 0,
+      "additions": 0,
+      "deletions": 0,
+      "changed": 0,
+      "net": 0,
+      "bulkCommitsExcluded": 0,
+      "focusSeconds": 0,
+      "focusCoverageDays": 1
     }
   ],
   "weekly": [
@@ -459,8 +459,8 @@
       "key": "2026-10-26",
       "label": "10-26",
       "start": "2026-10-26",
-      "end": "2026-10-27",
-      "daysElapsed": 2,
+      "end": "2026-10-28",
+      "daysElapsed": 3,
       "contributions": 0,
       "commits": 0,
       "buildDays": 0,
@@ -471,7 +471,7 @@
       "net": 0,
       "bulkCommitsExcluded": 0,
       "focusSeconds": 4968,
-      "focusCoverageDays": 2
+      "focusCoverageDays": 3
     }
   ],
   "monthly": [
@@ -677,8 +677,8 @@
       "key": "2026-10",
       "label": "2026-10",
       "start": "2026-10-01",
-      "end": "2026-10-27",
-      "daysElapsed": 27,
+      "end": "2026-10-28",
+      "daysElapsed": 28,
       "contributions": 9,
       "commits": 7,
       "buildDays": 3,
@@ -689,7 +689,7 @@
       "net": 7002,
       "bulkCommitsExcluded": 0,
       "focusSeconds": 45573,
-      "focusCoverageDays": 27
+      "focusCoverageDays": 28
     }
   ],
   "yearly": [
@@ -841,8 +841,8 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-10-27",
-      "daysElapsed": 300,
+      "end": "2026-10-28",
+      "daysElapsed": 301,
       "contributions": 1494,
       "contributionDays": 141,
       "commits": 1402,
@@ -853,7 +853,7 @@
       "net": 1133525,
       "bulkCommitsExcluded": 0,
       "focusSeconds": 53865,
-      "focusCoverageDays": 106
+      "focusCoverageDays": 107
     }
   ]
 }

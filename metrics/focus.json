@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-27",
+  "generatedAt": "2026-10-28",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -9,23 +9,14 @@
   "summary": {
     "todaySeconds": 0,
     "last7Seconds": 12237,
-    "last30Seconds": 53865,
-    "lifetimeSeconds": 32217,
-    "activeDays30": 20,
+    "last30Seconds": 45573,
+    "lifetimeSeconds": 37185,
+    "activeDays30": 19,
     "activeDaysLifetime": 20,
-    "averageSecondsPerActiveDay30": 2693,
-    "commitsPerFocusHour30": 0.5
+    "averageSecondsPerActiveDay30": 2399,
+    "commitsPerFocusHour30": 0.6
   },
   "daily": [
-    {
-      "key": "2026-10-14",
-      "label": "10-14",
-      "start": "2026-10-14",
-      "end": "2026-10-14",
-      "seconds": 10,
-      "activeDays": 1,
-      "coverageDays": 1
-    },
     {
       "key": "2026-10-15",
       "label": "10-15",
@@ -142,6 +133,15 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-10-28",
+      "label": "10-28",
+      "start": "2026-10-28",
+      "end": "2026-10-28",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "weekly": [
@@ -248,10 +248,10 @@
       "key": "2026-10-26",
       "label": "10-26",
       "start": "2026-10-26",
-      "end": "2026-10-27",
+      "end": "2026-10-28",
       "seconds": 4968,
       "activeDays": 1,
-      "coverageDays": 2
+      "coverageDays": 3
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-10",
       "label": "26-10",
       "start": "2026-10-01",
-      "end": "2026-10-27",
+      "end": "2026-10-28",
       "seconds": 45573,
       "activeDays": 19,
-      "coverageDays": 27
+      "coverageDays": 28
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-10-27",
+      "end": "2026-10-28",
       "seconds": 53865,
       "activeDays": 20,
-      "coverageDays": 106
+      "coverageDays": 107
     }
   ],
   "dailyHistory": [
@@ -798,6 +798,10 @@
     },
     {
       "date": "2026-10-27",
+      "seconds": 0
+    },
+    {
+      "date": "2026-10-28",
       "seconds": 0
     }
   ]

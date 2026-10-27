@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-27",
+  "generatedAt": "2026-10-28",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-28",
-    "end": "2026-10-27"
+    "start": "2026-09-29",
+    "end": "2026-10-28"
   },
   "contributions": {
     "today": 0,
     "last7Days": 0,
-    "last30Days": 10,
-    "previous30Days": 130,
-    "momentumPercent": -92,
-    "activeDays": 4,
+    "last30Days": 9,
+    "previous30Days": 128,
+    "momentumPercent": -93,
+    "activeDays": 3,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-28",
-        "count": 1
-      },
       {
         "date": "2026-09-29",
         "count": 0
@@ -134,19 +130,23 @@
       {
         "date": "2026-10-27",
         "count": 0
+      },
+      {
+        "date": "2026-10-28",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 20606,
-    "deletions": 4891,
-    "changed": 25497,
-    "net": 15715,
-    "commitsAnalyzed": 8,
-    "averageChangedPerCommit": 3187,
-    "buildDays": 4,
-    "commitsPerBuildDay": 2,
-    "activeProducts": 3,
+    "additions": 11867,
+    "deletions": 4865,
+    "changed": 16732,
+    "net": 7002,
+    "commitsAnalyzed": 7,
+    "averageChangedPerCommit": 2390,
+    "buildDays": 3,
+    "commitsPerBuildDay": 2.3,
+    "activeProducts": 2,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
     "repositoriesAnalyzed": 145,
@@ -164,12 +164,12 @@
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
     "last7Seconds": 12237,
-    "last30Seconds": 53865,
-    "lifetimeSeconds": 32217,
-    "activeDays30": 20,
+    "last30Seconds": 45573,
+    "lifetimeSeconds": 37185,
+    "activeDays30": 19,
     "activeDaysLifetime": 20,
-    "averageSecondsPerActiveDay30": 2693,
-    "commitsPerFocusHour30": 0.5,
+    "averageSecondsPerActiveDay30": 2399,
+    "commitsPerFocusHour30": 0.6,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }
