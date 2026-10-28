@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-10-28",
+  "generatedAt": "2026-10-29",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-09-29",
-    "end": "2026-10-28"
+    "start": "2026-09-30",
+    "end": "2026-10-29"
   },
   "contributions": {
-    "today": 0,
-    "last7Days": 0,
-    "last30Days": 9,
+    "today": 3,
+    "last7Days": 10,
+    "last30Days": 19,
     "previous30Days": 128,
-    "momentumPercent": -93,
-    "activeDays": 3,
-    "currentStreak": 0,
+    "momentumPercent": -85,
+    "activeDays": 5,
+    "currentStreak": 2,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-09-29",
-        "count": 0
-      },
       {
         "date": "2026-09-30",
         "count": 0
@@ -133,20 +129,24 @@
       },
       {
         "date": "2026-10-28",
-        "count": 0
+        "count": 7
+      },
+      {
+        "date": "2026-10-29",
+        "count": 3
       }
     ]
   },
   "code": {
-    "additions": 11867,
-    "deletions": 4865,
-    "changed": 16732,
-    "net": 7002,
-    "commitsAnalyzed": 7,
-    "averageChangedPerCommit": 2390,
-    "buildDays": 3,
-    "commitsPerBuildDay": 2.3,
-    "activeProducts": 2,
+    "additions": 25676,
+    "deletions": 9448,
+    "changed": 35124,
+    "net": 16228,
+    "commitsAnalyzed": 17,
+    "averageChangedPerCommit": 2066,
+    "buildDays": 4,
+    "commitsPerBuildDay": 4.3,
+    "activeProducts": 3,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
     "repositoriesAnalyzed": 145,
@@ -162,14 +162,14 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 0,
-    "last7Seconds": 12237,
-    "last30Seconds": 45573,
+    "todaySeconds": 2496,
+    "last7Seconds": 97780,
+    "last30Seconds": 132874,
     "lifetimeSeconds": 37185,
-    "activeDays30": 19,
-    "activeDaysLifetime": 20,
-    "averageSecondsPerActiveDay30": 2399,
-    "commitsPerFocusHour30": 0.6,
+    "activeDays30": 22,
+    "activeDaysLifetime": 23,
+    "averageSecondsPerActiveDay30": 6040,
+    "commitsPerFocusHour30": 0.5,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }
