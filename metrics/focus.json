@@ -1,31 +1,22 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-02",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
   "trackedSince": "2026-07-15",
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
-    "todaySeconds": 0,
-    "last7Seconds": 105892,
-    "last30Seconds": 140609,
+    "todaySeconds": null,
+    "last7Seconds": 98810,
+    "last30Seconds": 139522,
     "lifetimeSeconds": 98397,
-    "activeDays30": 22,
+    "activeDays30": 21,
     "activeDaysLifetime": 25,
-    "averageSecondsPerActiveDay30": 6391,
-    "commitsPerFocusHour30": 0.5
+    "averageSecondsPerActiveDay30": 6644,
+    "commitsPerFocusHour30": 0.7
   },
   "daily": [
-    {
-      "key": "2026-10-19",
-      "label": "10-19",
-      "start": "2026-10-19",
-      "end": "2026-10-19",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 1
-    },
     {
       "key": "2026-10-20",
       "label": "10-20",
@@ -142,18 +133,18 @@
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-11-02",
+      "label": "11-02",
+      "start": "2026-11-02",
+      "end": "2026-11-02",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     }
   ],
   "weekly": [
-    {
-      "key": "2026-08-10",
-      "label": "08-10",
-      "start": "2026-08-10",
-      "end": "2026-08-16",
-      "seconds": 0,
-      "activeDays": 0,
-      "coverageDays": 7
-    },
     {
       "key": "2026-08-17",
       "label": "08-17",
@@ -252,6 +243,15 @@
       "seconds": 105892,
       "activeDays": 6,
       "coverageDays": 7
+    },
+    {
+      "key": "2026-11-02",
+      "label": "11-02",
+      "start": "2026-11-02",
+      "end": "2026-11-02",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     }
   ],
   "monthly": [
@@ -358,7 +358,7 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-01",
+      "end": "2026-11-02",
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
@@ -369,7 +369,7 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-11-01",
+      "end": "2026-11-02",
       "seconds": 154789,
       "activeDays": 25,
       "coverageDays": 111
