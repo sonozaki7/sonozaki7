@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-02",
+  "generatedAt": "2026-11-03",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-04",
-    "end": "2026-11-02"
+    "start": "2026-10-05",
+    "end": "2026-11-03"
   },
   "contributions": {
-    "today": 7,
+    "today": 0,
     "last7Days": 19,
     "last30Days": 28,
-    "previous30Days": 121,
-    "momentumPercent": -77,
+    "previous30Days": 108,
+    "momentumPercent": -74,
     "activeDays": 6,
-    "currentStreak": 1,
+    "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-04",
-        "count": 0
-      },
       {
         "date": "2026-10-05",
         "count": 1
@@ -134,6 +130,10 @@
       {
         "date": "2026-11-02",
         "count": 7
+      },
+      {
+        "date": "2026-11-03",
+        "count": 0
       }
     ]
   },
@@ -163,7 +163,7 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": null,
-    "last7Seconds": 98810,
+    "last7Seconds": 65692,
     "last30Seconds": 139522,
     "lifetimeSeconds": 98397,
     "activeDays30": 21,

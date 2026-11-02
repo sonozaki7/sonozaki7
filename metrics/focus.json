@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-02",
+  "generatedAt": "2026-11-03",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
@@ -8,7 +8,7 @@
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
     "todaySeconds": null,
-    "last7Seconds": 98810,
+    "last7Seconds": 65692,
     "last30Seconds": 139522,
     "lifetimeSeconds": 98397,
     "activeDays30": 21,
@@ -17,15 +17,6 @@
     "commitsPerFocusHour30": 0.7
   },
   "daily": [
-    {
-      "key": "2026-10-20",
-      "label": "10-20",
-      "start": "2026-10-20",
-      "end": "2026-10-20",
-      "seconds": 6312,
-      "activeDays": 1,
-      "coverageDays": 1
-    },
     {
       "key": "2026-10-21",
       "label": "10-21",
@@ -142,6 +133,15 @@
       "seconds": null,
       "activeDays": 0,
       "coverageDays": 0
+    },
+    {
+      "key": "2026-11-03",
+      "label": "11-03",
+      "start": "2026-11-03",
+      "end": "2026-11-03",
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     }
   ],
   "weekly": [
@@ -248,7 +248,7 @@
       "key": "2026-11-02",
       "label": "11-02",
       "start": "2026-11-02",
-      "end": "2026-11-02",
+      "end": "2026-11-03",
       "seconds": null,
       "activeDays": 0,
       "coverageDays": 0
@@ -358,7 +358,7 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-02",
+      "end": "2026-11-03",
       "seconds": 0,
       "activeDays": 0,
       "coverageDays": 1
@@ -369,7 +369,7 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-11-02",
+      "end": "2026-11-03",
       "seconds": 154789,
       "activeDays": 25,
       "coverageDays": 111
