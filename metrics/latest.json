@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-03",
+  "generatedAt": "2026-11-04",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-05",
-    "end": "2026-11-03"
+    "start": "2026-10-06",
+    "end": "2026-11-04"
   },
   "contributions": {
-    "today": 27,
-    "last7Days": 46,
+    "today": 1,
+    "last7Days": 40,
     "last30Days": 55,
-    "previous30Days": 108,
-    "momentumPercent": -49,
+    "previous30Days": 109,
+    "momentumPercent": -50,
     "activeDays": 7,
-    "currentStreak": 2,
+    "currentStreak": 3,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-05",
-        "count": 1
-      },
       {
         "date": "2026-10-06",
         "count": 6
@@ -134,18 +130,22 @@
       {
         "date": "2026-11-03",
         "count": 27
+      },
+      {
+        "date": "2026-11-04",
+        "count": 1
       }
     ]
   },
   "code": {
-    "additions": 41619,
-    "deletions": 16133,
-    "changed": 57752,
-    "net": 25486,
-    "commitsAnalyzed": 30,
-    "averageChangedPerCommit": 1925,
-    "buildDays": 8,
-    "commitsPerBuildDay": 3.8,
+    "additions": 40464,
+    "deletions": 15058,
+    "changed": 55522,
+    "net": 25406,
+    "commitsAnalyzed": 29,
+    "averageChangedPerCommit": 1915,
+    "buildDays": 7,
+    "commitsPerBuildDay": 4.1,
     "activeProducts": 3,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
@@ -162,34 +162,34 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 29914,
-    "last7Seconds": 128248,
-    "last30Seconds": 202238,
+    "todaySeconds": 0,
+    "last7Seconds": 78675,
+    "last30Seconds": 197236,
     "lifetimeSeconds": 255385,
-    "activeDays30": 24,
+    "activeDays30": 23,
     "activeDaysLifetime": 36,
-    "averageSecondsPerActiveDay30": 8427,
+    "averageSecondsPerActiveDay30": 8575,
     "commitsPerFocusHour30": 0.5,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
       "today": {
-        "sessions": 20,
-        "lines": 12123,
-        "inputTokens": 8516092,
-        "outputTokens": 1645218
+        "sessions": 0,
+        "lines": 0,
+        "inputTokens": 0,
+        "outputTokens": 0
       },
       "last7": {
-        "sessions": 92,
-        "lines": 29267,
-        "inputTokens": 31697506,
-        "outputTokens": 9157875
+        "sessions": 70,
+        "lines": 19451,
+        "inputTokens": 23264516,
+        "outputTokens": 5280052
       },
       "last30": {
-        "sessions": 179,
-        "lines": 38775,
-        "inputTokens": 74078882,
-        "outputTokens": 14678440
+        "sessions": 174,
+        "lines": 38721,
+        "inputTokens": 73609517,
+        "outputTokens": 14662869
       }
     }
   }
