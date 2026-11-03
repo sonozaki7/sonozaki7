@@ -160,16 +160,37 @@
   "privacy": "Aggregate metrics only; private repository identities are not published.",
   "focus": {
     "source": "WakaTime",
-    "connected": false,
-    "trackedSince": "2026-08-12",
-    "todaySeconds": null,
-    "last7Seconds": null,
-    "last30Seconds": null,
-    "lifetimeSeconds": 0,
-    "activeDays30": 0,
-    "activeDaysLifetime": 0,
-    "averageSecondsPerActiveDay30": 0,
-    "commitsPerFocusHour30": null,
-    "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
+    "connected": true,
+    "trackedSince": "2026-07-15",
+    "todaySeconds": 9026,
+    "last7Seconds": 107360,
+    "last30Seconds": 181350,
+    "lifetimeSeconds": 234497,
+    "activeDays30": 24,
+    "activeDaysLifetime": 36,
+    "averageSecondsPerActiveDay30": 7556,
+    "commitsPerFocusHour30": 0.5,
+    "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
+    "ai": {
+      "coverageDays": 30,
+      "today": {
+        "sessions": 15,
+        "lines": 7096,
+        "inputTokens": 2663667,
+        "outputTokens": 876884
+      },
+      "last7": {
+        "sessions": 87,
+        "lines": 24240,
+        "inputTokens": 25845081,
+        "outputTokens": 8389541
+      },
+      "last30": {
+        "sessions": 174,
+        "lines": 33748,
+        "inputTokens": 68477857,
+        "outputTokens": 13916135
+      }
+    }
   }
 }

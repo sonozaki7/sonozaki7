@@ -203,7 +203,7 @@ export function buildFocusData({ daily = [], today, lifetimeSeconds = null, acco
     source: "WakaTime",
     connected: knownLifetime > 0 || normalized.some((day) => day.seconds > 0),
     trackedSince: firstTracked,
-    privacy: "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
+    privacy: "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     summary: {
       todaySeconds: todayFocus.seconds,
       last7Seconds: last7.seconds,
@@ -724,13 +724,17 @@ export function renderFocusSvg(focus) {
   const status = focus.connected
     ? `Tracking since ${focus.trackedSince}`
     : focus.trackedSince
-      ? `WakaTime connected ${focus.trackedSince} · no editor time recorded yet`
-      : "Connect WakaTime to begin the lifelong focus record";
+      ? `WakaTime connected ${focus.trackedSince} · waiting for AI activity`
+      : "Connect WakaTime to begin the AI work clock";
   const leverage = focus.summary.commitsPerFocusHour30 == null ? "—" : focus.summary.commitsPerFocusHour30.toFixed(1);
+  const ai = focus.ai || null;
+  const todayNote = ai ? `${ai.today.sessions} AI sessions · ${compact(ai.today.lines)} AI lines` : `${focus.summary.activeDays30} active days / 30`;
+  const weekNote = ai ? `${ai.last7.sessions} AI sessions` : `${hours(focus.summary.averageSecondsPerActiveDay30)} avg / active day`;
+  const monthNote = ai?.last30 ? `${ai.last30.sessions} sessions · ${compact(ai.last30.lines)} AI lines` : `${leverage} commits / AI hour`;
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
-  <title id="title">So's WakaTime focus and leverage tracker</title>
-  <desc id="desc">Privacy-safe active coding time with exact daily, weekly, monthly, and yearly trends. Project and file identities are excluded.</desc>
+  <title id="title">So's WakaTime AI work clock</title>
+  <desc id="desc">Privacy-safe AI agent time with exact daily, weekly, monthly, and yearly trends plus aggregated AI session signals. Project and file identities are excluded.</desc>
   <defs><linearGradient id="focus-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
     .focus-eyebrow,.focus-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.6px; fill: ${THEME.accent}; }
@@ -741,18 +745,18 @@ export function renderFocusSvg(focus) {
   </style></defs>
   <rect x="1" y="1" width="1198" height="848" rx="10" fill="url(#focus-bg)" stroke="${THEME.border}" stroke-width="2"/>
   <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
-  <text x="52" y="64" class="focus-eyebrow">FOCUS &amp; LEVERAGE · WAKATIME</text>
-  <text x="52" y="106" class="focus-title">Time invested, momentum earned</text>
-  <text x="52" y="134" class="focus-subtitle">Active editor time · ${escapeXml(status)} · Asia/Bangkok</text>
-  ${focusSummaryCard(52, "TODAY", hours(focus.summary.todaySeconds), `${focus.summary.activeDays30} active days / 30`)}
-  ${focusSummaryCard(330, "LAST 7 DAYS", hours(focus.summary.last7Seconds), `${hours(focus.summary.averageSecondsPerActiveDay30)} avg / active day`)}
-  ${focusSummaryCard(608, "LAST 30 DAYS", hours(focus.summary.last30Seconds), `${leverage} commits / focus hour`)}
-  ${focusSummaryCard(886, "LIFETIME", hours(focus.summary.lifetimeSeconds), `${focus.summary.activeDaysLifetime} recorded focus days`)}
+  <text x="52" y="64" class="focus-eyebrow">AI WORK CLOCK · WAKATIME</text>
+  <text x="52" y="106" class="focus-title">AI work, measured</text>
+  <text x="52" y="134" class="focus-subtitle">AI agent time · ${escapeXml(status)} · Asia/Bangkok</text>
+  ${focusSummaryCard(52, "TODAY", hours(focus.summary.todaySeconds), todayNote)}
+  ${focusSummaryCard(330, "LAST 7 DAYS", hours(focus.summary.last7Seconds), weekNote)}
+  ${focusSummaryCard(608, "LAST 30 DAYS", hours(focus.summary.last30Seconds), monthNote)}
+  ${focusSummaryCard(886, "LIFETIME", hours(focus.summary.lifetimeSeconds), `${focus.summary.activeDaysLifetime} recorded days`)}
   ${focusChart({ x: 52, y: 286, width: 538, height: 238, title: "DAILY · LAST 14 DAYS", periods: focus.daily })}
   ${focusChart({ x: 610, y: 286, width: 538, height: 238, title: "WEEKLY · LAST 12 WEEKS", periods: focus.weekly })}
   ${focusChart({ x: 52, y: 544, width: 538, height: 238, title: "MONTHLY · LAST 12 MONTHS", periods: focus.monthly })}
   ${focusChart({ x: 610, y: 544, width: 538, height: 238, title: "YEARLY · WAKATIME LIFETIME", periods: focus.yearly })}
-  <text x="52" y="822" class="focus-footer">Aggregate active seconds only · no project, file, repository, branch, language, editor, or machine names are published</text>
+  <text x="52" y="822" class="focus-footer">AI agent time recorded by WakaTime · aggregate only · no project, file, repository, editor, or machine names are published</text>
 </svg>`;
 }
 
@@ -777,21 +781,25 @@ function mobileFocusChart(focus, key, y, title) {
 }
 
 export function renderMobileFocusSvg(focus) {
-  const status = focus.connected ? `Since ${focus.trackedSince}` : focus.trackedSince ? "Connected · no editor time yet" : "Connection pending";
+  const status = focus.connected ? `Since ${focus.trackedSince}` : focus.trackedSince ? "Connected · waiting for AI activity" : "Connection pending";
+  const ai = focus.ai || null;
+  const todayNote = ai ? `${ai.today.sessions} AI SESSIONS` : "ACTIVE AGENT TIME";
+  const weekNote = ai ? `${ai.last7.sessions} AI SESSIONS` : `${focus.summary.activeDays30} ACTIVE DAYS / 30`;
+  const monthNote = ai?.last30 ? `${ai.last30.sessions} SESSIONS · ${compact(ai.last30.lines)} LINES` : `${hours(focus.summary.averageSecondsPerActiveDay30)} AVG / ACTIVE DAY`;
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="930" viewBox="0 0 375 930" role="img" aria-labelledby="title desc">
-  <title id="title">So's mobile WakaTime focus tracker</title><desc id="desc">Privacy-safe active coding time across daily, weekly, monthly, and yearly periods.</desc>
+  <title id="title">So's mobile WakaTime AI work clock</title><desc id="desc">Privacy-safe AI agent time across daily, weekly, monthly, and yearly periods.</desc>
   <defs><linearGradient id="mf-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }.mf-eyebrow,.mf-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1px; fill: ${THEME.accent}; }.mf-eyebrow { font-size: 10px; letter-spacing: 1.7px; }.mf-label { font-size: 9px; fill: ${THEME.muted}; }.mf-title { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; }.mf-subtitle,.mf-axis,.mf-footer { font-size: 9px; fill: ${THEME.muted}; }.mf-number { font-size: 20px; font-weight: 750; }.mf-small { font-size: 8px; fill: ${THEME.dim}; }.mf-total { font-size: 13px; font-weight: 700; }
   </style></defs>
   <rect x="1" y="1" width="373" height="928" rx="8" fill="url(#mf-bg)" stroke="${THEME.border}" stroke-width="2"/><rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
-  <text x="20" y="45" class="mf-eyebrow">FOCUS &amp; LEVERAGE · WAKATIME</text><text x="20" y="78" class="mf-title">Time invested</text><text x="20" y="98" class="mf-subtitle">${escapeXml(status)} · aggregate active time only</text>
-  <g transform="translate(20 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">TODAY</text><text x="14" y="49" class="mf-number">${hours(focus.summary.todaySeconds)}</text><text x="14" y="66" class="mf-small">ACTIVE EDITOR TIME</text></g>
-  <g transform="translate(191 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 7 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last7Seconds)}</text><text x="14" y="66" class="mf-small">${focus.summary.activeDays30} ACTIVE DAYS / 30</text></g>
-  <g transform="translate(20 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 30 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last30Seconds)}</text><text x="14" y="66" class="mf-small">${hours(focus.summary.averageSecondsPerActiveDay30)} AVG / ACTIVE DAY</text></g>
+  <text x="20" y="45" class="mf-eyebrow">AI WORK CLOCK · WAKATIME</text><text x="20" y="78" class="mf-title">AI work, measured</text><text x="20" y="98" class="mf-subtitle">${escapeXml(status)} · aggregate AI time only</text>
+  <g transform="translate(20 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">TODAY</text><text x="14" y="49" class="mf-number">${hours(focus.summary.todaySeconds)}</text><text x="14" y="66" class="mf-small">${todayNote}</text></g>
+  <g transform="translate(191 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 7 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last7Seconds)}</text><text x="14" y="66" class="mf-small">${weekNote}</text></g>
+  <g transform="translate(20 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LAST 30 DAYS</text><text x="14" y="49" class="mf-number">${hours(focus.summary.last30Seconds)}</text><text x="14" y="66" class="mf-small">${monthNote}</text></g>
   <g transform="translate(191 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LIFETIME</text><text x="14" y="49" class="mf-number">${hours(focus.summary.lifetimeSeconds)}</text><text x="14" y="66" class="mf-small">${focus.summary.activeDaysLifetime} RECORDED DAYS</text></g>
   ${mobileFocusChart(focus, "daily", 301, "DAILY · 14 DAYS")}${mobileFocusChart(focus, "weekly", 451, "WEEKLY · 12 WEEKS")}${mobileFocusChart(focus, "monthly", 601, "MONTHLY · 12 MONTHS")}${mobileFocusChart(focus, "yearly", 751, "YEARLY · WAKATIME LIFETIME")}
-  <text x="20" y="912" class="mf-footer">No project, file, repository, branch, language, editor, or machine names</text>
+  <text x="20" y="912" class="mf-footer">AI agent time · no project, file, editor, or machine names</text>
 </svg>`;
 }
 
@@ -1381,35 +1389,72 @@ async function github(pathname, token, options = {}) {
   return response.json();
 }
 
-async function wakatime(pathname, apiKey) {
+async function wakatime(pathname, credential) {
+  const authorization = credential?.token
+    ? `Bearer ${credential.token}`
+    : `Basic ${Buffer.from(credential?.apiKey || "").toString("base64")}`;
   const response = await fetch(`${WAKATIME_API}${pathname}`, {
     headers: {
       Accept: "application/json",
-      Authorization: `Basic ${Buffer.from(apiKey).toString("base64")}`,
-      "User-Agent": "founder-progress-tracker/1.4.0",
+      Authorization: authorization,
+      "User-Agent": "founder-progress-tracker/1.5.0",
     },
   });
   if (!response.ok) throw new Error(`WakaTime API ${response.status} for aggregate coding time`);
   return response.json();
 }
 
-async function fetchWakaTimeFocus(apiKey, today) {
-  const fetchSummaries = async (days) => wakatime(`/users/current/summaries?start=${shiftDate(today, -(days - 1))}&end=${today}&timezone=${encodeURIComponent(TIMEZONE)}`, apiKey);
-  let summaries;
-  try {
-    summaries = await fetchSummaries(30);
-  } catch (error) {
-    console.warn(`${error.message}; retrying the privacy-safe seven-day window.`);
-    summaries = await fetchSummaries(7);
-  }
-  const lifetime = await wakatime("/users/current/all_time_since_today", apiKey);
+function aiTotals(days) {
+  return days.reduce((totals, day) => {
+    const value = day.grand_total || {};
+    totals.sessions += value.ai_sessions || 0;
+    totals.lines += (value.ai_additions || 0) + (value.ai_deletions || 0);
+    totals.inputTokens += value.ai_input_tokens || 0;
+    totals.outputTokens += value.ai_output_tokens || 0;
+    return totals;
+  }, { sessions: 0, lines: 0, inputTokens: 0, outputTokens: 0 });
+}
+
+export function summarizeWakaTimeAi(days = [], today, coverageDays = 30) {
+  const inWindow = (count) => (days || []).filter((day) => day?.range?.date >= shiftDate(today, -(count - 1)) && day?.range?.date <= today);
+  const last30 = coverageDays >= 30 ? aiTotals(inWindow(30)) : null;
   return {
-    daily: (summaries.data || []).map((day) => ({
-      date: day.range.date,
-      seconds: Math.max(0, Math.round(day.grand_total?.total_seconds || 0)),
-    })),
-    lifetimeSeconds: Math.max(0, Math.round(lifetime.data?.total_seconds || 0)),
-    accountStartedAt: lifetime.data?.range?.start_date || null,
+    coverageDays,
+    today: aiTotals(inWindow(1)),
+    last7: aiTotals(inWindow(7)),
+    last30,
+  };
+}
+
+async function fetchWakaTimeFocus(credential, today) {
+  const fetchRange = async (start, end) => {
+    const payload = await wakatime(`/users/current/summaries?start=${start}&end=${end}&timezone=${encodeURIComponent(TIMEZONE)}`, credential);
+    return payload.data || [];
+  };
+  const lifetime = await wakatime("/users/current/all_time_since_today", credential);
+  const startDate = lifetime.data?.range?.start_date || shiftDate(today, -29);
+  let days = [];
+  try {
+    let cursor = startDate;
+    for (let guard = 0; guard < 12 && cursor <= today; guard += 1) {
+      const end = [shiftDate(cursor, 364), today].sort()[0];
+      const chunk = await fetchRange(cursor, end);
+      days.push(...chunk);
+      cursor = shiftDate(end, 1);
+    }
+  } catch (error) {
+    console.warn(`${error.message}; retrying the privacy-safe thirty-day window.`);
+    days = await fetchRange(shiftDate(today, -29), today);
+  }
+  const daily = days.map((day) => ({
+    date: day.range.date,
+    seconds: Math.max(0, Math.round(day.grand_total?.total_seconds || 0)),
+  }));
+  return {
+    daily,
+    ai: summarizeWakaTimeAi(days, today, Math.min(30, daily.length)),
+    lifetimeSeconds: daily.length ? sumBy(daily, "seconds") : Math.max(0, Math.round(lifetime.data?.total_seconds || 0)),
+    accountStartedAt: startDate,
   };
 }
 
@@ -1698,7 +1743,7 @@ function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, ge
 
 function renderShareCopy(stats, focus, t3) {
   const direction = stats.contributions.momentumPercent >= 0 ? "up" : "down";
-  const focusLine = focus.connected ? `${hours(focus.summary.last30Seconds)} of active building time across ${focus.summary.activeDays30} focus days.\n` : "";
+  const focusLine = focus.connected ? `${hours(focus.summary.last30Seconds)} of AI agent time across ${focus.summary.activeDays30} active days.\n` : "";
   const taskLine = t3.connected ? `${t3.summary.last30Tasks} finished T3 Code tasks and ${t3.summary.last30Runs} completed agent runs in the last 30 days.\n` : "";
   return `Founder ship log — last 30 days\n\n${focusLine}${taskLine}${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
 }
@@ -1743,10 +1788,14 @@ async function main() {
   };
   const stats = computeStats({ ...contributions, code: recentCode, today });
   let wakaResult = null;
-  const wakaKey = process.env.WAKATIME_API_KEY;
-  if (wakaKey) {
+  const wakaCredential = process.env.WAKATIME_OAUTH_TOKEN
+    ? { token: process.env.WAKATIME_OAUTH_TOKEN }
+    : process.env.WAKATIME_API_KEY
+      ? { apiKey: process.env.WAKATIME_API_KEY }
+      : null;
+  if (wakaCredential) {
     try {
-      wakaResult = await withRetry(() => fetchWakaTimeFocus(wakaKey, today), 2);
+      wakaResult = await withRetry(() => fetchWakaTimeFocus(wakaCredential, today), 2);
     } catch (error) {
       console.warn(`${error.message}; preserving the last privacy-safe WakaTime snapshot.`);
     }
@@ -1766,6 +1815,8 @@ async function main() {
     ...focus.summary,
     privacy: focus.privacy,
   };
+  focus.ai = wakaResult?.ai ?? existingFocus?.ai ?? null;
+  stats.focus.ai = focus.ai;
   const t3 = buildT3Data({ ledger: t3Ledger, today });
   const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, focusDaily, today });
   cadence.yearly = buildYearlyCadence(history, focusDaily);

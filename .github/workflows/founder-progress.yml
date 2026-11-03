@@ -44,6 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TRACKER_TOKEN }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          WAKATIME_OAUTH_TOKEN: ${{ secrets.WAKATIME_OAUTH_TOKEN }}
           TRACKER_USERNAME: ${{ github.repository_owner }}
           TRACKER_TIMEZONE: Asia/Bangkok
         run: npm run generate

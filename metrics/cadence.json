@@ -18,8 +18,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 0,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-22",
@@ -36,8 +36,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 1758,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-23",
@@ -54,8 +54,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 3680,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-24",
@@ -72,8 +72,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 1221,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-25",
@@ -90,8 +90,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 610,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-26",
@@ -108,8 +108,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 7082,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-27",
@@ -126,8 +126,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 33118,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-28",
@@ -144,8 +144,8 @@
       "changed": 18392,
       "net": 9226,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 49573,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-29",
@@ -162,8 +162,8 @@
       "changed": 3600,
       "net": 3502,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 10572,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-30",
@@ -180,8 +180,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 4713,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-10-31",
@@ -198,8 +198,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 834,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-11-01",
@@ -216,8 +216,8 @@
       "changed": 2071,
       "net": 1841,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 18169,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-11-02",
@@ -234,8 +234,8 @@
       "changed": 3687,
       "net": 1097,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 14473,
+      "focusCoverageDays": 1
     },
     {
       "key": "2026-11-03",
@@ -252,8 +252,8 @@
       "changed": 3747,
       "net": 1443,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 9026,
+      "focusCoverageDays": 1
     }
   ],
   "weekly": [
@@ -272,8 +272,8 @@
       "changed": 94455,
       "net": 27299,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 0,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-08-24",
@@ -290,8 +290,8 @@
       "changed": 54768,
       "net": 5092,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 582,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-08-31",
@@ -308,8 +308,8 @@
       "changed": 78254,
       "net": 61378,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 0,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-09-07",
@@ -326,8 +326,8 @@
       "changed": 80513,
       "net": 41443,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 2688,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-09-14",
@@ -344,8 +344,8 @@
       "changed": 29683,
       "net": 7763,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 33758,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-09-21",
@@ -362,8 +362,8 @@
       "changed": 8306,
       "net": 778,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 0,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-09-28",
@@ -380,8 +380,8 @@
       "changed": 8765,
       "net": 8713,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 16119,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-10-05",
@@ -398,8 +398,8 @@
       "changed": 11861,
       "net": 6489,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 12721,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-10-12",
@@ -416,8 +416,8 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 7488,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-10-19",
@@ -434,8 +434,8 @@
       "changed": 4871,
       "net": 513,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 13581,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-10-26",
@@ -452,8 +452,8 @@
       "changed": 24063,
       "net": 14569,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 124061,
+      "focusCoverageDays": 7
     },
     {
       "key": "2026-11-02",
@@ -470,8 +470,8 @@
       "changed": 7434,
       "net": 2540,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 23499,
+      "focusCoverageDays": 2
     }
   ],
   "monthly": [
@@ -634,8 +634,8 @@
       "changed": 566217,
       "net": 287671,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 0,
-      "focusCoverageDays": 12
+      "focusSeconds": 582,
+      "focusCoverageDays": 31
     },
     {
       "key": "2026-09",
@@ -652,8 +652,8 @@
       "changed": 192251,
       "net": 114221,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 45590,
+      "focusCoverageDays": 30
     },
     {
       "key": "2026-10",
@@ -670,8 +670,8 @@
       "changed": 38724,
       "net": 19730,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 146657,
+      "focusCoverageDays": 31
     },
     {
       "key": "2026-11",
@@ -688,8 +688,8 @@
       "changed": 9505,
       "net": 4381,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": null,
-      "focusCoverageDays": 0
+      "focusSeconds": 41668,
+      "focusCoverageDays": 3
     }
   ],
   "yearly": [
@@ -852,8 +852,8 @@
       "changed": 2225720,
       "net": 1150634,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 0,
-      "focusCoverageDays": 30
+      "focusSeconds": 234497,
+      "focusCoverageDays": 113
     }
   ]
 }

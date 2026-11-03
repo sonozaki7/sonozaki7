@@ -25,6 +25,14 @@ fi
 
 "$NODE" scripts/collect-t3.mjs --quiet
 
+# Flush any queued WakaTime AI heartbeats while the network is available.
+# Offline periods stay queued and are retried on the next pass.
+if [ -x "$HOME/.wakatime/wakatime-cli" ]; then
+  "$HOME/.wakatime/wakatime-cli" --sync-ai-heartbeats \
+    --plugin codex-cli/0.166.0 codex-cli-wakatime/1.0.0 >/dev/null 2>&1 || true
+  "$HOME/.wakatime/wakatime-cli" --sync-offline-activity 1000 >/dev/null 2>&1 || true
+fi
+
 if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
   echo "not on main; leaving the ledger uncommitted" >&2
   exit 0

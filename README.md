@@ -24,14 +24,14 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 <sub>Settled task threads and completed agent runs, counted by day, week, month, and hour · task titles, prompts, and project names stay private · updates hourly while the machine is awake</sub>
 
-## Focus & leverage · powered by WakaTime
+## AI work clock · powered by WakaTime
 
 <picture>
   <source media="(max-width: 800px)" srcset="./assets/founder-focus-mobile.svg" />
-  <img src="./assets/founder-focus.svg" alt="Privacy-safe active building time with exact daily, weekly, monthly, yearly, and lifetime WakaTime trends" width="100%" />
+  <img src="./assets/founder-focus.svg" alt="Privacy-safe AI agent work time with exact daily, weekly, monthly, yearly, and lifetime WakaTime trends plus AI session counts" width="100%" />
 </picture>
 
-<sub>Active editor time only · project names, repository names, file paths, branches, languages, editors, and machine identities stay private</sub>
+<sub>AI agent time recorded by WakaTime across Codex, T3 Code, and OpenCode sessions · project, repository, file, editor, and machine names stay private</sub>
 
 ## Daily detail · last 14 days
 
@@ -141,7 +141,9 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 <details>
 <summary>How this tracker works</summary>
 
-The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, plus aggregate active coding seconds from WakaTime. It then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), [`history.json`](./metrics/history.json), [`focus.json`](./metrics/focus.json), and [`t3-summary.json`](./metrics/t3-summary.json). Private activity is included only in aggregate. Repository names, project names, file paths, branch names, commit messages, source code, editor or machine identities, and secrets are never written into the generated files or retained in tracker history.
+The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, plus aggregate AI agent time from WakaTime. It then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), [`history.json`](./metrics/history.json), [`focus.json`](./metrics/focus.json), and [`t3-summary.json`](./metrics/t3-summary.json). Private activity is included only in aggregate. Repository names, project names, file paths, branch names, commit messages, source code, editor or machine identities, and secrets are never written into the generated files or retained in tracker history.
+
+WakaTime is read through a private, read-only OAuth app rather than a personal API key, because WakaTime restricts personal keys to plugin endpoints. Only aggregate hours and AI session counts are stored; project, file, editor, and machine names are discarded before anything is written.
 
 Finished-task counts come from T3 Code's own settled-thread history, which lives only on the machine that runs it. A small local collector reads that database every 30 minutes, reduces it to per-day counts, provider names, and local hour buckets, and publishes only the aggregate ledger as [`t3-tasks.json`](./metrics/t3-tasks.json). The GitHub Action renders the card from that committed ledger, so the public record survives reinstalls and database resets.
 

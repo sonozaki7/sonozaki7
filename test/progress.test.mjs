@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildCadenceData, buildFocusData, buildOperatingReview, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileOperatingReviewSvg, renderMobileSvg, renderOperatingReviewSvg, renderSvg } from "../scripts/generate-progress.mjs";
+import { buildCadenceData, buildFocusData, buildOperatingReview, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileOperatingReviewSvg, renderMobileSvg, renderOperatingReviewSvg, renderSvg, summarizeWakaTimeAi } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -202,7 +202,16 @@ test("builds and renders granular privacy-safe WakaTime progress", () => {
   for (const label of ["DAILY · LAST 14 DAYS", "WEEKLY · LAST 12 WEEKS", "MONTHLY · LAST 12 MONTHS", "YEARLY · WAKATIME LIFETIME"]) {
     assert.match(desktop, new RegExp(label));
   }
-  assert.match(desktop, /Time invested, momentum earned/);
+  focus.ai = {
+    coverageDays: 30,
+    today: { sessions: 2, lines: 120, inputTokens: 1000, outputTokens: 200 },
+    last7: { sessions: 9, lines: 800, inputTokens: 5000, outputTokens: 900 },
+    last30: { sessions: 30, lines: 4200, inputTokens: 20000, outputTokens: 3000 },
+  };
+  const desktopWithAi = renderFocusSvg(focus);
+  assert.match(desktop, /AI work, measured/);
+  assert.match(desktopWithAi, /2 AI sessions/);
+  assert.match(desktopWithAi, /30 sessions · 4,200 AI lines/);
   assert.match(mobile, /viewBox="0 0 375 930"/);
   assert.doesNotMatch(`${JSON.stringify(focus)}${desktop}${mobile}`, /secret-private-repo|private-file-path|machine-hostname/);
 });
@@ -249,3 +258,19 @@ function shiftFixture(dateString, amount) {
   date.setUTCDate(date.getUTCDate() + amount);
   return date.toISOString().slice(0, 10);
 }
+
+
+test("summarizes WakaTime AI signals without private metadata", () => {
+  const days = [
+    { range: { date: "2026-08-10" }, grand_total: { ai_sessions: 2, ai_additions: 100, ai_deletions: 10, ai_input_tokens: 1000, ai_output_tokens: 200 } },
+    { range: { date: "2026-08-11" }, grand_total: { ai_sessions: 3, ai_additions: 50, ai_deletions: 5, ai_input_tokens: 500, ai_output_tokens: 100 } },
+    { range: { date: "2026-08-12" }, grand_total: { ai_sessions: 1, ai_additions: 0, ai_deletions: 0, ai_input_tokens: 0, ai_output_tokens: 0 } },
+  ];
+  const ai = summarizeWakaTimeAi(days, "2026-08-12", 30);
+  assert.equal(ai.today.sessions, 1);
+  assert.equal(ai.last7.sessions, 6);
+  assert.equal(ai.last30.lines, 165);
+  assert.equal(ai.last30.inputTokens, 1500);
+  assert.equal(summarizeWakaTimeAi(days, "2026-08-12", 7).last30, null);
+  assert.doesNotMatch(JSON.stringify(ai), /project|repository|machine|editor/i);
+});
