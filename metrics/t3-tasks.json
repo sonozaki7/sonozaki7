@@ -217,13 +217,13 @@
     },
     "2026-11-03": {
       "tasks": 3,
-      "runs": 90,
+      "runs": 95,
       "providers": {
         "opencode": 3
       },
       "runProviders": {
-        "opencode": 80,
-        "codex": 10
+        "opencode": 83,
+        "codex": 12
       },
       "hours": [
         0,
