@@ -803,6 +803,151 @@ export function renderMobileFocusSvg(focus) {
 </svg>`;
 }
 
+function overviewMetric(x, label, value, note) {
+  return `<g transform="translate(${x} 182)"><text class="ov-label">${escapeXml(label)}</text><text y="48" class="ov-value">${escapeXml(value)}</text><text y="70" class="ov-note">${escapeXml(note)}</text></g>`;
+}
+
+export function buildOverview({ stats, focus, t3, today }) {
+  const monthLabel = new Intl.DateTimeFormat("en", {
+    month: "long",
+    year: "numeric",
+    timeZone: TIMEZONE,
+  }).format(new Date(`${today}T12:00:00Z`));
+  const byDate = new Map((focus.dailyHistory || []).map((day) => [day.date, day.seconds]));
+  const strip = Array.from({ length: 30 }, (_, index) => {
+    const date = shiftDate(today, index - 29);
+    return { date, seconds: byDate.get(date) || 0 };
+  });
+  const activeDays = focus.summary.activeDays30 || 0;
+  const trackedSince = focus.trackedSince || today;
+  const sinceLabel = new Intl.DateTimeFormat("en", {
+    month: "long",
+    year: "numeric",
+    timeZone: TIMEZONE,
+  }).format(new Date(`${trackedSince.slice(0, 10)}T12:00:00Z`));
+  return {
+    version: 1,
+    generatedAt: today,
+    timezone: TIMEZONE,
+    monthLabel,
+    ai: {
+      connected: focus.connected,
+      last30Seconds: focus.summary.last30Seconds || 0,
+      lifetimeSeconds: focus.summary.lifetimeSeconds || 0,
+      activeDays,
+      averageSeconds: activeDays ? Math.round((focus.summary.last30Seconds || 0) / activeDays) : 0,
+      trackedSince,
+      sinceLabel,
+    },
+    tasks: {
+      last30: t3.summary.last30Tasks || 0,
+      lifetime: t3.summary.lifetimeTasks || 0,
+      runs30: t3.summary.last30Runs || 0,
+    },
+    contributions: {
+      last30: stats.contributions.last30Days || 0,
+      commits: stats.code.commitsAnalyzed || stats.code.commits || 0,
+      buildDays: stats.code.buildDays || 0,
+    },
+    strip,
+  };
+}
+
+export function renderOverviewSvg(overview) {
+  const stripMax = Math.max(1, ...overview.strip.map((day) => day.seconds));
+  const stripLeft = 52;
+  const stripRight = 1148;
+  const slot = (stripRight - stripLeft) / overview.strip.length;
+  const barWidth = Math.max(6, slot * 0.5);
+  const stripTop = 306;
+  const stripBottom = 356;
+  const bars = overview.strip.map((day, index) => {
+    const height = (day.seconds / stripMax) * (stripBottom - stripTop);
+    const x = stripLeft + index * slot + (slot - barWidth) / 2;
+    if (day.seconds <= 0) return "";
+    return `<rect x="${x.toFixed(1)}" y="${(stripBottom - height).toFixed(1)}" width="${barWidth.toFixed(1)}" height="${Math.max(height, 1.5).toFixed(1)}" rx="2" fill="${THEME.accent}"><title>${day.date}: ${hours(day.seconds, { exactZero: false })}</title></rect>`;
+  }).join("");
+  const firstDate = overview.strip[0]?.date?.slice(5) || "";
+  const lastDate = overview.strip.at(-1)?.date?.slice(5) || "";
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">So's AI engineering overview</title>
+  <desc id="desc">Headline AI work hours, finished tasks, active days, and GitHub contributions for the last 30 days with a daily activity strip.</desc>
+  <defs><linearGradient id="ov-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+    .ov-eyebrow,.ov-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.6px; fill: ${THEME.accent}; }
+    .ov-eyebrow { font-size: 13px; letter-spacing: 2.6px; }.ov-label { font-size: 10px; }
+    .ov-title { font-family: Georgia, "Times New Roman", serif; font-size: 42px; font-weight: 700; letter-spacing: -1.2px; }
+    .ov-subtitle { font-size: 15px; fill: ${THEME.muted}; }
+    .ov-value { font-size: 34px; font-weight: 750; letter-spacing: -0.5px; }
+    .ov-note { font-size: 11px; fill: ${THEME.dim}; }
+    .ov-strip-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: 1px; fill: ${THEME.muted}; }
+  </style></defs>
+  <rect x="1" y="1" width="1198" height="398" rx="10" fill="url(#ov-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
+  <text x="52" y="66" class="ov-eyebrow">AI ENGINEER · ${escapeXml(overview.monthLabel.toUpperCase())}</text>
+  <text x="52" y="112" class="ov-title">Building AI products, in public</text>
+  <text x="52" y="140" class="ov-subtitle">Last 30 days · ${hours(overview.ai.lifetimeSeconds)} recorded since ${escapeXml(overview.ai.sinceLabel)} · Asia/Bangkok</text>
+  ${overviewMetric(52, "AI HOURS / 30 DAYS", hours(overview.ai.last30Seconds), `${overview.ai.activeDays} active days`)}
+  ${overviewMetric(330, "TASKS FINISHED / 30 DAYS", compact(overview.tasks.last30), `${compact(overview.tasks.runs30)} agent runs`)}
+  ${overviewMetric(608, "ACTIVE DAYS / 30", String(overview.ai.activeDays), `${hours(overview.ai.averageSeconds)} avg / active day`)}
+  ${overviewMetric(886, "GITHUB CONTRIBUTIONS / 30", compact(overview.contributions.last30), `${compact(overview.contributions.commits)} commits`)}
+  <line x1="52" y1="284" x2="1148" y2="284" stroke="${THEME.border}"/>
+  <text x="52" y="300" class="ov-strip-label">30-DAY AI HOURS</text>
+  <text x="1148" y="300" text-anchor="end" class="ov-strip-label">${escapeXml(firstDate)} → ${escapeXml(lastDate)}</text>
+  ${bars}
+  <line x1="52" y1="${stripBottom + 1}" x2="1148" y2="${stripBottom + 1}" stroke="${THEME.border}"/>
+</svg>`;
+}
+
+export function renderMobileOverviewSvg(overview) {
+  const stripMax = Math.max(1, ...overview.strip.map((day) => day.seconds));
+  const left = 20;
+  const right = 355;
+  const slot = (right - left) / overview.strip.length;
+  const barWidth = Math.max(4, slot * 0.55);
+  const top = 434;
+  const bottom = 484;
+  const bars = overview.strip.map((day, index) => {
+    const height = (day.seconds / stripMax) * (bottom - top);
+    const x = left + index * slot + (slot - barWidth) / 2;
+    if (day.seconds <= 0) return "";
+    return `<rect x="${x.toFixed(1)}" y="${(bottom - height).toFixed(1)}" width="${barWidth.toFixed(1)}" height="${Math.max(height, 1).toFixed(1)}" rx="1.5" fill="${THEME.accent}"><title>${day.date}: ${hours(day.seconds, { exactZero: false })}</title></rect>`;
+  }).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="520" viewBox="0 0 375 520" role="img" aria-labelledby="title desc">
+  <title id="title">So's mobile AI engineering overview</title>
+  <desc id="desc">Headline AI work hours, finished tasks, active days, and GitHub contributions for the last 30 days.</desc>
+  <defs><linearGradient id="ovm-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+    .ovm-eyebrow,.ovm-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1px; fill: ${THEME.accent}; }
+    .ovm-eyebrow { font-size: 9px; letter-spacing: 1.6px; }.ovm-label { font-size: 8px; fill: ${THEME.muted}; }
+    .ovm-title { font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 700; letter-spacing: -0.6px; }
+    .ovm-sub { font-size: 9px; fill: ${THEME.muted}; }.ovm-value { font-size: 24px; font-weight: 750; }
+    .ovm-note { font-size: 8px; fill: ${THEME.dim}; }
+  </style></defs>
+  <rect x="1" y="1" width="373" height="518" rx="8" fill="url(#ovm-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
+  <text x="20" y="45" class="ovm-eyebrow">AI ENGINEER · ${escapeXml(overview.monthLabel.toUpperCase())}</text>
+  <text x="20" y="78" class="ovm-title">Building AI products,</text>
+  <text x="20" y="108" class="ovm-title">in public</text>
+  <text x="20" y="128" class="ovm-sub">Last 30 days · ${hours(overview.ai.lifetimeSeconds)} since ${escapeXml(overview.ai.sinceLabel)}</text>
+  <line x1="20" y1="148" x2="355" y2="148" stroke="${THEME.border}"/>
+  <g transform="translate(20 178)"><text class="ovm-label">AI HOURS / 30 DAYS</text><text y="38" class="ovm-value">${hours(overview.ai.last30Seconds)}</text><text y="56" class="ovm-note">${overview.ai.activeDays} active days</text></g>
+  <g transform="translate(191 178)"><text class="ovm-label">TASKS / 30 DAYS</text><text y="38" class="ovm-value">${compact(overview.tasks.last30)}</text><text y="56" class="ovm-note">${compact(overview.tasks.runs30)} agent runs</text></g>
+  <line x1="20" y1="252" x2="355" y2="252" stroke="${THEME.border}"/>
+  <g transform="translate(20 282)"><text class="ovm-label">ACTIVE DAYS / 30</text><text y="38" class="ovm-value">${overview.ai.activeDays}</text><text y="56" class="ovm-note">${hours(overview.ai.averageSeconds)} avg / day</text></g>
+  <g transform="translate(191 282)"><text class="ovm-label">CONTRIBUTIONS / 30</text><text y="38" class="ovm-value">${compact(overview.contributions.last30)}</text><text y="56" class="ovm-note">${compact(overview.contributions.commits)} commits</text></g>
+  <line x1="20" y1="362" x2="355" y2="362" stroke="${THEME.border}"/>
+  <text x="20" y="390" class="ovm-label">30-DAY AI HOURS</text>
+  <text x="355" y="390" text-anchor="end" class="ovm-label">${escapeXml(overview.strip[0]?.date?.slice(5) || "")} → ${escapeXml(overview.strip.at(-1)?.date?.slice(5) || "")}</text>
+  ${bars}
+  <line x1="20" y1="${bottom + 1}" x2="355" y2="${bottom + 1}" stroke="${THEME.border}"/>
+  <text x="20" y="508" class="ovm-sub">Aggregate signals only · no project or task names</text>
+</svg>`;
+}
+
+
 async function loadT3Ledger(root) {
   try {
     return JSON.parse(await fs.readFile(path.join(root, "metrics", "t3-tasks.json"), "utf8"));
@@ -1818,6 +1963,7 @@ async function main() {
   focus.ai = wakaResult?.ai ?? existingFocus?.ai ?? null;
   stats.focus.ai = focus.ai;
   const t3 = buildT3Data({ ledger: t3Ledger, today });
+  const overview = buildOverview({ stats, focus, t3, today });
   const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, focusDaily, today });
   cadence.yearly = buildYearlyCadence(history, focusDaily);
   const operatingReview = buildOperatingReview(cadence);
@@ -1837,6 +1983,8 @@ async function main() {
   const mobileFocusSvg = renderMobileFocusSvg(focus);
   const t3Svg = renderT3Svg(t3);
   const mobileT3Svg = renderMobileT3Svg(t3);
+  const overviewSvg = renderOverviewSvg(overview);
+  const mobileOverviewSvg = renderMobileOverviewSvg(overview);
   await fs.mkdir(path.join(root, "assets"), { recursive: true });
   await fs.mkdir(path.join(root, "metrics"), { recursive: true });
   await Promise.all([
@@ -1858,12 +2006,15 @@ async function main() {
     fs.writeFile(path.join(root, "assets", "founder-focus-mobile.svg"), mobileFocusSvg),
     fs.writeFile(path.join(root, "assets", "founder-tasks.svg"), t3Svg),
     fs.writeFile(path.join(root, "assets", "founder-tasks-mobile.svg"), mobileT3Svg),
+    fs.writeFile(path.join(root, "assets", "overview.svg"), overviewSvg),
+    fs.writeFile(path.join(root, "assets", "overview-mobile.svg"), mobileOverviewSvg),
     fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats, focus, t3)),
     fs.writeFile(path.join(root, "metrics", "latest.json"), `${JSON.stringify(stats, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "cadence.json"), `${JSON.stringify(cadence, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "history.json"), `${JSON.stringify(history, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "focus.json"), `${JSON.stringify(focus, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "t3-summary.json"), `${JSON.stringify(t3, null, 2)}\n`),
+    fs.writeFile(path.join(root, "metrics", "overview.json"), `${JSON.stringify(overview, null, 2)}\n`),
   ]);
   console.log(`Generated privacy-safe GitHub and WakaTime progress assets through ${stats.period.end}.`);
 }

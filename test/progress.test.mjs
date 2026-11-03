@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildCadenceData, buildFocusData, buildOperatingReview, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileOperatingReviewSvg, renderMobileSvg, renderOperatingReviewSvg, renderSvg, summarizeWakaTimeAi } from "../scripts/generate-progress.mjs";
+import { buildCadenceData, buildFocusData, buildOperatingReview, buildYearlyCadence, classifyCommitChange, computeStats, longestStreak, mergeFocusHistory, renderCadenceSvg, renderFocusSvg, renderLifetimeSvg, renderMobileCadenceSvg, renderMobileFocusSvg, renderMobileLifetimeSvg, renderMobileOperatingReviewSvg, renderMobileSvg, renderOperatingReviewSvg, renderSvg, summarizeWakaTimeAi, buildOverview, renderOverviewSvg, renderMobileOverviewSvg } from "../scripts/generate-progress.mjs";
 
 const days = Array.from({ length: 70 }, (_, index) => {
   const date = new Date("2026-08-12T12:00:00Z");
@@ -273,4 +273,29 @@ test("summarizes WakaTime AI signals without private metadata", () => {
   assert.equal(ai.last30.inputTokens, 1500);
   assert.equal(summarizeWakaTimeAi(days, "2026-08-12", 7).last30, null);
   assert.doesNotMatch(JSON.stringify(ai), /project|repository|machine|editor/i);
+});
+
+
+test("builds a minimal 30-day headline overview", () => {
+  const stats = computeStats({
+    calendarDays: days,
+    today: "2026-08-12",
+    code: { additions: 1200, deletions: 300, commits: 10, buildDays: 5, activeProducts: 3, bulkCommitsExcluded: 1 },
+    recent: { pullRequests: 3, issues: 2, reviews: 1 },
+  });
+  const daily = dateFixture("2026-07-01", "2026-08-12").map((date, index) => ({ date, seconds: index % 4 === 0 ? 7200 : 3600 }));
+  const focus = buildFocusData({ daily, today: "2026-08-12", lifetimeSeconds: 200000, accountStartedAt: "2026-07-01" });
+  const overview = buildOverview({ stats, focus, t3: { summary: { last30Tasks: 13, lifetimeTasks: 40, last30Runs: 63 } }, today: "2026-08-12" });
+  assert.equal(overview.strip.length, 30);
+  assert.equal(overview.tasks.last30, 13);
+  assert.equal(overview.ai.last30Seconds, focus.summary.last30Seconds);
+  const desktop = renderOverviewSvg(overview);
+  const mobile = renderMobileOverviewSvg(overview);
+  assert.match(desktop, /Building AI products, in public/);
+  assert.match(desktop, /AI HOURS \/ 30 DAYS/);
+  assert.match(desktop, /30-DAY AI HOURS/);
+  assert.match(desktop, /13/);
+  assert.match(mobile, /viewBox="0 0 375 520"/);
+  assert.match(mobile, /TASKS \/ 30 DAYS/);
+  assert.doesNotMatch(`${desktop}${mobile}`, /private-repo|task title|project-name/);
 });
