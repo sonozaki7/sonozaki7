@@ -20,7 +20,7 @@
   <g transform="translate(52 182)"><text class="ov-label">AI HOURS / 30 DAYS</text><text y="48" class="ov-value">50.8h</text><text y="70" class="ov-note">24 active days</text></g>
   <g transform="translate(330 182)"><text class="ov-label">TASKS FINISHED / 30 DAYS</text><text y="48" class="ov-value">13</text><text y="70" class="ov-note">80 agent runs</text></g>
   <g transform="translate(608 182)"><text class="ov-label">ACTIVE DAYS / 30</text><text y="48" class="ov-value">24</text><text y="70" class="ov-note">2.1h avg / active day</text></g>
-  <g transform="translate(886 182)"><text class="ov-label">GITHUB CONTRIBUTIONS / 30</text><text y="48" class="ov-value">37</text><text y="70" class="ov-note">27 commits</text></g>
+  <g transform="translate(886 182)"><text class="ov-label">GITHUB CONTRIBUTIONS / 30</text><text y="48" class="ov-value">38</text><text y="70" class="ov-note">27 commits</text></g>
   <line x1="52" y1="284" x2="1148" y2="284" stroke="#DCE3E7"/>
   <text x="52" y="300" class="ov-strip-label">30-DAY AI HOURS</text>
   <text x="1148" y="300" text-anchor="end" class="ov-strip-label">10-05 → 11-03</text>

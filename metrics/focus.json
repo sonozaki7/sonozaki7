@@ -846,8 +846,8 @@
     "last30": {
       "sessions": 174,
       "lines": 35120,
-      "inputTokens": 68734956,
-      "outputTokens": 14067120
+      "inputTokens": 68483556,
+      "outputTokens": 14061091
     }
   }
 }
