@@ -3,12 +3,16 @@
 # Designed to run unattended from a macOS launch agent every 30 minutes.
 set -euo pipefail
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="${T3_TRACKER_REPO:-$(cd "$(dirname "$0")/.." && pwd)}"
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 NODE="$HOME/.local/bin/node"
 DATABASE="$HOME/.t3/userdata/statev2.sqlite"
 
 cd "$REPO"
+
+# Pick up the newest collector and assets before running. Offline is fine; the
+# locally installed copy still works.
+git pull --rebase --autostash --quiet origin main >/dev/null 2>&1 || true
 
 if [ ! -x "$NODE" ]; then
   echo "node not found at $NODE" >&2
