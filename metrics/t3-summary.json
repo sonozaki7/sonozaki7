@@ -11,10 +11,10 @@
     "last7Tasks": 10,
     "last30Tasks": 13,
     "lifetimeTasks": 13,
-    "todayRuns": 18,
-    "last7Runs": 61,
-    "last30Runs": 61,
-    "lifetimeRuns": 61,
+    "todayRuns": 20,
+    "last7Runs": 63,
+    "last30Runs": 63,
+    "lifetimeRuns": 63,
     "activeDays": 6,
     "activeDays30": 6,
     "currentStreak": 1,
@@ -184,7 +184,7 @@
       "start": "2026-11-03",
       "end": "2026-11-03",
       "tasks": 2,
-      "runs": 18,
+      "runs": 20,
       "activeDays": 1
     }
   ],
@@ -294,7 +294,7 @@
       "start": "2026-11-02",
       "end": "2026-11-03",
       "tasks": 2,
-      "runs": 19,
+      "runs": 21,
       "activeDays": 1
     }
   ],
@@ -404,7 +404,7 @@
       "start": "2026-11-01",
       "end": "2026-11-03",
       "tasks": 6,
-      "runs": 61,
+      "runs": 63,
       "activeDays": 2
     }
   ]
