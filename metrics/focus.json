@@ -3,18 +3,18 @@
   "generatedAt": "2026-11-03",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
-  "connected": true,
-  "trackedSince": "2026-07-15",
+  "connected": false,
+  "trackedSince": "2026-08-12",
   "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
     "todaySeconds": null,
-    "last7Seconds": 65692,
-    "last30Seconds": 139522,
-    "lifetimeSeconds": 98397,
-    "activeDays30": 21,
-    "activeDaysLifetime": 25,
-    "averageSecondsPerActiveDay30": 6644,
-    "commitsPerFocusHour30": 0.7
+    "last7Seconds": null,
+    "last30Seconds": null,
+    "lifetimeSeconds": 0,
+    "activeDays30": 0,
+    "activeDaysLifetime": 0,
+    "averageSecondsPerActiveDay30": 0,
+    "commitsPerFocusHour30": null
   },
   "daily": [
     {
@@ -22,108 +22,108 @@
       "label": "10-21",
       "start": "2026-10-21",
       "end": "2026-10-21",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 1
+      "coverageDays": 0
     },
     {
       "key": "2026-10-22",
       "label": "10-22",
       "start": "2026-10-22",
       "end": "2026-10-22",
-      "seconds": 1758,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-23",
       "label": "10-23",
       "start": "2026-10-23",
       "end": "2026-10-23",
-      "seconds": 3680,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-24",
       "label": "10-24",
       "start": "2026-10-24",
       "end": "2026-10-24",
-      "seconds": 1221,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-25",
       "label": "10-25",
       "start": "2026-10-25",
       "end": "2026-10-25",
-      "seconds": 610,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-26",
       "label": "10-26",
       "start": "2026-10-26",
       "end": "2026-10-26",
-      "seconds": 7082,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-27",
       "label": "10-27",
       "start": "2026-10-27",
       "end": "2026-10-27",
-      "seconds": 33118,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-28",
       "label": "10-28",
       "start": "2026-10-28",
       "end": "2026-10-28",
-      "seconds": 49573,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-29",
       "label": "10-29",
       "start": "2026-10-29",
       "end": "2026-10-29",
-      "seconds": 10572,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-30",
       "label": "10-30",
       "start": "2026-10-30",
       "end": "2026-10-30",
-      "seconds": 4713,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-31",
       "label": "10-31",
       "start": "2026-10-31",
       "end": "2026-10-31",
-      "seconds": 834,
-      "activeDays": 1,
-      "coverageDays": 1
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-11-01",
       "label": "11-01",
       "start": "2026-11-01",
       "end": "2026-11-01",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 1
+      "coverageDays": 0
     },
     {
       "key": "2026-11-02",
@@ -150,99 +150,99 @@
       "label": "08-17",
       "start": "2026-08-17",
       "end": "2026-08-23",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-08-24",
       "label": "08-24",
       "start": "2026-08-24",
       "end": "2026-08-30",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-08-31",
       "label": "08-31",
       "start": "2026-08-31",
       "end": "2026-09-06",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-09-07",
       "label": "09-07",
       "start": "2026-09-07",
       "end": "2026-09-13",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-09-14",
       "label": "09-14",
       "start": "2026-09-14",
       "end": "2026-09-20",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-09-21",
       "label": "09-21",
       "start": "2026-09-21",
       "end": "2026-09-27",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 7
+      "coverageDays": 0
     },
     {
       "key": "2026-09-28",
       "label": "09-28",
       "start": "2026-09-28",
       "end": "2026-10-04",
-      "seconds": 15267,
-      "activeDays": 4,
-      "coverageDays": 7
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-05",
       "label": "10-05",
       "start": "2026-10-05",
       "end": "2026-10-11",
-      "seconds": 12721,
-      "activeDays": 6,
-      "coverageDays": 7
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-12",
       "label": "10-12",
       "start": "2026-10-12",
       "end": "2026-10-18",
-      "seconds": 7328,
-      "activeDays": 4,
-      "coverageDays": 7
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-19",
       "label": "10-19",
       "start": "2026-10-19",
       "end": "2026-10-25",
-      "seconds": 13581,
-      "activeDays": 5,
-      "coverageDays": 7
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10-26",
       "label": "10-26",
       "start": "2026-10-26",
       "end": "2026-11-01",
-      "seconds": 105892,
-      "activeDays": 6,
-      "coverageDays": 7
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-11-02",
@@ -334,34 +334,34 @@
       "end": "2026-08-31",
       "seconds": 0,
       "activeDays": 0,
-      "coverageDays": 31
+      "coverageDays": 12
     },
     {
       "key": "2026-09",
       "label": "26-09",
       "start": "2026-09-01",
       "end": "2026-09-30",
-      "seconds": 8292,
-      "activeDays": 1,
-      "coverageDays": 30
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-10",
       "label": "26-10",
       "start": "2026-10-01",
       "end": "2026-10-31",
-      "seconds": 146497,
-      "activeDays": 24,
-      "coverageDays": 31
+      "seconds": null,
+      "activeDays": 0,
+      "coverageDays": 0
     },
     {
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-03",
-      "seconds": 0,
+      "seconds": null,
       "activeDays": 0,
-      "coverageDays": 1
+      "coverageDays": 0
     }
   ],
   "yearly": [
@@ -370,9 +370,9 @@
       "label": "2026",
       "start": "2026-01-01",
       "end": "2026-11-03",
-      "seconds": 154789,
-      "activeDays": 25,
-      "coverageDays": 111
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 30
     }
   ],
   "dailyHistory": [
@@ -494,330 +494,6 @@
     },
     {
       "date": "2026-08-12",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-13",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-14",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-15",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-16",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-17",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-18",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-19",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-20",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-21",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-22",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-23",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-24",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-25",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-26",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-27",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-28",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-29",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-30",
-      "seconds": 0
-    },
-    {
-      "date": "2026-08-31",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-01",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-02",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-03",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-04",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-05",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-06",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-07",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-08",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-09",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-10",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-11",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-12",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-13",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-14",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-15",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-16",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-17",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-18",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-19",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-20",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-21",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-22",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-23",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-24",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-25",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-26",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-27",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-28",
-      "seconds": 8292
-    },
-    {
-      "date": "2026-09-29",
-      "seconds": 0
-    },
-    {
-      "date": "2026-09-30",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-01",
-      "seconds": 157
-    },
-    {
-      "date": "2026-10-02",
-      "seconds": 5731
-    },
-    {
-      "date": "2026-10-03",
-      "seconds": 1087
-    },
-    {
-      "date": "2026-10-04",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-05",
-      "seconds": 5002
-    },
-    {
-      "date": "2026-10-06",
-      "seconds": 5569
-    },
-    {
-      "date": "2026-10-07",
-      "seconds": 907
-    },
-    {
-      "date": "2026-10-08",
-      "seconds": 381
-    },
-    {
-      "date": "2026-10-09",
-      "seconds": 41
-    },
-    {
-      "date": "2026-10-10",
-      "seconds": 821
-    },
-    {
-      "date": "2026-10-11",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-12",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-13",
-      "seconds": 22
-    },
-    {
-      "date": "2026-10-14",
-      "seconds": 10
-    },
-    {
-      "date": "2026-10-15",
-      "seconds": 4454
-    },
-    {
-      "date": "2026-10-16",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-17",
-      "seconds": 2842
-    },
-    {
-      "date": "2026-10-18",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-19",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-20",
-      "seconds": 6312
-    },
-    {
-      "date": "2026-10-21",
-      "seconds": 0
-    },
-    {
-      "date": "2026-10-22",
-      "seconds": 1758
-    },
-    {
-      "date": "2026-10-23",
-      "seconds": 3680
-    },
-    {
-      "date": "2026-10-24",
-      "seconds": 1221
-    },
-    {
-      "date": "2026-10-25",
-      "seconds": 610
-    },
-    {
-      "date": "2026-10-26",
-      "seconds": 7082
-    },
-    {
-      "date": "2026-10-27",
-      "seconds": 33118
-    },
-    {
-      "date": "2026-10-28",
-      "seconds": 49573
-    },
-    {
-      "date": "2026-10-29",
-      "seconds": 10572
-    },
-    {
-      "date": "2026-10-30",
-      "seconds": 4713
-    },
-    {
-      "date": "2026-10-31",
-      "seconds": 834
-    },
-    {
-      "date": "2026-11-01",
       "seconds": 0
     }
   ]

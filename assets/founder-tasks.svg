@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+  <title id="title">So's T3 Code finished-task tracker</title>
+  <desc id="desc">Daily, weekly, monthly, and hour-of-day counts of settled T3 Code task threads and completed agent runs. Aggregate counts only.</desc>
+  <defs><linearGradient id="t3-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #181915; }
+    .t3-eyebrow,.t3-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.6px; fill: #355F78; }
+    .t3-eyebrow { font-size: 13px; letter-spacing: 2.6px; }.t3-label { font-size: 10px; fill: #68757C; }
+    .t3-title { font-family: Georgia, "Times New Roman", serif; font-size: 40px; font-weight: 700; letter-spacing: -1.1px; }
+    .t3-subtitle { font-size: 15px; fill: #68757C; }.t3-value { font-size: 29px; font-weight: 750; }.t3-note { font-size: 11px; fill: #98A3A9; }
+    .t3-total { font-size: 18px; font-weight: 750; }.t3-bar-value { font-size: 9px; font-weight: 650; }
+    .t3-axis,.t3-empty,.t3-footer { font-size: 9px; fill: #98A3A9; }.t3-footer { font-size: 11px; }.t3-empty { font-size: 12px; }
+  </style></defs>
+  <rect x="1" y="1" width="1198" height="858" rx="10" fill="url(#t3-bg)" stroke="#DCE3E7" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="#355F78"/>
+  <text x="52" y="64" class="t3-eyebrow">TASK THROUGHPUT · T3 CODE</text>
+  <text x="52" y="106" class="t3-title">Finished work, counted</text>
+  <text x="52" y="134" class="t3-subtitle">Settled task threads · Tracking since 2026-10-27 · Asia/Bangkok · Best day 11-01 · 4 tasks</text>
+  <g transform="translate(52 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">TODAY</text><text x="20" y="61" class="t3-value">2</text><text x="20" y="81" class="t3-note">18 agent runs</text></g>
+  <g transform="translate(330 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 7 DAYS</text><text x="20" y="61" class="t3-value">10</text><text x="20" y="81" class="t3-note">61 agent runs</text></g>
+  <g transform="translate(608 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 30 DAYS</text><text x="20" y="61" class="t3-value">13</text><text x="20" y="81" class="t3-note">2.2 tasks / active day</text></g>
+  <g transform="translate(886 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LIFETIME</text><text x="20" y="61" class="t3-value">13</text><text x="20" y="81" class="t3-note">61 runs · 6 active days</text></g>
+  <g>
+    <rect x="52" y="286" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
+    <text x="72" y="314" class="t3-label">DAILY · LAST 14 DAYS</text>
+    <text x="570" y="314" text-anchor="end" class="t3-total">13</text>
+    <line x1="74" y1="488" x2="568" y2="488" stroke="#DCE3E7"/>
+    <g>
+      <rect x="81.4" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-21: 0 tasks</title></rect>
+      
+      <text x="91.6" y="508" text-anchor="middle" class="t3-axis">10-21</text>
+    </g><g>
+      <rect x="116.7" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-22: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="152.0" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-23: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="187.3" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-24: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="222.6" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-25: 0 tasks</title></rect>
+      
+      <text x="232.8" y="508" text-anchor="middle" class="t3-axis">10-25</text>
+    </g><g>
+      <rect x="257.8" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-26: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="293.1" y="377.0" width="20.5" height="111.0" rx="2" fill="#355F78"><title>2026-10-27: 3 tasks</title></rect>
+      <text x="303.4" y="371.0" text-anchor="middle" class="t3-bar-value">3</text>
+      
+    </g><g>
+      <rect x="328.4" y="414.0" width="20.5" height="74.0" rx="2" fill="#355F78"><title>2026-10-28: 2 tasks</title></rect>
+      <text x="338.6" y="408.0" text-anchor="middle" class="t3-bar-value">2</text>
+      
+    </g><g>
+      <rect x="363.7" y="451.0" width="20.5" height="37.0" rx="2" fill="#355F78"><title>2026-10-29: 1 tasks</title></rect>
+      <text x="373.9" y="445.0" text-anchor="middle" class="t3-bar-value">1</text>
+      <text x="373.9" y="508" text-anchor="middle" class="t3-axis">10-29</text>
+    </g><g>
+      <rect x="399.0" y="451.0" width="20.5" height="37.0" rx="2" fill="#355F78"><title>2026-10-30: 1 tasks</title></rect>
+      <text x="409.2" y="445.0" text-anchor="middle" class="t3-bar-value">1</text>
+      
+    </g><g>
+      <rect x="434.3" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-10-31: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="469.6" y="340.0" width="20.5" height="148.0" rx="2" fill="#355F78"><title>2026-11-01: 4 tasks</title></rect>
+      <text x="479.8" y="334.0" text-anchor="middle" class="t3-bar-value">4</text>
+      
+    </g><g>
+      <rect x="504.8" y="488.0" width="20.5" height="0.0" rx="2" fill="#355F78"><title>2026-11-02: 0 tasks</title></rect>
+      
+      <text x="515.1" y="508" text-anchor="middle" class="t3-axis">11-02</text>
+    </g><g>
+      <rect x="540.1" y="414.0" width="20.5" height="74.0" rx="2" fill="#355F78"><title>2026-11-03: 2 tasks</title></rect>
+      <text x="550.4" y="408.0" text-anchor="middle" class="t3-bar-value">2</text>
+      <text x="550.4" y="508" text-anchor="middle" class="t3-axis">11-03</text>
+    </g>
+  </g>
+  <g>
+    <rect x="610" y="286" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
+    <text x="630" y="314" class="t3-label">WEEKLY · LAST 12 WEEKS</text>
+    <text x="1128" y="314" text-anchor="end" class="t3-total">13</text>
+    <line x1="632" y1="488" x2="1126" y2="488" stroke="#DCE3E7"/>
+    <g>
+      <rect x="640.6" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-08-17 to 2026-08-23: 0 tasks</title></rect>
+      
+      <text x="652.6" y="508" text-anchor="middle" class="t3-axis">08-17</text>
+    </g><g>
+      <rect x="681.8" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-08-24 to 2026-08-30: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="723.0" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-08-31 to 2026-09-06: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="764.1" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-09-07 to 2026-09-13: 0 tasks</title></rect>
+      
+      <text x="776.1" y="508" text-anchor="middle" class="t3-axis">09-07</text>
+    </g><g>
+      <rect x="805.3" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-09-14 to 2026-09-20: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="846.5" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-09-21 to 2026-09-27: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="887.6" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-09-28 to 2026-10-04: 0 tasks</title></rect>
+      
+      <text x="899.6" y="508" text-anchor="middle" class="t3-axis">09-28</text>
+    </g><g>
+      <rect x="928.8" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-10-05 to 2026-10-11: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="970.0" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-10-12 to 2026-10-18: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="1011.1" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-10-19 to 2026-10-25: 0 tasks</title></rect>
+      
+      <text x="1023.1" y="508" text-anchor="middle" class="t3-axis">10-19</text>
+    </g><g>
+      <rect x="1052.3" y="340.0" width="23.9" height="148.0" rx="2" fill="#355F78"><title>2026-10-26 to 2026-11-01: 11 tasks</title></rect>
+      <text x="1064.2" y="334.0" text-anchor="middle" class="t3-bar-value">11</text>
+      
+    </g><g>
+      <rect x="1093.5" y="461.1" width="23.9" height="26.9" rx="2" fill="#355F78"><title>2026-11-02 to 2026-11-03: 2 tasks</title></rect>
+      <text x="1105.4" y="455.1" text-anchor="middle" class="t3-bar-value">2</text>
+      <text x="1105.4" y="508" text-anchor="middle" class="t3-axis">11-02</text>
+    </g>
+  </g>
+  <g>
+    <rect x="52" y="544" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
+    <text x="72" y="572" class="t3-label">MONTHLY · LAST 12 MONTHS</text>
+    <text x="570" y="572" text-anchor="end" class="t3-total">13</text>
+    <line x1="74" y1="746" x2="568" y2="746" stroke="#DCE3E7"/>
+    <g>
+      <rect x="82.6" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2025-12-01 to 2025-12-31: 0 tasks</title></rect>
+      
+      <text x="94.6" y="766" text-anchor="middle" class="t3-axis">25-12</text>
+    </g><g>
+      <rect x="123.8" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-01-01 to 2026-01-31: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="165.0" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-02-01 to 2026-02-28: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="206.1" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-03-01 to 2026-03-31: 0 tasks</title></rect>
+      
+      <text x="218.1" y="766" text-anchor="middle" class="t3-axis">26-03</text>
+    </g><g>
+      <rect x="247.3" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-04-01 to 2026-04-30: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="288.5" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-05-01 to 2026-05-31: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="329.6" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-06-01 to 2026-06-30: 0 tasks</title></rect>
+      
+      <text x="341.6" y="766" text-anchor="middle" class="t3-axis">26-06</text>
+    </g><g>
+      <rect x="370.8" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-07-01 to 2026-07-31: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="412.0" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-08-01 to 2026-08-31: 0 tasks</title></rect>
+      
+      
+    </g><g>
+      <rect x="453.1" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-09-01 to 2026-09-30: 0 tasks</title></rect>
+      
+      <text x="465.1" y="766" text-anchor="middle" class="t3-axis">26-09</text>
+    </g><g>
+      <rect x="494.3" y="598.0" width="23.9" height="148.0" rx="2" fill="#355F78"><title>2026-10-01 to 2026-10-31: 7 tasks</title></rect>
+      <text x="506.2" y="592.0" text-anchor="middle" class="t3-bar-value">7</text>
+      
+    </g><g>
+      <rect x="535.5" y="619.1" width="23.9" height="126.9" rx="2" fill="#355F78"><title>2026-11-01 to 2026-11-03: 6 tasks</title></rect>
+      <text x="547.4" y="613.1" text-anchor="middle" class="t3-bar-value">6</text>
+      <text x="547.4" y="766" text-anchor="middle" class="t3-axis">26-11</text>
+    </g>
+  </g>
+  <g>
+    <rect x="610" y="544" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
+    <text x="630" y="572" class="t3-label">BY HOUR · WHEN TASKS LAND</text>
+    <text x="1128" y="572" text-anchor="end" class="t3-total">13</text>
+    <line x1="632" y1="746" x2="1126" y2="746" stroke="#DCE3E7"/>
+    <g>
+      <rect x="636.3" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>00:00 to 00:59: 0 value</title></rect>
+      
+      <text x="642.3" y="766" text-anchor="middle" class="t3-axis">00</text>
+    </g><g>
+      <rect x="656.9" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>01:00 to 01:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="677.5" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>02:00 to 02:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="698.1" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>03:00 to 03:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="718.7" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>04:00 to 04:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="739.2" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>05:00 to 05:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="759.8" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>06:00 to 06:59: 0 value</title></rect>
+      
+      <text x="765.8" y="766" text-anchor="middle" class="t3-axis">06</text>
+    </g><g>
+      <rect x="780.4" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>07:00 to 07:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="801.0" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>08:00 to 08:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="821.6" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>09:00 to 09:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="842.2" y="598.0" width="11.9" height="148.0" rx="2" fill="#355F78"><title>10:00 to 10:59: 2 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="862.7" y="598.0" width="11.9" height="148.0" rx="2" fill="#355F78"><title>11:00 to 11:59: 2 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="883.3" y="672.0" width="11.9" height="74.0" rx="2" fill="#355F78"><title>12:00 to 12:59: 1 value</title></rect>
+      
+      <text x="889.3" y="766" text-anchor="middle" class="t3-axis">12</text>
+    </g><g>
+      <rect x="903.9" y="598.0" width="11.9" height="148.0" rx="2" fill="#355F78"><title>13:00 to 13:59: 2 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="924.5" y="598.0" width="11.9" height="148.0" rx="2" fill="#355F78"><title>14:00 to 14:59: 2 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="945.1" y="598.0" width="11.9" height="148.0" rx="2" fill="#355F78"><title>15:00 to 15:59: 2 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="965.7" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>16:00 to 16:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="986.2" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>17:00 to 17:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="1006.8" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>18:00 to 18:59: 0 value</title></rect>
+      
+      <text x="1012.8" y="766" text-anchor="middle" class="t3-axis">18</text>
+    </g><g>
+      <rect x="1027.4" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>19:00 to 19:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="1048.0" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>20:00 to 20:59: 0 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="1068.6" y="672.0" width="11.9" height="74.0" rx="2" fill="#355F78"><title>21:00 to 21:59: 1 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="1089.2" y="672.0" width="11.9" height="74.0" rx="2" fill="#355F78"><title>22:00 to 22:59: 1 value</title></rect>
+      
+      
+    </g><g>
+      <rect x="1109.7" y="746.0" width="11.9" height="0.0" rx="2" fill="#355F78"><title>23:00 to 23:59: 0 value</title></rect>
+      
+      <text x="1115.7" y="766" text-anchor="middle" class="t3-axis">23</text>
+    </g>
+  </g>
+  <text x="52" y="822" class="t3-footer">Provider split · Codex 9 · OpenCode 4</text>
+  <text x="1148" y="822" text-anchor="end" class="t3-footer">Counts only · no task titles, prompts, projects, repositories, branches, or paths</text>
+</svg>

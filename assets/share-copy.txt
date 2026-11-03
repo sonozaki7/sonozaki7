@@ -1,6 +1,6 @@
 Founder ship log — last 30 days
 
-38.8h of active building time across 21 focus days.
+13 finished T3 Code tasks and 61 completed agent runs in the last 30 days.
 28 GitHub contributions across 7/30 build days.
 26 unique commits moved 3 products.
 44.5K focused lines changed after filtering bulk imports.

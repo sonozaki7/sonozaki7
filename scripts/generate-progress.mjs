@@ -201,7 +201,7 @@ export function buildFocusData({ daily = [], today, lifetimeSeconds = null, acco
     generatedAt: today,
     timezone: TIMEZONE,
     source: "WakaTime",
-    connected: normalized.length > 0 || lifetimeSeconds != null,
+    connected: knownLifetime > 0 || normalized.some((day) => day.seconds > 0),
     trackedSince: firstTracked,
     privacy: "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     summary: {
@@ -721,7 +721,11 @@ function focusSummaryCard(x, label, value, note) {
 }
 
 export function renderFocusSvg(focus) {
-  const status = focus.connected ? `Tracking since ${focus.trackedSince}` : "Connect WakaTime to begin the lifelong focus record";
+  const status = focus.connected
+    ? `Tracking since ${focus.trackedSince}`
+    : focus.trackedSince
+      ? `WakaTime connected ${focus.trackedSince} · no editor time recorded yet`
+      : "Connect WakaTime to begin the lifelong focus record";
   const leverage = focus.summary.commitsPerFocusHour30 == null ? "—" : focus.summary.commitsPerFocusHour30.toFixed(1);
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
@@ -773,7 +777,7 @@ function mobileFocusChart(focus, key, y, title) {
 }
 
 export function renderMobileFocusSvg(focus) {
-  const status = focus.connected ? `Since ${focus.trackedSince}` : "Connection pending";
+  const status = focus.connected ? `Since ${focus.trackedSince}` : focus.trackedSince ? "Connected · no editor time yet" : "Connection pending";
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="930" viewBox="0 0 375 930" role="img" aria-labelledby="title desc">
   <title id="title">So's mobile WakaTime focus tracker</title><desc id="desc">Privacy-safe active coding time across daily, weekly, monthly, and yearly periods.</desc>
@@ -788,6 +792,249 @@ export function renderMobileFocusSvg(focus) {
   <g transform="translate(191 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mf-label">LIFETIME</text><text x="14" y="49" class="mf-number">${hours(focus.summary.lifetimeSeconds)}</text><text x="14" y="66" class="mf-small">${focus.summary.activeDaysLifetime} RECORDED DAYS</text></g>
   ${mobileFocusChart(focus, "daily", 301, "DAILY · 14 DAYS")}${mobileFocusChart(focus, "weekly", 451, "WEEKLY · 12 WEEKS")}${mobileFocusChart(focus, "monthly", 601, "MONTHLY · 12 MONTHS")}${mobileFocusChart(focus, "yearly", 751, "YEARLY · WAKATIME LIFETIME")}
   <text x="20" y="912" class="mf-footer">No project, file, repository, branch, language, editor, or machine names</text>
+</svg>`;
+}
+
+async function loadT3Ledger(root) {
+  try {
+    return JSON.parse(await fs.readFile(path.join(root, "metrics", "t3-tasks.json"), "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+export function buildT3Data({ ledger = null, today }) {
+  const days = ledger?.days || {};
+  const dayValue = (date) => days[date] || { tasks: 0, runs: 0, providers: {}, runProviders: {}, hours: [] };
+  const totalsFor = (dates) => {
+    let tasks = 0;
+    let runs = 0;
+    let activeDays = 0;
+    for (const date of dates) {
+      const day = dayValue(date);
+      tasks += day.tasks || 0;
+      runs += day.runs || 0;
+      if ((day.tasks || 0) > 0) activeDays += 1;
+    }
+    return { tasks, runs, activeDays };
+  };
+  const rolling = (count, unit) => Array.from({ length: count }, (_, index) => {
+    if (unit === "day") {
+      const date = shiftDate(today, index - count + 1);
+      return { key: date, label: date.slice(5), start: date, end: date, ...totalsFor([date]) };
+    }
+    if (unit === "week") {
+      const start = shiftDate(weekStart(today), (index - count + 1) * 7);
+      const end = [shiftDate(start, 6), today].sort()[0];
+      return { key: start, label: start.slice(5), start, end, ...totalsFor(dateRange(daysBetween(start, end) + 1, end)) };
+    }
+    const start = monthStart(today, index - count + 1);
+    const end = [shiftDate(monthStart(start, 1), -1), today].sort()[0];
+    return { key: start.slice(0, 7), label: start.slice(2, 7), start, end, ...totalsFor(dateRange(daysBetween(start, end) + 1, end)) };
+  });
+  const daily = rolling(14, "day");
+  const weekly = rolling(12, "week");
+  const monthly = rolling(12, "month");
+  const last7 = totalsFor(dateRange(7, today));
+  const last30 = totalsFor(dateRange(30, today));
+  const lifetimeEntries = Object.entries(days);
+  const lifetime = lifetimeEntries.reduce((total, [, day]) => ({
+    tasks: total.tasks + (day.tasks || 0),
+    runs: total.runs + (day.runs || 0),
+    activeDays: total.activeDays + ((day.tasks || 0) > 0 ? 1 : 0),
+  }), { tasks: 0, runs: 0, activeDays: 0 });
+  let streak = 0;
+  for (let offset = 0; offset < 3650; offset += 1) {
+    const date = shiftDate(today, -offset);
+    if ((dayValue(date).tasks || 0) > 0) streak += 1;
+    else if (offset > 0) break;
+  }
+  let bestDay = null;
+  for (const [date, day] of lifetimeEntries) {
+    const count = day.tasks || 0;
+    if (!bestDay || count >= bestDay.tasks) bestDay = { date, tasks: count };
+  }
+  const providerTotals = {};
+  const hourTotals = Array.from({ length: 24 }, () => 0);
+  for (const [, day] of lifetimeEntries) {
+    for (const [provider, count] of Object.entries(day.providers || {})) {
+      providerTotals[provider] = (providerTotals[provider] || 0) + count;
+    }
+    (day.hours || []).forEach((count, hour) => {
+      if (hour < 24) hourTotals[hour] += count || 0;
+    });
+  }
+  const providers = Object.entries(providerTotals)
+    .filter(([, count]) => count > 0)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, count]) => ({ name, count }));
+  return {
+    version: 1,
+    generatedAt: today,
+    timezone: TIMEZONE,
+    source: "T3 Code",
+    connected: lifetimeEntries.length > 0,
+    firstRecordedAt: ledger?.firstRecordedAt || null,
+    privacy: ledger?.privacy || "Aggregate task and agent-run counts only; no titles, prompts, project names, repositories, branches, or paths.",
+    summary: {
+      todayTasks: totalsFor([today]).tasks,
+      last7Tasks: last7.tasks,
+      last30Tasks: last30.tasks,
+      lifetimeTasks: lifetime.tasks,
+      todayRuns: totalsFor([today]).runs,
+      last7Runs: last7.runs,
+      last30Runs: last30.runs,
+      lifetimeRuns: lifetime.runs,
+      activeDays: lifetime.activeDays,
+      activeDays30: last30.activeDays,
+      currentStreak: streak,
+      averagePerActiveDay30: last30.activeDays ? Number((last30.tasks / last30.activeDays).toFixed(1)) : 0,
+      bestDay: bestDay && bestDay.tasks > 0 ? bestDay : null,
+      providers,
+      hourTotals,
+    },
+    daily,
+    weekly,
+    monthly,
+  };
+}
+
+function t3BarChart({ x, y, width, height, title, periods, valueKey = "tasks", total }) {
+  const chartLeft = x + 22;
+  const chartRight = x + width - 22;
+  const chartTop = y + 54;
+  const chartBottom = y + height - 36;
+  const values = periods.map((period) => period[valueKey] || 0);
+  const max = Math.max(1, ...values);
+  const slot = (chartRight - chartLeft) / periods.length;
+  const barWidth = Math.max(5, Math.min(34, slot * 0.58));
+  const axisEvery = Math.max(1, Math.ceil(periods.length / 4));
+  const bars = periods.map((period, index) => {
+    const value = values[index];
+    const barHeight = (value / max) * (chartBottom - chartTop);
+    const barX = chartLeft + index * slot + (slot - barWidth) / 2;
+    const barY = chartBottom - barHeight;
+    const showAxis = periods.length <= 4 || index === 0 || index === periods.length - 1 || index % axisEvery === 0;
+    const showValue = value > 0 && periods.length <= 14;
+    return `<g>
+      <rect x="${barX.toFixed(1)}" y="${barY.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${Math.max(barHeight, value > 0 ? 1.5 : 0).toFixed(1)}" rx="2" fill="${THEME.accent}"><title>${escapeXml(period.start)}${period.end === period.start ? "" : ` to ${period.end}`}: ${value} ${escapeXml(valueKey)}</title></rect>
+      ${showValue ? `<text x="${(barX + barWidth / 2).toFixed(1)}" y="${Math.max(chartTop - 8, barY - 6).toFixed(1)}" text-anchor="middle" class="t3-bar-value">${value}</text>` : ""}
+      ${showAxis ? `<text x="${(barX + barWidth / 2).toFixed(1)}" y="${y + height - 16}" text-anchor="middle" class="t3-axis">${escapeXml(period.label)}</text>` : ""}
+    </g>`;
+  }).join("");
+  const empty = values.some((value) => value > 0)
+    ? ""
+    : `<text x="${((chartLeft + chartRight) / 2).toFixed(1)}" y="${((chartTop + chartBottom) / 2).toFixed(1)}" text-anchor="middle" class="t3-empty">The record starts with your next finished task</text>`;
+  return `<g>
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/>
+    <text x="${x + 20}" y="${y + 28}" class="t3-label">${escapeXml(title)}</text>
+    <text x="${x + width - 20}" y="${y + 28}" text-anchor="end" class="t3-total">${compact(total)}</text>
+    <line x1="${chartLeft}" y1="${chartBottom}" x2="${chartRight}" y2="${chartBottom}" stroke="${THEME.border}"/>
+    ${bars}${empty}
+  </g>`;
+}
+
+function t3SummaryCard(x, label, value, note) {
+  return `<g transform="translate(${x} 162)"><rect width="262" height="96" rx="6" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="20" y="27" class="t3-label">${escapeXml(label)}</text><text x="20" y="61" class="t3-value">${escapeXml(String(value))}</text><text x="20" y="81" class="t3-note">${escapeXml(note)}</text></g>`;
+}
+
+const PROVIDER_NAMES = { codex: "Codex", opencode: "OpenCode", claude: "Claude", cursor: "Cursor" };
+
+function providerLine(providers) {
+  if (!providers.length) return "No provider split recorded yet";
+  return `Provider split · ${providers.map((item) => `${PROVIDER_NAMES[item.name] || item.name} ${item.count}`).join(" · ")}`;
+}
+
+export function renderT3Svg(data) {
+  const { summary } = data;
+  const status = data.connected ? `Tracking since ${data.firstRecordedAt}` : "Waiting for the first settled task";
+  const best = summary.bestDay ? `Best day ${summary.bestDay.date.slice(5)} · ${summary.bestDay.tasks} tasks` : "No finished tasks yet";
+  const hours = summary.hourTotals.map((value, hour) => ({
+    key: String(hour),
+    label: String(hour).padStart(2, "0"),
+    start: `${String(hour).padStart(2, "0")}:00`,
+    end: `${String(hour).padStart(2, "0")}:59`,
+    value,
+  }));
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+  <title id="title">So's T3 Code finished-task tracker</title>
+  <desc id="desc">Daily, weekly, monthly, and hour-of-day counts of settled T3 Code task threads and completed agent runs. Aggregate counts only.</desc>
+  <defs><linearGradient id="t3-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }
+    .t3-eyebrow,.t3-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1.6px; fill: ${THEME.accent}; }
+    .t3-eyebrow { font-size: 13px; letter-spacing: 2.6px; }.t3-label { font-size: 10px; fill: ${THEME.muted}; }
+    .t3-title { font-family: Georgia, "Times New Roman", serif; font-size: 40px; font-weight: 700; letter-spacing: -1.1px; }
+    .t3-subtitle { font-size: 15px; fill: ${THEME.muted}; }.t3-value { font-size: 29px; font-weight: 750; }.t3-note { font-size: 11px; fill: ${THEME.dim}; }
+    .t3-total { font-size: 18px; font-weight: 750; }.t3-bar-value { font-size: 9px; font-weight: 650; }
+    .t3-axis,.t3-empty,.t3-footer { font-size: 9px; fill: ${THEME.dim}; }.t3-footer { font-size: 11px; }.t3-empty { font-size: 12px; }
+  </style></defs>
+  <rect x="1" y="1" width="1198" height="858" rx="10" fill="url(#t3-bg)" stroke="${THEME.border}" stroke-width="2"/>
+  <rect x="28" y="24" width="1144" height="2" fill="${THEME.accent}"/>
+  <text x="52" y="64" class="t3-eyebrow">TASK THROUGHPUT · T3 CODE</text>
+  <text x="52" y="106" class="t3-title">Finished work, counted</text>
+  <text x="52" y="134" class="t3-subtitle">Settled task threads · ${escapeXml(status)} · Asia/Bangkok · ${escapeXml(best)}</text>
+  ${t3SummaryCard(52, "TODAY", summary.todayTasks, `${summary.todayRuns} agent runs`)}
+  ${t3SummaryCard(330, "LAST 7 DAYS", summary.last7Tasks, `${summary.last7Runs} agent runs`)}
+  ${t3SummaryCard(608, "LAST 30 DAYS", summary.last30Tasks, `${summary.averagePerActiveDay30} tasks / active day`)}
+  ${t3SummaryCard(886, "LIFETIME", summary.lifetimeTasks, `${summary.lifetimeRuns} runs · ${summary.activeDays} active days`)}
+  ${t3BarChart({ x: 52, y: 286, width: 538, height: 238, title: "DAILY · LAST 14 DAYS", periods: data.daily, total: data.daily.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${t3BarChart({ x: 610, y: 286, width: 538, height: 238, title: "WEEKLY · LAST 12 WEEKS", periods: data.weekly, total: data.weekly.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${t3BarChart({ x: 52, y: 544, width: 538, height: 238, title: "MONTHLY · LAST 12 MONTHS", periods: data.monthly, total: data.monthly.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${t3BarChart({ x: 610, y: 544, width: 538, height: 238, title: "BY HOUR · WHEN TASKS LAND", periods: hours, valueKey: "value", total: summary.lifetimeTasks })}
+  <text x="52" y="822" class="t3-footer">${escapeXml(providerLine(summary.providers))}</text>
+  <text x="1148" y="822" text-anchor="end" class="t3-footer">Counts only · no task titles, prompts, projects, repositories, branches, or paths</text>
+</svg>`;
+}
+
+function mobileT3Chart({ y, title, periods, total, valueKey = "tasks" }) {
+  const left = 36;
+  const right = 339;
+  const top = y + 48;
+  const bottom = y + 112;
+  const values = periods.map((period) => period[valueKey] || 0);
+  const max = Math.max(1, ...values);
+  const slot = (right - left) / periods.length;
+  const barWidth = Math.max(3, Math.min(18, slot * 0.58));
+  const hasActivity = values.some((value) => value > 0);
+  const axisEvery = Math.max(1, Math.ceil(periods.length / 4));
+  const bars = periods.map((period, index) => {
+    const value = values[index];
+    const barHeight = (value / max) * (bottom - top);
+    const barX = left + index * slot + (slot - barWidth) / 2;
+    const showAxis = index === 0 || index === periods.length - 1 || (index % axisEvery === 0 && index < periods.length - 2);
+    return `<rect x="${barX.toFixed(1)}" y="${(bottom - barHeight).toFixed(1)}" width="${barWidth.toFixed(1)}" height="${Math.max(barHeight, value > 0 ? 1 : 0).toFixed(1)}" rx="1.5" fill="${THEME.accent}"><title>${escapeXml(period.start)}: ${value}</title></rect>${showAxis ? `<text x="${(barX + barWidth / 2).toFixed(1)}" y="${y + 130}" text-anchor="middle" class="mt-axis">${escapeXml(period.label)}</text>` : ""}`;
+  }).join("");
+  return `<g><rect x="20" y="${y}" width="335" height="140" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="34" y="${y + 25}" class="mt-label">${escapeXml(title)}</text><text x="341" y="${y + 25}" text-anchor="end" class="mt-total">${escapeXml(String(total))}</text><line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="${THEME.border}"/>${bars}${hasActivity ? "" : `<text x="${((left + right) / 2).toFixed(1)}" y="${top + 26}" text-anchor="middle" class="mt-empty">Starts with your next task</text>`}</g>`;
+}
+
+export function renderMobileT3Svg(data) {
+  const { summary } = data;
+  const status = data.connected ? `Since ${data.firstRecordedAt}` : "Waiting for the first task";
+  const hours = summary.hourTotals.map((value, hour) => ({
+    key: String(hour),
+    label: String(hour).padStart(2, "0"),
+    start: `${String(hour).padStart(2, "0")}:00`,
+    end: `${String(hour).padStart(2, "0")}:59`,
+    value,
+  }));
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="930" viewBox="0 0 375 930" role="img" aria-labelledby="title desc">
+  <title id="title">So's mobile T3 Code finished-task tracker</title><desc id="desc">Daily, weekly, monthly, and hour-of-day counts of settled T3 Code task threads. Aggregate counts only.</desc>
+  <defs><linearGradient id="mt-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${THEME.background}"/><stop offset="1" stop-color="#F8FAFB"/></linearGradient><style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: ${THEME.text}; }.mt-eyebrow,.mt-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; letter-spacing: 1px; fill: ${THEME.accent}; }.mt-eyebrow { font-size: 10px; letter-spacing: 1.7px; }.mt-label { font-size: 9px; fill: ${THEME.muted}; }.mt-title { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; }.mt-subtitle,.mt-axis,.mt-footer,.mt-empty { font-size: 9px; fill: ${THEME.muted}; }.mt-number { font-size: 20px; font-weight: 750; }.mt-small { font-size: 8px; fill: ${THEME.dim}; }.mt-total { font-size: 13px; font-weight: 700; }
+  </style></defs>
+  <rect x="1" y="1" width="373" height="928" rx="8" fill="url(#mt-bg)" stroke="${THEME.border}" stroke-width="2"/><rect x="16" y="15" width="343" height="2" fill="${THEME.accent}"/>
+  <text x="20" y="45" class="mt-eyebrow">TASK THROUGHPUT · T3 CODE</text><text x="20" y="78" class="mt-title">Finished work</text><text x="20" y="98" class="mt-subtitle">${escapeXml(status)} · settled tasks · Asia/Bangkok</text>
+  <g transform="translate(20 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mt-label">TODAY</text><text x="14" y="49" class="mt-number">${summary.todayTasks}</text><text x="14" y="66" class="mt-small">${summary.todayRuns} AGENT RUNS</text></g>
+  <g transform="translate(191 119)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mt-label">LAST 7 DAYS</text><text x="14" y="49" class="mt-number">${summary.last7Tasks}</text><text x="14" y="66" class="mt-small">${summary.last7Runs} AGENT RUNS</text></g>
+  <g transform="translate(20 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mt-label">LAST 30 DAYS</text><text x="14" y="49" class="mt-number">${summary.last30Tasks}</text><text x="14" y="66" class="mt-small">${summary.averagePerActiveDay30} TASKS / ACTIVE DAY</text></g>
+  <g transform="translate(191 202)"><rect width="164" height="76" rx="5" fill="${THEME.surface}" stroke="${THEME.border}"/><text x="14" y="21" class="mt-label">LIFETIME</text><text x="14" y="49" class="mt-number">${summary.lifetimeTasks}</text><text x="14" y="66" class="mt-small">${summary.lifetimeRuns} RUNS · ${summary.activeDays} DAYS</text></g>
+  ${mobileT3Chart({ y: 301, title: "DAILY · 14 DAYS", periods: data.daily, total: data.daily.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${mobileT3Chart({ y: 451, title: "WEEKLY · 12 WEEKS", periods: data.weekly, total: data.weekly.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${mobileT3Chart({ y: 601, title: "MONTHLY · 12 MONTHS", periods: data.monthly, total: data.monthly.reduce((sum, period) => sum + period.tasks, 0) })}
+  ${mobileT3Chart({ y: 751, title: "BY HOUR · WHEN TASKS LAND", periods: hours, total: summary.lifetimeTasks, valueKey: "value" })}
+  <text x="20" y="912" class="mt-footer">${escapeXml(providerLine(summary.providers))} · counts only</text>
 </svg>`;
 }
 
@@ -1449,10 +1696,11 @@ function summarizeHistory({ accountCreatedAt, yearlyContributions, codeDaily, ge
   };
 }
 
-function renderShareCopy(stats, focus) {
+function renderShareCopy(stats, focus, t3) {
   const direction = stats.contributions.momentumPercent >= 0 ? "up" : "down";
   const focusLine = focus.connected ? `${hours(focus.summary.last30Seconds)} of active building time across ${focus.summary.activeDays30} focus days.\n` : "";
-  return `Founder ship log — last 30 days\n\n${focusLine}${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
+  const taskLine = t3.connected ? `${t3.summary.last30Tasks} finished T3 Code tasks and ${t3.summary.last30Runs} completed agent runs in the last 30 days.\n` : "";
+  return `Founder ship log — last 30 days\n\n${focusLine}${taskLine}${stats.contributions.last30Days} GitHub contributions across ${stats.code.buildDays}/30 build days.\n${stats.code.commitsAnalyzed} unique commits moved ${stats.code.activeProducts} products.\n${compact(stats.code.changed)} focused lines changed after filtering bulk imports.\n${stats.contributions.currentStreak}-day current streak · momentum ${direction} ${Math.abs(stats.contributions.momentumPercent)}%.\n\nBuilding AI-first SaaS in public.\nhttps://github.com/${USERNAME}\n`;
 }
 
 async function main() {
@@ -1461,7 +1709,7 @@ async function main() {
   const today = localDate();
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   const contributions = await fetchContributionData(token, today);
-  const [existingHistory, existingFocus] = await Promise.all([loadHistory(root), loadFocusHistory(root)]);
+  const [existingHistory, existingFocus, t3Ledger] = await Promise.all([loadHistory(root), loadFocusHistory(root), loadT3Ledger(root)]);
   const accountStart = contributions.accountCreatedAt.slice(0, 10);
   const codeStart = existingHistory && process.env.BACKFILL_LIFETIME !== "1" ? `${today.slice(0, 4)}-01-01` : accountStart;
   const [yearlyContributions, codeResult] = await Promise.all([
@@ -1518,6 +1766,7 @@ async function main() {
     ...focus.summary,
     privacy: focus.privacy,
   };
+  const t3 = buildT3Data({ ledger: t3Ledger, today });
   const cadence = buildCadenceData({ calendarDays: contributions.calendarDays, codeDaily, focusDaily, today });
   cadence.yearly = buildYearlyCadence(history, focusDaily);
   const operatingReview = buildOperatingReview(cadence);
@@ -1535,6 +1784,8 @@ async function main() {
   const mobileLifetimeSvg = renderMobileLifetimeSvg(history);
   const focusSvg = renderFocusSvg(focus);
   const mobileFocusSvg = renderMobileFocusSvg(focus);
+  const t3Svg = renderT3Svg(t3);
+  const mobileT3Svg = renderMobileT3Svg(t3);
   await fs.mkdir(path.join(root, "assets"), { recursive: true });
   await fs.mkdir(path.join(root, "metrics"), { recursive: true });
   await Promise.all([
@@ -1554,11 +1805,14 @@ async function main() {
     sharp(Buffer.from(lifetimeSvg)).png().toFile(path.join(root, "assets", "founder-lifetime.png")),
     fs.writeFile(path.join(root, "assets", "founder-focus.svg"), focusSvg),
     fs.writeFile(path.join(root, "assets", "founder-focus-mobile.svg"), mobileFocusSvg),
-    fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats, focus)),
+    fs.writeFile(path.join(root, "assets", "founder-tasks.svg"), t3Svg),
+    fs.writeFile(path.join(root, "assets", "founder-tasks-mobile.svg"), mobileT3Svg),
+    fs.writeFile(path.join(root, "assets", "share-copy.txt"), renderShareCopy(stats, focus, t3)),
     fs.writeFile(path.join(root, "metrics", "latest.json"), `${JSON.stringify(stats, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "cadence.json"), `${JSON.stringify(cadence, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "history.json"), `${JSON.stringify(history, null, 2)}\n`),
     fs.writeFile(path.join(root, "metrics", "focus.json"), `${JSON.stringify(focus, null, 2)}\n`),
+    fs.writeFile(path.join(root, "metrics", "t3-summary.json"), `${JSON.stringify(t3, null, 2)}\n`),
   ]);
   console.log(`Generated privacy-safe GitHub and WakaTime progress assets through ${stats.period.end}.`);
 }

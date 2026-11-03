@@ -1,12 +1,15 @@
 {
   "name": "founder-progress-tracker",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "scripts": {
     "generate": "node scripts/generate-progress.mjs",
+    "collect": "node scripts/collect-t3.mjs",
+    "sync:tasks": "bash scripts/sync-t3.sh",
+    "install:collector": "bash scripts/install-t3-collector.sh",
     "test": "node --test",
-    "check": "npm test && node --check scripts/generate-progress.mjs"
+    "check": "npm test && node --check scripts/generate-progress.mjs && node --check scripts/collect-t3.mjs"
   },
   "dependencies": {
     "sharp": "0.35.3"

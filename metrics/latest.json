@@ -160,16 +160,16 @@
   "privacy": "Aggregate metrics only; private repository identities are not published.",
   "focus": {
     "source": "WakaTime",
-    "connected": true,
-    "trackedSince": "2026-07-15",
+    "connected": false,
+    "trackedSince": "2026-08-12",
     "todaySeconds": null,
-    "last7Seconds": 65692,
-    "last30Seconds": 139522,
-    "lifetimeSeconds": 98397,
-    "activeDays30": 21,
-    "activeDaysLifetime": 25,
-    "averageSecondsPerActiveDay30": 6644,
-    "commitsPerFocusHour30": 0.7,
+    "last7Seconds": null,
+    "last30Seconds": null,
+    "lifetimeSeconds": 0,
+    "activeDays30": 0,
+    "activeDaysLifetime": 0,
+    "averageSecondsPerActiveDay30": 0,
+    "commitsPerFocusHour30": null,
     "privacy": "Dates and aggregate active coding seconds only; no project, repository, file, language, branch, editor, or machine identities are stored."
   }
 }

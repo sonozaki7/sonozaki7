@@ -15,6 +15,15 @@ I build, launch, measure, and iterate on AI products at founder speed.
 
 </div>
 
+## Finished tasks · powered by T3 Code
+
+<picture>
+  <source media="(max-width: 800px)" srcset="./assets/founder-tasks-mobile.svg" />
+  <img src="./assets/founder-tasks.svg" alt="Exact counts of settled T3 Code task threads and completed agent runs per day, week, month, and hour of day" width="100%" />
+</picture>
+
+<sub>Settled task threads and completed agent runs, counted by day, week, month, and hour · task titles, prompts, and project names stay private · updates hourly while the machine is awake</sub>
+
 ## Focus & leverage · powered by WakaTime
 
 <picture>
@@ -132,7 +141,10 @@ The workflow also refreshes a social-ready [`founder-progress.png`](./assets/fou
 <details>
 <summary>How this tracker works</summary>
 
-The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, plus aggregate active coding seconds from WakaTime. It then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), [`history.json`](./metrics/history.json), and [`focus.json`](./metrics/focus.json). Private activity is included only in aggregate. Repository names, project names, file paths, branch names, commit messages, source code, editor or machine identities, and secrets are never written into the generated files or retained in tracker history.
+The tracker runs from this repository with a daily GitHub Action. It reads GitHub contribution totals and commit diff statistics, plus aggregate active coding seconds from WakaTime. It then produces the profile graphics and machine-readable [`latest.json`](./metrics/latest.json), [`cadence.json`](./metrics/cadence.json), [`history.json`](./metrics/history.json), [`focus.json`](./metrics/focus.json), and [`t3-summary.json`](./metrics/t3-summary.json). Private activity is included only in aggregate. Repository names, project names, file paths, branch names, commit messages, source code, editor or machine identities, and secrets are never written into the generated files or retained in tracker history.
+
+Finished-task counts come from T3 Code's own settled-thread history, which lives only on the machine that runs it. A small local collector reads that database every 30 minutes, reduces it to per-day counts, provider names, and local hour buckets, and publishes only the aggregate ledger as [`t3-tasks.json`](./metrics/t3-tasks.json). The GitHub Action renders the card from that committed ledger, so the public record survives reinstalls and database resets.
+
 
 The public tracker emphasizes shipping consistency, unique commits, active-product breadth, and focused code movement. It deduplicates identical commits and filters individual 100k+ line imports or generated snapshots from line totals so a handful of bulk operations cannot dominate years of ordinary work. Those commits still count as commits.
 
