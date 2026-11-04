@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-05",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-06",
-    "end": "2026-11-04"
+    "start": "2026-10-07",
+    "end": "2026-11-05"
   },
   "contributions": {
-    "today": 7,
-    "last7Days": 46,
-    "last30Days": 61,
-    "previous30Days": 109,
-    "momentumPercent": -44,
-    "activeDays": 7,
-    "currentStreak": 3,
+    "today": 0,
+    "last7Days": 41,
+    "last30Days": 55,
+    "previous30Days": 96,
+    "momentumPercent": -43,
+    "activeDays": 6,
+    "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-06",
-        "count": 6
-      },
       {
         "date": "2026-10-07",
         "count": 0
@@ -134,19 +130,23 @@
       {
         "date": "2026-11-04",
         "count": 7
+      },
+      {
+        "date": "2026-11-05",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 40464,
-    "deletions": 15058,
-    "changed": 55522,
-    "net": 25406,
-    "commitsAnalyzed": 29,
-    "averageChangedPerCommit": 1915,
-    "buildDays": 7,
-    "commitsPerBuildDay": 4.1,
-    "activeProducts": 3,
+    "additions": 32444,
+    "deletions": 13447,
+    "changed": 45891,
+    "net": 18997,
+    "commitsAnalyzed": 25,
+    "averageChangedPerCommit": 1836,
+    "buildDays": 6,
+    "commitsPerBuildDay": 4.2,
+    "activeProducts": 2,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
     "repositoriesAnalyzed": 145,
@@ -162,34 +162,34 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 8911,
-    "last7Seconds": 87586,
-    "last30Seconds": 206147,
+    "todaySeconds": 0,
+    "last7Seconds": 77014,
+    "last30Seconds": 200578,
     "lifetimeSeconds": 264296,
-    "activeDays30": 24,
+    "activeDays30": 23,
     "activeDaysLifetime": 37,
-    "averageSecondsPerActiveDay30": 8589,
-    "commitsPerFocusHour30": 0.5,
+    "averageSecondsPerActiveDay30": 8721,
+    "commitsPerFocusHour30": 0.4,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
       "today": {
-        "sessions": 13,
-        "lines": 160,
-        "inputTokens": 3934604,
-        "outputTokens": 424986
+        "sessions": 0,
+        "lines": 0,
+        "inputTokens": 0,
+        "outputTokens": 0
       },
       "last7": {
-        "sessions": 83,
-        "lines": 19611,
-        "inputTokens": 27199120,
-        "outputTokens": 5705038
+        "sessions": 75,
+        "lines": 18997,
+        "inputTokens": 24346550,
+        "outputTokens": 5418353
       },
       "last30": {
-        "sessions": 187,
-        "lines": 38881,
-        "inputTokens": 77544121,
-        "outputTokens": 15087855
+        "sessions": 180,
+        "lines": 35636,
+        "inputTokens": 55583935,
+        "outputTokens": 13684756
       }
     }
   }
