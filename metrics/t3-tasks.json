@@ -144,11 +144,11 @@
       ]
     },
     "2026-11-01": {
-      "tasks": 6,
+      "tasks": 10,
       "runs": 42,
       "providers": {
         "codex": 4,
-        "opencode": 2
+        "opencode": 6
       },
       "runProviders": {
         "codex": 15,
@@ -177,7 +177,7 @@
         1,
         0,
         2,
-        1,
+        5,
         0
       ]
     },
