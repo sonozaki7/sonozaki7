@@ -254,12 +254,12 @@
     },
     "2026-11-04": {
       "tasks": 2,
-      "runs": 15,
+      "runs": 17,
       "providers": {
         "opencode": 2
       },
       "runProviders": {
-        "codex": 4,
+        "codex": 6,
         "opencode": 11
       },
       "hours": [
