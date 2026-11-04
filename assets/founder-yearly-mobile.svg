@@ -16,9 +16,9 @@
   <text x="20" y="44" class="mc-eyebrow">YEARLY PROGRESS LEDGER</text>
   <text x="20" y="76" class="mc-title">Yearly detail</text>
   <text x="20" y="96" class="mc-subtitle">Every period · exact aggregate values</text>
-  <g transform="translate(20 124)"><text class="mc-total">2,622</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
+  <g transform="translate(20 124)"><text class="mc-total">2,623</text><text y="18" class="mc-total-label">CONTRIBUTIONS</text></g>
   <g transform="translate(132 124)"><text class="mc-total">2,435</text><text y="18" class="mc-total-label">UNIQUE COMMITS</text></g>
-  <g transform="translate(244 124)"><text class="mc-total">71.9h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
+  <g transform="translate(244 124)"><text class="mc-total">72.4h</text><text y="18" class="mc-total-label">FOCUS TIME</text></g>
   <g>
       <rect x="20" y="194" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="219" class="mc-period">2018</text>
@@ -111,8 +111,8 @@
       <rect x="20" y="946" width="335" height="84" rx="5" fill="#FAFBFC" stroke="#DCE3E7"/>
       <text x="32" y="971" class="mc-period">2026</text>
       <text x="32" y="991" class="mc-range">2026-01-01 → 2026-11-04</text>
-      <text x="32" y="1014" class="mc-range">146 contribution days · 71.9h focus</text>
-      <g transform="translate(126 967)"><text class="mc-value">1,544</text><text y="17" class="mc-label">CONTRIB</text></g>
+      <text x="32" y="1014" class="mc-range">146 contribution days · 72.4h focus</text>
+      <g transform="translate(126 967)"><text class="mc-value">1,545</text><text y="17" class="mc-label">CONTRIB</text></g>
       <g transform="translate(202 967)"><text class="mc-value">1,425</text><text y="17" class="mc-label">COMMITS</text></g>
       <g transform="translate(278 967)"><text class="mc-value">138</text><text y="17" class="mc-label">BUILD DAYS</text></g>
       <g transform="translate(126 1006)"><text class="mc-value">2,235,243</text><text y="17" class="mc-label">FOCUSED</text></g>
