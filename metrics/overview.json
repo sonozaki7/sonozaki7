@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-05",
+  "generatedAt": "2026-11-06",
   "timezone": "Asia/Bangkok",
   "monthLabel": "November 2026",
   "ai": {
     "connected": true,
-    "last30Seconds": 200578,
+    "last30Seconds": 199671,
     "lifetimeSeconds": 264296,
-    "activeDays": 23,
-    "averageSeconds": 8721,
+    "activeDays": 22,
+    "averageSeconds": 9076,
     "trackedSince": "2026-07-15",
     "sinceLabel": "July 2026"
   },
@@ -23,10 +23,6 @@
     "buildDays": 6
   },
   "strip": [
-    {
-      "date": "2026-10-07",
-      "seconds": 907
-    },
     {
       "date": "2026-10-08",
       "seconds": 381
@@ -141,6 +137,10 @@
     },
     {
       "date": "2026-11-05",
+      "seconds": 0
+    },
+    {
+      "date": "2026-11-06",
       "seconds": 0
     }
   ]

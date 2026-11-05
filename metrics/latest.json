@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-05",
+  "generatedAt": "2026-11-06",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-07",
-    "end": "2026-11-05"
+    "start": "2026-10-08",
+    "end": "2026-11-06"
   },
   "contributions": {
     "today": 0,
     "last7Days": 41,
     "last30Days": 55,
-    "previous30Days": 96,
-    "momentumPercent": -43,
+    "previous30Days": 92,
+    "momentumPercent": -40,
     "activeDays": 6,
     "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-07",
-        "count": 0
-      },
       {
         "date": "2026-10-08",
         "count": 0
@@ -134,6 +130,10 @@
       {
         "date": "2026-11-05",
         "count": 0
+      },
+      {
+        "date": "2026-11-06",
+        "count": 0
       }
     ]
   },
@@ -163,13 +163,13 @@
     "connected": true,
     "trackedSince": "2026-07-15",
     "todaySeconds": 0,
-    "last7Seconds": 77014,
-    "last30Seconds": 200578,
+    "last7Seconds": 72301,
+    "last30Seconds": 199671,
     "lifetimeSeconds": 264296,
-    "activeDays30": 23,
+    "activeDays30": 22,
     "activeDaysLifetime": 37,
-    "averageSecondsPerActiveDay30": 8721,
-    "commitsPerFocusHour30": 0.4,
+    "averageSecondsPerActiveDay30": 9076,
+    "commitsPerFocusHour30": 0.5,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
@@ -180,16 +180,16 @@
         "outputTokens": 0
       },
       "last7": {
-        "sessions": 75,
+        "sessions": 73,
         "lines": 18997,
-        "inputTokens": 24346550,
-        "outputTokens": 5418353
+        "inputTokens": 23899448,
+        "outputTokens": 5313707
       },
       "last30": {
-        "sessions": 180,
+        "sessions": 177,
         "lines": 35636,
-        "inputTokens": 55583935,
-        "outputTokens": 13684756
+        "inputTokens": 55178021,
+        "outputTokens": 13674445
       }
     }
   }
