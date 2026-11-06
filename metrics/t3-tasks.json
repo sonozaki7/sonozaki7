@@ -291,10 +291,10 @@
     },
     "2026-11-06": {
       "tasks": 0,
-      "runs": 4,
+      "runs": 6,
       "providers": {},
       "runProviders": {
-        "codex": 4
+        "codex": 6
       },
       "hours": [
         0,
