@@ -7,13 +7,13 @@
   "trackedSince": "2026-07-15",
   "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
-    "todaySeconds": 0,
-    "last7Seconds": 72301,
-    "last30Seconds": 199671,
-    "lifetimeSeconds": 264296,
-    "activeDays30": 22,
-    "activeDaysLifetime": 37,
-    "averageSecondsPerActiveDay30": 9076,
+    "todaySeconds": 23,
+    "last7Seconds": 72493,
+    "last30Seconds": 199863,
+    "lifetimeSeconds": 264488,
+    "activeDays30": 23,
+    "activeDaysLifetime": 38,
+    "averageSecondsPerActiveDay30": 8690,
     "commitsPerFocusHour30": 0.5
   },
   "daily": [
@@ -121,7 +121,7 @@
       "label": "11-04",
       "start": "2026-11-04",
       "end": "2026-11-04",
-      "seconds": 8911,
+      "seconds": 9080,
       "activeDays": 1,
       "coverageDays": 1
     },
@@ -139,8 +139,8 @@
       "label": "11-06",
       "start": "2026-11-06",
       "end": "2026-11-06",
-      "seconds": 0,
-      "activeDays": 0,
+      "seconds": 23,
+      "activeDays": 1,
       "coverageDays": 1
     }
   ],
@@ -249,8 +249,8 @@
       "label": "11-02",
       "start": "2026-11-02",
       "end": "2026-11-06",
-      "seconds": 53298,
-      "activeDays": 3,
+      "seconds": 53490,
+      "activeDays": 4,
       "coverageDays": 5
     }
   ],
@@ -359,8 +359,8 @@
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-06",
-      "seconds": 71467,
-      "activeDays": 4,
+      "seconds": 71659,
+      "activeDays": 5,
       "coverageDays": 6
     }
   ],
@@ -370,8 +370,8 @@
       "label": "2026",
       "start": "2026-01-01",
       "end": "2026-11-06",
-      "seconds": 264296,
-      "activeDays": 37,
+      "seconds": 264488,
+      "activeDays": 38,
       "coverageDays": 116
     }
   ],
@@ -830,7 +830,7 @@
     },
     {
       "date": "2026-11-04",
-      "seconds": 8911
+      "seconds": 9080
     },
     {
       "date": "2026-11-05",
@@ -838,28 +838,28 @@
     },
     {
       "date": "2026-11-06",
-      "seconds": 0
+      "seconds": 23
     }
   ],
   "ai": {
     "coverageDays": 30,
     "today": {
-      "sessions": 0,
+      "sessions": 3,
       "lines": 0,
-      "inputTokens": 0,
-      "outputTokens": 0
+      "inputTokens": 635018,
+      "outputTokens": 1197
     },
     "last7": {
-      "sessions": 73,
+      "sessions": 78,
       "lines": 18997,
-      "inputTokens": 23899448,
-      "outputTokens": 5313707
+      "inputTokens": 24849365,
+      "outputTokens": 5318861
     },
     "last30": {
-      "sessions": 177,
+      "sessions": 182,
       "lines": 35636,
-      "inputTokens": 55178021,
-      "outputTokens": 13674445
+      "inputTokens": 56127938,
+      "outputTokens": 13679599
     }
   }
 }
