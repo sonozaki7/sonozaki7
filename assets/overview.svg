@@ -16,11 +16,11 @@
   <rect x="28" y="24" width="1144" height="2" fill="#355F78"/>
   <text x="52" y="66" class="ov-eyebrow">AI ENGINEER · NOVEMBER 2026</text>
   <text x="52" y="112" class="ov-title">Building AI products, in public</text>
-  <text x="52" y="140" class="ov-subtitle">Last 30 days · 78.1h recorded since July 2026 · Asia/Bangkok</text>
+  <text x="52" y="140" class="ov-subtitle">Last 30 days · 78.2h recorded since July 2026 · Asia/Bangkok</text>
   <g transform="translate(52 182)"><text class="ov-label">AI HOURS / 30 DAYS</text><text y="48" class="ov-value">60.2h</text><text y="70" class="ov-note">23 active days</text></g>
-  <g transform="translate(330 182)"><text class="ov-label">TASKS FINISHED / 30 DAYS</text><text y="48" class="ov-value">35</text><text y="70" class="ov-note">176 agent runs</text></g>
+  <g transform="translate(330 182)"><text class="ov-label">TASKS FINISHED / 30 DAYS</text><text y="48" class="ov-value">36</text><text y="70" class="ov-note">178 agent runs</text></g>
   <g transform="translate(608 182)"><text class="ov-label">ACTIVE DAYS / 30</text><text y="48" class="ov-value">23</text><text y="70" class="ov-note">2.6h avg / active day</text></g>
-  <g transform="translate(886 182)"><text class="ov-label">GITHUB CONTRIBUTIONS / 30</text><text y="48" class="ov-value">74</text><text y="70" class="ov-note">28 commits</text></g>
+  <g transform="translate(886 182)"><text class="ov-label">GITHUB CONTRIBUTIONS / 30</text><text y="48" class="ov-value">75</text><text y="70" class="ov-note">28 commits</text></g>
   <line x1="52" y1="284" x2="1148" y2="284" stroke="#DCE3E7"/>
   <text x="52" y="300" class="ov-strip-label">30-DAY AI HOURS</text>
   <text x="1148" y="300" text-anchor="end" class="ov-strip-label">10-08 → 11-06</text>
