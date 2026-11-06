@@ -216,10 +216,10 @@
       ]
     },
     "2026-11-03": {
-      "tasks": 3,
+      "tasks": 6,
       "runs": 103,
       "providers": {
-        "opencode": 3
+        "opencode": 6
       },
       "runProviders": {
         "opencode": 90,
@@ -236,7 +236,7 @@
         0,
         0,
         0,
-        2,
+        5,
         0,
         1,
         0,
