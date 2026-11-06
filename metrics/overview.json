@@ -5,10 +5,10 @@
   "monthLabel": "November 2026",
   "ai": {
     "connected": true,
-    "last30Seconds": 230690,
-    "lifetimeSeconds": 295696,
-    "activeDays": 22,
-    "averageSeconds": 10486,
+    "last30Seconds": 231070,
+    "lifetimeSeconds": 296076,
+    "activeDays": 23,
+    "averageSeconds": 10047,
     "trackedSince": "2026-07-15",
     "sinceLabel": "July 2026"
   },
@@ -141,7 +141,7 @@
     },
     {
       "date": "2026-11-07",
-      "seconds": 0
+      "seconds": 380
     }
   ]
 }

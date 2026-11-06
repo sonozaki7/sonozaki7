@@ -252,7 +252,7 @@
       "changed": 0,
       "net": 0,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 0,
+      "focusSeconds": 380,
       "focusCoverageDays": 1
     }
   ],
@@ -470,7 +470,7 @@
       "changed": 28042,
       "net": 12670,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 73217,
+      "focusSeconds": 73597,
       "focusCoverageDays": 6
     }
   ],
@@ -688,7 +688,7 @@
       "changed": 30113,
       "net": 14511,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 91386,
+      "focusSeconds": 91766,
       "focusCoverageDays": 7
     }
   ],
@@ -852,7 +852,7 @@
       "changed": 2246328,
       "net": 1160764,
       "bulkCommitsExcluded": 0,
-      "focusSeconds": 295696,
+      "focusSeconds": 296076,
       "focusCoverageDays": 117
     }
   ]
