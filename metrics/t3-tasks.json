@@ -2,7 +2,7 @@
   "version": 1,
   "source": "T3 Code",
   "timezone": "Asia/Bangkok",
-  "generatedAt": "2026-11-09",
+  "generatedAt": "2026-11-10",
   "firstRecordedAt": "2026-10-27",
   "lastRecordedAt": "2026-11-09",
   "privacy": "Per-day task and agent-run counts with provider names and local hour buckets only; thread titles, prompts, project names, repository names, file paths, branches, and message content are never read or stored.",
