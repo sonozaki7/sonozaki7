@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11",
+  "generatedAt": "2026-11-12",
   "timezone": "Asia/Bangkok",
   "source": "T3 Code",
   "connected": true,
@@ -11,7 +11,7 @@
     "last7Tasks": 1,
     "last30Tasks": 43,
     "lifetimeTasks": 43,
-    "todayRuns": 1,
+    "todayRuns": 0,
     "last7Runs": 59,
     "last30Runs": 224,
     "lifetimeRuns": 224,
@@ -61,15 +61,6 @@
     ]
   },
   "daily": [
-    {
-      "key": "2026-10-29",
-      "label": "10-29",
-      "start": "2026-10-29",
-      "end": "2026-10-29",
-      "tasks": 1,
-      "runs": 0,
-      "activeDays": 1
-    },
     {
       "key": "2026-10-30",
       "label": "10-30",
@@ -186,6 +177,15 @@
       "tasks": 0,
       "runs": 1,
       "activeDays": 0
+    },
+    {
+      "key": "2026-11-12",
+      "label": "11-12",
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "tasks": 0,
+      "runs": 0,
+      "activeDays": 0
     }
   ],
   "weekly": [
@@ -292,7 +292,7 @@
       "key": "2026-11-09",
       "label": "11-09",
       "start": "2026-11-09",
-      "end": "2026-11-11",
+      "end": "2026-11-12",
       "tasks": 1,
       "runs": 37,
       "activeDays": 1
@@ -402,7 +402,7 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-11",
+      "end": "2026-11-12",
       "tasks": 36,
       "runs": 224,
       "activeDays": 4
