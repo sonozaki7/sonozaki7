@@ -16,10 +16,10 @@
   <text x="52" y="64" class="t3-eyebrow">TASK THROUGHPUT · T3 CODE</text>
   <text x="52" y="106" class="t3-title">Finished work, counted</text>
   <text x="52" y="134" class="t3-subtitle">Settled task threads · Tracking since 2026-10-27 · Asia/Bangkok · Best day 11-01 · 16 tasks</text>
-  <g transform="translate(52 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">TODAY</text><text x="20" y="61" class="t3-value">0</text><text x="20" y="81" class="t3-note">0 agent runs</text></g>
-  <g transform="translate(330 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 7 DAYS</text><text x="20" y="61" class="t3-value">1</text><text x="20" y="81" class="t3-note">59 agent runs</text></g>
+  <g transform="translate(52 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">TODAY</text><text x="20" y="61" class="t3-value">0</text><text x="20" y="81" class="t3-note">1 agent runs</text></g>
+  <g transform="translate(330 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 7 DAYS</text><text x="20" y="61" class="t3-value">1</text><text x="20" y="81" class="t3-note">60 agent runs</text></g>
   <g transform="translate(608 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 30 DAYS</text><text x="20" y="61" class="t3-value">43</text><text x="20" y="81" class="t3-note">5.4 tasks / active day</text></g>
-  <g transform="translate(886 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LIFETIME</text><text x="20" y="61" class="t3-value">43</text><text x="20" y="81" class="t3-note">224 runs · 8 active days</text></g>
+  <g transform="translate(886 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LIFETIME</text><text x="20" y="61" class="t3-value">43</text><text x="20" y="81" class="t3-note">225 runs · 8 active days</text></g>
   <g>
     <rect x="52" y="286" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="72" y="314" class="t3-label">DAILY · LAST 14 DAYS</text>
