@@ -162,34 +162,34 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 8350,
-    "last7Seconds": 41821,
-    "last30Seconds": 251717,
-    "lifetimeSeconds": 317767,
+    "todaySeconds": 10181,
+    "last7Seconds": 43652,
+    "last30Seconds": 253548,
+    "lifetimeSeconds": 319598,
     "activeDays30": 24,
     "activeDaysLifetime": 43,
-    "averageSecondsPerActiveDay30": 10488,
+    "averageSecondsPerActiveDay30": 10565,
     "commitsPerFocusHour30": 0.4,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
       "today": {
         "sessions": 6,
-        "lines": 961,
-        "inputTokens": 2021829,
-        "outputTokens": 407485
+        "lines": 1435,
+        "inputTokens": 2100797,
+        "outputTokens": 468669
       },
       "last7": {
         "sessions": 41,
-        "lines": 3551,
-        "inputTokens": 12175700,
-        "outputTokens": 1726017
+        "lines": 4025,
+        "inputTokens": 12254668,
+        "outputTokens": 1787201
       },
       "last30": {
         "sessions": 215,
-        "lines": 39040,
-        "inputTokens": 69175043,
-        "outputTokens": 15234875
+        "lines": 39514,
+        "inputTokens": 69254011,
+        "outputTokens": 15296059
       }
     }
   }
