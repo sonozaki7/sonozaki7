@@ -433,10 +433,10 @@
     },
     "2026-11-12": {
       "tasks": 0,
-      "runs": 16,
+      "runs": 24,
       "providers": {},
       "runProviders": {
-        "opencode": 16
+        "opencode": 24
       },
       "hours": [
         0,
