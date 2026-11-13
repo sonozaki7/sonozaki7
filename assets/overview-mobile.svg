@@ -21,7 +21,7 @@
   <g transform="translate(191 178)"><text class="ovm-label">TASKS / 30 DAYS</text><text y="38" class="ovm-value">48</text><text y="56" class="ovm-note">351 agent runs</text></g>
   <line x1="20" y1="252" x2="355" y2="252" stroke="#DCE3E7"/>
   <g transform="translate(20 282)"><text class="ovm-label">ACTIVE DAYS / 30</text><text y="38" class="ovm-value">24</text><text y="56" class="ovm-note">3.3h avg / day</text></g>
-  <g transform="translate(191 282)"><text class="ovm-label">CONTRIBUTIONS / 30</text><text y="38" class="ovm-value">125</text><text y="56" class="ovm-note">30 commits</text></g>
+  <g transform="translate(191 282)"><text class="ovm-label">CONTRIBUTIONS / 30</text><text y="38" class="ovm-value">126</text><text y="56" class="ovm-note">30 commits</text></g>
   <line x1="20" y1="362" x2="355" y2="362" stroke="#DCE3E7"/>
   <text x="20" y="390" class="ovm-label">30-DAY AI HOURS</text>
   <text x="355" y="390" text-anchor="end" class="ovm-label">10-16 → 11-14</text>
