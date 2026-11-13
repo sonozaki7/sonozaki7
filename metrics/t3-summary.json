@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-13",
+  "generatedAt": "2026-11-14",
   "timezone": "Asia/Bangkok",
   "source": "T3 Code",
   "connected": true,
@@ -8,17 +8,17 @@
   "privacy": "Per-day task and agent-run counts with provider names and local hour buckets only; thread titles, prompts, project names, repository names, file paths, branches, and message content are never read or stored.",
   "summary": {
     "todayTasks": 1,
-    "last7Tasks": 5,
-    "last30Tasks": 47,
-    "lifetimeTasks": 47,
-    "todayRuns": 63,
-    "last7Runs": 157,
-    "last30Runs": 343,
-    "lifetimeRuns": 343,
-    "activeDays": 9,
-    "activeDays30": 9,
-    "currentStreak": 1,
-    "averagePerActiveDay30": 5.2,
+    "last7Tasks": 6,
+    "last30Tasks": 48,
+    "lifetimeTasks": 48,
+    "todayRuns": 1,
+    "last7Runs": 161,
+    "last30Runs": 348,
+    "lifetimeRuns": 348,
+    "activeDays": 10,
+    "activeDays30": 10,
+    "currentStreak": 2,
+    "averagePerActiveDay30": 4.8,
     "bestDay": {
       "date": "2026-11-01",
       "tasks": 16
@@ -26,7 +26,7 @@
     "providers": [
       {
         "name": "opencode",
-        "count": 24
+        "count": 25
       },
       {
         "name": "codex",
@@ -34,7 +34,7 @@
       }
     ],
     "hourTotals": [
-      0,
+      1,
       0,
       0,
       0,
@@ -61,15 +61,6 @@
     ]
   },
   "daily": [
-    {
-      "key": "2026-10-31",
-      "label": "10-31",
-      "start": "2026-10-31",
-      "end": "2026-10-31",
-      "tasks": 0,
-      "runs": 0,
-      "activeDays": 0
-    },
     {
       "key": "2026-11-01",
       "label": "11-01",
@@ -184,7 +175,16 @@
       "start": "2026-11-13",
       "end": "2026-11-13",
       "tasks": 1,
-      "runs": 63,
+      "runs": 67,
+      "activeDays": 1
+    },
+    {
+      "key": "2026-11-14",
+      "label": "11-14",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "tasks": 1,
+      "runs": 1,
       "activeDays": 1
     }
   ],
@@ -292,10 +292,10 @@
       "key": "2026-11-09",
       "label": "11-09",
       "start": "2026-11-09",
-      "end": "2026-11-13",
-      "tasks": 5,
-      "runs": 156,
-      "activeDays": 2
+      "end": "2026-11-14",
+      "tasks": 6,
+      "runs": 161,
+      "activeDays": 3
     }
   ],
   "monthly": [
@@ -402,10 +402,10 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-13",
-      "tasks": 40,
-      "runs": 343,
-      "activeDays": 5
+      "end": "2026-11-14",
+      "tasks": 41,
+      "runs": 348,
+      "activeDays": 6
     }
   ]
 }
