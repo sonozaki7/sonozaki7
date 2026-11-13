@@ -466,13 +466,13 @@
       ]
     },
     "2026-11-13": {
-      "tasks": 2,
-      "runs": 58,
+      "tasks": 1,
+      "runs": 63,
       "providers": {
-        "opencode": 2
+        "opencode": 1
       },
       "runProviders": {
-        "opencode": 58
+        "opencode": 63
       },
       "hours": [
         0,
@@ -497,7 +497,7 @@
         0,
         0,
         0,
-        2,
+        1,
         0
       ]
     }
