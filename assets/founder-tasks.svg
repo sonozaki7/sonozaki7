@@ -16,14 +16,14 @@
   <text x="52" y="64" class="t3-eyebrow">TASK THROUGHPUT · T3 CODE</text>
   <text x="52" y="106" class="t3-title">Finished work, counted</text>
   <text x="52" y="134" class="t3-subtitle">Settled task threads · Tracking since 2026-10-27 · Asia/Bangkok · Best day 11-01 · 16 tasks</text>
-  <g transform="translate(52 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">TODAY</text><text x="20" y="61" class="t3-value">2</text><text x="20" y="81" class="t3-note">10 agent runs</text></g>
-  <g transform="translate(330 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 7 DAYS</text><text x="20" y="61" class="t3-value">7</text><text x="20" y="81" class="t3-note">170 agent runs</text></g>
-  <g transform="translate(608 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 30 DAYS</text><text x="20" y="61" class="t3-value">49</text><text x="20" y="81" class="t3-note">4.9 tasks / active day</text></g>
-  <g transform="translate(886 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LIFETIME</text><text x="20" y="61" class="t3-value">49</text><text x="20" y="81" class="t3-note">357 runs · 10 active days</text></g>
+  <g transform="translate(52 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">TODAY</text><text x="20" y="61" class="t3-value">3</text><text x="20" y="81" class="t3-note">12 agent runs</text></g>
+  <g transform="translate(330 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 7 DAYS</text><text x="20" y="61" class="t3-value">8</text><text x="20" y="81" class="t3-note">172 agent runs</text></g>
+  <g transform="translate(608 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LAST 30 DAYS</text><text x="20" y="61" class="t3-value">50</text><text x="20" y="81" class="t3-note">5 tasks / active day</text></g>
+  <g transform="translate(886 162)"><rect width="262" height="96" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/><text x="20" y="27" class="t3-label">LIFETIME</text><text x="20" y="61" class="t3-value">50</text><text x="20" y="81" class="t3-note">359 runs · 10 active days</text></g>
   <g>
     <rect x="52" y="286" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="72" y="314" class="t3-label">DAILY · LAST 14 DAYS</text>
-    <text x="570" y="314" text-anchor="end" class="t3-total">42</text>
+    <text x="570" y="314" text-anchor="end" class="t3-total">43</text>
     <line x1="74" y1="488" x2="568" y2="488" stroke="#DCE3E7"/>
     <g>
       <rect x="81.4" y="340.0" width="20.5" height="148.0" rx="2" fill="#355F78"><title>2026-11-01: 16 tasks</title></rect>
@@ -78,15 +78,15 @@
       <text x="515.1" y="472.8" text-anchor="middle" class="t3-bar-value">1</text>
       <text x="515.1" y="508" text-anchor="middle" class="t3-axis">11-13</text>
     </g><g>
-      <rect x="540.1" y="469.5" width="20.5" height="18.5" rx="2" fill="#355F78"><title>2026-11-14: 2 tasks</title></rect>
-      <text x="550.4" y="463.5" text-anchor="middle" class="t3-bar-value">2</text>
+      <rect x="540.1" y="460.3" width="20.5" height="27.8" rx="2" fill="#355F78"><title>2026-11-14: 3 tasks</title></rect>
+      <text x="550.4" y="454.3" text-anchor="middle" class="t3-bar-value">3</text>
       <text x="550.4" y="508" text-anchor="middle" class="t3-axis">11-14</text>
     </g>
   </g>
   <g>
     <rect x="610" y="286" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="630" y="314" class="t3-label">WEEKLY · LAST 12 WEEKS</text>
-    <text x="1128" y="314" text-anchor="end" class="t3-total">49</text>
+    <text x="1128" y="314" text-anchor="end" class="t3-total">50</text>
     <line x1="632" y1="488" x2="1126" y2="488" stroke="#DCE3E7"/>
     <g>
       <rect x="640.6" y="488.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2026-08-24 to 2026-08-30: 0 tasks</title></rect>
@@ -133,15 +133,15 @@
       <text x="1064.2" y="359.7" text-anchor="middle" class="t3-bar-value">19</text>
       
     </g><g>
-      <rect x="1093.5" y="443.0" width="23.9" height="45.0" rx="2" fill="#355F78"><title>2026-11-09 to 2026-11-14: 7 tasks</title></rect>
-      <text x="1105.4" y="437.0" text-anchor="middle" class="t3-bar-value">7</text>
+      <rect x="1093.5" y="436.5" width="23.9" height="51.5" rx="2" fill="#355F78"><title>2026-11-09 to 2026-11-14: 8 tasks</title></rect>
+      <text x="1105.4" y="430.5" text-anchor="middle" class="t3-bar-value">8</text>
       <text x="1105.4" y="508" text-anchor="middle" class="t3-axis">11-09</text>
     </g>
   </g>
   <g>
     <rect x="52" y="544" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="72" y="572" class="t3-label">MONTHLY · LAST 12 MONTHS</text>
-    <text x="570" y="572" text-anchor="end" class="t3-total">49</text>
+    <text x="570" y="572" text-anchor="end" class="t3-total">50</text>
     <line x1="74" y1="746" x2="568" y2="746" stroke="#DCE3E7"/>
     <g>
       <rect x="82.6" y="746.0" width="23.9" height="0.0" rx="2" fill="#355F78"><title>2025-12-01 to 2025-12-31: 0 tasks</title></rect>
@@ -184,19 +184,19 @@
       
       <text x="465.1" y="766" text-anchor="middle" class="t3-axis">26-09</text>
     </g><g>
-      <rect x="494.3" y="721.3" width="23.9" height="24.7" rx="2" fill="#355F78"><title>2026-10-01 to 2026-10-31: 7 tasks</title></rect>
-      <text x="506.2" y="715.3" text-anchor="middle" class="t3-bar-value">7</text>
+      <rect x="494.3" y="721.9" width="23.9" height="24.1" rx="2" fill="#355F78"><title>2026-10-01 to 2026-10-31: 7 tasks</title></rect>
+      <text x="506.2" y="715.9" text-anchor="middle" class="t3-bar-value">7</text>
       
     </g><g>
-      <rect x="535.5" y="598.0" width="23.9" height="148.0" rx="2" fill="#355F78"><title>2026-11-01 to 2026-11-14: 42 tasks</title></rect>
-      <text x="547.4" y="592.0" text-anchor="middle" class="t3-bar-value">42</text>
+      <rect x="535.5" y="598.0" width="23.9" height="148.0" rx="2" fill="#355F78"><title>2026-11-01 to 2026-11-14: 43 tasks</title></rect>
+      <text x="547.4" y="592.0" text-anchor="middle" class="t3-bar-value">43</text>
       <text x="547.4" y="766" text-anchor="middle" class="t3-axis">26-11</text>
     </g>
   </g>
   <g>
     <rect x="610" y="544" width="538" height="238" rx="6" fill="#FAFBFC" stroke="#DCE3E7"/>
     <text x="630" y="572" class="t3-label">BY HOUR · WHEN TASKS LAND</text>
-    <text x="1128" y="572" text-anchor="end" class="t3-total">49</text>
+    <text x="1128" y="572" text-anchor="end" class="t3-total">50</text>
     <line x1="632" y1="746" x2="1126" y2="746" stroke="#DCE3E7"/>
     <g>
       <rect x="636.3" y="733.7" width="11.9" height="12.3" rx="2" fill="#355F78"><title>00:00 to 00:59: 1 value</title></rect>
@@ -243,7 +243,7 @@
       
       
     </g><g>
-      <rect x="862.7" y="709.0" width="11.9" height="37.0" rx="2" fill="#355F78"><title>11:00 to 11:59: 3 value</title></rect>
+      <rect x="862.7" y="696.7" width="11.9" height="49.3" rx="2" fill="#355F78"><title>11:00 to 11:59: 4 value</title></rect>
       
       
     </g><g>
@@ -296,6 +296,6 @@
       <text x="1115.7" y="766" text-anchor="middle" class="t3-axis">23</text>
     </g>
   </g>
-  <text x="52" y="822" class="t3-footer">Provider split · OpenCode 26 · Codex 23</text>
+  <text x="52" y="822" class="t3-footer">Provider split · OpenCode 27 · Codex 23</text>
   <text x="1148" y="822" text-anchor="end" class="t3-footer">Counts only · no task titles, prompts, projects, repositories, branches, or paths</text>
 </svg>

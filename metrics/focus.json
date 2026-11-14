@@ -7,13 +7,13 @@
   "trackedSince": "2026-07-15",
   "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
-    "todaySeconds": 6332,
-    "last7Seconds": 56990,
-    "last30Seconds": 284961,
-    "lifetimeSeconds": 355475,
+    "todaySeconds": 7533,
+    "last7Seconds": 58191,
+    "last30Seconds": 286162,
+    "lifetimeSeconds": 356676,
     "activeDays30": 24,
     "activeDaysLifetime": 45,
-    "averageSecondsPerActiveDay30": 11873,
+    "averageSecondsPerActiveDay30": 11923,
     "commitsPerFocusHour30": 0.4
   },
   "daily": [
@@ -139,7 +139,7 @@
       "label": "11-14",
       "start": "2026-11-14",
       "end": "2026-11-14",
-      "seconds": 6332,
+      "seconds": 7533,
       "activeDays": 1,
       "coverageDays": 1
     }
@@ -249,7 +249,7 @@
       "label": "11-09",
       "start": "2026-11-09",
       "end": "2026-11-14",
-      "seconds": 56237,
+      "seconds": 57438,
       "activeDays": 5,
       "coverageDays": 6
     }
@@ -359,7 +359,7 @@
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-14",
-      "seconds": 151165,
+      "seconds": 152366,
       "activeDays": 12,
       "coverageDays": 14
     }
@@ -370,7 +370,7 @@
       "label": "2026",
       "start": "2026-01-01",
       "end": "2026-11-14",
-      "seconds": 355475,
+      "seconds": 356676,
       "activeDays": 45,
       "coverageDays": 124
     }
@@ -870,28 +870,28 @@
     },
     {
       "date": "2026-11-14",
-      "seconds": 6332
+      "seconds": 7533
     }
   ],
   "ai": {
     "coverageDays": 30,
     "today": {
-      "sessions": 7,
-      "lines": 1861,
-      "inputTokens": 515863,
-      "outputTokens": 242006
+      "sessions": 9,
+      "lines": 3255,
+      "inputTokens": 1294315,
+      "outputTokens": 392609
     },
     "last7": {
-      "sessions": 44,
-      "lines": 14831,
-      "inputTokens": 14331023,
-      "outputTokens": 3183491
+      "sessions": 46,
+      "lines": 16225,
+      "inputTokens": 15109475,
+      "outputTokens": 3334094
     },
     "last30": {
-      "sessions": 224,
-      "lines": 50339,
-      "inputTokens": 75177650,
-      "outputTokens": 17033842
+      "sessions": 226,
+      "lines": 51733,
+      "inputTokens": 75956102,
+      "outputTokens": 17184445
     }
   }
 }
