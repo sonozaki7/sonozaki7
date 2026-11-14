@@ -503,12 +503,12 @@
     },
     "2026-11-14": {
       "tasks": 3,
-      "runs": 17,
+      "runs": 20,
       "providers": {
         "opencode": 3
       },
       "runProviders": {
-        "opencode": 17
+        "opencode": 20
       },
       "hours": [
         1,
