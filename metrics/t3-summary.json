@@ -7,14 +7,14 @@
   "firstRecordedAt": "2026-10-27",
   "privacy": "Per-day task and agent-run counts with provider names and local hour buckets only; thread titles, prompts, project names, repository names, file paths, branches, and message content are never read or stored.",
   "summary": {
-    "todayTasks": 4,
+    "todayTasks": 5,
     "last7Tasks": 12,
     "last30Tasks": 54,
     "lifetimeTasks": 54,
-    "todayRuns": 21,
-    "last7Runs": 201,
-    "last30Runs": 388,
-    "lifetimeRuns": 388,
+    "todayRuns": 31,
+    "last7Runs": 211,
+    "last30Runs": 398,
+    "lifetimeRuns": 398,
     "activeDays": 11,
     "activeDays30": 11,
     "currentStreak": 3,
@@ -40,7 +40,7 @@
       0,
       0,
       0,
-      1,
+      0,
       0,
       0,
       3,
@@ -55,7 +55,7 @@
       0,
       2,
       4,
-      2,
+      3,
       8,
       4
     ]
@@ -174,7 +174,7 @@
       "label": "11-14",
       "start": "2026-11-14",
       "end": "2026-11-14",
-      "tasks": 3,
+      "tasks": 2,
       "runs": 20,
       "activeDays": 1
     },
@@ -183,8 +183,8 @@
       "label": "11-15",
       "start": "2026-11-15",
       "end": "2026-11-15",
-      "tasks": 4,
-      "runs": 21,
+      "tasks": 5,
+      "runs": 31,
       "activeDays": 1
     }
   ],
@@ -294,7 +294,7 @@
       "start": "2026-11-09",
       "end": "2026-11-15",
       "tasks": 12,
-      "runs": 201,
+      "runs": 211,
       "activeDays": 4
     }
   ],
@@ -404,7 +404,7 @@
       "start": "2026-11-01",
       "end": "2026-11-15",
       "tasks": 47,
-      "runs": 388,
+      "runs": 398,
       "activeDays": 7
     }
   ]
