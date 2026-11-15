@@ -538,11 +538,13 @@
       ]
     },
     "2026-11-15": {
-      "tasks": 0,
-      "runs": 11,
-      "providers": {},
+      "tasks": 4,
+      "runs": 18,
+      "providers": {
+        "opencode": 4
+      },
       "runProviders": {
-        "opencode": 11
+        "opencode": 18
       },
       "hours": [
         0,
@@ -565,7 +567,7 @@
         0,
         0,
         0,
-        0,
+        4,
         0,
         0,
         0
