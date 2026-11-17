@@ -609,10 +609,10 @@
     },
     "2026-11-17": {
       "tasks": 0,
-      "runs": 1,
+      "runs": 4,
       "providers": {},
       "runProviders": {
-        "opencode": 1
+        "opencode": 4
       },
       "hours": [
         0,
