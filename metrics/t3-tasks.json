@@ -609,12 +609,12 @@
     },
     "2026-11-17": {
       "tasks": 3,
-      "runs": 12,
+      "runs": 16,
       "providers": {
         "opencode": 3
       },
       "runProviders": {
-        "opencode": 12
+        "opencode": 16
       },
       "hours": [
         0,
