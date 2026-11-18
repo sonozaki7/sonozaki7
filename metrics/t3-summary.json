@@ -8,13 +8,13 @@
   "privacy": "Per-day task and agent-run counts with provider names and local hour buckets only; thread titles, prompts, project names, repository names, file paths, branches, and message content are never read or stored.",
   "summary": {
     "todayTasks": 0,
-    "last7Tasks": 12,
-    "last30Tasks": 58,
-    "lifetimeTasks": 58,
-    "todayRuns": 0,
-    "last7Runs": 251,
-    "last30Runs": 475,
-    "lifetimeRuns": 475,
+    "last7Tasks": 11,
+    "last30Tasks": 57,
+    "lifetimeTasks": 57,
+    "todayRuns": 3,
+    "last7Runs": 254,
+    "last30Runs": 478,
+    "lifetimeRuns": 478,
     "activeDays": 12,
     "activeDays30": 12,
     "currentStreak": 1,
@@ -26,7 +26,7 @@
     "providers": [
       {
         "name": "opencode",
-        "count": 35
+        "count": 34
       },
       {
         "name": "codex",
@@ -50,7 +50,7 @@
       2,
       2,
       6,
-      3,
+      2,
       0,
       0,
       2,
@@ -174,7 +174,7 @@
       "label": "11-17",
       "start": "2026-11-17",
       "end": "2026-11-17",
-      "tasks": 4,
+      "tasks": 3,
       "runs": 25,
       "activeDays": 1
     },
@@ -184,7 +184,7 @@
       "start": "2026-11-18",
       "end": "2026-11-18",
       "tasks": 0,
-      "runs": 0,
+      "runs": 3,
       "activeDays": 0
     }
   ],
@@ -293,8 +293,8 @@
       "label": "11-16",
       "start": "2026-11-16",
       "end": "2026-11-18",
-      "tasks": 4,
-      "runs": 40,
+      "tasks": 3,
+      "runs": 43,
       "activeDays": 1
     }
   ],
@@ -403,8 +403,8 @@
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-18",
-      "tasks": 51,
-      "runs": 475,
+      "tasks": 50,
+      "runs": 478,
       "activeDays": 8
     }
   ]
