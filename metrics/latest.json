@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-18",
+  "generatedAt": "2026-11-19",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-20",
-    "end": "2026-11-18"
+    "start": "2026-10-21",
+    "end": "2026-11-19"
   },
   "contributions": {
-    "today": 5,
-    "last7Days": 69,
-    "last30Days": 165,
-    "previous30Days": 11,
-    "momentumPercent": 1400,
-    "activeDays": 20,
-    "currentStreak": 17,
+    "today": 0,
+    "last7Days": 61,
+    "last30Days": 163,
+    "previous30Days": 13,
+    "momentumPercent": 1154,
+    "activeDays": 19,
+    "currentStreak": 0,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-20",
-        "count": 2
-      },
       {
         "date": "2026-10-21",
         "count": 0
@@ -134,18 +130,22 @@
       {
         "date": "2026-11-18",
         "count": 5
+      },
+      {
+        "date": "2026-11-19",
+        "count": 0
       }
     ]
   },
   "code": {
-    "additions": 42541,
-    "deletions": 14655,
-    "changed": 57196,
-    "net": 27886,
-    "commitsAnalyzed": 30,
-    "averageChangedPerCommit": 1907,
-    "buildDays": 8,
-    "commitsPerBuildDay": 3.8,
+    "additions": 39849,
+    "deletions": 12476,
+    "changed": 52325,
+    "net": 27373,
+    "commitsAnalyzed": 28,
+    "averageChangedPerCommit": 1869,
+    "buildDays": 7,
+    "commitsPerBuildDay": 4,
     "activeProducts": 3,
     "bulkCommitsExcluded": 0,
     "duplicateCommitsExcluded": 0,
@@ -162,34 +162,34 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 27828,
-    "last7Seconds": 184072,
-    "last30Seconds": 422278,
+    "todaySeconds": 0,
+    "last7Seconds": 171176,
+    "last30Seconds": 415966,
     "lifetimeSeconds": 495634,
-    "activeDays30": 27,
+    "activeDays30": 26,
     "activeDaysLifetime": 49,
-    "averageSecondsPerActiveDay30": 15640,
-    "commitsPerFocusHour30": 0.3,
+    "averageSecondsPerActiveDay30": 15999,
+    "commitsPerFocusHour30": 0.2,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
       "today": {
-        "sessions": 7,
-        "lines": 343,
-        "inputTokens": 1930463,
-        "outputTokens": 203239
+        "sessions": 0,
+        "lines": 0,
+        "inputTokens": 0,
+        "outputTokens": 0
       },
       "last7": {
-        "sessions": 73,
-        "lines": 33208,
-        "inputTokens": 39910551,
-        "outputTokens": 9882473
+        "sessions": 67,
+        "lines": 31000,
+        "inputTokens": 37629330,
+        "outputTokens": 9310736
       },
       "last30": {
-        "sessions": 272,
-        "lines": 71174,
-        "inputTokens": 106942031,
-        "outputTokens": 24507287
+        "sessions": 268,
+        "lines": 71036,
+        "inputTokens": 106106834,
+        "outputTokens": 24363888
       }
     }
   }
