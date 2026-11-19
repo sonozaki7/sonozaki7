@@ -9,8 +9,8 @@
   "summary": {
     "todayTasks": 0,
     "last7Tasks": 11,
-    "last30Tasks": 58,
-    "lifetimeTasks": 58,
+    "last30Tasks": 59,
+    "lifetimeTasks": 59,
     "todayRuns": 3,
     "last7Runs": 203,
     "last30Runs": 483,
@@ -26,7 +26,7 @@
     "providers": [
       {
         "name": "opencode",
-        "count": 35
+        "count": 36
       },
       {
         "name": "codex",
@@ -57,7 +57,7 @@
       2,
       3,
       11,
-      4
+      5
     ]
   },
   "daily": [
@@ -120,7 +120,7 @@
       "label": "11-12",
       "start": "2026-11-12",
       "end": "2026-11-12",
-      "tasks": 1,
+      "tasks": 2,
       "runs": 56,
       "activeDays": 1
     },
@@ -284,7 +284,7 @@
       "label": "11-09",
       "start": "2026-11-09",
       "end": "2026-11-15",
-      "tasks": 13,
+      "tasks": 14,
       "runs": 248,
       "activeDays": 5
     },
@@ -403,7 +403,7 @@
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-19",
-      "tasks": 51,
+      "tasks": 52,
       "runs": 483,
       "activeDays": 9
     }
