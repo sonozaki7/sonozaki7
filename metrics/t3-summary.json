@@ -9,16 +9,16 @@
   "summary": {
     "todayTasks": 0,
     "last7Tasks": 11,
-    "last30Tasks": 57,
-    "lifetimeTasks": 57,
-    "todayRuns": 0,
-    "last7Runs": 200,
-    "last30Runs": 480,
-    "lifetimeRuns": 480,
-    "activeDays": 12,
-    "activeDays30": 12,
+    "last30Tasks": 58,
+    "lifetimeTasks": 58,
+    "todayRuns": 3,
+    "last7Runs": 203,
+    "last30Runs": 483,
+    "lifetimeRuns": 483,
+    "activeDays": 13,
+    "activeDays30": 13,
     "currentStreak": 0,
-    "averagePerActiveDay30": 4.8,
+    "averagePerActiveDay30": 4.5,
     "bestDay": {
       "date": "2026-11-01",
       "tasks": 16
@@ -26,7 +26,7 @@
     "providers": [
       {
         "name": "opencode",
-        "count": 34
+        "count": 35
       },
       {
         "name": "codex",
@@ -45,7 +45,7 @@
       0,
       3,
       12,
-      4,
+      5,
       3,
       2,
       2,
@@ -120,9 +120,9 @@
       "label": "11-12",
       "start": "2026-11-12",
       "end": "2026-11-12",
-      "tasks": 0,
+      "tasks": 1,
       "runs": 56,
-      "activeDays": 0
+      "activeDays": 1
     },
     {
       "key": "2026-11-13",
@@ -184,7 +184,7 @@
       "start": "2026-11-19",
       "end": "2026-11-19",
       "tasks": 0,
-      "runs": 0,
+      "runs": 3,
       "activeDays": 0
     }
   ],
@@ -284,9 +284,9 @@
       "label": "11-09",
       "start": "2026-11-09",
       "end": "2026-11-15",
-      "tasks": 12,
+      "tasks": 13,
       "runs": 248,
-      "activeDays": 4
+      "activeDays": 5
     },
     {
       "key": "2026-11-16",
@@ -294,7 +294,7 @@
       "start": "2026-11-16",
       "end": "2026-11-19",
       "tasks": 3,
-      "runs": 45,
+      "runs": 48,
       "activeDays": 1
     }
   ],
@@ -403,9 +403,9 @@
       "label": "26-11",
       "start": "2026-11-01",
       "end": "2026-11-19",
-      "tasks": 50,
-      "runs": 480,
-      "activeDays": 8
+      "tasks": 51,
+      "runs": 483,
+      "activeDays": 9
     }
   ]
 }
