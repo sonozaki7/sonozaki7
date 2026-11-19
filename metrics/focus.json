@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-19",
+  "generatedAt": "2026-11-20",
   "timezone": "Asia/Bangkok",
   "source": "WakaTime",
   "connected": true,
   "trackedSince": "2026-07-15",
   "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
   "summary": {
-    "todaySeconds": 3677,
-    "last7Seconds": 174853,
+    "todaySeconds": 0,
+    "last7Seconds": 150168,
     "last30Seconds": 419643,
     "lifetimeSeconds": 499311,
     "activeDays30": 27,
@@ -17,15 +17,6 @@
     "commitsPerFocusHour30": 0.2
   },
   "daily": [
-    {
-      "key": "2026-11-06",
-      "label": "11-06",
-      "start": "2026-11-06",
-      "end": "2026-11-06",
-      "seconds": 21895,
-      "activeDays": 1,
-      "coverageDays": 1
-    },
     {
       "key": "2026-11-07",
       "label": "11-07",
@@ -142,6 +133,15 @@
       "seconds": 3677,
       "activeDays": 1,
       "coverageDays": 1
+    },
+    {
+      "key": "2026-11-20",
+      "label": "11-20",
+      "start": "2026-11-20",
+      "end": "2026-11-20",
+      "seconds": 0,
+      "activeDays": 0,
+      "coverageDays": 1
     }
   ],
   "weekly": [
@@ -248,10 +248,10 @@
       "key": "2026-11-16",
       "label": "11-16",
       "start": "2026-11-16",
-      "end": "2026-11-19",
+      "end": "2026-11-20",
       "seconds": 103811,
       "activeDays": 4,
-      "coverageDays": 4
+      "coverageDays": 5
     }
   ],
   "monthly": [
@@ -358,10 +358,10 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-19",
+      "end": "2026-11-20",
       "seconds": 295001,
       "activeDays": 17,
-      "coverageDays": 19
+      "coverageDays": 20
     }
   ],
   "yearly": [
@@ -369,10 +369,10 @@
       "key": "2026",
       "label": "2026",
       "start": "2026-01-01",
-      "end": "2026-11-19",
+      "end": "2026-11-20",
       "seconds": 499311,
       "activeDays": 50,
-      "coverageDays": 129
+      "coverageDays": 130
     }
   ],
   "dailyHistory": [
@@ -891,24 +891,28 @@
     {
       "date": "2026-11-19",
       "seconds": 3677
+    },
+    {
+      "date": "2026-11-20",
+      "seconds": 0
     }
   ],
   "ai": {
     "coverageDays": 30,
     "today": {
-      "sessions": 13,
-      "lines": 1697,
-      "inputTokens": 2987451,
-      "outputTokens": 209426
+      "sessions": 0,
+      "lines": 0,
+      "inputTokens": 0,
+      "outputTokens": 0
     },
     "last7": {
-      "sessions": 80,
-      "lines": 32697,
-      "inputTokens": 40617611,
-      "outputTokens": 9521640
+      "sessions": 72,
+      "lines": 24495,
+      "inputTokens": 35725401,
+      "outputTokens": 8012190
     },
     "last30": {
-      "sessions": 281,
+      "sessions": 280,
       "lines": 72733,
       "inputTokens": 109095115,
       "outputTokens": 24574792

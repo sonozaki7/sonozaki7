@@ -1,24 +1,20 @@
 {
-  "generatedAt": "2026-11-19",
+  "generatedAt": "2026-11-20",
   "timezone": "Asia/Bangkok",
   "period": {
-    "start": "2026-10-21",
-    "end": "2026-11-19"
+    "start": "2026-10-22",
+    "end": "2026-11-20"
   },
   "contributions": {
-    "today": 3,
-    "last7Days": 64,
-    "last30Days": 166,
+    "today": 2,
+    "last7Days": 51,
+    "last30Days": 168,
     "previous30Days": 13,
-    "momentumPercent": 1177,
-    "activeDays": 20,
-    "currentStreak": 18,
+    "momentumPercent": 1192,
+    "activeDays": 21,
+    "currentStreak": 19,
     "longestStreak365Days": 22,
     "daily": [
-      {
-        "date": "2026-10-21",
-        "count": 0
-      },
       {
         "date": "2026-10-22",
         "count": 0
@@ -134,6 +130,10 @@
       {
         "date": "2026-11-19",
         "count": 3
+      },
+      {
+        "date": "2026-11-20",
+        "count": 2
       }
     ]
   },
@@ -162,8 +162,8 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 3677,
-    "last7Seconds": 174853,
+    "todaySeconds": 0,
+    "last7Seconds": 150168,
     "last30Seconds": 419643,
     "lifetimeSeconds": 499311,
     "activeDays30": 27,
@@ -174,19 +174,19 @@
     "ai": {
       "coverageDays": 30,
       "today": {
-        "sessions": 13,
-        "lines": 1697,
-        "inputTokens": 2987451,
-        "outputTokens": 209426
+        "sessions": 0,
+        "lines": 0,
+        "inputTokens": 0,
+        "outputTokens": 0
       },
       "last7": {
-        "sessions": 80,
-        "lines": 32697,
-        "inputTokens": 40617611,
-        "outputTokens": 9521640
+        "sessions": 72,
+        "lines": 24495,
+        "inputTokens": 35725401,
+        "outputTokens": 8012190
       },
       "last30": {
-        "sessions": 281,
+        "sessions": 280,
         "lines": 72733,
         "inputTokens": 109095115,
         "outputTokens": 24574792
