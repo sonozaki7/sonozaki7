@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-20",
+  "generatedAt": "2026-11-21",
   "timezone": "Asia/Bangkok",
   "source": "T3 Code",
   "connected": true,
   "firstRecordedAt": "2026-10-27",
   "privacy": "Per-day task and agent-run counts with provider names and local hour buckets only; thread titles, prompts, project names, repository names, file paths, branches, and message content are never read or stored.",
   "summary": {
-    "todayTasks": 5,
-    "last7Tasks": 15,
+    "todayTasks": 0,
+    "last7Tasks": 13,
     "last30Tasks": 64,
     "lifetimeTasks": 64,
-    "todayRuns": 82,
-    "last7Runs": 218,
+    "todayRuns": 0,
+    "last7Runs": 198,
     "last30Runs": 565,
     "lifetimeRuns": 565,
     "activeDays": 14,
@@ -61,15 +61,6 @@
     ]
   },
   "daily": [
-    {
-      "key": "2026-11-07",
-      "label": "11-07",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
-      "tasks": 0,
-      "runs": 1,
-      "activeDays": 0
-    },
     {
       "key": "2026-11-08",
       "label": "11-08",
@@ -186,6 +177,15 @@
       "tasks": 5,
       "runs": 82,
       "activeDays": 1
+    },
+    {
+      "key": "2026-11-21",
+      "label": "11-21",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "tasks": 0,
+      "runs": 0,
+      "activeDays": 0
     }
   ],
   "weekly": [
@@ -292,7 +292,7 @@
       "key": "2026-11-16",
       "label": "11-16",
       "start": "2026-11-16",
-      "end": "2026-11-20",
+      "end": "2026-11-21",
       "tasks": 8,
       "runs": 130,
       "activeDays": 2
@@ -402,7 +402,7 @@
       "key": "2026-11",
       "label": "26-11",
       "start": "2026-11-01",
-      "end": "2026-11-20",
+      "end": "2026-11-21",
       "tasks": 57,
       "runs": 565,
       "activeDays": 10
