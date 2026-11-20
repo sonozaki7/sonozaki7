@@ -162,34 +162,34 @@
     "source": "WakaTime",
     "connected": true,
     "trackedSince": "2026-07-15",
-    "todaySeconds": 29049,
-    "last7Seconds": 179217,
-    "last30Seconds": 448692,
-    "lifetimeSeconds": 528360,
+    "todaySeconds": 30819,
+    "last7Seconds": 180987,
+    "last30Seconds": 450462,
+    "lifetimeSeconds": 530130,
     "activeDays30": 28,
     "activeDaysLifetime": 51,
-    "averageSecondsPerActiveDay30": 16025,
+    "averageSecondsPerActiveDay30": 16088,
     "commitsPerFocusHour30": 0.2,
     "privacy": "Dates and aggregate AI agent seconds plus session counts only; no project, repository, file, language, branch, editor, or machine identities are stored.",
     "ai": {
       "coverageDays": 30,
       "today": {
-        "sessions": 20,
-        "lines": 5589,
-        "inputTokens": 21902160,
-        "outputTokens": 1150264
+        "sessions": 21,
+        "lines": 5844,
+        "inputTokens": 22195702,
+        "outputTokens": 1212831
       },
       "last7": {
-        "sessions": 92,
-        "lines": 30084,
-        "inputTokens": 57627561,
-        "outputTokens": 9162454
+        "sessions": 93,
+        "lines": 30339,
+        "inputTokens": 57921103,
+        "outputTokens": 9225021
       },
       "last30": {
-        "sessions": 300,
-        "lines": 78322,
-        "inputTokens": 130997275,
-        "outputTokens": 25725056
+        "sessions": 301,
+        "lines": 78577,
+        "inputTokens": 131290817,
+        "outputTokens": 25787623
       }
     }
   }
