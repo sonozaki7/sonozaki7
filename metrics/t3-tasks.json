@@ -715,12 +715,12 @@
     },
     "2026-11-20": {
       "tasks": 1,
-      "runs": 46,
+      "runs": 50,
       "providers": {
         "opencode": 1
       },
       "runProviders": {
-        "opencode": 46
+        "opencode": 50
       },
       "hours": [
         0,
